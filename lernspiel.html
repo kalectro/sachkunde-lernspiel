@@ -1059,7 +1059,7 @@ function checkTF(el,chosen,correct){
   if(el.classList.contains('correct')||el.classList.contains('wrong'))return;
   state.attempts++;const opts=el.parentElement.querySelectorAll('.tf-option');
   if(chosen===correct){el.classList.add('correct');el.style.background='#E8F8F0';opts.forEach(o=>o.style.pointerEvents='none');onCorrect();}
-  else{el.classList.add('wrong');el.style.background='#FDEDEC';soundWrong();opts.forEach(o=>{const isC=(o.textContent.includes('Richtig')&&correct)||(o.textContent.includes('Falsch')&&!correct);if(isC){o.classList.add('correct');o.style.background='#E8F8F0';}o.style.pointerEvents='none';});setTimeout(()=>onCorrect(),800);}
+  else{el.classList.add('wrong');el.style.background='#FDEDEC';soundWrong();state.attempts=4;opts.forEach(o=>{const isC=(o.textContent.includes('Richtig')&&correct)||(o.textContent.includes('Falsch')&&!correct);if(isC){o.classList.add('correct');o.style.background='#E8F8F0';}o.style.pointerEvents='none';});setTimeout(()=>onCorrect(),800);}
 }
 function checkFill(correct){
   const input=document.getElementById('fill-input');const val=input.value.trim();if(!val)return;
