@@ -1215,8 +1215,9 @@ function finishWorld(){
   checkWorldAchievement(state.currentWorld);checkAchievement('durchhalte_champion');checkAchievement('alle_beantwortet');checkAchievement('perfektionist');
 
   // Calculate THIS ROUND's performance (only non-learn, non-bonus questions)
-  const roundQuestions = state.currentQuestions.filter(q=>q.type!=='learn');
-  const roundScores = roundQuestions.map(q=>{const h=wp.history[q.id];return h?h[0]:0;}); // h[0] = newest = this round
+  // Only count normal (non-learn, non-bonus) questions for round score
+  const roundQuestions = state.currentQuestions.filter(q=>q.type!=='learn' && !q.bonus);
+  const roundScores = roundQuestions.map(q=>{const h=wp.history[q.id];return h?h[0]:0;});
   const roundAvg = roundScores.length>0 ? roundScores.reduce((a,b)=>a+b,0)/roundScores.length : 0;
 
   launchConfetti(2500);soundAchievement();
