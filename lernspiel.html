@@ -903,9 +903,9 @@ function selectQuestionsForWorld(worldId) {
   // 4. Then perfect (score 3) as review
   const pool = [];
 
-  // At least 1 (ideally 2) new questions
+  // At least half of the round should be new questions (if available)
   const newQ = shuffle(unanswered);
-  const newCount = Math.min(newQ.length, Math.max(1, Math.ceil(targetCount * 0.2)));
+  const newCount = Math.min(newQ.length, Math.ceil(targetCount / 2));
   pool.push(...newQ.slice(0, newCount));
 
   // Fill with poor answers (priority!)
