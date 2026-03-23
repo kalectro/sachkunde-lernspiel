@@ -769,19 +769,24 @@ function recordPlayDate() {
 }
 
 // ============================================================
-// STAR DISPLAY HELPER
+// STAR DISPLAY HELPER (supports half stars)
 // ============================================================
-function starHTML(count, size='') {
+function buildStars(avg) {
+  // Round to nearest 0.5
+  const rounded = Math.round(avg * 2) / 2;
+  const full = Math.floor(rounded);
+  const hasHalf = (rounded % 1) !== 0;
+  const empty = 3 - full - (hasHalf ? 1 : 0);
+  let html = '⭐'.repeat(full);
+  if (hasHalf) html += '<span style="display:inline-block;width:0.55em;overflow:hidden;vertical-align:middle">⭐</span>';
+  html += '<span style="opacity:0.15;filter:grayscale(1)">⭐</span>'.repeat(Math.max(0, empty));
+  return html;
+}
+function starHTML(avg, size='') {
   const sz = size==='big'?'font-size:48px;':'font-size:36px;';
-  const filled = '⭐'.repeat(Math.max(0,Math.min(3,count)));
-  const empty = '<span style="opacity:0.15;filter:grayscale(1)">⭐</span>'.repeat(Math.max(0,3-count));
-  return `<span style="${sz}">${filled}${empty}</span>`;
+  return `<span style="${sz}">${buildStars(avg)}</span>`;
 }
-function starHTMLSmall(count) {
-  const filled = '⭐'.repeat(Math.max(0,Math.min(3,count)));
-  const empty = '<span style="opacity:0.15;filter:grayscale(1)">⭐</span>'.repeat(Math.max(0,3-count));
-  return filled+empty;
-}
+function starHTMLSmall(avg) { return buildStars(avg); }
 
 // ============================================================
 // SOUNDS
@@ -860,7 +865,7 @@ function renderMap() {
   let globalAvg = 0; let globalCount = 0;
   WORLDS.forEach(w => { const a = getWorldAnsweredCount(w.id); if(a>0){ globalAvg += getWorldAvgStars(w.id)*a; globalCount += a; }});
   const totalAvg = globalCount>0 ? globalAvg/globalCount : 0;
-  document.getElementById('map-total-stars').innerHTML = starHTMLSmall(Math.round(totalAvg));
+  document.getElementById('map-total-stars').innerHTML = starHTMLSmall(totalAvg);
 
   document.getElementById('world-grid').innerHTML = WORLDS.map((w, i) => {
     const wp = state.worldProgress[w.id]||{history:{},completed:false};
@@ -872,7 +877,7 @@ function renderMap() {
     const charName = w.char==='all'?'molly':w.char;
     const mastered = isWorldMastered(w.id);
     const allDone = isWorldAllAnswered(w.id);
-    const starDisplay = answered>0 ? starHTMLSmall(Math.round(avgStars)) : '';
+    const starDisplay = answered>0 ? starHTMLSmall(avgStars) : '';
     return `<div class="world-card ${unlocked?'':'locked'} ${wp.completed?'completed':''} ${mastered?'mastered':''}"
            onclick="${unlocked?`startWorld(${w.id})`:''}" style="border-top:4px solid ${w.colorHex}">
         <div class="world-num" style="background:${w.colorHex}">${w.id}</div>
@@ -1143,14 +1148,15 @@ function finishWorld(){
   const allQ=getWorldQuestions(state.currentWorld);
   const answered=getWorldAnsweredCount(state.currentWorld);
   const avgStars=getWorldAvgStars(state.currentWorld);
-  const roundedStars=Math.round(avgStars);
   wp.completed=true;
   saveState();
   checkWorldAchievement(state.currentWorld);checkAchievement('durchhalte_champion');checkAchievement('alle_beantwortet');checkAchievement('perfektionist');
   launchConfetti(2500);soundAchievement();
   const charName=world.char==='all'?'molly':world.char;
+  const mastered = isWorldMastered(state.currentWorld);
   let msg="Nicht schlecht! Versuch es nochmal, dann wird es noch besser! 💪";
-  if(avgStars>=2.5)msg="Wow, das war fantastisch! Du bist ein echter Profi! 🌟";
+  if(mastered)msg="👑 Perfekt gemeistert! Du bist der/die Beste! 👑";
+  else if(avgStars>=2.5)msg="Wow, das war fantastisch! Du bist ein echter Profi! 🌟";
   else if(avgStars>=1.5)msg="Super gemacht! Du hast wirklich viel gelernt! 💪";
   else if(avgStars>=0.5)msg="Gut gemacht! Übung macht den Meister! 😊";
 
@@ -1159,9 +1165,9 @@ function finishWorld(){
       <h2 style="margin-bottom:5px">${world.icon} ${world.name}</h2><p class="subtitle">Geschafft!</p>
       <div class="character-container">${charSVG(charName)}</div>
       <div class="speech-bubble" style="margin:10px auto">${msg}</div>
-      <div class="complete-stars-big">${starHTML(roundedStars,'big')}</div>
+      <div class="complete-stars-big">${starHTML(avgStars,'big')}${mastered?' 👑':''}</div>
       <div class="star-summary">
-        <div class="star-stat"><div class="star-stat-num" style="color:var(--warning)">${starHTMLSmall(roundedStars)}</div><div class="star-stat-label">Bewertung</div></div>
+        <div class="star-stat"><div class="star-stat-num" style="color:var(--warning)">${starHTMLSmall(avgStars)}</div><div class="star-stat-label">Bewertung</div></div>
         <div class="star-stat"><div class="star-stat-num" style="color:var(--success)">${answered}/${allQ.length}</div><div class="star-stat-label">Fragen</div></div>
       </div>
       ${answered<allQ.length?`<p style="font-size:14px;color:var(--text-light);margin-top:8px">Noch ${allQ.length-answered} neue Fragen warten auf dich!</p>`:'<p style="font-size:14px;color:var(--success);margin-top:8px">Alle Fragen beantwortet! Spiele nochmal um deine Sterne zu verbessern!</p>'}
