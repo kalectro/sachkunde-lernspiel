@@ -156,6 +156,7 @@ input[type="text"]:focus { border-color:var(--primary); }
 .world-card:active { transform:scale(0.97); }
 .world-card.locked { opacity:0.5; pointer-events:none; filter:grayscale(0.5); }
 .world-card.completed { border:3px solid var(--success); }
+.world-card.mastered { border:3px solid #FFD700; background:linear-gradient(135deg,#FFFDE7,#FFF8E1); }
 .world-card .world-num {
   position:absolute; top:8px; left:8px; width:28px; height:28px;
   border-radius:50%; display:flex; align-items:center; justify-content:center;
@@ -643,7 +644,8 @@ const ACHIEVEMENTS = [
   {id:'weltraum_forscher',name:'Weltraum-Forscher/in',desc:'Alle Weltraum-Fragen richtig!',icon:'🔭',world:6},
   {id:'blitzschnell',name:'Blitzschnell!',desc:'5 Fragen nacheinander beim 1. Versuch richtig!',icon:'⚡',world:0},
   {id:'durchhalte_champion',name:'Durchhalte-Champion',desc:'Alle 6 Welten durchgespielt!',icon:'🏆',world:0},
-  {id:'perfektionist',name:'Perfektionist/in',desc:'Alle Fragen mit 3 Sternen!',icon:'✨',world:0},
+  {id:'alle_beantwortet',name:'Entdecker/in',desc:'Alle 108 Fragen mindestens einmal richtig beantwortet!',icon:'🗺️',world:0},
+  {id:'perfektionist',name:'Perfektionist/in',desc:'Alle Fragen 2x hintereinander beim 1. Versuch richtig!',icon:'👑',world:0},
   {id:'fleissige_biene',name:'Fleißige Biene',desc:'3 Tage hintereinander geübt!',icon:'🐝',world:0},
 ];
 
@@ -681,6 +683,25 @@ function getWorldAnsweredCount(worldId) {
   const wp = state.worldProgress[worldId];
   if (!wp || !wp.history) return 0;
   return Object.keys(wp.history).length;
+}
+
+function isWorldAllAnswered(worldId) {
+  // All questions answered at least once
+  const allQ = getWorldQuestions(worldId);
+  const wp = state.worldProgress[worldId];
+  if (!wp || !wp.history) return false;
+  return allQ.every(q => wp.history[q.id] && wp.history[q.id].length > 0);
+}
+
+function isWorldMastered(worldId) {
+  // All questions have 2 entries in history AND both are 3 (=first try)
+  const allQ = getWorldQuestions(worldId);
+  const wp = state.worldProgress[worldId];
+  if (!wp || !wp.history) return false;
+  return allQ.every(q => {
+    const h = wp.history[q.id];
+    return h && h.length >= 2 && h[0] === 3 && h[1] === 3;
+  });
 }
 
 function migrateWorldProgress(wp) {
@@ -896,16 +917,19 @@ function renderMap() {
     const avgStars = getWorldAvgStars(w.id);
     const coveragePct = allQ.length>0?Math.round(answered/allQ.length*100):0;
     const charName = w.char==='all'?'molly':w.char;
+    const mastered = isWorldMastered(w.id);
+    const allDone = isWorldAllAnswered(w.id);
     const starDisplay = answered>0 ? '⭐'.repeat(Math.round(avgStars))+'☆'.repeat(3-Math.round(avgStars)) : '';
-    return `<div class="world-card ${unlocked?'':'locked'} ${wp.completed?'completed':''}"
+    return `<div class="world-card ${unlocked?'':'locked'} ${wp.completed?'completed':''} ${mastered?'mastered':''}"
            onclick="${unlocked?`startWorld(${w.id})`:''}" style="border-top:4px solid ${w.colorHex}">
         <div class="world-num" style="background:${w.colorHex}">${w.id}</div>
+        ${mastered?'<div style="position:absolute;top:6px;right:8px;font-size:22px" title="Gemeistert!">👑</div>':''}
         <div style="margin-top:6px">${charSVG(charName,'small')}</div>
         <div class="world-title">${w.name.split(' ').slice(-1)[0]}</div>
         <div class="world-subtitle">${w.icon} ${w.name.split(' ').slice(0,-1).join(' ')}</div>
         <div class="world-stars">${starDisplay}</div>
         <div class="world-progress"><div class="world-progress-fill" style="width:${coveragePct}%;background:${w.colorHex}"></div></div>
-        <div style="font-size:11px;color:var(--text-light);margin-top:4px">${answered}/${allQ.length} Fragen</div>
+        <div style="font-size:11px;color:${allDone?'var(--success)':'var(--text-light)'};margin-top:4px">${answered}/${allQ.length} Fragen${allDone?' ✓':''}</div>
         ${!unlocked?'<div class="lock-icon">🔒</div>':''}
       </div>`;
   }).join('');
@@ -1183,7 +1207,7 @@ function finishWorld(){
   const roundedStars=Math.round(avgStars);
   wp.completed=true;
   saveState();
-  checkWorldAchievement(state.currentWorld);checkAchievement('durchhalte_champion');checkAchievement('perfektionist');
+  checkWorldAchievement(state.currentWorld);checkAchievement('durchhalte_champion');checkAchievement('alle_beantwortet');checkAchievement('perfektionist');
   launchConfetti(2500);soundAchievement();
   const charName=world.char==='all'?'molly':world.char;
   let msg="Nicht schlecht! Versuch es nochmal, dann wird es noch besser! 💪";
@@ -1223,7 +1247,8 @@ function checkAchievement(id){
   if(state.achievements.includes(id))return;
   if(id==='blitzschnell'&&state.streak>=5)unlockAchievement(id);
   if(id==='durchhalte_champion'&&WORLDS.every(w=>state.worldProgress[w.id]&&state.worldProgress[w.id].completed))unlockAchievement(id);
-  if(id==='perfektionist'&&QUESTIONS.every(q=>{const wp=state.worldProgress[q.w];return wp&&wp.history&&wp.history[q.id]&&getQuestionScore(wp,q.id)>=3;}))unlockAchievement(id);
+  if(id==='alle_beantwortet'&&QUESTIONS.every(q=>{const wp=state.worldProgress[q.w];return wp&&wp.history&&wp.history[q.id]&&wp.history[q.id].length>0;}))unlockAchievement(id);
+  if(id==='perfektionist'&&QUESTIONS.every(q=>{const wp=state.worldProgress[q.w];return wp&&wp.history&&wp.history[q.id]&&wp.history[q.id].length>=2&&wp.history[q.id][0]===3&&wp.history[q.id][1]===3;}))unlockAchievement(id);
   if(id==='fleissige_biene'){const d=(state.playDates||[]).sort();for(let i=d.length-3;i>=0;i--){const d1=new Date(d[i]),d2=new Date(d[i+1]),d3=new Date(d[i+2]);if((d2-d1)/864e5===1&&(d3-d2)/864e5===1){unlockAchievement(id);break;}}}
 }
 function unlockAchievement(id){
