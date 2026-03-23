@@ -528,9 +528,7 @@ const QUESTIONS = [
   {id:'w1_11',w:1,type:'mc',diff:3,q:'Wenn heute Freitag ist, welcher Tag war vorgestern?',opts:['Montag','Dienstag','Mittwoch','Donnerstag'],ans:'Mittwoch',sa:[7]},
   {id:'w1_12',w:1,type:'scramble',diff:3,q:'Welcher Wochentag versteckt sich hier?',word:'MONTAG',sa:[6]},
   {id:'w1_13',w:1,type:'scramble',diff:3,q:'Welcher Wochentag versteckt sich hier?',word:'FREITAG',sa:[6]},
-  {id:'w1_14',w:1,type:'scramble',diff:3,q:'Welcher Wochentag versteckt sich hier?',word:'SAMSTAG',sa:[6]},
   {id:'w1_18',w:1,type:'mc',diff:3,q:'Wenn heute Dienstag ist, welcher Tag ist in 3 Tagen?',opts:['Donnerstag','Freitag','Samstag','Sonntag'],ans:'Freitag',sa:[7],hint:'Zähle 3 Tage weiter: Mittwoch, Donnerstag, Freitag!'},
-  {id:'w1_19',w:1,type:'mc',diff:3,q:'Wenn heute Samstag ist, welcher Tag war vor 2 Tagen?',opts:['Mittwoch','Donnerstag','Freitag','Montag'],ans:'Donnerstag',sa:[7]},
 
   // === WORLD 2: Monate ===
   {id:'w2_01',w:2,type:'mc',diff:1,q:'Wie heißt der erste Monat des Jahres?',opts:['März','Februar','Januar','April'],ans:'Januar',sa:[1]},
@@ -551,8 +549,6 @@ const QUESTIONS = [
   {id:'w2_12',w:2,type:'mc',diff:3,q:'3 Monate vor Dezember ist...',opts:['August','September','Oktober','November'],ans:'September',sa:[1]},
   {id:'w2_13',w:2,type:'scramble',diff:3,q:'Welcher Monat versteckt sich hier?',word:'APRIL',sa:[1]},
   {id:'w2_14',w:2,type:'scramble',diff:3,q:'Welcher Monat versteckt sich hier?',word:'AUGUST',sa:[1]},
-  {id:'w2_15',w:2,type:'scramble',diff:3,q:'Welcher Monat versteckt sich hier?',word:'OKTOBER',sa:[1]},
-  {id:'w2_19',w:2,type:'mc',diff:3,q:'Welcher Monat kommt 2 Monate nach Februar?',opts:['März','April','Mai','Juni'],ans:'April',sa:[1]},
 
   // === WORLD 3: Jahreszeiten ===
   {id:'w3_01',w:3,type:'mc',diff:1,q:'Wie viele Jahreszeiten gibt es?',opts:['2','3','4','5'],ans:'4',sa:[3]},
@@ -610,6 +606,9 @@ const QUESTIONS = [
   {id:'w5_11',w:5,type:'sort',diff:3,q:'Ordne diese Daten vom frühesten zum spätesten!',items:['3.2.','14.2.','1.5.','24.12.'],sa:[5]},
   {id:'w5_13',w:5,type:'tf',diff:3,q:'Am 1.1. feiern wir Silvester.',ans:false,sa:[5]},
   {id:'w5_15',w:5,type:'fill',diff:3,q:'Heiligabend ist am 24.___.',ans:'12',sa:[5],hint:'Weihnachten ist im Dezember - der 12. Monat!'},
+  {id:'w5_16',w:5,type:'mc',diff:1,q:'Was schreibt man bei einem Datum zuerst?',opts:['Den Tag','Den Monat','Das Jahr','Den Wochentag'],ans:'Den Tag',sa:[5]},
+  {id:'w5_17',w:5,type:'mc',diff:2,q:'Welches Datum hat der Tag der Deutschen Einheit?',opts:['3. Oktober','1. Mai','24. Dezember','9. November'],ans:'3. Oktober',sa:[5]},
+  {id:'w5_18',w:5,type:'tf',diff:2,q:'Das Datum 1.5. bedeutet: 1. Mai.',ans:true,sa:[5]},
 
   // === WORLD 6: Weltraum ===
   {id:'w6_01',w:6,type:'mc',diff:1,q:'Wie lange braucht die Erde, um sich einmal um sich selbst zu drehen?',opts:['1 Stunde','12 Stunden','1 Tag (24 Stunden)','1 Woche'],ans:'1 Tag (24 Stunden)',sa:[8]},
@@ -626,6 +625,10 @@ const QUESTIONS = [
   {id:'w6_10',w:6,type:'mc',diff:3,q:'Der Mond dreht sich um...',opts:['die Sonne','die Erde','sich selbst','den Mars'],ans:'die Erde',sa:[9]},
   {id:'w6_11',w:6,type:'tf',diff:3,q:'Der Mond braucht ungefähr 29 Tage, um die Erde zu umkreisen.',ans:true,sa:[9]},
   {id:'w6_13',w:6,type:'fill',diff:3,q:'Die Erde braucht ___ Tage, um die Sonne zu umkreisen.',ans:'365',sa:[8]},
+  {id:'w6_15',w:6,type:'mc',diff:1,q:'Wie viele Stunden hat ein Tag?',opts:['12','18','24','48'],ans:'24',sa:[8]},
+  {id:'w6_16',w:6,type:'tf',diff:2,q:'Die Erde braucht einen Monat, um die Sonne zu umkreisen.',ans:false,sa:[8]},
+  {id:'w6_17',w:6,type:'mc',diff:2,q:'Was macht der Mond?',opts:['Er leuchtet selbst','Er kreist um die Erde','Er kreist um die Sonne','Er steht still'],ans:'Er kreist um die Erde',sa:[9]},
+  {id:'w6_18',w:6,type:'fill',diff:1,q:'Ein Jahr hat ___ Monate.',ans:'12',sa:[8]},
 ];
 
 // ============================================================
@@ -655,6 +658,44 @@ const DEFAULT_STATE = {
   assessment:{}, worldProgress:{}, achievements:[], streak:0,
   currentWorld:0, currentQuestions:[], currentQIndex:0, attempts:0, hintUsed:false, playDates:[]
 };
+// worldProgress[wid] = { history: { qid: [score, score] }, completed: false }
+// score: 3 = 1st try, 1 = 2nd try, 0 = 3+ tries
+// history stores last 2 scores per question (newest first)
+
+function getQuestionScore(wp, qid) {
+  const h = (wp.history||{})[qid];
+  if (!h || h.length === 0) return null; // never answered
+  const sum = h.reduce((a,b)=>a+b, 0);
+  return sum / h.length; // average of last 2
+}
+
+function getWorldAvgStars(worldId) {
+  const wp = state.worldProgress[worldId];
+  if (!wp || !wp.history) return 0;
+  const scores = Object.values(wp.history).map(h => h.reduce((a,b)=>a+b,0)/h.length);
+  if (scores.length === 0) return 0;
+  return scores.reduce((a,b)=>a+b,0) / scores.length;
+}
+
+function getWorldAnsweredCount(worldId) {
+  const wp = state.worldProgress[worldId];
+  if (!wp || !wp.history) return 0;
+  return Object.keys(wp.history).length;
+}
+
+function migrateWorldProgress(wp) {
+  // Migrate old stars-based format to history-based
+  if (wp.stars && !wp.history) {
+    wp.history = {};
+    for (const [qid, score] of Object.entries(wp.stars)) {
+      wp.history[qid] = [score]; // single entry from old system
+    }
+    delete wp.stars;
+    delete wp.questions;
+  }
+  if (!wp.history) wp.history = {};
+  return wp;
+}
 
 function loadProfiles() {
   try {
@@ -683,6 +724,11 @@ function saveState() { saveProfiles(); }
 function selectProfile(name) {
   currentProfile = name;
   state = profiles[name];
+  // Migrate all worldProgress to history format
+  for (const wid of Object.keys(state.worldProgress||{})) {
+    state.worldProgress[wid] = migrateWorldProgress(state.worldProgress[wid]);
+  }
+  saveProfiles();
   recordPlayDate();
   if (Object.keys(state.assessment).length > 0) {
     showScreen('map-screen'); renderMap();
@@ -784,13 +830,15 @@ function renderStartScreen() {
     container.innerHTML = '<p class="subtitle" style="margin-bottom:8px">Wer bist du?</p><div class="profiles-grid">' +
       names.map(name => {
         const p = profiles[name];
-        const totalStars = Object.values(p.worldProgress||{}).reduce((sum,wp)=>sum+Object.values(wp.stars||{}).reduce((a,b)=>a+b,0),0);
         const completedWorlds = Object.values(p.worldProgress||{}).filter(wp=>wp.completed).length;
-        const pct = Math.round(completedWorlds / 6 * 100);
+        let totalAnswered = 0;
+        Object.values(p.worldProgress||{}).forEach(wp => { totalAnswered += Object.keys(wp.history||wp.stars||{}).length; });
+        const totalQ = QUESTIONS.length;
+        const pct = Math.round(totalAnswered / totalQ * 100);
         return `<div class="profile-card" onclick="selectProfile('${name.replace(/'/g,"\\'")}')">
           <div class="profile-delete" onclick="deleteProfile('${name.replace(/'/g,"\\'")}',event)">✕</div>
           <div class="profile-name">${name}</div>
-          <div class="profile-stars">⭐ ${totalStars}</div>
+          <div class="profile-stars">${totalAnswered}/${totalQ} Fragen</div>
           <div class="profile-progress">${completedWorlds}/6 Welten</div>
           <div class="profile-bar"><div class="profile-bar-fill" style="width:${pct}%"></div></div>
         </div>`;
@@ -825,7 +873,7 @@ function setAssessment(saId, val, el) {
 
 function submitAssessment() {
   soundClick();
-  for(let w=1;w<=6;w++){if(!state.worldProgress[w])state.worldProgress[w]={questions:[],stars:{},completed:false};}
+  for(let w=1;w<=6;w++){if(!state.worldProgress[w])state.worldProgress[w]={history:{},completed:false};}
   saveState(); recordPlayDate(); showScreen('map-screen'); renderMap();
 }
 
@@ -834,31 +882,30 @@ function submitAssessment() {
 // ============================================================
 function renderMap() {
   document.getElementById('map-player-name').textContent = currentProfile;
-  let totalStars = 0;
-  Object.values(state.worldProgress).forEach(wp=>{Object.values(wp.stars||{}).forEach(s=>{totalStars+=s;});});
-  document.getElementById('map-total-stars').innerHTML = `⭐ ${totalStars}`;
+  // Total stars across all worlds (average * answered count, displayed as sum)
+  let globalAvg = 0; let globalCount = 0;
+  WORLDS.forEach(w => { const a = getWorldAnsweredCount(w.id); if(a>0){ globalAvg += getWorldAvgStars(w.id)*a; globalCount += a; }});
+  const totalAvg = globalCount>0 ? globalAvg/globalCount : 0;
+  document.getElementById('map-total-stars').innerHTML = `${'⭐'.repeat(Math.round(totalAvg))}${'☆'.repeat(3-Math.round(totalAvg))}`;
 
   document.getElementById('world-grid').innerHTML = WORLDS.map((w, i) => {
-    const wp = state.worldProgress[w.id]||{questions:[],stars:{},completed:false};
+    const wp = state.worldProgress[w.id]||{history:{},completed:false};
     const unlocked = i===0||(state.worldProgress[WORLDS[i-1].id]&&state.worldProgress[WORLDS[i-1].id].completed);
     const allQ = getWorldQuestions(w.id);
-    const answered = Object.keys(wp.stars).length;
-    const worldStars = Object.values(wp.stars).reduce((a,b)=>a+b,0);
-    const maxPossible = answered * 3;
-    const starPct = maxPossible>0?Math.round(worldStars/maxPossible*100):0;
+    const answered = getWorldAnsweredCount(w.id);
+    const avgStars = getWorldAvgStars(w.id);
     const coveragePct = allQ.length>0?Math.round(answered/allQ.length*100):0;
     const charName = w.char==='all'?'molly':w.char;
-    const avgStars = answered>0?Math.round(worldStars/answered*10)/10:0;
+    const starDisplay = answered>0 ? '⭐'.repeat(Math.round(avgStars))+'☆'.repeat(3-Math.round(avgStars)) : '';
     return `<div class="world-card ${unlocked?'':'locked'} ${wp.completed?'completed':''}"
            onclick="${unlocked?`startWorld(${w.id})`:''}" style="border-top:4px solid ${w.colorHex}">
         <div class="world-num" style="background:${w.colorHex}">${w.id}</div>
         <div style="margin-top:6px">${charSVG(charName,'small')}</div>
         <div class="world-title">${w.name.split(' ').slice(-1)[0]}</div>
         <div class="world-subtitle">${w.icon} ${w.name.split(' ').slice(0,-1).join(' ')}</div>
-        <div class="world-stars">${answered>0?`⭐ ${worldStars}/${maxPossible}`:''}</div>
-        <div class="world-progress"><div class="world-progress-fill" style="width:${starPct}%;background:${w.colorHex}"></div></div>
-        ${answered>0&&coveragePct<100?`<div style="font-size:11px;color:var(--text-light);margin-top:4px">${answered}/${allQ.length} Fragen beantwortet</div>`:''}
-        ${coveragePct>=100?'<div style="font-size:11px;color:var(--success);margin-top:4px">Alle Fragen beantwortet!</div>':''}
+        <div class="world-stars">${starDisplay}</div>
+        <div class="world-progress"><div class="world-progress-fill" style="width:${coveragePct}%;background:${w.colorHex}"></div></div>
+        <div style="font-size:11px;color:var(--text-light);margin-top:4px">${answered}/${allQ.length} Fragen</div>
         ${!unlocked?'<div class="lock-icon">🔒</div>':''}
       </div>`;
   }).join('');
@@ -878,52 +925,69 @@ function getAvgLevel(worldId) {
 
 function selectQuestionsForWorld(worldId) {
   const allQ = getWorldQuestions(worldId);
-  const wp = state.worldProgress[worldId]||{questions:[],stars:{},completed:false};
+  const wp = migrateWorldProgress(state.worldProgress[worldId]||{history:{},completed:false});
+  state.worldProgress[worldId] = wp;
   const avgLevel = getAvgLevel(worldId);
+
+  // Categorize all questions
+  const unanswered = allQ.filter(q => !wp.history[q.id]);
+  const poor = allQ.filter(q => wp.history[q.id] && getQuestionScore(wp,q.id) < 2);
+  const ok = allQ.filter(q => wp.history[q.id] && getQuestionScore(wp,q.id) >= 2 && getQuestionScore(wp,q.id) < 3);
+  const perfect = allQ.filter(q => wp.history[q.id] && getQuestionScore(wp,q.id) >= 3);
 
   let selected = [];
 
-  // Add learn card for "muss lernen" topics
+  // Learn card for "muss lernen" topics
   if (avgLevel >= 1.5 && LERNKARTEN[worldId]) {
     selected.push(LERNKARTEN[worldId]);
   }
 
-  // Pick questions by difficulty based on self-assessment
-  const byDiff = {1:[], 2:[], 3:[]};
-  allQ.forEach(q => { (byDiff[q.diff]||byDiff[2]).push(q); });
+  // Determine target count based on self-assessment
+  let targetCount;
+  if (avgLevel >= 1.5) targetCount = 10;
+  else if (avgLevel >= 0.5) targetCount = 7;
+  else targetCount = 5;
 
-  // Prioritize unanswered, then poor, then good
-  function prioritize(questions) {
-    const unanswered = questions.filter(q=>wp.stars[q.id]===undefined);
-    const poor = questions.filter(q=>wp.stars[q.id]!==undefined&&wp.stars[q.id]<3);
-    const good = questions.filter(q=>wp.stars[q.id]===3);
-    return [...shuffle(unanswered), ...shuffle(poor), ...shuffle(good)];
+  // SMART SELECTION:
+  // 1. Guarantee at least 1 new unanswered question (if any exist)
+  // 2. Then fill with poorly answered (score < 2)
+  // 3. Then ok answers (score 2-2.9)
+  // 4. Then perfect (score 3) as review
+
+  const pool = [];
+
+  // At least 1 (ideally 2) new questions
+  const newQ = shuffle(unanswered);
+  const newCount = Math.min(newQ.length, Math.max(1, Math.ceil(targetCount * 0.2)));
+  pool.push(...newQ.slice(0, newCount));
+
+  // Fill with poor answers (priority!)
+  pool.push(...shuffle(poor));
+
+  // Then ok answers
+  pool.push(...shuffle(ok));
+
+  // Then perfect answers as review
+  pool.push(...shuffle(perfect).filter(q => !pool.includes(q)));
+
+  // Apply difficulty ordering based on self-assessment
+  const diffOrder = avgLevel >= 1.5 ? [1,2,3] : avgLevel >= 0.5 ? [2,3,1] : [3,2,1];
+
+  // Select up to targetCount, respecting difficulty preference
+  const picked = pool.filter(q => !selected.includes(q)).slice(0, targetCount);
+
+  // Sort by difficulty order
+  picked.sort((a,b) => diffOrder.indexOf(a.diff) - diffOrder.indexOf(b.diff));
+  selected.push(...picked);
+
+  // Ensure minimum 3 actual questions
+  const actual = selected.filter(q => q.type !== 'learn');
+  if (actual.length < 3) {
+    const remaining = allQ.filter(q => !selected.includes(q));
+    selected.push(...shuffle(remaining).slice(0, 3 - actual.length));
   }
 
-  if (avgLevel >= 1.5) {
-    // MUSS LERNEN: easy(3) → medium(4) → hard(3) = ~10
-    selected.push(...prioritize(byDiff[1]).slice(0,3));
-    selected.push(...prioritize(byDiff[2]).slice(0,4));
-    selected.push(...prioritize(byDiff[3]).slice(0,3));
-  } else if (avgLevel >= 0.5) {
-    // UNSICHER: medium(3) → hard(3) → easy(1) = ~7
-    selected.push(...prioritize(byDiff[2]).slice(0,3));
-    selected.push(...prioritize(byDiff[3]).slice(0,3));
-    selected.push(...prioritize(byDiff[1]).slice(0,1));
-  } else {
-    // KANN ICH: hard(3) → medium(2) = ~5
-    selected.push(...prioritize(byDiff[3]).slice(0,3));
-    selected.push(...prioritize(byDiff[2]).slice(0,2));
-  }
-
-  // Ensure minimum 3 actual questions (not counting learn cards)
-  const actualQuestions = selected.filter(q=>q.type!=='learn');
-  if (actualQuestions.length < 3) {
-    const remaining = allQ.filter(q=>!selected.includes(q));
-    selected.push(...shuffle(remaining).slice(0, 3-actualQuestions.length));
-  }
-
-  return selected; // Keep difficulty order: learn → easy → medium → hard
+  return selected;
 }
 
 function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
@@ -936,7 +1000,8 @@ function startWorld(worldId) {
   state.currentWorld = worldId;
   state.currentQuestions = selectQuestionsForWorld(worldId);
   state.currentQIndex = 0; state.attempts = 0; state.hintUsed = false;
-  if(!state.worldProgress[worldId]) state.worldProgress[worldId]={questions:[],stars:{},completed:false};
+  if(!state.worldProgress[worldId]) state.worldProgress[worldId]={history:{},completed:false};
+  state.worldProgress[worldId] = migrateWorldProgress(state.worldProgress[worldId]);
   saveState(); showScreen('question-screen'); renderQuestion();
 }
 
@@ -1071,13 +1136,18 @@ function onCorrect(){
   const charName=world.char==='all'?['molly','elli','okti','blitzi'][state.currentQIndex%4]:world.char;
   const char=CHARACTERS[charName];
 
-  let stars=3;if(state.attempts===2)stars=2;else if(state.attempts>=3)stars=1;
-  if(state.hintUsed&&stars>2)stars=2;
+  // Score: 1st try=3, 2nd try=1, 3+ tries=0
+  let stars=0;
+  if(state.attempts===1 && !state.hintUsed) stars=3;
+  else if(state.attempts===2) stars=1;
+  else stars=0;
 
   const wp=state.worldProgress[state.currentWorld];
-  const prev=wp.stars[q.id]||0;
-  wp.stars[q.id]=Math.max(prev,stars);
-  if(!wp.questions.includes(q.id))wp.questions.push(q.id);
+  if(!wp.history) wp.history={};
+  // Store in history (keep last 2 attempts, newest first)
+  if(!wp.history[q.id]) wp.history[q.id]=[];
+  wp.history[q.id].unshift(stars);
+  if(wp.history[q.id].length>2) wp.history[q.id]=wp.history[q.id].slice(0,2);
 
   if(state.attempts===1&&!state.hintUsed){state.streak++;checkAchievement('blitzschnell');}else{state.streak=0;}
   saveState();
@@ -1089,7 +1159,7 @@ function onCorrect(){
     <div>${charSVG(charName,'small')}</div>
     <div class="feedback-stars">${'⭐'.repeat(stars)}${'☆'.repeat(3-stars)}</div>
     <div class="feedback-text">${comment}</div>
-    ${state.attempts>1?`<div style="font-size:14px;color:var(--text-light);margin-top:4px">${state.attempts===2?'2. Versuch':'3. Versuch'}</div>`:''}
+    ${stars===3?'<div style="font-size:14px;color:var(--success);margin-top:4px">Beim 1. Versuch! 🎉</div>':stars===1?'<div style="font-size:14px;color:var(--warning);margin-top:4px">2. Versuch - fast!</div>':'<div style="font-size:14px;color:var(--text-light);margin-top:4px">Übung macht den Meister!</div>'}
     <button class="btn btn-primary" onclick="nextQuestion()" style="margin-top:15px">${isLast?'Ergebnis anzeigen!':'Weiter!'}</button>
   `;
   document.getElementById('feedback-overlay').classList.add('active');
@@ -1107,31 +1177,31 @@ function nextQuestion(){
 function finishWorld(){
   const world=WORLDS.find(w=>w.id===state.currentWorld);
   const wp=state.worldProgress[state.currentWorld];
-  const answered=Object.keys(wp.stars).length;
-  const totalStars=Object.values(wp.stars).reduce((a,b)=>a+b,0);
-  const maxStars=answered*3;
+  const allQ=getWorldQuestions(state.currentWorld);
+  const answered=getWorldAnsweredCount(state.currentWorld);
+  const avgStars=getWorldAvgStars(state.currentWorld);
+  const roundedStars=Math.round(avgStars);
   wp.completed=true;
   saveState();
   checkWorldAchievement(state.currentWorld);checkAchievement('durchhalte_champion');checkAchievement('perfektionist');
   launchConfetti(2500);soundAchievement();
   const charName=world.char==='all'?'molly':world.char;
-  const pct=maxStars>0?Math.round(totalStars/maxStars*100):0;
   let msg="Nicht schlecht! Versuch es nochmal, dann wird es noch besser! 💪";
-  if(pct>=90)msg="Wow, das war fantastisch! Du bist ein echter Profi! 🌟";
-  else if(pct>=70)msg="Super gemacht! Du hast wirklich viel gelernt! 💪";
-  else if(pct>=50)msg="Gut gemacht! Übung macht den Meister! 😊";
+  if(avgStars>=2.5)msg="Wow, das war fantastisch! Du bist ein echter Profi! 🌟";
+  else if(avgStars>=1.5)msg="Super gemacht! Du hast wirklich viel gelernt! 💪";
+  else if(avgStars>=0.5)msg="Gut gemacht! Übung macht den Meister! 😊";
 
   document.getElementById('world-complete-content').innerHTML=`
     <div style="text-align:center">
       <h2 style="margin-bottom:5px">${world.icon} ${world.name}</h2><p class="subtitle">Geschafft!</p>
       <div class="character-container">${charSVG(charName)}</div>
       <div class="speech-bubble" style="margin:10px auto">${msg}</div>
-      <div class="complete-stars-big">${'⭐'.repeat(Math.min(Math.round(totalStars/Math.max(answered,1)),3))}</div>
+      <div class="complete-stars-big">${'⭐'.repeat(roundedStars)}${'☆'.repeat(3-roundedStars)}</div>
       <div class="star-summary">
-        <div class="star-stat"><div class="star-stat-num" style="color:var(--warning)">${totalStars}</div><div class="star-stat-label">Sterne</div></div>
-        <div class="star-stat"><div class="star-stat-num" style="color:var(--success)">${answered}</div><div class="star-stat-label">Fragen</div></div>
-        <div class="star-stat"><div class="star-stat-num" style="color:var(--primary)">${pct}%</div><div class="star-stat-label">Ergebnis</div></div>
+        <div class="star-stat"><div class="star-stat-num" style="color:var(--warning)">${'⭐'.repeat(roundedStars)}</div><div class="star-stat-label">Bewertung</div></div>
+        <div class="star-stat"><div class="star-stat-num" style="color:var(--success)">${answered}/${allQ.length}</div><div class="star-stat-label">Fragen</div></div>
       </div>
+      ${answered<allQ.length?`<p style="font-size:14px;color:var(--text-light);margin-top:8px">Noch ${allQ.length-answered} neue Fragen warten auf dich!</p>`:'<p style="font-size:14px;color:var(--success);margin-top:8px">Alle Fragen beantwortet! Spiele nochmal um deine Sterne zu verbessern!</p>'}
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:15px">
         <button class="btn btn-primary" onclick="showScreen('map-screen');renderMap();">Zur Weltkarte</button>
         <button class="btn btn-secondary" onclick="startWorld(${state.currentWorld})">Nochmal üben</button>
@@ -1147,13 +1217,13 @@ function checkWorldAchievement(wid){
   const m={1:'wochentage_meister',2:'monats_experte',3:'jahreszeiten_profi',4:'kalender_koenig',5:'datum_detektiv',6:'weltraum_forscher'};
   const a=m[wid];if(!a||state.achievements.includes(a))return;
   const allQ=getWorldQuestions(wid);const wp=state.worldProgress[wid];
-  if(Object.keys(wp.stars).length>=allQ.length*0.8)unlockAchievement(a);
+  if(getWorldAnsweredCount(wid)>=allQ.length*0.8)unlockAchievement(a);
 }
 function checkAchievement(id){
   if(state.achievements.includes(id))return;
   if(id==='blitzschnell'&&state.streak>=5)unlockAchievement(id);
   if(id==='durchhalte_champion'&&WORLDS.every(w=>state.worldProgress[w.id]&&state.worldProgress[w.id].completed))unlockAchievement(id);
-  if(id==='perfektionist'&&QUESTIONS.every(q=>{const wp=state.worldProgress[q.w];return wp&&wp.stars[q.id]===3;}))unlockAchievement(id);
+  if(id==='perfektionist'&&QUESTIONS.every(q=>{const wp=state.worldProgress[q.w];return wp&&wp.history&&wp.history[q.id]&&getQuestionScore(wp,q.id)>=3;}))unlockAchievement(id);
   if(id==='fleissige_biene'){const d=(state.playDates||[]).sort();for(let i=d.length-3;i>=0;i--){const d1=new Date(d[i]),d2=new Date(d[i+1]),d3=new Date(d[i+2]);if((d2-d1)/864e5===1&&(d3-d2)/864e5===1){unlockAchievement(id);break;}}}
 }
 function unlockAchievement(id){
