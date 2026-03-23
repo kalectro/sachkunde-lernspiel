@@ -1207,20 +1207,29 @@ function nextQuestion(){
 function finishWorld(){
   const world=WORLDS.find(w=>w.id===state.currentWorld);
   const wp=state.worldProgress[state.currentWorld];
-  const allQ=getWorldQuestions(state.currentWorld);
+  const normalQ=getWorldNormalQuestions(state.currentWorld);
   const answered=getWorldAnsweredCount(state.currentWorld);
   const avgStars=getWorldAvgStars(state.currentWorld);
   wp.completed=true;
   saveState();
   checkWorldAchievement(state.currentWorld);checkAchievement('durchhalte_champion');checkAchievement('alle_beantwortet');checkAchievement('perfektionist');
+
+  // Calculate THIS ROUND's performance (only non-learn, non-bonus questions)
+  const roundQuestions = state.currentQuestions.filter(q=>q.type!=='learn');
+  const roundScores = roundQuestions.map(q=>{const h=wp.history[q.id];return h?h[0]:0;}); // h[0] = newest = this round
+  const roundAvg = roundScores.length>0 ? roundScores.reduce((a,b)=>a+b,0)/roundScores.length : 0;
+
   launchConfetti(2500);soundAchievement();
   const charName=world.char==='all'?'molly':world.char;
   const mastered = isWorldMastered(state.currentWorld);
+
+  // Message based on THIS ROUND, not overall average
   let msg="Das war noch nicht so gut. Übe diese Welt nochmal! 💪";
   if(mastered)msg="👑 Perfekt gemeistert! Du bist der/die Beste! 👑";
-  else if(avgStars>=3.0)msg="Wow, alles richtig! Du bist ein Profi! 🌟";
-  else if(avgStars>=2.0)msg="Gut gemacht! Nur noch ein paar kleine Fehler! 💪";
-  else if(avgStars>=1.0)msg="Nicht schlecht! Aber da geht noch mehr! Übe weiter! 😊";
+  else if(roundAvg>=3.0)msg="Perfekte Runde! Alles richtig beim 1. Versuch! 🌟";
+  else if(roundAvg>=2.5)msg="Tolle Runde! Fast alles sofort gewusst! 💪";
+  else if(roundAvg>=2.0)msg="Gute Runde! Nur ein paar kleine Fehler! 😊";
+  else if(roundAvg>=1.0)msg="Da geht noch mehr! Übe weiter! 💪";
 
   document.getElementById('world-complete-content').innerHTML=`
     <div style="text-align:center">
@@ -1229,8 +1238,9 @@ function finishWorld(){
       <div class="speech-bubble" style="margin:10px auto">${msg}</div>
       <div class="complete-stars-big">${starHTML(avgStars,'big')}${mastered?' 👑':''}</div>
       <div class="star-summary">
-        <div class="star-stat"><div class="star-stat-num" style="color:var(--warning)">${starHTMLSmall(avgStars)}</div><div class="star-stat-label">Bewertung</div></div>
-        <div class="star-stat"><div class="star-stat-num" style="color:var(--success)">${answered}/${allQ.length}</div><div class="star-stat-label">Fragen</div></div>
+        <div class="star-stat"><div class="star-stat-num" style="color:var(--warning)">${starHTMLSmall(avgStars)}</div><div class="star-stat-label">Gesamt</div></div>
+        <div class="star-stat"><div class="star-stat-num" style="color:var(--success)">${answered}/${normalQ.length}</div><div class="star-stat-label">Fragen</div></div>
+        <div class="star-stat"><div class="star-stat-num" style="color:var(--primary)">${starHTMLSmall(roundAvg)}</div><div class="star-stat-label">Diese Runde</div></div>
       </div>
       ${answered<allQ.length?`<p style="font-size:14px;color:var(--text-light);margin-top:8px">Noch ${allQ.length-answered} neue Fragen warten auf dich!</p>`:'<p style="font-size:14px;color:var(--success);margin-top:8px">Alle Fragen beantwortet! Spiele nochmal um deine Sterne zu verbessern!</p>'}
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:15px">
