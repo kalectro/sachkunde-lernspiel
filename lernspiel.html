@@ -966,11 +966,8 @@ function selectQuestionsForWorld(worldId) {
     selected.push(LERNKARTEN[worldId]);
   }
 
-  // Determine target count based on self-assessment
-  let targetCount;
-  if (avgLevel >= 1.5) targetCount = 10;
-  else if (avgLevel >= 0.5) targetCount = 7;
-  else targetCount = 5;
+  // Fixed number of questions per round
+  const targetCount = 10;
 
   // SMART SELECTION:
   // 1. Guarantee at least 1 new unanswered question (if any exist)
