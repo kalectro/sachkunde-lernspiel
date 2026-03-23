@@ -124,23 +124,6 @@ input[type="text"]:focus { border-color:var(--primary); }
 }
 .school-name { font-size:16px; color:var(--text-light); font-weight:600; }
 
-/* Assessment Screen */
-.assessment-item {
-  background:var(--card); border-radius:var(--radius-sm); padding:14px 16px;
-  margin-bottom:10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-.assessment-question { font-size:16px; margin-bottom:10px; font-weight:500; }
-.assessment-options { display:flex; gap:6px; flex-wrap:wrap; }
-.assessment-opt {
-  flex:1; min-width:80px; padding:8px 10px; border:2px solid #e0e0e0;
-  border-radius:8px; text-align:center; cursor:pointer; font-size:13px;
-  font-weight:600; transition:all 0.2s; background:white;
-  -webkit-tap-highlight-color:transparent; user-select:none;
-}
-.assessment-opt.selected-green { border-color:var(--success); background:#E8F8F0; color:var(--success); }
-.assessment-opt.selected-yellow { border-color:var(--warning); background:#FEF9E7; color:#E67E22; }
-.assessment-opt.selected-red { border-color:var(--error); background:#FDEDEC; color:var(--error); }
-
 /* Map Screen */
 #map-screen { padding-top:10px; }
 .map-header { display:flex; justify-content:space-between; align-items:center; width:100%; margin-bottom:15px; flex-wrap:wrap; gap:8px; }
@@ -345,14 +328,6 @@ input[type="text"]:focus { border-color:var(--primary); }
   <div class="reset-link" onclick="resetAllProfiles()">Alle Daten löschen</div>
 </div>
 
-<!-- ASSESSMENT SCREEN -->
-<div id="assessment-screen" class="screen">
-  <h2>Bist du fit?</h2>
-  <p class="subtitle">Selbsteinschätzung zum Thema: Das Jahr</p>
-  <div id="assessment-list"></div>
-  <button class="btn btn-primary" onclick="submitAssessment()" style="margin-top:15px">Fertig! Starte das Spiel!</button>
-</div>
-
 <!-- MAP SCREEN -->
 <div id="map-screen" class="screen">
   <div class="map-header">
@@ -444,18 +419,6 @@ function charSVG(name, size='') {
 // ============================================================
 // SELF-ASSESSMENT
 // ============================================================
-const SELF_ASSESSMENT = [
-  {id:1,text:"Ich kenne die Namen der Monate und ihre Reihenfolge im Jahresverlauf.",worlds:[2],default:2},
-  {id:2,text:"Ich weiß, wie viele Tage jeder Monat hat.",worlds:[4],default:1},
-  {id:3,text:"Ich kenne die 4 Jahreszeiten. Ich weiß, wann Ostern und Weihnachten gefeiert wird.",worlds:[3],default:2},
-  {id:4,text:"Ich weiß, wie viele Tage ein Jahr hat.",worlds:[4],default:2},
-  {id:5,text:"Ich kann ein Datum schreiben.",worlds:[5],default:2},
-  {id:6,text:"Ich kenne die Namen der Wochentage und ihre Reihenfolge.",worlds:[1],default:2},
-  {id:7,text:"Ich kenne die Bedeutung der Wörter: gestern, vorgestern, heute, morgen, übermorgen.",worlds:[1],default:2},
-  {id:8,text:"Ich weiß, wie lange die Erde braucht, um sich 1x um sich selbst zu drehen und um die Sonne.",worlds:[6],default:2},
-  {id:9,text:"Ich weiß, wie lange der Mond braucht, um die Erde zu umkreisen.",worlds:[6],default:2},
-];
-
 // ============================================================
 // LERNKARTEN
 // ============================================================
@@ -657,7 +620,7 @@ let currentProfile = null;
 let state = {};
 
 const DEFAULT_STATE = {
-  assessment:{}, worldProgress:{}, achievements:[], streak:0,
+  worldProgress:{}, achievements:[], streak:0,
   currentWorld:0, currentQuestions:[], currentQIndex:0, attempts:0, hintUsed:false, playDates:[]
 };
 // worldProgress[wid] = { history: { qid: [score, score] }, completed: false }
@@ -751,11 +714,8 @@ function selectProfile(name) {
   }
   saveProfiles();
   recordPlayDate();
-  if (Object.keys(state.assessment).length > 0) {
-    showScreen('map-screen'); renderMap();
-  } else {
-    showScreen('assessment-screen'); renderAssessment();
-  }
+  initWorldProgress();
+  showScreen('map-screen'); renderMap();
 }
 
 function createNewProfile() {
@@ -768,8 +728,9 @@ function createNewProfile() {
   currentProfile = name;
   state = profiles[name];
   saveProfiles();
-  showScreen('assessment-screen');
-  renderAssessment();
+  initWorldProgress();
+  showScreen('map-screen');
+  renderMap();
 }
 
 function deleteProfile(name, ev) {
@@ -868,34 +829,9 @@ function renderStartScreen() {
   document.getElementById('new-player-name').value = '';
 }
 
-// ============================================================
-// ASSESSMENT
-// ============================================================
-function renderAssessment() {
-  const list = document.getElementById('assessment-list');
-  list.innerHTML = SELF_ASSESSMENT.map((sa, i) => `
-    <div class="assessment-item">
-      <div class="assessment-question">${i+1}. ${sa.text}</div>
-      <div class="assessment-options">
-        <div class="assessment-opt ${sa.default===0?'selected-green':''}" onclick="setAssessment(${sa.id},0,this)">Kann ich!</div>
-        <div class="assessment-opt ${sa.default===1?'selected-yellow':''}" onclick="setAssessment(${sa.id},1,this)">Bin unsicher</div>
-        <div class="assessment-opt ${sa.default===2?'selected-red':''}" onclick="setAssessment(${sa.id},2,this)">Muss ich lernen</div>
-      </div>
-    </div>
-  `).join('');
-  SELF_ASSESSMENT.forEach(sa => { state.assessment[sa.id] = sa.default; });
-}
-
-function setAssessment(saId, val, el) {
-  soundClick(); state.assessment[saId] = val;
-  el.parentElement.querySelectorAll('.assessment-opt').forEach(o=>o.classList.remove('selected-green','selected-yellow','selected-red'));
-  if(val===0)el.classList.add('selected-green');if(val===1)el.classList.add('selected-yellow');if(val===2)el.classList.add('selected-red');
-}
-
-function submitAssessment() {
-  soundClick();
+function initWorldProgress() {
   for(let w=1;w<=6;w++){if(!state.worldProgress[w])state.worldProgress[w]={history:{},completed:false};}
-  saveState(); recordPlayDate(); showScreen('map-screen'); renderMap();
+  saveState();
 }
 
 // ============================================================
@@ -940,18 +876,10 @@ function renderMap() {
 // ============================================================
 function getWorldQuestions(worldId) { return QUESTIONS.filter(q=>q.w===worldId); }
 
-function getAvgLevel(worldId) {
-  const allQ = getWorldQuestions(worldId);
-  const saItems = [...new Set(allQ.flatMap(q=>q.sa||[]))];
-  if (saItems.length === 0) return 2;
-  return saItems.reduce((sum,id)=>sum+(state.assessment[id]??2),0)/saItems.length;
-}
-
 function selectQuestionsForWorld(worldId) {
   const allQ = getWorldQuestions(worldId);
   const wp = migrateWorldProgress(state.worldProgress[worldId]||{history:{},completed:false});
   state.worldProgress[worldId] = wp;
-  const avgLevel = getAvgLevel(worldId);
 
   // Categorize all questions
   const unanswered = allQ.filter(q => !wp.history[q.id]);
@@ -961,12 +889,11 @@ function selectQuestionsForWorld(worldId) {
 
   let selected = [];
 
-  // Learn card for "muss lernen" topics
-  if (avgLevel >= 1.5 && LERNKARTEN[worldId]) {
+  // Show learn card on first visit (no questions answered yet)
+  if (unanswered.length === allQ.length && LERNKARTEN[worldId]) {
     selected.push(LERNKARTEN[worldId]);
   }
 
-  // Fixed number of questions per round
   const targetCount = 10;
 
   // SMART SELECTION:
@@ -974,7 +901,6 @@ function selectQuestionsForWorld(worldId) {
   // 2. Then fill with poorly answered (score < 2)
   // 3. Then ok answers (score 2-2.9)
   // 4. Then perfect (score 3) as review
-
   const pool = [];
 
   // At least 1 (ideally 2) new questions
@@ -991,14 +917,9 @@ function selectQuestionsForWorld(worldId) {
   // Then perfect answers as review
   pool.push(...shuffle(perfect).filter(q => !pool.includes(q)));
 
-  // Apply difficulty ordering based on self-assessment
-  const diffOrder = avgLevel >= 1.5 ? [1,2,3] : avgLevel >= 0.5 ? [2,3,1] : [3,2,1];
-
-  // Select up to targetCount, respecting difficulty preference
+  // Select up to targetCount, sort easy → medium → hard
   const picked = pool.filter(q => !selected.includes(q)).slice(0, targetCount);
-
-  // Sort by difficulty order
-  picked.sort((a,b) => diffOrder.indexOf(a.diff) - diffOrder.indexOf(b.diff));
+  picked.sort((a,b) => a.diff - b.diff);
   selected.push(...picked);
 
   // Ensure minimum 3 actual questions
