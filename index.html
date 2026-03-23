@@ -844,8 +844,11 @@ function renderMap() {
     const allQ = getWorldQuestions(w.id);
     const answered = Object.keys(wp.stars).length;
     const worldStars = Object.values(wp.stars).reduce((a,b)=>a+b,0);
-    const pct = allQ.length>0?Math.round(answered/allQ.length*100):0;
+    const maxPossible = answered * 3;
+    const starPct = maxPossible>0?Math.round(worldStars/maxPossible*100):0;
+    const coveragePct = allQ.length>0?Math.round(answered/allQ.length*100):0;
     const charName = w.char==='all'?'molly':w.char;
+    const avgStars = answered>0?Math.round(worldStars/answered*10)/10:0;
     return `<div class="world-card ${unlocked?'':'locked'} ${wp.completed?'completed':''}"
            onclick="${unlocked?`startWorld(${w.id})`:''}" style="border-top:4px solid ${w.colorHex}">
         <div class="world-num" style="background:${w.colorHex}">${w.id}</div>
@@ -853,8 +856,10 @@ function renderMap() {
         <div class="world-title">${w.name.split(' ').slice(-1)[0]}</div>
         <div class="world-subtitle">${w.icon} ${w.name.split(' ').slice(0,-1).join(' ')}</div>
         ${wp.completed?'<div style="color:var(--success);font-weight:700;font-size:13px;margin-top:4px">Geschafft!</div>':''}
-        <div class="world-stars">${answered>0?'⭐'.repeat(Math.min(Math.round(worldStars/Math.max(answered,1)),3)):''}</div>
-        <div class="world-progress"><div class="world-progress-fill" style="width:${pct}%;background:${w.colorHex}"></div></div>
+        <div class="world-stars">${answered>0?`⭐ ${worldStars}/${maxPossible}`:''}</div>
+        <div class="world-progress"><div class="world-progress-fill" style="width:${starPct}%;background:${w.colorHex}"></div></div>
+        ${answered>0&&coveragePct<100?`<div style="font-size:11px;color:var(--text-light);margin-top:4px">${answered}/${allQ.length} Fragen beantwortet</div>`:''}
+        ${coveragePct>=100?'<div style="font-size:11px;color:var(--success);margin-top:4px">Alle Fragen beantwortet!</div>':''}
         ${!unlocked?'<div class="lock-icon">🔒</div>':''}
       </div>`;
   }).join('');
