@@ -901,41 +901,37 @@ function selectQuestionsForWorld(worldId) {
   const wp = migrateWorldProgress(state.worldProgress[worldId]||{history:{},completed:false});
   state.worldProgress[worldId] = wp;
 
-  // Categorize all questions
+  // Crown = 2x perfect (score 3) in a row for a question
+  const isQMastered = q => { const h=wp.history[q.id]; return h&&h.length>=2&&h[0]===3&&h[1]===3; };
   const unanswered = allQ.filter(q => !wp.history[q.id]);
-  const poor = allQ.filter(q => wp.history[q.id] && getQuestionScore(wp,q.id) < 2);
-  const ok = allQ.filter(q => wp.history[q.id] && getQuestionScore(wp,q.id) >= 2 && getQuestionScore(wp,q.id) < 3);
-  const perfect = allQ.filter(q => wp.history[q.id] && getQuestionScore(wp,q.id) >= 3);
+  const needsCrown = allQ.filter(q => wp.history[q.id] && !isQMastered(q)); // answered but not 2x perfect
+  const mastered = allQ.filter(q => isQMastered(q));
 
   let selected = [];
 
-  // Show learn card on first visit (no questions answered yet)
+  // Show learn card on first visit
   if (unanswered.length === allQ.length && LERNKARTEN[worldId]) {
     selected.push(LERNKARTEN[worldId]);
   }
 
   const targetCount = 10;
-
-  // SMART SELECTION:
-  // 1. Guarantee at least 1 new unanswered question (if any exist)
-  // 2. Then fill with poorly answered (score < 2)
-  // 3. Then ok answers (score 2-2.9)
-  // 4. Then perfect (score 3) as review
   const pool = [];
 
-  // At least half of the round should be new questions (if available)
-  const newQ = shuffle(unanswered);
-  const newCount = Math.min(newQ.length, Math.ceil(targetCount / 2));
-  pool.push(...newQ.slice(0, newCount));
+  // PRIORITY: At least 50% crown-needed questions (unanswered + not-yet-mastered)
+  // Sort crown pool: poor scores first, then unanswered, then almost-mastered
+  const crownPool = shuffle([
+    ...needsCrown.filter(q => getQuestionScore(wp,q.id) < 2),  // poor scores first
+    ...unanswered,                                               // then new questions
+    ...needsCrown.filter(q => getQuestionScore(wp,q.id) >= 2),  // then almost there
+  ]);
+  const crownCount = Math.min(crownPool.length, Math.ceil(targetCount / 2));
+  pool.push(...crownPool.slice(0, crownCount));
 
-  // Fill with poor answers (priority!)
-  pool.push(...shuffle(poor));
+  // Fill remaining slots with mastered questions as review
+  pool.push(...shuffle(mastered).filter(q => !pool.includes(q)));
 
-  // Then ok answers
-  pool.push(...shuffle(ok));
-
-  // Then perfect answers as review
-  pool.push(...shuffle(perfect).filter(q => !pool.includes(q)));
+  // Also add any remaining crown questions beyond the 50%
+  pool.push(...crownPool.filter(q => !pool.includes(q)));
 
   // Select up to targetCount, sort easy → medium → hard
   const picked = pool.filter(q => !selected.includes(q)).slice(0, targetCount);
