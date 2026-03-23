@@ -855,7 +855,7 @@ function renderMap() {
     const charName = w.char==='all'?'molly':w.char;
     const mastered = isWorldMastered(w.id);
     const allDone = isWorldAllAnswered(w.id);
-    const starDisplay = answered>0 ? '⭐'.repeat(Math.round(avgStars))+'☆'.repeat(3-Math.round(avgStars)) : '';
+    const starDisplay = answered>0 ? '⭐'.repeat(Math.round(avgStars))+'<span style="opacity:0.2">⭐</span>'.repeat(3-Math.round(avgStars)) : '';
     return `<div class="world-card ${unlocked?'':'locked'} ${wp.completed?'completed':''} ${mastered?'mastered':''}"
            onclick="${unlocked?`startWorld(${w.id})`:''}" style="border-top:4px solid ${w.colorHex}">
         <div class="world-num" style="background:${w.colorHex}">${w.id}</div>
