@@ -544,11 +544,11 @@ const QUESTIONS = [
   {id:'w4_03',w:4,type:'mc',diff:2,q:'Wie viele Tage hat der April?',opts:['28','29','30','31'],ans:'30',sa:[2]},
   {id:'w4_06',w:4,type:'mc',diff:2,q:'Wie viele Wochen hat ein Jahr (ungefähr)?',opts:['48','50','52','54'],ans:'52',sa:[4]},
   {id:'w4_08',w:4,type:'mc',diff:2,q:'Wie viele Tage hat der Juni?',opts:['28','29','30','31'],ans:'30',sa:[2]},
-  {id:'w4_09',w:4,type:'mc',diff:2,q:'Welcher Monat hat manchmal 28 und manchmal 29 Tage?',opts:['Januar','Februar','März','April'],ans:'Februar',sa:[2]},
+  {id:'w4_09',w:4,type:'mc',diff:2,q:'Welcher Monat hat die wenigsten Tage?',opts:['Januar','Februar','April','Juni'],ans:'Februar',sa:[2]},
   {id:'w4_07',w:4,type:'mc',diff:3,q:'Was ist ein Schaltjahr?',opts:['Ein Jahr mit 366 Tagen','Ein Jahr mit 360 Tagen','Ein Jahr ohne Februar','Ein kurzes Jahr'],ans:'Ein Jahr mit 366 Tagen',sa:[2],hint:'Im Schaltjahr hat der Februar 29 Tage statt 28!'},
   {id:'w4_10',w:4,type:'tf',diff:3,q:'Der März hat 30 Tage.',ans:false,sa:[2],hint:'Der März hat 31 Tage!'},
-  {id:'w4_12',w:4,type:'mc',diff:3,q:'Wie viele Tage hat der November?',opts:['28','29','30','31'],ans:'30',sa:[2]},
-  {id:'w4_13',w:4,type:'mc',diff:3,q:'Wie viele Tage hat der September?',opts:['28','29','30','31'],ans:'30',sa:[2]},
+  {id:'w4_12',w:4,type:'sort',diff:3,q:'Ordne die Monate nach Anzahl der Tage (wenigste zuerst)!',items:['Februar (28)','April (30)','Januar (31)'],sa:[2]},
+  {id:'w4_13',w:4,type:'tf',diff:3,q:'Der Juni und der September haben gleich viele Tage.',ans:true,sa:[2]},
   {id:'w4_14',w:4,type:'mc',diff:3,q:'Welche Monate haben 31 Tage?',opts:['Alle ungeraden Monate','Januar, März, Mai, Juli, August, Oktober, Dezember','Nur die ersten 6 Monate','Alle außer Februar'],ans:'Januar, März, Mai, Juli, August, Oktober, Dezember',sa:[2]},
   {id:'w4_16',w:4,type:'fill',diff:3,q:'Der Februar hat im Schaltjahr ___ Tage.',ans:'29',sa:[2]},
   {id:'w4_18',w:4,type:'mc',diff:3,q:'Der Knöchel-Trick: Auf dem Knöchel liegen Monate mit...',opts:['30 Tagen','31 Tagen','28 Tagen','29 Tagen'],ans:'31 Tagen',sa:[2],hint:'Die Mulden zwischen den Knöcheln sind die Monate mit 30 (oder weniger) Tagen!'},
@@ -981,10 +981,11 @@ function selectQuestionsForWorld(worldId) {
   pool.push(...shuffle(mastered).filter(q => !pool.includes(q)));
   pool.push(...crownPool.filter(q => !pool.includes(q)));
 
-  // Select up to targetCount, sort easy → medium → hard
+  // Select up to targetCount, group by difficulty (easy→hard) but shuffle within each group
   const picked = pool.filter(q => !selected.includes(q)).slice(0, targetCount);
-  picked.sort((a,b) => a.diff - b.diff);
-  selected.push(...picked);
+  const byDiff = {1:[], 2:[], 3:[]};
+  picked.forEach(q => (byDiff[q.diff]||byDiff[2]).push(q));
+  selected.push(...shuffle(byDiff[1]), ...shuffle(byDiff[2]), ...shuffle(byDiff[3]));
 
   // Ensure minimum 3 actual questions
   const actual = selected.filter(q => q.type !== 'learn');
