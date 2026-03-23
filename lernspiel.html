@@ -1236,11 +1236,11 @@ function finishWorld(){
       <h2 style="margin-bottom:5px">${world.icon} ${world.name}</h2><p class="subtitle">Geschafft!</p>
       <div class="character-container">${charSVG(charName)}</div>
       <div class="speech-bubble" style="margin:10px auto">${msg}</div>
-      <div class="complete-stars-big">${starHTML(avgStars,'big')}${mastered?' 👑':''}</div>
+      <div class="complete-stars-big">${starHTML(roundAvg,'big')}${mastered?' 👑':''}</div>
       <div class="star-summary">
-        <div class="star-stat"><div class="star-stat-num" style="color:var(--warning)">${starHTMLSmall(avgStars)}</div><div class="star-stat-label">Gesamt</div></div>
-        <div class="star-stat"><div class="star-stat-num" style="color:var(--success)">${answered}/${normalQ.length}</div><div class="star-stat-label">Fragen</div></div>
         <div class="star-stat"><div class="star-stat-num" style="color:var(--primary)">${starHTMLSmall(roundAvg)}</div><div class="star-stat-label">Diese Runde</div></div>
+        <div class="star-stat"><div class="star-stat-num" style="color:var(--success)">${answered}/${normalQ.length}</div><div class="star-stat-label">Fragen</div></div>
+        <div class="star-stat"><div class="star-stat-num" style="color:var(--warning)">${starHTMLSmall(avgStars)}</div><div class="star-stat-label">Gesamt</div></div>
       </div>
       ${answered<allQ.length?`<p style="font-size:14px;color:var(--text-light);margin-top:8px">Noch ${allQ.length-answered} neue Fragen warten auf dich!</p>`:'<p style="font-size:14px;color:var(--success);margin-top:8px">Alle Fragen beantwortet! Spiele nochmal um deine Sterne zu verbessern!</p>'}
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:15px">
