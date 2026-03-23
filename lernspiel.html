@@ -769,6 +769,21 @@ function recordPlayDate() {
 }
 
 // ============================================================
+// STAR DISPLAY HELPER
+// ============================================================
+function starHTML(count, size='') {
+  const sz = size==='big'?'font-size:48px;':'font-size:36px;';
+  const filled = '⭐'.repeat(Math.max(0,Math.min(3,count)));
+  const empty = '<span style="opacity:0.15;filter:grayscale(1)">⭐</span>'.repeat(Math.max(0,3-count));
+  return `<span style="${sz}">${filled}${empty}</span>`;
+}
+function starHTMLSmall(count) {
+  const filled = '⭐'.repeat(Math.max(0,Math.min(3,count)));
+  const empty = '<span style="opacity:0.15;filter:grayscale(1)">⭐</span>'.repeat(Math.max(0,3-count));
+  return filled+empty;
+}
+
+// ============================================================
 // SOUNDS
 // ============================================================
 let audioCtx = null;
@@ -845,7 +860,7 @@ function renderMap() {
   let globalAvg = 0; let globalCount = 0;
   WORLDS.forEach(w => { const a = getWorldAnsweredCount(w.id); if(a>0){ globalAvg += getWorldAvgStars(w.id)*a; globalCount += a; }});
   const totalAvg = globalCount>0 ? globalAvg/globalCount : 0;
-  document.getElementById('map-total-stars').innerHTML = `${'⭐'.repeat(Math.round(totalAvg))}${'☆'.repeat(3-Math.round(totalAvg))}`;
+  document.getElementById('map-total-stars').innerHTML = starHTMLSmall(Math.round(totalAvg));
 
   document.getElementById('world-grid').innerHTML = WORLDS.map((w, i) => {
     const wp = state.worldProgress[w.id]||{history:{},completed:false};
@@ -857,7 +872,7 @@ function renderMap() {
     const charName = w.char==='all'?'molly':w.char;
     const mastered = isWorldMastered(w.id);
     const allDone = isWorldAllAnswered(w.id);
-    const starDisplay = answered>0 ? '⭐'.repeat(Math.round(avgStars))+'<span style="opacity:0.2">⭐</span>'.repeat(3-Math.round(avgStars)) : '';
+    const starDisplay = answered>0 ? starHTMLSmall(Math.round(avgStars)) : '';
     return `<div class="world-card ${unlocked?'':'locked'} ${wp.completed?'completed':''} ${mastered?'mastered':''}"
            onclick="${unlocked?`startWorld(${w.id})`:''}" style="border-top:4px solid ${w.colorHex}">
         <div class="world-num" style="background:${w.colorHex}">${w.id}</div>
@@ -1105,7 +1120,7 @@ function onCorrect(){
 
   document.getElementById('feedback-card').innerHTML=`
     <div>${charSVG(charName,'small')}</div>
-    <div class="feedback-stars">${'⭐'.repeat(stars)}${'☆'.repeat(3-stars)}</div>
+    <div class="feedback-stars">${starHTML(stars)}</div>
     <div class="feedback-text">${comment}</div>
     ${stars===3?'<div style="font-size:14px;color:var(--success);margin-top:4px">Beim 1. Versuch! 🎉</div>':stars===2?'<div style="font-size:14px;color:var(--warning);margin-top:4px">Fast perfekt!</div>':stars===1?'<div style="font-size:14px;color:var(--text-light);margin-top:4px">Knapp geschafft!</div>':'<div style="font-size:14px;color:var(--text-light);margin-top:4px">Übung macht den Meister!</div>'}
     <button class="btn btn-primary" onclick="nextQuestion()" style="margin-top:15px">${isLast?'Ergebnis anzeigen!':'Weiter!'}</button>
@@ -1144,9 +1159,9 @@ function finishWorld(){
       <h2 style="margin-bottom:5px">${world.icon} ${world.name}</h2><p class="subtitle">Geschafft!</p>
       <div class="character-container">${charSVG(charName)}</div>
       <div class="speech-bubble" style="margin:10px auto">${msg}</div>
-      <div class="complete-stars-big">${'⭐'.repeat(roundedStars)}${'☆'.repeat(3-roundedStars)}</div>
+      <div class="complete-stars-big">${starHTML(roundedStars,'big')}</div>
       <div class="star-summary">
-        <div class="star-stat"><div class="star-stat-num" style="color:var(--warning)">${'⭐'.repeat(roundedStars)}</div><div class="star-stat-label">Bewertung</div></div>
+        <div class="star-stat"><div class="star-stat-num" style="color:var(--warning)">${starHTMLSmall(roundedStars)}</div><div class="star-stat-label">Bewertung</div></div>
         <div class="star-stat"><div class="star-stat-num" style="color:var(--success)">${answered}/${allQ.length}</div><div class="star-stat-label">Fragen</div></div>
       </div>
       ${answered<allQ.length?`<p style="font-size:14px;color:var(--text-light);margin-top:8px">Noch ${allQ.length-answered} neue Fragen warten auf dich!</p>`:'<p style="font-size:14px;color:var(--success);margin-top:8px">Alle Fragen beantwortet! Spiele nochmal um deine Sterne zu verbessern!</p>'}
