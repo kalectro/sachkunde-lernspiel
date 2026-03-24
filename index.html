@@ -530,7 +530,7 @@ const QUESTIONS = [
   {id:'w3_10',w:3,type:'mc',diff:3,q:'Wann ist Martinstag?',opts:['Im März','Im November','Im September','Im Mai'],ans:'Im November',sa:[3]},
   {id:'w3_13',w:3,type:'mc',diff:3,q:'In welcher Jahreszeit maskieren wir uns (Karneval)?',opts:['Sommer','Winter','Frühling','Herbst'],ans:'Winter',sa:[3],hint:'Karneval ist im Februar - das ist noch Winter!'},
   {id:'w3_15',w:3,type:'mc',diff:3,q:'Wann ist Muttertag?',opts:['Im März','Im Mai','Im Juli','Im Oktober'],ans:'Im Mai',sa:[3]},
-  {id:'w3_16',w:3,type:'sort',diff:3,q:'Bringe die Jahreszeiten in die richtige Reihenfolge (Jahresbeginn)!',items:['Winter','Frühling','Sommer','Herbst'],sa:[3]},
+  {id:'w3_16',w:3,type:'sort',diff:3,q:'Bringe die Jahreszeiten ab Jahresbeginn in die richtige Reihenfolge!',items:['Winter','Frühling','Sommer','Herbst'],sa:[3]},
   {id:'w3_17',w:3,type:'mc',diff:3,q:'Welche Monate gehören zum Herbst?',opts:['Juni, Juli, August','September, Oktober, November','Oktober, November, Dezember','August, September, Oktober'],ans:'September, Oktober, November',sa:[3]},
   {id:'w3_19',w:3,type:'tf',diff:2,q:'Im Herbst werden die Tage kürzer.',ans:true,sa:[3]},
 
@@ -544,7 +544,7 @@ const QUESTIONS = [
   {id:'w4_03',w:4,type:'mc',diff:2,q:'Wie viele Tage hat der April?',opts:['28','29','30','31'],ans:'30',sa:[2]},
   {id:'w4_06',w:4,type:'mc',diff:2,q:'Wie viele Wochen hat ein Jahr (ungefähr)?',opts:['48','50','52','54'],ans:'52',sa:[4]},
   {id:'w4_08',w:4,type:'mc',diff:2,q:'Wie viele Tage hat der Juni?',opts:['28','29','30','31'],ans:'30',sa:[2]},
-  {id:'w4_09',w:4,type:'mc',diff:2,q:'Welcher Monat hat die wenigsten Tage?',opts:['Januar','Februar','April','Juni'],ans:'Februar',sa:[2]},
+  {id:'w4_09',w:4,type:'mc',diff:2,q:'Wie viele Tage hat der Oktober?',opts:['28','29','30','31'],ans:'31',sa:[2]},
   {id:'w4_07',w:4,type:'mc',diff:3,q:'Was ist ein Schaltjahr?',opts:['Ein Jahr mit 366 Tagen','Ein Jahr mit 360 Tagen','Ein Jahr ohne Februar','Ein kurzes Jahr'],ans:'Ein Jahr mit 366 Tagen',sa:[2],hint:'Im Schaltjahr hat der Februar 29 Tage statt 28!'},
   {id:'w4_10',w:4,type:'tf',diff:3,q:'Der März hat 30 Tage.',ans:false,sa:[2],hint:'Der März hat 31 Tage!'},
   {id:'w4_12',w:4,type:'sort',diff:3,q:'Ordne die Monate nach Anzahl der Tage (wenigste zuerst)!',items:['Februar (28)','April (30)','Januar (31)'],sa:[2]},
@@ -566,7 +566,7 @@ const QUESTIONS = [
   {id:'w5_05',w:5,type:'mc',diff:3,q:'Welches Datum kommt zuerst?',opts:['15.3.','3.5.','Beide gleichzeitig','Kommt drauf an'],ans:'15.3.',sa:[5],hint:'Vergleiche zuerst den Monat! 3. Monat (März) kommt vor dem 5. Monat (Mai).'},
   {id:'w5_10',w:5,type:'sort',diff:3,q:'Ordne diese Daten vom frühesten zum spätesten!',items:['1.1.','20.3.','15.6.','31.12.'],sa:[5]},
   {id:'w5_11',w:5,type:'sort',diff:3,q:'Ordne diese Daten vom frühesten zum spätesten!',items:['3.2.','14.2.','1.5.','24.12.'],sa:[5]},
-  {id:'w5_13',w:5,type:'tf',diff:3,q:'Am 1.1. feiern wir Silvester.',ans:false,sa:[5]},
+  {id:'w5_13',w:5,type:'mc',diff:3,q:'Welches Datum hat der Rosenmontag 2026?',opts:['16.2.','23.2.','2.3.','9.3.'],ans:'16.2.',sa:[5],hint:'Rosenmontag ist immer im Februar!'},
   {id:'w5_15',w:5,type:'fill',diff:3,q:'Heiligabend ist am 24.___.',ans:'12',sa:[5],hint:'Weihnachten ist im Dezember - der 12. Monat!'},
   {id:'w5_16',w:5,type:'mc',diff:1,q:'Was steht bei einem Datum an letzter Stelle?',opts:['Der Tag','Der Monat','Das Jahr','Der Wochentag'],ans:'Das Jahr',sa:[5]},
   {id:'w5_17',w:5,type:'mc',diff:2,q:'Welches Datum hat der Tag der Deutschen Einheit?',opts:['3. Oktober','1. Mai','24. Dezember','9. November'],ans:'3. Oktober',sa:[5]},
@@ -579,7 +579,7 @@ const QUESTIONS = [
   {id:'w6_02',w:6,type:'mc',diff:2,q:'Wie lange braucht die Erde, um einmal um die Sonne zu kreisen?',opts:['1 Monat','1 Woche','1 Tag','1 Jahr (365 Tage)'],ans:'1 Jahr (365 Tage)',sa:[8]},
   {id:'w6_04',w:6,type:'mc',diff:2,q:'Warum gibt es Tag und Nacht?',opts:['Weil die Sonne sich dreht','Weil die Erde sich um sich selbst dreht','Weil der Mond leuchtet','Weil es Wolken gibt'],ans:'Weil die Erde sich um sich selbst dreht',sa:[8]},
   {id:'w6_09',w:6,type:'mc',diff:2,q:'Was ist größer: die Sonne oder die Erde?',opts:['Die Erde','Beide gleich groß','Die Sonne','Kommt drauf an'],ans:'Die Sonne',sa:[8]},
-  {id:'w6_14',w:6,type:'mc',diff:2,q:'Wenn sich die Erde einmal um sich selbst dreht, vergeht...',opts:['ein Monat','eine Woche','ein Tag','ein Jahr'],ans:'ein Tag',sa:[8]},
+  {id:'w6_14',w:6,type:'mc',diff:2,q:'Wie viele Stunden hat ein Tag?',opts:['12','20','24','30'],ans:'24',sa:[8]},
   {id:'w6_03',w:6,type:'mc',diff:3,q:'Wie lange braucht der Mond ungefähr, um einmal um die Erde zu kreisen?',opts:['1 Tag','1 Woche','Ungefähr 29 Tage (1 Monat)','1 Jahr'],ans:'Ungefähr 29 Tage (1 Monat)',sa:[9]},
   {id:'w6_05',w:6,type:'mc',diff:3,q:'Woher kommt das Wort "Monat"?',opts:['Von "montags"','Vom Mond','Von "Monate zählen"','Von der Sonne'],ans:'Vom Mond',sa:[9],hint:'Der Mond braucht ungefähr einen Monat, um die Erde zu umkreisen. Deshalb heißt es "Monat"!'},
   {id:'w6_06',w:6,type:'tf',diff:3,q:'Die Erde dreht sich um den Mond.',ans:false,sa:[8]},
@@ -589,7 +589,7 @@ const QUESTIONS = [
   {id:'w6_13',w:6,type:'fill',diff:3,q:'Die Erde braucht ___ Tage, um die Sonne zu umkreisen.',ans:'365',sa:[8]},
   {id:'w6_15',w:6,type:'tf',diff:1,q:'Die Sonne ist ein Stern.',ans:true,sa:[8]},
   {id:'w6_16',w:6,type:'tf',diff:2,q:'Die Erde braucht einen Monat, um die Sonne zu umkreisen.',ans:false,sa:[8]},
-  {id:'w6_17',w:6,type:'mc',diff:2,q:'Was macht der Mond?',opts:['Er leuchtet selbst','Er kreist um die Erde','Er kreist um die Sonne','Er steht still'],ans:'Er kreist um die Erde',sa:[9]},
+  {id:'w6_17',w:6,type:'mc',diff:2,q:'Wann können wir den Mond am besten sehen?',opts:['Am Mittag','In der Nacht','Am Morgen','Gar nicht'],ans:'In der Nacht',sa:[9]},
 
   // === BONUS QUESTIONS (don't affect stars, but required for crown) ===
   // World 1
@@ -809,7 +809,7 @@ function buildStars(avg) {
   const empty = 3 - full - (hasHalf ? 1 : 0);
   let html = '⭐'.repeat(full);
   if (hasHalf) html += '<span style="display:inline-block;width:0.55em;overflow:hidden;vertical-align:middle">⭐</span>';
-  html += '<span style="opacity:0.15;filter:grayscale(1)">⭐</span>'.repeat(Math.max(0, empty));
+  html += '<span style="opacity:0.2">☆</span>'.repeat(Math.max(0, empty));
   return html;
 }
 function starHTML(avg, size='') {
@@ -981,11 +981,9 @@ function selectQuestionsForWorld(worldId) {
   pool.push(...shuffle(mastered).filter(q => !pool.includes(q)));
   pool.push(...crownPool.filter(q => !pool.includes(q)));
 
-  // Select up to targetCount, group by difficulty (easy→hard) but shuffle within each group
+  // Select up to targetCount, shuffle all questions randomly
   const picked = pool.filter(q => !selected.includes(q)).slice(0, targetCount);
-  const byDiff = {1:[], 2:[], 3:[]};
-  picked.forEach(q => (byDiff[q.diff]||byDiff[2]).push(q));
-  selected.push(...shuffle(byDiff[1]), ...shuffle(byDiff[2]), ...shuffle(byDiff[3]));
+  selected.push(...shuffle(picked));
 
   // Ensure minimum 3 actual questions
   const actual = selected.filter(q => q.type !== 'learn');
@@ -1244,7 +1242,7 @@ function finishWorld(){
         <div class="star-stat"><div class="star-stat-num" style="color:var(--success)">${answered}/${normalQ.length}</div><div class="star-stat-label">Fragen</div></div>
         <div class="star-stat"><div class="star-stat-num" style="color:var(--warning)">${starHTMLSmall(avgStars)}</div><div class="star-stat-label">Gesamt</div></div>
       </div>
-      ${answered<allQ.length?`<p style="font-size:14px;color:var(--text-light);margin-top:8px">Noch ${allQ.length-answered} neue Fragen warten auf dich!</p>`:'<p style="font-size:14px;color:var(--success);margin-top:8px">Alle Fragen beantwortet! Spiele nochmal um deine Sterne zu verbessern!</p>'}
+      ${answered<normalQ.length?`<p style="font-size:14px;color:var(--text-light);margin-top:8px">Noch ${normalQ.length-answered} neue Fragen warten auf dich!</p>`:'<p style="font-size:14px;color:var(--success);margin-top:8px">Alle Fragen beantwortet! Spiele nochmal um deine Sterne zu verbessern!</p>'}
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:15px">
         <button class="btn btn-primary" onclick="showScreen('map-screen');renderMap();">Zur Weltkarte</button>
         <button class="btn btn-secondary" onclick="startWorld(${state.currentWorld})">Nochmal üben</button>
