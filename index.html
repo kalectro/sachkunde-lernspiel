@@ -547,7 +547,7 @@ const QUESTIONS = [
   {id:'w4_09',w:4,type:'mc',diff:2,q:'Wie viele Tage hat der Oktober?',opts:['28','29','30','31'],ans:'31',sa:[2]},
   {id:'w4_07',w:4,type:'mc',diff:3,q:'Was ist ein Schaltjahr?',opts:['Ein Jahr mit 366 Tagen','Ein Jahr mit 360 Tagen','Ein Jahr ohne Februar','Ein kurzes Jahr'],ans:'Ein Jahr mit 366 Tagen',sa:[2],hint:'Im Schaltjahr hat der Februar 29 Tage statt 28!'},
   {id:'w4_10',w:4,type:'tf',diff:3,q:'Der März hat 30 Tage.',ans:false,sa:[2],hint:'Der März hat 31 Tage!'},
-  {id:'w4_12',w:4,type:'sort',diff:3,q:'Ordne die Monate nach Anzahl der Tage (wenigste zuerst)!',items:['Februar','April','Januar'],sa:[2]},
+  {id:'w4_12',w:4,type:'sort',diff:3,q:'Ordne diese Monate nach Anzahl der Tage (wenigste zuerst)!',items:['Februar','April','Juli'],sa:[2]},
   {id:'w4_13',w:4,type:'tf',diff:3,q:'Der Juni und der September haben gleich viele Tage.',ans:true,sa:[2]},
   {id:'w4_14',w:4,type:'mc',diff:3,q:'Welche Monate haben 31 Tage?',opts:['Alle ungeraden Monate','Januar, März, Mai, Juli, August, Oktober, Dezember','Nur die ersten 6 Monate','Alle außer Februar'],ans:'Januar, März, Mai, Juli, August, Oktober, Dezember',sa:[2]},
   {id:'w4_16',w:4,type:'fill',diff:3,q:'Der Februar hat im Schaltjahr ___ Tage.',ans:'29',sa:[2]},
@@ -559,7 +559,7 @@ const QUESTIONS = [
   {id:'w5_07',w:5,type:'mc',diff:1,q:'Was ist der letzte Tag im Jahr?',opts:['30. Dezember','31. Dezember','1. Januar','24. Dezember'],ans:'31. Dezember',sa:[5]},
   {id:'w5_02',w:5,type:'mc',diff:2,q:'Welches Datum ist richtig geschrieben?',opts:['5.3.2026','2026.3.5','März 5 2026','3/5/2026'],ans:'5.3.2026',sa:[5]},
   {id:'w5_06',w:5,type:'mc',diff:2,q:'Der 24.12. ist...',opts:['Nikolaus','Silvester','Heiligabend','Neujahr'],ans:'Heiligabend',sa:[5]},
-  {id:'w5_08',w:5,type:'mc',diff:2,q:'Der 31. Dezember heißt auch...',opts:['Neujahr','Silvester','Heiligabend','Nikolaus'],ans:'Silvester',sa:[5]},
+  {id:'w5_08',w:5,type:'mc',diff:2,q:'Wie liest man das Datum 1.4.?',opts:['Erster April','Vierter Januar','Erster Vierter','April Erster'],ans:'Erster April',sa:[5]},
   {id:'w5_09',w:5,type:'mc',diff:2,q:'Welches Datum ist der Nikolaustag?',opts:['6. Januar','6. Dezember','24. Dezember','1. Dezember'],ans:'6. Dezember',sa:[5]},
   {id:'w5_14',w:5,type:'mc',diff:2,q:'Was bedeutet das Datum 3.10.?',opts:['3. Oktober','10. März','30. Oktober','3. Monat, 10. Tag'],ans:'3. Oktober',sa:[5]},
   {id:'w5_04',w:5,type:'mc',diff:3,q:'Wann ist Frühlingsanfang?',opts:['1. März','20. März','1. April','21. Juni'],ans:'20. März',sa:[5]},
@@ -568,8 +568,8 @@ const QUESTIONS = [
   {id:'w5_11',w:5,type:'sort',diff:3,q:'Ordne diese Daten vom frühesten zum spätesten!',items:['3.2.','14.2.','1.5.','24.12.'],sa:[5]},
   {id:'w5_13',w:5,type:'mc',diff:3,q:'Welches Datum hat der Rosenmontag 2026?',opts:['16.2.','23.2.','2.3.','9.3.'],ans:'16.2.',sa:[5],hint:'Rosenmontag ist immer im Februar!'},
   {id:'w5_15',w:5,type:'fill',diff:3,q:'Heiligabend ist am 24.___.',ans:'12',sa:[5],hint:'Weihnachten ist im Dezember - der 12. Monat!'},
-  {id:'w5_16',w:5,type:'mc',diff:1,q:'Was steht bei einem Datum an letzter Stelle?',opts:['Der Tag','Der Monat','Das Jahr','Der Wochentag'],ans:'Das Jahr',sa:[5]},
-  {id:'w5_17',w:5,type:'mc',diff:2,q:'Welches Datum hat der Tag der Deutschen Einheit?',opts:['3. Oktober','1. Mai','24. Dezember','9. November'],ans:'3. Oktober',sa:[5]},
+  {id:'w5_16',w:5,type:'mc',diff:1,q:'Wenn heute der 28.2. ist, welches Datum ist morgen (kein Schaltjahr)?',opts:['29.2.','1.3.','28.3.','2.3.'],ans:'1.3.',sa:[5]},
+  {id:'w5_17',w:5,type:'mc',diff:2,q:'Welcher Feiertag ist am 1. Mai?',opts:['Neujahr','Tag der Arbeit','Nikolaus','Rosenmontag'],ans:'Tag der Arbeit',sa:[5]},
   {id:'w5_18',w:5,type:'mc',diff:2,q:'Was bedeutet das Datum 14.2.?',opts:['2. Vierzehnter','14. Februar','14. Zweiter','Februar 14'],ans:'14. Februar',sa:[5]},
 
   // === WORLD 6: Weltraum ===
@@ -579,16 +579,16 @@ const QUESTIONS = [
   {id:'w6_02',w:6,type:'mc',diff:2,q:'Wie lange braucht die Erde, um einmal um die Sonne zu kreisen?',opts:['1 Monat','1 Woche','1 Tag','1 Jahr (365 Tage)'],ans:'1 Jahr (365 Tage)',sa:[8]},
   {id:'w6_04',w:6,type:'mc',diff:2,q:'Warum gibt es Tag und Nacht?',opts:['Weil die Sonne sich dreht','Weil die Erde sich um sich selbst dreht','Weil der Mond leuchtet','Weil es Wolken gibt'],ans:'Weil die Erde sich um sich selbst dreht',sa:[8]},
   {id:'w6_09',w:6,type:'mc',diff:2,q:'Was ist größer: die Sonne oder die Erde?',opts:['Die Erde','Beide gleich groß','Die Sonne','Kommt drauf an'],ans:'Die Sonne',sa:[8]},
-  {id:'w6_14',w:6,type:'mc',diff:2,q:'Wie viele Stunden hat ein Tag?',opts:['12','20','24','30'],ans:'24',sa:[8]},
+  {id:'w6_14',w:6,type:'mc',diff:2,q:'Wenn es bei uns Tag ist, was ist auf der anderen Seite der Erde?',opts:['Auch Tag','Nacht','Morgen','Mittag'],ans:'Nacht',sa:[8]},
   {id:'w6_03',w:6,type:'mc',diff:3,q:'Wie lange braucht der Mond ungefähr, um einmal um die Erde zu kreisen?',opts:['1 Tag','1 Woche','Ungefähr 29 Tage (1 Monat)','1 Jahr'],ans:'Ungefähr 29 Tage (1 Monat)',sa:[9]},
   {id:'w6_05',w:6,type:'mc',diff:3,q:'Woher kommt das Wort "Monat"?',opts:['Von "montags"','Vom Mond','Von "Monate zählen"','Von der Sonne'],ans:'Vom Mond',sa:[9],hint:'Der Mond braucht ungefähr einen Monat, um die Erde zu umkreisen. Deshalb heißt es "Monat"!'},
-  {id:'w6_06',w:6,type:'tf',diff:3,q:'Die Erde dreht sich um den Mond.',ans:false,sa:[8]},
+  {id:'w6_06',w:6,type:'mc',diff:3,q:'Was dreht sich um was?',opts:['Die Sonne um die Erde','Die Erde um den Mond','Die Erde um die Sonne','Der Mars um die Erde'],ans:'Die Erde um die Sonne',sa:[8]},
   {id:'w6_08',w:6,type:'tf',diff:3,q:'Die Sonne dreht sich um die Erde.',ans:false,sa:[8]},
   {id:'w6_10',w:6,type:'mc',diff:3,q:'Der Mond dreht sich um...',opts:['die Sonne','die Erde','sich selbst','den Mars'],ans:'die Erde',sa:[9]},
   {id:'w6_11',w:6,type:'mc',diff:3,q:'Warum leuchtet der Mond nachts?',opts:['Er hat eigenes Licht','Er reflektiert das Sonnenlicht','Die Sterne beleuchten ihn','Er glüht'],ans:'Er reflektiert das Sonnenlicht',sa:[9]},
-  {id:'w6_13',w:6,type:'fill',diff:3,q:'Die Erde braucht ___ Tage, um die Sonne zu umkreisen.',ans:'365',sa:[8]},
+  {id:'w6_13',w:6,type:'mc',diff:3,q:'Was ist der Unterschied zwischen Stern und Planet?',opts:['Sterne leuchten selbst, Planeten nicht','Planeten leuchten, Sterne nicht','Kein Unterschied','Planeten sind immer größer'],ans:'Sterne leuchten selbst, Planeten nicht',sa:[8]},
   {id:'w6_15',w:6,type:'tf',diff:1,q:'Die Sonne ist ein Stern.',ans:true,sa:[8]},
-  {id:'w6_16',w:6,type:'tf',diff:2,q:'Die Erde braucht einen Monat, um die Sonne zu umkreisen.',ans:false,sa:[8]},
+  {id:'w6_16',w:6,type:'mc',diff:2,q:'In welcher Reihenfolge kreisen die Himmelskörper?',opts:['Mond um Erde, Erde um Sonne','Erde um Mond, Mond um Sonne','Sonne um Erde, Erde um Mond','Alle kreisen um die Sonne'],ans:'Mond um Erde, Erde um Sonne',sa:[8]},
   {id:'w6_17',w:6,type:'mc',diff:2,q:'Wann können wir den Mond am besten sehen?',opts:['Am Mittag','In der Nacht','Am Morgen','Gar nicht'],ans:'In der Nacht',sa:[9]},
 
   // === BONUS QUESTIONS (don't affect stars, but required for crown) ===
@@ -807,9 +807,10 @@ function buildStars(avg) {
   const full = Math.floor(rounded);
   const hasHalf = (rounded % 1) !== 0;
   const empty = 3 - full - (hasHalf ? 1 : 0);
-  let html = '⭐'.repeat(full);
-  if (hasHalf) html += '<span style="display:inline-block;width:0.55em;overflow:hidden;vertical-align:middle">⭐</span>';
-  html += '<span style="opacity:0.2">☆</span>'.repeat(Math.max(0, empty));
+  const s = 'display:inline-block;vertical-align:middle;line-height:1;';
+  let html = `<span style="${s}">⭐</span>`.repeat(full);
+  if (hasHalf) html += `<span style="${s}width:0.55em;overflow:hidden">⭐</span>`;
+  html += `<span style="${s}filter:grayscale(1);opacity:0.3">⭐</span>`.repeat(Math.max(0, empty));
   return html;
 }
 function starHTML(avg, size='') {
@@ -961,25 +962,30 @@ function selectQuestionsForWorld(worldId) {
   const targetCount = 10;
   const pool = [];
 
-  // PRIORITY: At least 50% crown-needed questions (normal + bonus)
-  const crownPool = shuffle([
-    ...needsCrown.filter(q => getQuestionScore(wp,q.id) < 2),
-    ...unanswered,
-    ...needsCrown.filter(q => getQuestionScore(wp,q.id) >= 2),
-  ]);
-  const crownCount = Math.min(crownPool.length, Math.ceil(targetCount / 2));
-  pool.push(...crownPool.slice(0, crownCount));
+  // 1. Guarantee at least 50% new (unanswered) questions
+  const newQuestions = shuffle(unanswered);
+  const minNew = Math.min(newQuestions.length, Math.ceil(targetCount / 2));
+  pool.push(...newQuestions.slice(0, minNew));
 
-  // Mix in bonus questions (1-2 per round) once unlocked
+  // 2. At least 50% "crown-needed" (not yet mastered 2x perfect)
+  const crownNeeded = shuffle([
+    ...needsCrown.filter(q => getQuestionScore(wp,q.id) < 2),
+    ...needsCrown.filter(q => getQuestionScore(wp,q.id) >= 2),
+  ]).filter(q => !pool.includes(q));
+  const crownCount = Math.min(crownNeeded.length, Math.max(0, Math.ceil(targetCount / 2) - pool.length));
+  pool.push(...crownNeeded.slice(0, crownCount));
+
+  // 3. Mix in bonus questions (1-2 per round) once unlocked
   if (bonusUnlocked) {
-    const bonusCrown = shuffle([...bonusNeedsCrown, ...bonusUnanswered]);
+    const bonusCrown = shuffle([...bonusUnanswered, ...bonusNeedsCrown]);
     const bonusCount = Math.min(bonusCrown.length, 2);
     pool.push(...bonusCrown.slice(0, bonusCount));
   }
 
-  // Fill remaining with mastered as review
+  // 4. Fill remaining with mastered (review) + any leftover crown-needed
   pool.push(...shuffle(mastered).filter(q => !pool.includes(q)));
-  pool.push(...crownPool.filter(q => !pool.includes(q)));
+  pool.push(...crownNeeded.filter(q => !pool.includes(q)));
+  pool.push(...newQuestions.filter(q => !pool.includes(q)));
 
   // Select up to targetCount, shuffle all questions randomly
   const picked = pool.filter(q => !selected.includes(q)).slice(0, targetCount);
@@ -1215,10 +1221,10 @@ function finishWorld(){
   checkWorldAchievement(state.currentWorld);checkAchievement('durchhalte_champion');checkAchievement('alle_beantwortet');checkAchievement('perfektionist');
 
   // Calculate THIS ROUND's performance (only non-learn, non-bonus questions)
-  // Only count normal (non-learn, non-bonus) questions for round score
   const roundQuestions = state.currentQuestions.filter(q=>q.type!=='learn' && !q.bonus);
   const roundScores = roundQuestions.map(q=>{const h=wp.history[q.id];return h?h[0]:0;});
   const roundAvg = roundScores.length>0 ? roundScores.reduce((a,b)=>a+b,0)/roundScores.length : 0;
+  const perfectRound = roundScores.length>0 && roundScores.every(s=>s===3);
 
   launchConfetti(2500);soundAchievement();
   const charName=world.char==='all'?'molly':world.char;
@@ -1227,7 +1233,7 @@ function finishWorld(){
   // Message based on THIS ROUND, not overall average
   let msg="Das war noch nicht so gut. Übe diese Welt nochmal! 💪";
   if(mastered)msg="👑 Perfekt gemeistert! Du bist der/die Beste! 👑";
-  else if(roundAvg>=3.0)msg="Perfekte Runde! Alles richtig beim 1. Versuch! 🌟";
+  else if(perfectRound)msg="Perfekte Runde! Alles richtig beim 1. Versuch! 🌟";
   else if(roundAvg>=2.5)msg="Tolle Runde! Fast alles sofort gewusst! 💪";
   else if(roundAvg>=2.0)msg="Gute Runde! Nur ein paar kleine Fehler! 😊";
   else if(roundAvg>=1.0)msg="Da geht noch mehr! Übe weiter! 💪";
