@@ -1153,6 +1153,7 @@ function onCorrect(){
   if(!wp.history) wp.history={};
   // Store in history (keep last 2 attempts, newest first)
   if(!wp.history[q.id]) wp.history[q.id]=[];
+  const isFirstEver = wp.history[q.id].length === 0;
   wp.history[q.id].unshift(stars);
   if(wp.history[q.id].length>2) wp.history[q.id]=wp.history[q.id].slice(0,2);
 
@@ -1186,7 +1187,7 @@ function onCorrect(){
       <div>${charSVG(charName,'small')}</div>
       <div class="feedback-stars">${starHTML(stars)}</div>
       <div class="feedback-text">${comment}</div>
-      ${stars===3?'<div style="font-size:14px;color:var(--success);margin-top:4px">Beim 1. Versuch! 🎉</div>':stars===2?'<div style="font-size:14px;color:var(--warning);margin-top:4px">Fast perfekt!</div>':stars===1?'<div style="font-size:14px;color:var(--text-light);margin-top:4px">Knapp geschafft!</div>':'<div style="font-size:14px;color:var(--text-light);margin-top:4px">Übung macht den Meister!</div>'}
+      ${stars===3&&isFirstEver?'<div style="font-size:14px;color:var(--success);margin-top:4px">Beim 1. Versuch! 🎉</div>':stars===2?'<div style="font-size:14px;color:var(--warning);margin-top:4px">Fast perfekt!</div>':stars===1?'<div style="font-size:14px;color:var(--text-light);margin-top:4px">Knapp geschafft!</div>':'<div style="font-size:14px;color:var(--text-light);margin-top:4px">Übung macht den Meister!</div>'}
       <button class="btn btn-primary" onclick="nextQuestion()" style="margin-top:15px">${isLast?'Ergebnis anzeigen!':'Weiter!'}</button>
     `;
   }
