@@ -1,0 +1,98 @@
+{
+  "subject": "ingles",
+  "name": "Inglês",
+  "emoji": "🇬🇧",
+  "color": "#6c5ce7",
+  "exams": [
+    {
+      "id": "en_2p_2026",
+      "name": "2.º Período 2025/26",
+      "examDate": null,
+      "archived": true,
+      "levels": [
+        {
+          "id": 1,
+          "name": "Days, Months & Numbers",
+          "sub": "Dias da semana, meses do ano e números 11-20",
+          "questions": [
+            {"id": "en2p_1_01", "type": "mc", "diff": 1, "q": "What day comes after Monday?", "options": ["Tuesday", "Wednesday", "Sunday", "Thursday"], "correct": 0, "explanation": "Depois de Monday (2.ª) vem Tuesday (3.ª)!"},
+            {"id": "en2p_1_02", "type": "mc", "diff": 1, "q": "Como se diz «quarta-feira» em inglês?", "options": ["Wednesday", "Tuesday", "Thursday", "Monday"], "correct": 0, "explanation": "Quarta-feira = Wednesday!"},
+            {"id": "en2p_1_03", "type": "mc", "diff": 1, "q": "What month comes after March?", "options": ["April", "May", "February", "June"], "correct": 0, "explanation": "Março (March) → Abril (April)!"},
+            {"id": "en2p_1_04", "type": "mc", "diff": 1, "q": "Como se diz «novembro» em inglês?", "options": ["November", "October", "December", "September"], "correct": 0, "explanation": "Novembro = November!"},
+            {"id": "en2p_1_05", "type": "mc", "diff": 1, "q": "What number is «fifteen»?", "options": ["15", "14", "16", "13"], "correct": 0, "explanation": "Fifteen = 15!"},
+            {"id": "en2p_1_06", "type": "mc", "diff": 1, "q": "Como se diz «17» em inglês?", "options": ["Seventeen", "Sixteen", "Eighteen", "Fifteen"], "correct": 0, "explanation": "17 = Seventeen!"},
+            {"id": "en2p_1_07", "type": "mc", "diff": 1, "q": "What day comes before Friday?", "options": ["Thursday", "Wednesday", "Saturday", "Monday"], "correct": 0, "explanation": "Antes de Friday (6.ª) vem Thursday (5.ª)!"},
+            {"id": "en2p_1_08", "type": "mc", "diff": 2, "q": "Como se diz «domingo» em inglês?", "options": ["Sunday", "Saturday", "Monday", "Friday"], "correct": 0, "explanation": "Domingo = Sunday! ☀️"},
+            {"id": "en2p_1_09", "type": "mc", "diff": 2, "q": "How many months are in a year?", "options": ["12", "10", "11", "13"], "correct": 0, "explanation": "There are 12 months in a year!"},
+            {"id": "en2p_1_10", "type": "mc", "diff": 2, "q": "Como se diz «20» em inglês?", "options": ["Twenty", "Twelve", "Nineteen", "Eighteen"], "correct": 0, "explanation": "20 = Twenty!"},
+            {"id": "en2p_1_11", "type": "type", "diff": 2, "q": "Como se diz «segunda-feira» em inglês?", "accept": ["monday", "Monday"], "explanation": "Segunda-feira = Monday!"},
+            {"id": "en2p_1_12", "type": "type", "diff": 2, "q": "Como se diz «sábado» em inglês?", "accept": ["saturday", "Saturday"], "explanation": "Sábado = Saturday!"},
+            {"id": "en2p_1_13", "type": "type", "diff": 2, "q": "Como se diz «12» em inglês?", "accept": ["twelve", "Twelve"], "explanation": "12 = Twelve!"},
+            {"id": "en2p_1_14", "type": "type", "diff": 3, "q": "Como se diz «janeiro» em inglês?", "accept": ["january", "January"], "explanation": "Janeiro = January!"},
+            {"id": "en2p_1_15", "type": "type", "diff": 3, "q": "Escreve em inglês o número «11» por extenso.", "accept": ["eleven", "Eleven"], "explanation": "11 = Eleven!"},
+            {"id": "en2p_1_16", "type": "type", "diff": 3, "q": "Como se diz «sexta-feira» em inglês?", "accept": ["friday", "Friday"], "explanation": "Sexta-feira = Friday!"},
+            {"id": "en2p_1_17", "type": "type", "diff": 3, "q": "Como se diz «14» em inglês?", "accept": ["fourteen", "Fourteen"], "explanation": "14 = Fourteen!"},
+            {"id": "en2p_1_18", "type": "type", "diff": 3, "q": "Como se diz «agosto» em inglês?", "accept": ["august", "August"], "explanation": "Agosto = August!"}
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Colours, Objects & Weather",
+          "sub": "Cores, objetos escolares e condições climatéricas",
+          "questions": [
+            {"id": "en2p_2_01", "type": "mc", "diff": 1, "q": "What color is the sky?", "options": ["Blue", "Green", "Red", "Yellow"], "correct": 0, "explanation": "The sky is blue! O céu é azul! 🔵"},
+            {"id": "en2p_2_02", "type": "mc", "diff": 1, "q": "Como se diz «vermelho» em inglês?", "options": ["Red", "Blue", "Green", "Yellow"], "correct": 0, "explanation": "Vermelho = Red! 🔴"},
+            {"id": "en2p_2_03", "type": "mc", "diff": 1, "q": "What do you use to write on paper?", "options": ["Pencil", "Ruler", "Rubber", "Bag"], "correct": 0, "explanation": "Lápis = Pencil ✏️"},
+            {"id": "en2p_2_04", "type": "mc", "diff": 1, "q": "Como se diz «borracha» de apagar em inglês?", "options": ["Eraser / Rubber", "Ruler", "Pencil", "Sharpener"], "correct": 0, "explanation": "Borracha = Eraser (americano) / Rubber (britânico)!"},
+            {"id": "en2p_2_05", "type": "mc", "diff": 1, "q": "How do you say «Está a chover»?", "options": ["It's raining", "It's sunny", "It's snowing", "It's windy"], "correct": 0, "explanation": "Está a chover = It's raining! 🌧️"},
+            {"id": "en2p_2_06", "type": "mc", "diff": 1, "q": "What does «It's sunny» mean?", "options": ["Está sol", "Está a chover", "Está frio", "Está nublado"], "correct": 0, "explanation": "It's sunny = Está sol! ☀️"},
+            {"id": "en2p_2_07", "type": "mc", "diff": 1, "q": "What color is grass?", "options": ["Green", "Blue", "Yellow", "Red"], "correct": 0, "explanation": "Grass is green! A relva é verde! 🌿"},
+            {"id": "en2p_2_08", "type": "mc", "diff": 2, "q": "Como se diz «mochila» em inglês?", "options": ["Backpack", "Book", "Pencil case", "Ruler"], "correct": 0, "explanation": "Mochila = Backpack! 🎒"},
+            {"id": "en2p_2_09", "type": "mc", "diff": 2, "q": "What does «It's snowing» mean?", "options": ["Está a nevar", "Está frio", "Está a chover", "Está vento"], "correct": 0, "explanation": "It's snowing = Está a nevar! ❄️"},
+            {"id": "en2p_2_10", "type": "mc", "diff": 2, "q": "Como se diz «amarelo» em inglês?", "options": ["Yellow", "Orange", "Green", "Purple"], "correct": 0, "explanation": "Amarelo = Yellow! 🌟"},
+            {"id": "en2p_2_11", "type": "type", "diff": 2, "q": "Escreve a cor «azul» em inglês.", "accept": ["blue", "Blue"], "explanation": "Azul = Blue! 💙"},
+            {"id": "en2p_2_12", "type": "type", "diff": 2, "q": "Escreve a cor «verde» em inglês.", "accept": ["green", "Green"], "explanation": "Verde = Green! 💚"},
+            {"id": "en2p_2_13", "type": "type", "diff": 2, "q": "Como se diz «lápis» em inglês?", "accept": ["pencil", "Pencil"], "explanation": "Lápis = Pencil! ✏️"},
+            {"id": "en2p_2_14", "type": "type", "diff": 3, "q": "Como se diz «livro» em inglês?", "accept": ["book", "Book"], "explanation": "Livro = Book! 📚"},
+            {"id": "en2p_2_15", "type": "type", "diff": 3, "q": "Escreve a cor «preto» em inglês.", "accept": ["black", "Black"], "explanation": "Preto = Black! 🖤"},
+            {"id": "en2p_2_16", "type": "type", "diff": 3, "q": "Como se diz «régua» em inglês?", "accept": ["ruler", "Ruler"], "explanation": "Régua = Ruler! 📏"},
+            {"id": "en2p_2_17", "type": "type", "diff": 3, "q": "Como se diz «estojo» em inglês?", "accept": ["pencil case", "Pencil case", "pencil-case"], "explanation": "Estojo = Pencil case!"},
+            {"id": "en2p_2_18", "type": "type", "diff": 3, "q": "Como se diz «Está vento» em inglês?", "accept": ["it's windy", "its windy", "it is windy"], "explanation": "Está vento = It's windy! 💨"}
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Prepositions & Activities",
+          "sub": "Preposições (in/on/under/near) e atividades escolares",
+          "questions": [
+            {"id": "en2p_3_01", "type": "mc", "diff": 1, "q": "The book is ___ the table. (em cima de)", "options": ["on", "in", "under", "near"], "correct": 0, "explanation": "Em cima de = ON! The book is ON the table. 📚"},
+            {"id": "en2p_3_02", "type": "mc", "diff": 1, "q": "The cat is ___ the box. (dentro de)", "options": ["in", "on", "under", "near"], "correct": 0, "explanation": "Dentro de = IN! The cat is IN the box. 😸"},
+            {"id": "en2p_3_03", "type": "mc", "diff": 1, "q": "The ball is ___ the chair. (debaixo de)", "options": ["under", "on", "in", "near"], "correct": 0, "explanation": "Debaixo de = UNDER! ⚽"},
+            {"id": "en2p_3_04", "type": "mc", "diff": 1, "q": "The school is ___ my house. (perto de)", "options": ["near", "on", "in", "under"], "correct": 0, "explanation": "Perto de = NEAR! 🏫"},
+            {"id": "en2p_3_05", "type": "mc", "diff": 1, "q": "Como se diz «ler» em inglês?", "options": ["Read", "Write", "Draw", "Listen"], "correct": 0, "explanation": "Ler = Read! 📖"},
+            {"id": "en2p_3_06", "type": "mc", "diff": 1, "q": "Como se diz «escrever» em inglês?", "options": ["Write", "Read", "Draw", "Sing"], "correct": 0, "explanation": "Escrever = Write! ✍️"},
+            {"id": "en2p_3_07", "type": "mc", "diff": 1, "q": "The pencil is ___ the pencil case. (dentro de)", "options": ["in", "on", "under", "near"], "correct": 0, "explanation": "O lápis está dentro do estojo → IN!"},
+            {"id": "en2p_3_08", "type": "mc", "diff": 2, "q": "I ___ to music in class.", "options": ["listen", "read", "write", "draw"], "correct": 0, "explanation": "I listen to music! 🎵"},
+            {"id": "en2p_3_09", "type": "mc", "diff": 2, "q": "Como se diz «desenhar» em inglês?", "options": ["Draw", "Sing", "Dance", "Run"], "correct": 0, "explanation": "Desenhar = Draw! 🎨"},
+            {"id": "en2p_3_10", "type": "mc", "diff": 2, "q": "The teacher is ___ the board. (perto de)", "options": ["near", "in", "under", "on"], "correct": 0, "explanation": "O professor está perto do quadro → NEAR!"},
+            {"id": "en2p_3_11", "type": "type", "diff": 2, "q": "The cat is ___ the box. (dentro de) — escreve a preposição.", "accept": ["in"], "explanation": "Dentro de = IN!"},
+            {"id": "en2p_3_12", "type": "type", "diff": 2, "q": "The book is ___ the table. (em cima) — escreve a preposição.", "accept": ["on"], "explanation": "Em cima de = ON!"},
+            {"id": "en2p_3_13", "type": "type", "diff": 2, "q": "The ball is ___ the chair. (debaixo) — escreve a preposição.", "accept": ["under"], "explanation": "Debaixo de = UNDER!"},
+            {"id": "en2p_3_14", "type": "type", "diff": 3, "q": "The school is ___ my house. (perto) — escreve a preposição.", "accept": ["near"], "explanation": "Perto de = NEAR!"},
+            {"id": "en2p_3_15", "type": "type", "diff": 3, "q": "Como se diz «ouvir / escutar» em inglês?", "accept": ["listen", "Listen"], "explanation": "Ouvir = Listen! 👂"},
+            {"id": "en2p_3_16", "type": "type", "diff": 3, "q": "Como se diz «cantar» em inglês?", "accept": ["sing", "Sing"], "explanation": "Cantar = Sing! 🎵"},
+            {"id": "en2p_3_17", "type": "type", "diff": 3, "q": "Como se diz «correr» em inglês?", "accept": ["run", "Run"], "explanation": "Correr = Run! 🏃"},
+            {"id": "en2p_3_18", "type": "type", "diff": 3, "q": "Como se diz «saltar» em inglês?", "accept": ["jump", "Jump"], "explanation": "Saltar = Jump! 🐸"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en_3p_2026",
+      "name": "3.º Período 2025/26",
+      "examDate": null,
+      "archived": false,
+      "levels": []
+    }
+  ]
+}

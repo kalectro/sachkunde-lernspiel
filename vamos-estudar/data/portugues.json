@@ -1,0 +1,104 @@
+{
+  "subject": "portugues",
+  "name": "Português",
+  "emoji": "📚",
+  "color": "#FF6B6B",
+  "exams": [
+    {
+      "id": "pt_2p_2026",
+      "name": "2.º Período 2025/26",
+      "examDate": "2026-03-10",
+      "archived": true,
+      "levels": [
+        {
+          "id": 1,
+          "name": "Tipos de Palavras",
+          "sub": "Nomes, adjetivos, verbos e pronomes pessoais",
+          "questions": [
+            {"id": "pt2p_1_01", "type": "mc", "diff": 1, "q": "Qual é o NOME na frase: «O cão ladra.»?", "options": ["cão", "ladra", "O", "alto"], "correct": 0, "explanation": "«Cão» é o nome — é o nome do animal! 🐕"},
+            {"id": "pt2p_1_02", "type": "mc", "diff": 1, "q": "«Bonito» é um…?", "options": ["Adjetivo", "Nome", "Verbo", "Pronome"], "correct": 0, "explanation": "Adjetivo descreve como algo é — «bonito», «grande», «feliz»!"},
+            {"id": "pt2p_1_03", "type": "mc", "diff": 1, "q": "«Correr» é um…?", "options": ["Verbo", "Nome", "Adjetivo", "Pronome"], "correct": 0, "explanation": "Verbo indica uma ação — correr, saltar, comer!"},
+            {"id": "pt2p_1_04", "type": "mc", "diff": 1, "q": "Qual pronome substitui «Ana e eu»?", "options": ["Nós", "Eles", "Vós", "Eu"], "correct": 0, "explanation": "Ana + eu = duas pessoas → «nós»!"},
+            {"id": "pt2p_1_05", "type": "mc", "diff": 1, "q": "«Mesa» é um…?", "options": ["Nome", "Verbo", "Adjetivo", "Pronome"], "correct": 0, "explanation": "«Mesa» é o nome de um objeto."},
+            {"id": "pt2p_1_06", "type": "mc", "diff": 1, "q": "Qual é o ADJETIVO na frase: «A flor é linda.»?", "options": ["linda", "flor", "é", "A"], "correct": 0, "explanation": "«Linda» descreve a flor → é o adjetivo! 🌸"},
+            {"id": "pt2p_1_07", "type": "mc", "diff": 1, "q": "Qual pronome substitui «O Pedro e a Maria»?", "options": ["Eles", "Nós", "Vós", "Elas"], "correct": 0, "explanation": "Pedro (ele) + Maria (ela) → juntos = «eles»!"},
+            {"id": "pt2p_1_08", "type": "mc", "diff": 1, "q": "Qual é o VERBO na frase: «A Maria come uma maçã.»?", "options": ["come", "Maria", "maçã", "uma"], "correct": 0, "explanation": "«Come» é a ação que a Maria faz → é o verbo!"},
+            {"id": "pt2p_1_09", "type": "mc", "diff": 2, "q": "«Simpático» é um…?", "options": ["Adjetivo", "Nome", "Verbo", "Pronome"], "correct": 0, "explanation": "«Simpático» descreve uma pessoa → adjetivo!"},
+            {"id": "pt2p_1_10", "type": "mc", "diff": 2, "q": "«Saltar» é um…?", "options": ["Verbo", "Nome", "Adjetivo", "Pronome"], "correct": 0, "explanation": "«Saltar» é uma ação → verbo!"},
+            {"id": "pt2p_1_11", "type": "mc", "diff": 2, "q": "Qual pronome substitui «a professora»?", "options": ["ela", "ele", "eles", "elas"], "correct": 0, "explanation": "A professora é uma pessoa do sexo feminino, singular → ela!"},
+            {"id": "pt2p_1_12", "type": "mc", "diff": 2, "q": "«Água» é um…?", "options": ["Nome", "Adjetivo", "Verbo", "Pronome"], "correct": 0, "explanation": "«Água» é o nome de uma coisa!"},
+            {"id": "pt2p_1_13", "type": "type", "diff": 2, "q": "Qual pronome pessoal substitui «o João»?", "accept": ["ele"], "explanation": "«O João» é masculino singular → ele!"},
+            {"id": "pt2p_1_14", "type": "type", "diff": 2, "q": "Qual é a classe de palavras que indica uma AÇÃO?", "accept": ["verbo"], "explanation": "O verbo indica uma ação — correr, saltar, comer!"},
+            {"id": "pt2p_1_15", "type": "type", "diff": 3, "q": "Qual é a classe de palavras que DESCREVE um nome?", "accept": ["adjetivo"], "explanation": "O adjetivo descreve — lindo, rápido, feliz!"},
+            {"id": "pt2p_1_16", "type": "type", "diff": 3, "q": "Na frase «O gato dorme.», qual é o NOME?", "accept": ["gato", "o gato"], "explanation": "«Gato» é o nome — o nome do animal! 🐱"},
+            {"id": "pt2p_1_17", "type": "type", "diff": 3, "q": "Qual pronome pessoal substitui «a Joana»?", "accept": ["ela"], "explanation": "«A Joana» é feminino singular → ela!"},
+            {"id": "pt2p_1_18", "type": "type", "diff": 3, "q": "Qual pronome pessoal substitui «eu e o Rui» (juntos)?", "accept": ["nos", "nós"], "explanation": "Eu + o Rui = duas pessoas → nós!"},
+            {"id": "pt2p_1_19", "type": "type", "diff": 3, "q": "Na frase «O vento sopra.», qual é o VERBO?", "accept": ["sopra"], "explanation": "«Sopra» é a ação do vento → verbo!"},
+            {"id": "pt2p_1_20", "type": "type", "diff": 3, "q": "Escreve UM exemplo de NOME de animal.", "accept": ["gato", "cao", "cão", "peixe", "passaro", "pássaro", "leao", "leão", "cobra", "rato", "urso", "pato", "galo", "ovelha", "vaca", "porco", "cavalo", "elefante", "girafa", "zebra", "tigre", "lobo", "raposa", "coelho", "hamster", "papagaio", "tartaruga", "pombo", "aguia", "águia"], "explanation": "Nome de animal: gato, cão, peixe… há muitos! 🐾"}
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Verbos e Família de Palavras",
+          "sub": "Conjugação, tempos verbais, famílias e plurais",
+          "questions": [
+            {"id": "pt2p_2_01", "type": "mc", "diff": 1, "q": "Qual é o presente do verbo «ser» para «eu»?", "options": ["sou", "és", "é", "somos"], "correct": 0, "explanation": "Eu SOU, tu és, ele é — verbo «ser»!"},
+            {"id": "pt2p_2_02", "type": "mc", "diff": 1, "q": "«Cantei» está em que tempo verbal?", "options": ["Pretérito Perfeito", "Presente", "Futuro", "Imperfeito"], "correct": 0, "explanation": "«Cantei» foi no passado e já acabou → Pretérito Perfeito!"},
+            {"id": "pt2p_2_03", "type": "mc", "diff": 1, "q": "A frase «O Pedro não come.» é…?", "options": ["Negativa", "Afirmativa", "Interrogativa", "Exclamativa"], "correct": 0, "explanation": "Tem a palavra «não» → frase negativa!"},
+            {"id": "pt2p_2_04", "type": "mc", "diff": 1, "q": "Qual palavra pertence à família de «mar»?", "options": ["Marítimo", "Floresta", "Montanha", "Lago"], "correct": 0, "explanation": "«Marítimo» vem de «mar» — mesma família!"},
+            {"id": "pt2p_2_05", "type": "mc", "diff": 1, "q": "Qual é o plural de «lápis»?", "options": ["lápis", "lápises", "lápiss", "lápens"], "correct": 0, "explanation": "«Lápis» não muda no plural — é sempre «lápis»!"},
+            {"id": "pt2p_2_06", "type": "mc", "diff": 1, "q": "Qual é o feminino de «ator»?", "options": ["atriz", "atora", "actriz", "atuadora"], "correct": 0, "explanation": "O feminino de «ator» é «atriz»!"},
+            {"id": "pt2p_2_07", "type": "mc", "diff": 1, "q": "«Corria» está em que tempo verbal?", "options": ["Pretérito Imperfeito", "Presente", "Futuro", "Perfeito"], "correct": 0, "explanation": "«Corria» — ação que se repetia no passado → Imperfeito!"},
+            {"id": "pt2p_2_08", "type": "mc", "diff": 1, "q": "Qual palavra pertence à família de «sol»?", "options": ["Solar", "Lunar", "Estelar", "Celeste"], "correct": 0, "explanation": "«Solar» vem de «sol» — mesma família! ☀️"},
+            {"id": "pt2p_2_09", "type": "mc", "diff": 2, "q": "Qual é o plural de «chapéu»?", "options": ["chapéus", "chapéuis", "chapéues", "chapéis"], "correct": 0, "explanation": "O plural de «chapéu» é «chapéus»!"},
+            {"id": "pt2p_2_10", "type": "mc", "diff": 2, "q": "A frase «O João come a sopa.» é…?", "options": ["Afirmativa", "Negativa", "Interrogativa", "Exclamativa"], "correct": 0, "explanation": "Sem «não», «?» ou «!» especial → afirmativa!"},
+            {"id": "pt2p_2_11", "type": "mc", "diff": 2, "q": "Qual é o presente do verbo «ter» para «eu»?", "options": ["tenho", "tens", "tem", "temos"], "correct": 0, "explanation": "Eu TENHO, tu tens, ele tem — verbo «ter»!"},
+            {"id": "pt2p_2_12", "type": "mc", "diff": 2, "q": "«Brincava» está em que tempo verbal?", "options": ["Pretérito Imperfeito", "Presente", "Futuro", "Perfeito"], "correct": 0, "explanation": "«Brincava» — ação habitual no passado → Imperfeito!"},
+            {"id": "pt2p_2_13", "type": "type", "diff": 2, "q": "Qual é o plural de «mão»?", "accept": ["maos", "mãos"], "explanation": "O plural de «mão» é «mãos»!"},
+            {"id": "pt2p_2_14", "type": "type", "diff": 2, "q": "Qual é o feminino de «rei»?", "accept": ["rainha"], "explanation": "O feminino de «rei» é «rainha»! 👑"},
+            {"id": "pt2p_2_15", "type": "type", "diff": 3, "q": "Qual é o plural de «pão»?", "accept": ["paes", "pães"], "explanation": "O plural de «pão» é «pães»!"},
+            {"id": "pt2p_2_16", "type": "type", "diff": 3, "q": "«Fui» é o passado do verbo…?", "accept": ["ir"], "explanation": "«Fui» é o Pretérito Perfeito do verbo «ir»!"},
+            {"id": "pt2p_2_17", "type": "type", "diff": 3, "q": "Qual é o feminino de «leão»?", "accept": ["leoa"], "explanation": "O feminino de «leão» é «leoa»! 🦁"},
+            {"id": "pt2p_2_18", "type": "type", "diff": 3, "q": "Qual é o plural de «avó»?", "accept": ["avos", "avós"], "explanation": "O plural de «avó» é «avós»!"},
+            {"id": "pt2p_2_19", "type": "type", "diff": 3, "q": "Qual palavra da família de «terra» significa «relativo à terra»?", "accept": ["terrestre", "terreno"], "explanation": "«Terrestre» e «terreno» pertencem à família de «terra»!"},
+            {"id": "pt2p_2_20", "type": "type", "diff": 3, "q": "Qual é o plural de «mão»? (escreve sem acento se não conseguires)", "accept": ["maos", "mãos"], "explanation": "«mãos» é o plural de «mão»!"}
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Texto e Interpretação",
+          "sub": "Sujeito, predicado, sinónimos, antónimos e texto informativo",
+          "questions": [
+            {"id": "pt2p_3_01", "type": "mc", "diff": 1, "q": "Num texto informativo, o título serve para…?", "options": ["Indicar o assunto", "Decorar a página", "Contar uma aventura", "Fazer rir"], "correct": 0, "explanation": "O título indica o tema do texto!"},
+            {"id": "pt2p_3_02", "type": "mc", "diff": 1, "q": "Qual é o SUJEITO na frase: «O gato bebeu leite.»?", "options": ["O gato", "bebeu", "leite", "o"], "correct": 0, "explanation": "O sujeito é quem faz a ação — «o gato» bebeu!"},
+            {"id": "pt2p_3_03", "type": "mc", "diff": 1, "q": "Qual é o PREDICADO na frase: «O Pedro correu.»?", "options": ["correu", "O Pedro", "o", "Pedro correu"], "correct": 0, "explanation": "O predicado inclui o verbo — «correu» diz o que o Pedro fez!"},
+            {"id": "pt2p_3_04", "type": "mc", "diff": 1, "q": "O SINÓNIMO de «grande» é…?", "options": ["enorme", "pequeno", "médio", "baixo"], "correct": 0, "explanation": "Sinónimo = significado parecido. «Enorme» ≈ grande!"},
+            {"id": "pt2p_3_05", "type": "mc", "diff": 1, "q": "O ANTÓNIMO de «feliz» é…?", "options": ["triste", "alegre", "contente", "animado"], "correct": 0, "explanation": "Antónimo = contrário. «Triste» ≠ «feliz»!"},
+            {"id": "pt2p_3_06", "type": "mc", "diff": 1, "q": "O ANTÓNIMO de «rápido» é…?", "options": ["lento", "veloz", "ágil", "ligeiro"], "correct": 0, "explanation": "«Lento» é o contrário de «rápido»! 🐢"},
+            {"id": "pt2p_3_07", "type": "mc", "diff": 1, "q": "Qual palavra NÃO pertence à família de «terra»?", "options": ["Marítimo", "Terreno", "Aterrar", "Terrestre"], "correct": 0, "explanation": "«Marítimo» vem de «mar», não de «terra»!"},
+            {"id": "pt2p_3_08", "type": "mc", "diff": 1, "q": "Um texto informativo serve para…?", "options": ["Dar informação sobre um tema", "Contar uma aventura", "Fazer rir", "Expressar sentimentos"], "correct": 0, "explanation": "O texto informativo ensina e informa!"},
+            {"id": "pt2p_3_09", "type": "mc", "diff": 2, "q": "O SINÓNIMO de «bonito» é…?", "options": ["lindo", "feio", "velho", "pequeno"], "correct": 0, "explanation": "«Lindo» e «bonito» têm significado igual!"},
+            {"id": "pt2p_3_10", "type": "mc", "diff": 2, "q": "As PERSONAGENS de uma história são…?", "options": ["as pessoas ou animais da história", "o lugar onde passa", "o tempo da história", "o autor"], "correct": 0, "explanation": "As personagens são quem participa na história!"},
+            {"id": "pt2p_3_11", "type": "mc", "diff": 2, "q": "O SINÓNIMO de «rápido» é…?", "options": ["veloz", "lento", "devagar", "parado"], "correct": 0, "explanation": "«Veloz» e «rápido» têm o mesmo significado!"},
+            {"id": "pt2p_3_12", "type": "mc", "diff": 2, "q": "O ANTÓNIMO de «grande» é…?", "options": ["pequeno", "enorme", "maior", "gigante"], "correct": 0, "explanation": "O contrário de «grande» é «pequeno»!"},
+            {"id": "pt2p_3_13", "type": "type", "diff": 2, "q": "Qual é o ANTÓNIMO de «frio»?", "accept": ["quente"], "explanation": "O contrário de «frio» é «quente»! 🔥"},
+            {"id": "pt2p_3_14", "type": "type", "diff": 2, "q": "Qual é o ANTÓNIMO de «dia»?", "accept": ["noite"], "explanation": "O contrário de «dia» é «noite»! 🌙"},
+            {"id": "pt2p_3_15", "type": "type", "diff": 3, "q": "Qual é o ANTÓNIMO de «bonito»?", "accept": ["feio"], "explanation": "O contrário de «bonito» é «feio»!"},
+            {"id": "pt2p_3_16", "type": "type", "diff": 3, "q": "Qual é o ANTÓNIMO de «subir»?", "accept": ["descer"], "explanation": "O contrário de «subir» é «descer»!"},
+            {"id": "pt2p_3_17", "type": "type", "diff": 3, "q": "Na frase «O menino comeu.», qual é o SUJEITO?", "accept": ["o menino", "menino"], "explanation": "O sujeito é quem faz a ação — «o menino»!"},
+            {"id": "pt2p_3_18", "type": "type", "diff": 3, "q": "Qual é o ANTÓNIMO de «abrir»?", "accept": ["fechar"], "explanation": "O contrário de «abrir» é «fechar»!"},
+            {"id": "pt2p_3_19", "type": "type", "diff": 3, "q": "Dá um SINÓNIMO de «casa».", "accept": ["lar", "habitacao", "habitação", "residencia", "residência", "morada"], "explanation": "«Lar», «habitação», «morada» são sinónimos de «casa»!"},
+            {"id": "pt2p_3_20", "type": "type", "diff": 3, "q": "Qual é o ANTÓNIMO de «cheio»?", "accept": ["vazio"], "explanation": "O contrário de «cheio» é «vazio»!"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pt_3p_2026",
+      "name": "3.º Período 2025/26",
+      "examDate": null,
+      "archived": false,
+      "levels": []
+    }
+  ]
+}

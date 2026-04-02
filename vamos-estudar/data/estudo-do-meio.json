@@ -1,0 +1,102 @@
+{
+  "subject": "estudoMeio",
+  "name": "Estudo do Meio",
+  "emoji": "🌍",
+  "color": "#0984e3",
+  "exams": [
+    {
+      "id": "em_2p_2026",
+      "name": "2.º Período 2025/26",
+      "examDate": "2026-03-13",
+      "archived": true,
+      "levels": [
+        {
+          "id": 1,
+          "name": "Terra, Continentes e Relevo",
+          "sub": "Representação da Terra, continentes, oceanos e formas de relevo",
+          "questions": [
+            {"id": "em2p_1_01", "type": "mc", "diff": 1, "q": "Quantos continentes existem no mundo?", "options": ["5", "4", "6", "7"], "correct": 0, "explanation": "São 5 continentes: Europa, Ásia, África, América e Oceânia! 🌍"},
+            {"id": "em2p_1_02", "type": "mc", "diff": 1, "q": "Qual é o MAIOR oceano do mundo?", "options": ["Pacífico", "Atlântico", "Índico", "Ártico"], "correct": 0, "explanation": "O Oceano Pacífico é o maior!"},
+            {"id": "em2p_1_03", "type": "mc", "diff": 1, "q": "Portugal fica no continente…?", "options": ["Europa", "Ásia", "África", "América"], "correct": 0, "explanation": "Portugal fica na Europa, a sudoeste! 🇵🇹"},
+            {"id": "em2p_1_04", "type": "mc", "diff": 1, "q": "Como se chama a representação PLANA da Terra?", "options": ["Mapa", "Globo", "Atlas", "Bússola"], "correct": 0, "explanation": "O mapa é uma representação plana da Terra!"},
+            {"id": "em2p_1_05", "type": "mc", "diff": 1, "q": "Uma elevação muito alta chama-se…?", "options": ["Montanha", "Planície", "Vale", "Planalto"], "correct": 0, "explanation": "Uma montanha é uma grande elevação do terreno! ⛰️"},
+            {"id": "em2p_1_06", "type": "mc", "diff": 1, "q": "Qual oceano banha Portugal?", "options": ["Atlântico", "Pacífico", "Índico", "Ártico"], "correct": 0, "explanation": "Portugal é banhado pelo Oceano Atlântico! 🌊"},
+            {"id": "em2p_1_07", "type": "mc", "diff": 1, "q": "Uma zona PLANA a grande altitude chama-se…?", "options": ["Planalto", "Planície", "Vale", "Colina"], "correct": 0, "explanation": "O planalto é uma zona plana a grande altitude!"},
+            {"id": "em2p_1_08", "type": "mc", "diff": 1, "q": "O GLOBO representa…?", "options": ["A Terra em forma esférica", "Um mapa plano", "O sistema solar", "A Lua"], "correct": 0, "explanation": "O globo é uma representação esférica (em 3D) da Terra!"},
+            {"id": "em2p_1_09", "type": "mc", "diff": 2, "q": "O Brasil fica no continente…?", "options": ["América", "Europa", "África", "Ásia"], "correct": 0, "explanation": "O Brasil fica na América do Sul! 🇧🇷"},
+            {"id": "em2p_1_10", "type": "mc", "diff": 2, "q": "Uma zona plana a BAIXA altitude chama-se…?", "options": ["Planície", "Planalto", "Montanha", "Vale"], "correct": 0, "explanation": "A planície é uma zona plana a baixa altitude!"},
+            {"id": "em2p_1_11", "type": "mc", "diff": 2, "q": "Qual é o MENOR oceano do mundo?", "options": ["Ártico", "Pacífico", "Atlântico", "Índico"], "correct": 0, "explanation": "O Oceano Ártico é o menor!"},
+            {"id": "em2p_1_12", "type": "mc", "diff": 2, "q": "Em que continente fica a China?", "options": ["Ásia", "Europa", "África", "América"], "correct": 0, "explanation": "A China fica na Ásia!"},
+            {"id": "em2p_1_13", "type": "type", "diff": 2, "q": "Qual instrumento representa a Terra em forma esférica?", "accept": ["globo"], "explanation": "O globo representa a Terra em forma esférica!"},
+            {"id": "em2p_1_14", "type": "type", "diff": 2, "q": "Quantos continentes existem? (escreve o número)", "accept": ["5", "cinco"], "explanation": "Existem 5 continentes!"},
+            {"id": "em2p_1_15", "type": "type", "diff": 3, "q": "Qual oceano banha Portugal? (só o nome do oceano)", "accept": ["atlantico", "atlântico", "oceano atlantico", "oceano atlântico"], "explanation": "Portugal é banhado pelo Oceano Atlântico!"},
+            {"id": "em2p_1_16", "type": "type", "diff": 3, "q": "Em que continente fica o Egito?", "accept": ["africa", "áfrica"], "explanation": "O Egito fica no continente africano!"},
+            {"id": "em2p_1_17", "type": "type", "diff": 3, "q": "Em que continente fica o Japão?", "accept": ["asia", "ásia"], "explanation": "O Japão fica na Ásia!"},
+            {"id": "em2p_1_18", "type": "type", "diff": 3, "q": "Como se chama uma representação PLANA da Terra? (uma palavra)", "accept": ["mapa"], "explanation": "O mapa é uma representação plana da Terra!"},
+            {"id": "em2p_1_19", "type": "type", "diff": 3, "q": "Em que continente fica Portugal?", "accept": ["europa"], "explanation": "Portugal fica na Europa!"},
+            {"id": "em2p_1_20", "type": "type", "diff": 3, "q": "Em que continente fica o Brasil?", "accept": ["america", "américa"], "explanation": "O Brasil fica na América (do Sul)!"}
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Rosa dos Ventos e o Espaço",
+          "sub": "Pontos cardeais/colaterais, fases da Lua, rotação e translação",
+          "questions": [
+            {"id": "em2p_2_01", "type": "mc", "diff": 1, "q": "Quantos pontos CARDEAIS existem?", "options": ["4", "2", "6", "8"], "correct": 0, "explanation": "São 4 pontos cardeais: Norte, Sul, Este e Oeste! 🧭"},
+            {"id": "em2p_2_02", "type": "mc", "diff": 1, "q": "O Sol NASCE a…?", "options": ["Este (E)", "Oeste (O)", "Norte (N)", "Sul (S)"], "correct": 0, "explanation": "O Sol nasce sempre a Este e põe-se a Oeste!"},
+            {"id": "em2p_2_03", "type": "mc", "diff": 1, "q": "Quantas FASES tem a Lua?", "options": ["4", "3", "2", "8"], "correct": 0, "explanation": "A Lua tem 4 fases: Nova, Quarto Crescente, Cheia e Minguante! 🌙"},
+            {"id": "em2p_2_04", "type": "mc", "diff": 1, "q": "A ROTAÇÃO da Terra demora…?", "options": ["24 horas", "365 dias", "12 horas", "7 dias"], "correct": 0, "explanation": "A Terra demora 24 horas (1 dia) a girar sobre si própria!"},
+            {"id": "em2p_2_05", "type": "mc", "diff": 1, "q": "A TRANSLAÇÃO da Terra demora…?", "options": ["365 dias", "24 horas", "30 dias", "7 dias"], "correct": 0, "explanation": "A Terra demora 365 dias (1 ano) a orbitar o Sol! ☀️"},
+            {"id": "em2p_2_06", "type": "mc", "diff": 1, "q": "Entre o Norte e o Este fica o ponto…?", "options": ["Nordeste", "Noroeste", "Sudeste", "Sudoeste"], "correct": 0, "explanation": "Entre Norte e Este fica o Nordeste!"},
+            {"id": "em2p_2_07", "type": "mc", "diff": 1, "q": "Como se chama a fase em que não vemos a Lua?", "options": ["Lua Nova", "Lua Cheia", "Quarto Crescente", "Quarto Minguante"], "correct": 0, "explanation": "Na Lua Nova o lado iluminado está voltado para longe de nós!"},
+            {"id": "em2p_2_08", "type": "mc", "diff": 1, "q": "A ROTAÇÃO da Terra causa…?", "options": ["O dia e a noite", "As estações do ano", "As marés", "O vento"], "correct": 0, "explanation": "Como a Terra roda, um lado fica com Sol (dia) e outro escuro (noite)!"},
+            {"id": "em2p_2_09", "type": "mc", "diff": 2, "q": "O Sol PÕE-SE a…?", "options": ["Oeste (O)", "Este (E)", "Norte (N)", "Sul (S)"], "correct": 0, "explanation": "O Sol nasce a Este e põe-se a Oeste!"},
+            {"id": "em2p_2_10", "type": "mc", "diff": 2, "q": "Entre o Sul e o Oeste fica o ponto…?", "options": ["Sudoeste", "Sudeste", "Noroeste", "Nordeste"], "correct": 0, "explanation": "Entre Sul e Oeste fica o Sudoeste!"},
+            {"id": "em2p_2_11", "type": "mc", "diff": 2, "q": "A TRANSLAÇÃO da Terra causa…?", "options": ["As estações do ano", "O dia e a noite", "As marés", "A chuva"], "correct": 0, "explanation": "Como a Terra orbita o Sol em ângulo, temos as 4 estações!"},
+            {"id": "em2p_2_12", "type": "mc", "diff": 2, "q": "O Sul fica na direção…?", "options": ["Oposta ao Norte", "À direita no mapa", "À esquerda no mapa", "A cima"], "correct": 0, "explanation": "Norte e Sul são opostos! Sul fica na parte de baixo do mapa!"},
+            {"id": "em2p_2_13", "type": "type", "diff": 2, "q": "Quantas fases tem a Lua? (escreve o número)", "accept": ["4", "quatro"], "explanation": "A Lua tem 4 fases!"},
+            {"id": "em2p_2_14", "type": "type", "diff": 2, "q": "Quantos pontos cardeais existem? (escreve o número)", "accept": ["4", "quatro"], "explanation": "Existem 4 pontos cardeais: N, S, E, O!"},
+            {"id": "em2p_2_15", "type": "type", "diff": 3, "q": "A rotação da Terra demora quantas horas? (escreve o número)", "accept": ["24"], "explanation": "A Terra demora 24 horas a girar!"},
+            {"id": "em2p_2_16", "type": "type", "diff": 3, "q": "A translação da Terra demora quantos dias? (escreve o número)", "accept": ["365"], "explanation": "A Terra demora 365 dias a orbitar o Sol!"},
+            {"id": "em2p_2_17", "type": "type", "diff": 3, "q": "Como se chama a fase da Lua quando a vemos completamente iluminada?", "accept": ["lua cheia", "cheia"], "explanation": "A Lua Cheia é quando a vemos completa! 🌕"},
+            {"id": "em2p_2_18", "type": "type", "diff": 3, "q": "Qual é o oposto de Norte na rosa dos ventos?", "accept": ["sul"], "explanation": "Norte e Sul são opostos na rosa dos ventos!"},
+            {"id": "em2p_2_19", "type": "type", "diff": 3, "q": "A que lado fica o Este num mapa (direita ou esquerda)?", "accept": ["direita"], "explanation": "No mapa, o Este fica à direita e o Oeste à esquerda!"},
+            {"id": "em2p_2_20", "type": "type", "diff": 3, "q": "Que movimento da Terra causa o dia e a noite? (uma palavra)", "accept": ["rotacao", "rotação"], "explanation": "A rotação (girar sobre si própria) causa o dia e a noite!"}
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Ímanes, Luz e Erosão",
+          "sub": "Agentes erosivos, propriedades dos ímanes e da luz",
+          "questions": [
+            {"id": "em2p_3_01", "type": "mc", "diff": 1, "q": "O PRINCIPAL agente erosivo é…?", "options": ["A água", "O vento", "O gelo", "O calor"], "correct": 0, "explanation": "A água é o principal agente erosivo!"},
+            {"id": "em2p_3_02", "type": "mc", "diff": 1, "q": "Um íman atrai objetos de…?", "options": ["Ferro e aço", "Plástico", "Madeira", "Vidro"], "correct": 0, "explanation": "Os ímanes atraem materiais ferrosos! 🧲"},
+            {"id": "em2p_3_03", "type": "mc", "diff": 1, "q": "A luz viaja em linha…?", "options": ["Reta", "Curva", "Espiral", "Quebrada"], "correct": 0, "explanation": "A luz sempre viaja em linha reta! 💡"},
+            {"id": "em2p_3_04", "type": "mc", "diff": 1, "q": "Um objeto que deixa passar TODA a luz é…?", "options": ["Transparente", "Opaco", "Translúcido", "Refletor"], "correct": 0, "explanation": "Transparente = deixa ver através. Ex.: vidro! 🔍"},
+            {"id": "em2p_3_05", "type": "mc", "diff": 1, "q": "Quando dois polos IGUAIS de um íman se encontram, eles…?", "options": ["Repelem-se", "Atraem-se", "Ficam juntos", "Não reagem"], "correct": 0, "explanation": "Polos iguais repelem-se! N+N ou S+S afastam-se!"},
+            {"id": "em2p_3_06", "type": "mc", "diff": 1, "q": "Um objeto que NÃO deixa passar a luz é…?", "options": ["Opaco", "Transparente", "Translúcido", "Brilhante"], "correct": 0, "explanation": "Opaco = não deixa passar a luz. Ex.: pedra, madeira!"},
+            {"id": "em2p_3_07", "type": "mc", "diff": 1, "q": "O vento erosiona principalmente…?", "options": ["As rochas e solos", "A água dos rios", "As plantas", "Os animais"], "correct": 0, "explanation": "O vento desgasta e transporta partículas de rocha e solo!"},
+            {"id": "em2p_3_08", "type": "mc", "diff": 1, "q": "Um íman tem quantos polos?", "options": ["2", "1", "4", "3"], "correct": 0, "explanation": "Todo o íman tem exatamente 2 polos: Norte (N) e Sul (S)!"},
+            {"id": "em2p_3_09", "type": "mc", "diff": 2, "q": "A sombra forma-se porque o objeto é…?", "options": ["Opaco", "Transparente", "Translúcido", "Colorido"], "correct": 0, "explanation": "Objetos opacos bloqueiam a luz e criam sombras!"},
+            {"id": "em2p_3_10", "type": "mc", "diff": 2, "q": "O gelo ao derreter dentro de fendas nas rochas pode…?", "options": ["Partir as rochas", "Criar montanhas", "Fazer rios", "Criar vento"], "correct": 0, "explanation": "Quando a água congela, expande e parte as rochas!"},
+            {"id": "em2p_3_11", "type": "type", "diff": 2, "q": "Quantos polos tem um íman? (escreve o número)", "accept": ["2", "dois"], "explanation": "Um íman tem sempre 2 polos: Norte e Sul!"},
+            {"id": "em2p_3_12", "type": "type", "diff": 2, "q": "Como se chama um objeto que NÃO deixa passar a luz? (uma palavra)", "accept": ["opaco"], "explanation": "Opaco = não deixa passar a luz!"},
+            {"id": "em2p_3_13", "type": "type", "diff": 2, "q": "Como se chama um objeto que deixa passar TODA a luz? (uma palavra)", "accept": ["transparente"], "explanation": "Transparente = deixa ver através! Ex.: vidro!"},
+            {"id": "em2p_3_14", "type": "type", "diff": 2, "q": "Qual é o principal agente erosivo? (uma palavra)", "accept": ["agua", "água", "a agua", "a água"], "explanation": "A água é o principal agente erosivo!"},
+            {"id": "em2p_3_15", "type": "type", "diff": 3, "q": "Como se chama um objeto que deixa passar ALGUMA luz mas não toda?", "accept": ["translucido", "translúcido"], "explanation": "Translúcido = deixa passar alguma luz. Ex.: papel vegetal!"},
+            {"id": "em2p_3_16", "type": "type", "diff": 3, "q": "A luz viaja em linha…? (uma palavra)", "accept": ["reta", "recta"], "explanation": "A luz sempre viaja em linha reta!"},
+            {"id": "em2p_3_17", "type": "type", "diff": 3, "q": "Um íman tem o polo Norte e o polo…?", "accept": ["sul"], "explanation": "Um íman tem o polo Norte (N) e o polo Sul (S)!"},
+            {"id": "em2p_3_18", "type": "type", "diff": 3, "q": "Que fenómeno ocorre quando dois polos IGUAIS de um íman se juntam? (uma palavra)", "accept": ["repulsao", "repulsão", "repelem", "repelem-se"], "explanation": "Polos iguais repelem-se — é a repulsão magnética!"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "em_3p_2026",
+      "name": "3.º Período 2025/26",
+      "examDate": null,
+      "archived": false,
+      "levels": []
+    }
+  ]
+}

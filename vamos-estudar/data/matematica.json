@@ -1,0 +1,102 @@
+{
+  "subject": "matematica",
+  "name": "Matemática",
+  "emoji": "🔢",
+  "color": "#00b894",
+  "exams": [
+    {
+      "id": "mat_2p_2026",
+      "name": "2.º Período 2025/26",
+      "examDate": "2026-03-11",
+      "archived": true,
+      "levels": [
+        {
+          "id": 1,
+          "name": "Números e Tabuadas",
+          "sub": "Números até 5000, cálculo mental, multiplicação",
+          "questions": [
+            {"id": "mat2p_1_01", "type": "mc", "diff": 1, "q": "Quanto é 3 × 7?", "options": ["21", "24", "18", "27"], "correct": 0, "explanation": "3 × 7 = 21. Conta de 3 em 3: 3, 6, 9… 21!"},
+            {"id": "mat2p_1_02", "type": "mc", "diff": 1, "q": "No número 4 523, qual é o algarismo das CENTENAS?", "options": ["5", "4", "2", "3"], "correct": 0, "explanation": "4 523: 4 mil + 5 centenas + 2 dezenas + 3 unidades!"},
+            {"id": "mat2p_1_03", "type": "mc", "diff": 1, "q": "Quanto é 4 × 8?", "options": ["32", "34", "28", "36"], "correct": 0, "explanation": "4 × 8 = 32!"},
+            {"id": "mat2p_1_04", "type": "mc", "diff": 1, "q": "2 000 + 300 + 40 + 5 = ?", "options": ["2 345", "2 354", "2 435", "2 534"], "correct": 0, "explanation": "2 milhar + 3 centenas + 4 dezenas + 5 = 2 345!"},
+            {"id": "mat2p_1_05", "type": "mc", "diff": 1, "q": "Qual é o DOBRO de 9?", "options": ["18", "16", "20", "14"], "correct": 0, "explanation": "Dobro = × 2. 9 × 2 = 18!"},
+            {"id": "mat2p_1_06", "type": "mc", "diff": 1, "q": "Quanto é 5 × 6?", "options": ["30", "25", "35", "28"], "correct": 0, "explanation": "5 × 6 = 30!"},
+            {"id": "mat2p_1_07", "type": "mc", "diff": 1, "q": "Qual é o TRIPLO de 4?", "options": ["12", "8", "16", "10"], "correct": 0, "explanation": "Triplo = × 3. 4 × 3 = 12!"},
+            {"id": "mat2p_1_08", "type": "mc", "diff": 1, "q": "Quanto é 100 − 37?", "options": ["63", "67", "73", "57"], "correct": 0, "explanation": "100 − 37 = 63. Verifica: 63 + 37 = 100! ✅"},
+            {"id": "mat2p_1_09", "type": "mc", "diff": 2, "q": "Quanto é 7 × 8?", "options": ["56", "54", "48", "63"], "correct": 0, "explanation": "7 × 8 = 56!"},
+            {"id": "mat2p_1_10", "type": "mc", "diff": 2, "q": "Quanto é 6 × 9?", "options": ["54", "48", "56", "63"], "correct": 0, "explanation": "6 × 9 = 54!"},
+            {"id": "mat2p_1_11", "type": "mc", "diff": 2, "q": "Decomposição: 3 407 = 3 000 + ___ + 7", "options": ["400", "40", "4", "407"], "correct": 0, "explanation": "3 407 = 3 000 + 400 + 0 + 7 → são 400!"},
+            {"id": "mat2p_1_12", "type": "mc", "diff": 2, "q": "No número 1 852, qual é o algarismo das DEZENAS?", "options": ["5", "8", "1", "2"], "correct": 0, "explanation": "1 852: 1 mil + 8 centenas + 5 dezenas + 2 unidades!"},
+            {"id": "mat2p_1_13", "type": "type", "diff": 2, "q": "Quanto é 4 × 6?", "accept": ["24"], "explanation": "4 × 6 = 24!"},
+            {"id": "mat2p_1_14", "type": "type", "diff": 2, "q": "Quanto é 7 × 7?", "accept": ["49"], "explanation": "7 × 7 = 49!"},
+            {"id": "mat2p_1_15", "type": "type", "diff": 3, "q": "Quanto é 8 × 9?", "accept": ["72"], "explanation": "8 × 9 = 72!"},
+            {"id": "mat2p_1_16", "type": "type", "diff": 3, "q": "Quanto é 100 − 58?", "accept": ["42"], "explanation": "100 − 58 = 42. Verifica: 42 + 58 = 100!"},
+            {"id": "mat2p_1_17", "type": "type", "diff": 3, "q": "Qual é o DOBRO de 6?", "accept": ["12"], "explanation": "Dobro = × 2. 6 × 2 = 12!"},
+            {"id": "mat2p_1_18", "type": "type", "diff": 3, "q": "Qual é o TRIPLO de 7?", "accept": ["21"], "explanation": "Triplo = × 3. 7 × 3 = 21!"},
+            {"id": "mat2p_1_19", "type": "type", "diff": 3, "q": "Quanto é 9 × 9?", "accept": ["81"], "explanation": "9 × 9 = 81!"},
+            {"id": "mat2p_1_20", "type": "type", "diff": 3, "q": "No número 2 645, quantas CENTENAS há? (escreve só o algarismo)", "accept": ["6"], "explanation": "2 645: 2 mil + 6 centenas + 4 dezenas + 5!"}
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Algoritmos e Sequências",
+          "sub": "Adição/subtração com transporte, ordinais e sequências",
+          "questions": [
+            {"id": "mat2p_2_01", "type": "mc", "diff": 1, "q": "Qual o número que falta: 5, 10, 15, 20, ___?", "options": ["25", "22", "24", "30"], "correct": 0, "explanation": "Soma 5 de cada vez: 20 + 5 = 25!"},
+            {"id": "mat2p_2_02", "type": "mc", "diff": 1, "q": "O Miguel chegou em 3.º lugar. Isso significa que chegou em…?", "options": ["terceiro", "primeiro", "segundo", "quarto"], "correct": 0, "explanation": "3.º = terceiro lugar!"},
+            {"id": "mat2p_2_03", "type": "mc", "diff": 1, "q": "Qual o número que falta: 2, 4, 8, 16, ___?", "options": ["32", "24", "20", "18"], "correct": 0, "explanation": "Multiplica por 2: 16 × 2 = 32!"},
+            {"id": "mat2p_2_04", "type": "mc", "diff": 1, "q": "Quanto é 268 + 347?", "options": ["615", "605", "625", "515"], "correct": 0, "explanation": "268 + 347 = 615!"},
+            {"id": "mat2p_2_05", "type": "mc", "diff": 1, "q": "Quanto é 523 − 286?", "options": ["237", "247", "227", "337"], "correct": 0, "explanation": "523 − 286 = 237. Verifica: 237 + 286 = 523!"},
+            {"id": "mat2p_2_06", "type": "mc", "diff": 1, "q": "Como se diz 10.º por extenso?", "options": ["décimo", "nono", "undécimo", "oitavo"], "correct": 0, "explanation": "10.º = décimo!"},
+            {"id": "mat2p_2_07", "type": "mc", "diff": 1, "q": "Qual o número que falta: 100, 200, 300, 400, ___?", "options": ["500", "450", "410", "600"], "correct": 0, "explanation": "Soma 100: 400 + 100 = 500!"},
+            {"id": "mat2p_2_08", "type": "mc", "diff": 1, "q": "Quanto é 1 254 + 2 631?", "options": ["3 885", "3 785", "3 875", "3 985"], "correct": 0, "explanation": "1 254 + 2 631 = 3 885!"},
+            {"id": "mat2p_2_09", "type": "mc", "diff": 2, "q": "Como se diz 20.º por extenso?", "options": ["vigésimo", "décimo", "décimo nono", "décimo segundo"], "correct": 0, "explanation": "20.º = vigésimo!"},
+            {"id": "mat2p_2_10", "type": "mc", "diff": 2, "q": "Qual o número que falta: 3, 6, 9, 12, ___?", "options": ["15", "14", "16", "18"], "correct": 0, "explanation": "Tabuada do 3! 12 + 3 = 15!"},
+            {"id": "mat2p_2_11", "type": "mc", "diff": 2, "q": "Como se diz 5.º por extenso?", "options": ["quinto", "sexto", "quarto", "sétimo"], "correct": 0, "explanation": "5.º = quinto!"},
+            {"id": "mat2p_2_12", "type": "mc", "diff": 2, "q": "Como se diz 3.º por extenso?", "options": ["terceiro", "segundo", "quarto", "primeiro"], "correct": 0, "explanation": "3.º = terceiro!"},
+            {"id": "mat2p_2_13", "type": "type", "diff": 2, "q": "Qual o número que falta: 7, 14, 21, 28, ___?", "accept": ["35"], "explanation": "Tabuada do 7! 28 + 7 = 35!"},
+            {"id": "mat2p_2_14", "type": "type", "diff": 2, "q": "Quanto é 385 + 248?", "accept": ["633"], "explanation": "385 + 248 = 633!"},
+            {"id": "mat2p_2_15", "type": "type", "diff": 3, "q": "Quanto é 700 − 263?", "accept": ["437"], "explanation": "700 − 263 = 437. Verifica: 437 + 263 = 700!"},
+            {"id": "mat2p_2_16", "type": "type", "diff": 3, "q": "Como se escreve 1.º por extenso?", "accept": ["primeiro"], "explanation": "1.º = primeiro!"},
+            {"id": "mat2p_2_17", "type": "type", "diff": 3, "q": "Como se escreve 2.º por extenso?", "accept": ["segundo"], "explanation": "2.º = segundo!"},
+            {"id": "mat2p_2_18", "type": "type", "diff": 3, "q": "Qual o número que falta: 10, 20, 30, 40, ___?", "accept": ["50"], "explanation": "Soma 10: 40 + 10 = 50!"},
+            {"id": "mat2p_2_19", "type": "type", "diff": 3, "q": "Quanto é 4 × 25?", "accept": ["100"], "explanation": "4 × 25 = 100!"},
+            {"id": "mat2p_2_20", "type": "type", "diff": 3, "q": "Como se escreve 4.º por extenso?", "accept": ["quarto"], "explanation": "4.º = quarto!"}
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Medidas, Horas e Sólidos",
+          "sub": "Comprimento, massa, tempo, geometria e gráficos",
+          "questions": [
+            {"id": "mat2p_3_01", "type": "mc", "diff": 1, "q": "1 metro = ___ centímetros?", "options": ["100 cm", "10 cm", "1 000 cm", "50 cm"], "correct": 0, "explanation": "1 metro = 100 centímetros! 📏"},
+            {"id": "mat2p_3_02", "type": "mc", "diff": 1, "q": "1 kg = ___ gramas?", "options": ["1 000 g", "100 g", "10 g", "500 g"], "correct": 0, "explanation": "1 quilograma = 1 000 gramas! ⚖️"},
+            {"id": "mat2p_3_03", "type": "mc", "diff": 1, "q": "Qual sólido tem 6 faces quadradas iguais?", "options": ["Cubo", "Esfera", "Cilindro", "Cone"], "correct": 0, "explanation": "O cubo tem 6 faces, 12 arestas e 8 vértices! 🎲"},
+            {"id": "mat2p_3_04", "type": "mc", "diff": 1, "q": "9h30 lê-se como…?", "options": ["9 e meia", "9 e um quarto", "10 menos um quarto", "9 e três quartos"], "correct": 0, "explanation": "9h30 = 9 horas e 30 minutos = 9 e meia! ⏰"},
+            {"id": "mat2p_3_05", "type": "mc", "diff": 1, "q": "Qual sólido não tem nenhuma aresta?", "options": ["Esfera", "Cubo", "Pirâmide", "Cilindro"], "correct": 0, "explanation": "A esfera é completamente redonda — sem arestas! 🟤"},
+            {"id": "mat2p_3_06", "type": "mc", "diff": 1, "q": "500 m + 500 m = ?", "options": ["1 km", "500 m", "100 m", "2 km"], "correct": 0, "explanation": "500 + 500 = 1 000 m = 1 quilómetro!"},
+            {"id": "mat2p_3_07", "type": "mc", "diff": 1, "q": "Num gráfico de barras, o que aparece no eixo vertical?", "options": ["Os valores/quantidades", "Os nomes", "As datas", "As cores"], "correct": 0, "explanation": "O eixo vertical (y) mostra os valores numéricos!"},
+            {"id": "mat2p_3_08", "type": "mc", "diff": 1, "q": "2 kg e 500 g = ___ gramas?", "options": ["2 500 g", "2 050 g", "2 005 g", "250 g"], "correct": 0, "explanation": "2 kg = 2 000 g. Mais 500 g = 2 500 g!"},
+            {"id": "mat2p_3_09", "type": "mc", "diff": 2, "q": "Uma pirâmide de base quadrada tem quantas faces?", "options": ["5", "4", "6", "3"], "correct": 0, "explanation": "Pirâmide base quadrada: 1 base + 4 faces triangulares = 5 faces!"},
+            {"id": "mat2p_3_10", "type": "mc", "diff": 2, "q": "1 hora e 30 minutos = ___ minutos?", "options": ["90 min", "130 min", "80 min", "100 min"], "correct": 0, "explanation": "1 hora = 60 min. 60 + 30 = 90 minutos!"},
+            {"id": "mat2p_3_11", "type": "type", "diff": 2, "q": "1 m = ___ cm? (escreve só o número)", "accept": ["100"], "explanation": "1 metro = 100 centímetros!"},
+            {"id": "mat2p_3_12", "type": "type", "diff": 2, "q": "1 kg = ___ g? (escreve só o número)", "accept": ["1000", "1 000"], "explanation": "1 quilograma = 1 000 gramas!"},
+            {"id": "mat2p_3_13", "type": "type", "diff": 2, "q": "1 hora = ___ minutos? (escreve só o número)", "accept": ["60"], "explanation": "1 hora = 60 minutos!"},
+            {"id": "mat2p_3_14", "type": "type", "diff": 2, "q": "1 km = ___ metros? (escreve só o número)", "accept": ["1000", "1 000"], "explanation": "1 quilómetro = 1 000 metros!"},
+            {"id": "mat2p_3_15", "type": "type", "diff": 3, "q": "Quantas FACES tem um cubo?", "accept": ["6", "seis"], "explanation": "Um cubo tem 6 faces quadradas!"},
+            {"id": "mat2p_3_16", "type": "type", "diff": 3, "q": "Quantas ARESTAS tem um cubo?", "accept": ["12", "doze"], "explanation": "Um cubo tem 12 arestas!"},
+            {"id": "mat2p_3_17", "type": "type", "diff": 3, "q": "Quantos VÉRTICES tem um cubo?", "accept": ["8", "oito"], "explanation": "Um cubo tem 8 vértices!"},
+            {"id": "mat2p_3_18", "type": "type", "diff": 3, "q": "2 horas = ___ minutos?", "accept": ["120"], "explanation": "2 × 60 = 120 minutos!"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat_3p_2026",
+      "name": "3.º Período 2025/26",
+      "examDate": null,
+      "archived": false,
+      "levels": []
+    }
+  ]
+}

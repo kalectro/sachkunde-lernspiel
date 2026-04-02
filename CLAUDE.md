@@ -85,3 +85,11 @@ git commit -m "..."
 git push
 ```
 GitHub Actions Workflow (`.github/workflows/pages.yml`) deployed automatisch auf GitHub Pages.
+
+## Vamos Estudar (Portugiesisch)
+
+Separates Lernspiel im Unterverzeichnis `vamos-estudar/`. Siehe `vamos-estudar/CLAUDE.md` für Details.
+
+- **Live:** https://kalectro.github.io/sachkunde-lernspiel/vamos-estudar/
+- **localStorage Key:** `vamos_estudar_profiles_v1` (komplett getrennt von `frankensteinschule_profiles_v3`)
+- **Tests:** `node vamos-estudar/test/run-tests.mjs`
