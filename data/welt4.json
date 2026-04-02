@@ -1,0 +1,32 @@
+{
+  "worldId": 4,
+  "learnCard": {
+    "id": "learn_w4",
+    "type": "learn",
+    "w": 4,
+    "title": "Tage im Monat - Der Knöchel-Trick",
+    "html": "\n    <p>Mache eine <strong>Faust</strong> und schau auf deine Knöchel:</p>\n    <div style=\"font-family:monospace;font-size:14px;margin:10px 0;text-align:center;line-height:1.3\">\n      <div>Jan Mär Mai Jul Aug Okt Dez</div>\n      <div> ∧  ∧  ∧  ∧  ∧  ∧  ∧ </div>\n      <div>╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲</div>\n      <div>Feb Apr Jun Sep Nov</div>\n    </div>\n    <p><strong>Knöchel</strong> (oben) = <strong>31 Tage</strong></p>\n    <p><strong>Mulde</strong> (unten) = <strong>30 Tage</strong> (Februar nur 28!)</p>\n    <p style=\"margin-top:6px\">Ein Jahr hat <strong>365 Tage</strong>, <strong>52 Wochen</strong> und <strong>12 Monate</strong>.</p>"
+  },
+  "questions": [
+    {"id":"w4_04","w":4,"type":"mc","diff":1,"q":"Wie viele Tage hat ein Jahr?","opts":["350","360","365","400"],"ans":"365","sa":[4]},
+    {"id":"w4_05","w":4,"type":"mc","diff":1,"q":"Wie viele Monate hat ein Jahr?","opts":["10","11","12","13"],"ans":"12","sa":[4]},
+    {"id":"w4_11","w":4,"type":"tf","diff":1,"q":"Der Juli hat 31 Tage.","ans":true,"sa":[2]},
+    {"id":"w4_17","w":4,"type":"tf","diff":1,"q":"Jeder Monat hat genau 30 Tage.","ans":false,"sa":[2]},
+    {"id":"w4_01","w":4,"type":"mc","diff":2,"q":"Wie viele Tage hat der Januar?","opts":["28","29","30","31"],"ans":"31","sa":[2]},
+    {"id":"w4_02","w":4,"type":"mc","diff":2,"q":"Wie viele Tage hat der Februar (normales Jahr)?","opts":["28","29","30","31"],"ans":"28","sa":[2]},
+    {"id":"w4_03","w":4,"type":"mc","diff":2,"q":"Wie viele Tage hat der April?","opts":["28","29","30","31"],"ans":"30","sa":[2]},
+    {"id":"w4_06","w":4,"type":"mc","diff":2,"q":"Wie viele Wochen hat ein Jahr (ungefähr)?","opts":["48","50","52","54"],"ans":"52","sa":[4]},
+    {"id":"w4_08","w":4,"type":"mc","diff":2,"q":"Wie viele Tage hat der Juni?","opts":["28","29","30","31"],"ans":"30","sa":[2]},
+    {"id":"w4_09","w":4,"type":"mc","diff":2,"q":"Wie viele Tage hat der Oktober?","opts":["28","29","30","31"],"ans":"31","sa":[2]},
+    {"id":"w4_07","w":4,"type":"mc","diff":3,"q":"Was ist ein Schaltjahr?","opts":["Ein Jahr mit 366 Tagen","Ein Jahr mit 360 Tagen","Ein Jahr ohne Februar","Ein kurzes Jahr"],"ans":"Ein Jahr mit 366 Tagen","sa":[2],"hint":"Im Schaltjahr hat der Februar 29 Tage statt 28!"},
+    {"id":"w4_10","w":4,"type":"tf","diff":3,"q":"Der März hat 30 Tage.","ans":false,"sa":[2],"hint":"Der März hat 31 Tage!"},
+    {"id":"w4_12","w":4,"type":"sort","diff":3,"q":"Ordne diese Monate nach Anzahl der Tage (wenigste zuerst)!","items":["Februar","April","Juli"],"sa":[2]},
+    {"id":"w4_13","w":4,"type":"tf","diff":3,"q":"Der Juni und der September haben gleich viele Tage.","ans":true,"sa":[2]},
+    {"id":"w4_14","w":4,"type":"mc","diff":3,"q":"Welche Monate haben 31 Tage?","opts":["Alle ungeraden Monate","Januar, März, Mai, Juli, August, Oktober, Dezember","Nur die ersten 6 Monate","Alle außer Februar"],"ans":"Januar, März, Mai, Juli, August, Oktober, Dezember","sa":[2]},
+    {"id":"w4_16","w":4,"type":"fill","diff":3,"q":"Der Februar hat im Schaltjahr ___ Tage.","ans":"29","sa":[2]},
+    {"id":"w4_18","w":4,"type":"mc","diff":3,"q":"Der Knöchel-Trick: Auf dem Knöchel liegen Monate mit...","opts":["30 Tagen","31 Tagen","28 Tagen","29 Tagen"],"ans":"31 Tagen","sa":[2],"hint":"Die Mulden zwischen den Knöcheln sind die Monate mit 30 (oder weniger) Tagen!"},
+    {"id":"b4_01","w":4,"type":"mc","diff":3,"q":"Warum hat der Februar nur 28 Tage?","opts":["Weil es kalt ist","Weil die Römer ihm Tage weggenommen haben","Weil er der kürzeste Monat sein soll","Weil der Mond es so bestimmt"],"ans":"Weil die Römer ihm Tage weggenommen haben","sa":[2],"bonus":true},
+    {"id":"b4_02","w":4,"type":"mc","diff":3,"q":"Alle wie viele Jahre gibt es ein Schaltjahr?","opts":["Alle 2 Jahre","Alle 3 Jahre","Alle 4 Jahre","Alle 5 Jahre"],"ans":"Alle 4 Jahre","sa":[2],"bonus":true},
+    {"id":"b4_03","w":4,"type":"tf","diff":3,"q":"Das Jahr 2028 ist ein Schaltjahr.","ans":true,"sa":[2],"bonus":true,"hint":"Schaltjahre sind durch 4 teilbar: 2024, 2028, 2032..."}
+  ]
+}

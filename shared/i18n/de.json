@@ -1,0 +1,90 @@
+{
+  "submit": "Prüfen!",
+  "next": "Weiter →",
+  "next_last": "Ergebnis anzeigen!",
+  "understood": "Verstanden! Weiter!",
+  "reset": "Zurücksetzen",
+  "hint": "💡 Tipp anzeigen",
+  "show_answer": "Antwort zeigen",
+  "placeholder": "Deine Antwort...",
+  "sort_prompt": "Klicke die Elemente in der richtigen Reihenfolge an!",
+  "true_label": "✓ Richtig",
+  "false_label": "✗ Falsch",
+
+  "profile_screen_title": "Wer spielt?",
+  "new_profile_placeholder": "Dein Name...",
+  "new_profile_button": "Los geht's! →",
+  "no_profiles": "Gib deinen Namen ein und los geht's!",
+  "who_are_you": "Wer bist du?",
+  "delete_profile_confirm": "wirklich löschen? Der Fortschritt geht verloren!",
+  "reset_all_confirm": "Wirklich ALLE Spielerdaten löschen?",
+
+  "difficulty_easy": "Leicht",
+  "difficulty_medium": "Mittel",
+  "difficulty_hard": "Schwer",
+  "difficulty_bonus": "Bonus 🎓",
+
+  "learn_card_intro": "Lass mich dir etwas erklären!",
+  "learn_card_heading": "📖",
+
+  "hint_used_note": "Tipp benutzt",
+  "bonus_label": "Bonus 🎓",
+  "bonus_explanation": "Bonusfrage – zählt nicht für die Sterne, aber fürs Krönchen 👑",
+
+  "feedback_first_try": "Beim 1. Versuch! 🎉",
+  "feedback_almost": "Fast perfekt!",
+  "feedback_barely": "Knapp geschafft!",
+  "feedback_practice": "Übung macht den Meister!",
+
+  "feedback_correct_2stars": [
+    "Fast perfekt! Nächstes Mal klappt es!",
+    "Gut gemacht, das geht noch besser!",
+    "Nicht schlecht, aber du kannst mehr!",
+    "Starke Leistung, fast fehlerfrei!"
+  ],
+  "feedback_correct_1star": [
+    "Knapp geschafft! Übe das nochmal!",
+    "Da geht noch mehr! Probier es nochmal!",
+    "Nicht aufgeben, Übung macht den Meister!",
+    "Du schaffst das besser, versuch's nochmal!"
+  ],
+
+  "feedback_bonus_correct": [
+    "Bonusfrage gemeistert! 🎓",
+    "Wow, das wusstest du! 🧠",
+    "Extraklasse! 🌟",
+    "Du weißt mehr als im Unterricht! 💎"
+  ],
+  "feedback_bonus_wrong": [
+    "Nicht schlimm, das war eine Bonusfrage!",
+    "Das war extra schwer - keine Sorge!",
+    "Bonusfragen sind zum Knobeln da!",
+    "Gute Übung fürs Krönchen!"
+  ],
+
+  "world_complete_title": "Geschafft!",
+  "world_complete_map": "Zur Weltkarte",
+  "world_complete_retry": "Nochmal üben",
+  "world_complete_mastered": "👑 Perfekt gemeistert! Du bist der/die Beste! 👑",
+  "world_complete_perfect_round": "Perfekte Runde! Alles richtig beim 1. Versuch! 🌟",
+  "world_complete_great": "Tolle Runde! Fast alles sofort gewusst! 💪",
+  "world_complete_good": "Gute Runde! Nur ein paar kleine Fehler! 😊",
+  "world_complete_keep_going": "Da geht noch mehr! Übe weiter! 💪",
+  "world_complete_not_great": "Das war noch nicht so gut. Übe diese Welt nochmal! 💪",
+  "world_complete_questions_left": "Noch %n neue Fragen warten auf dich!",
+  "world_complete_all_done": "Alle Fragen beantwortet! Spiele nochmal um deine Sterne zu verbessern!",
+  "world_complete_round_label": "Diese Runde",
+  "world_complete_questions_label": "Fragen",
+  "world_complete_total_label": "Gesamt",
+
+  "achievements_title": "Deine Abzeichen",
+  "achievements_subtitle": "%n von %total Abzeichen freigeschaltet",
+  "new_achievement": "Neues Abzeichen:",
+
+  "quit_confirm": "Wirklich aufhören? Der Fortschritt dieser Runde geht verloren.",
+
+  "locked_world": "🔒",
+  "mastered_crown": "👑",
+  "all_answered": "Alle Fragen beantwortet ✓",
+  "questions_count": "%n/%total Fragen"
+}

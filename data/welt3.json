@@ -1,0 +1,32 @@
+{
+  "worldId": 3,
+  "learnCard": {
+    "id": "learn_w3",
+    "type": "learn",
+    "w": 3,
+    "title": "Die 4 Jahreszeiten",
+    "html": "\n    <p>Es gibt <strong>4 Jahreszeiten</strong>:</p>\n    <div style=\"margin:10px 0;line-height:2\">\n      <div>🌸 <strong>Frühling:</strong> März, April, Mai (Ostern!)</div>\n      <div>☀️ <strong>Sommer:</strong> Juni, Juli, August</div>\n      <div>🍂 <strong>Herbst:</strong> September, Oktober, November</div>\n      <div>❄️ <strong>Winter:</strong> Dezember, Januar, Februar (Weihnachten!)</div>\n    </div>"
+  },
+  "questions": [
+    {"id":"w3_01","w":3,"type":"mc","diff":1,"q":"Wie viele Jahreszeiten gibt es?","opts":["2","3","4","5"],"ans":"4","sa":[3]},
+    {"id":"w3_03","w":3,"type":"mc","diff":1,"q":"In welcher Jahreszeit feiern wir Weihnachten?","opts":["Herbst","Frühling","Sommer","Winter"],"ans":"Winter","sa":[3]},
+    {"id":"w3_04","w":3,"type":"mc","diff":1,"q":"In welcher Jahreszeit feiern wir Ostern?","opts":["Winter","Sommer","Frühling","Herbst"],"ans":"Frühling","sa":[3]},
+    {"id":"w3_11","w":3,"type":"tf","diff":1,"q":"Im Sommer ist es kalt und es schneit.","ans":false,"sa":[3]},
+    {"id":"w3_12","w":3,"type":"tf","diff":1,"q":"Der Frühling beginnt im März.","ans":true,"sa":[3]},
+    {"id":"w3_18","w":3,"type":"mc","diff":1,"q":"Wann gehen wir gerne ins Schwimmbad?","opts":["Im Winter","Im Herbst","Im Frühling","Im Sommer"],"ans":"Im Sommer","sa":[3]},
+    {"id":"w3_02","w":3,"type":"mc","diff":2,"q":"Welche Monate gehören zum Frühling?","opts":["März, April, Mai","Juni, Juli, August","Januar, Februar, März","April, Mai, Juni"],"ans":"März, April, Mai","sa":[3]},
+    {"id":"w3_05","w":3,"type":"mc","diff":2,"q":"Welche Monate gehören zum Sommer?","opts":["März, April, Mai","Juni, Juli, August","September, Oktober, November","Juli, August, September"],"ans":"Juni, Juli, August","sa":[3]},
+    {"id":"w3_06","w":3,"type":"mc","diff":2,"q":"Wann fängt der Herbst an?","opts":["Im Juni","Im September","Im November","Im März"],"ans":"Im September","sa":[3]},
+    {"id":"w3_07","w":3,"type":"mc","diff":2,"q":"Was passiert im Herbst mit den Blättern?","opts":["Sie werden größer","Sie fallen von den Bäumen","Sie werden blau","Nichts"],"ans":"Sie fallen von den Bäumen","sa":[3]},
+    {"id":"w3_14","w":3,"type":"mc","diff":2,"q":"Welche Monate gehören zum Winter?","opts":["Dezember, Januar, Februar","November, Dezember, Januar","Januar, Februar, März","Oktober, November, Dezember"],"ans":"Dezember, Januar, Februar","sa":[3]},
+    {"id":"w3_19","w":3,"type":"tf","diff":2,"q":"Im Herbst werden die Tage kürzer.","ans":true,"sa":[3]},
+    {"id":"w3_10","w":3,"type":"mc","diff":3,"q":"Wann ist Martinstag?","opts":["Im März","Im November","Im September","Im Mai"],"ans":"Im November","sa":[3]},
+    {"id":"w3_13","w":3,"type":"mc","diff":3,"q":"In welcher Jahreszeit maskieren wir uns (Karneval)?","opts":["Sommer","Winter","Frühling","Herbst"],"ans":"Winter","sa":[3],"hint":"Karneval ist im Februar - das ist noch Winter!"},
+    {"id":"w3_15","w":3,"type":"mc","diff":3,"q":"Wann ist Muttertag?","opts":["Im März","Im Mai","Im Juli","Im Oktober"],"ans":"Im Mai","sa":[3]},
+    {"id":"w3_16","w":3,"type":"sort","diff":3,"q":"Bringe die Jahreszeiten ab Jahresbeginn in die richtige Reihenfolge!","items":["Winter","Frühling","Sommer","Herbst"],"sa":[3]},
+    {"id":"w3_17","w":3,"type":"mc","diff":3,"q":"Welche Monate gehören zum Herbst?","opts":["Juni, Juli, August","September, Oktober, November","Oktober, November, Dezember","August, September, Oktober"],"ans":"September, Oktober, November","sa":[3]},
+    {"id":"b3_01","w":3,"type":"mc","diff":3,"q":"Warum werden die Tage im Winter kürzer?","opts":["Weil die Sonne kleiner wird","Weil die Erde schräg steht","Weil es bewölkt ist","Weil die Erde langsamer dreht"],"ans":"Weil die Erde schräg steht","sa":[3],"bonus":true},
+    {"id":"b3_02","w":3,"type":"mc","diff":3,"q":"Am 21. Juni ist Sommeranfang. Wie heißt dieser Tag?","opts":["Sommerwende","Sonnenwende","Sonnenaufgang","Sommerpause"],"ans":"Sonnenwende","sa":[3],"bonus":true},
+    {"id":"b3_03","w":3,"type":"tf","diff":3,"q":"Wenn in Deutschland Sommer ist, ist in Australien Winter.","ans":true,"sa":[3],"bonus":true}
+  ]
+}

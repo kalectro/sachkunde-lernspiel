@@ -1,0 +1,32 @@
+{
+  "worldId": 6,
+  "learnCard": {
+    "id": "learn_w6",
+    "type": "learn",
+    "w": 6,
+    "title": "Erde, Mond und Sonne",
+    "html": "\n    <p>🌍 Die <strong>Erde dreht sich um sich selbst</strong> → das dauert <strong>1 Tag</strong> (24 Stunden). Deshalb gibt es Tag und Nacht!</p>\n    <p style=\"margin-top:8px\">🌍→☀️ Die <strong>Erde fliegt um die Sonne</strong> → das dauert <strong>1 Jahr</strong> (365 Tage).</p>\n    <p style=\"margin-top:8px\">🌙→🌍 Der <strong>Mond fliegt um die Erde</strong> → das dauert ungefähr <strong>29 Tage</strong> (1 Monat). Deshalb heißt es \"Monat\" - vom Wort \"Mond\"!</p>"
+  },
+  "questions": [
+    {"id":"w6_01","w":6,"type":"mc","diff":1,"q":"Wie lange braucht die Erde, um sich einmal um sich selbst zu drehen?","opts":["1 Stunde","12 Stunden","1 Tag (24 Stunden)","1 Woche"],"ans":"1 Tag (24 Stunden)","sa":[8]},
+    {"id":"w6_07","w":6,"type":"mc","diff":1,"q":"Was passiert, wenn die Erde sich von der Sonne wegdreht?","opts":["Es wird Sommer","Es wird Nacht","Es regnet","Es wird windig"],"ans":"Es wird Nacht","sa":[8]},
+    {"id":"w6_12","w":6,"type":"mc","diff":1,"q":"Was beleuchtet die Erde am Tag?","opts":["Der Mond","Die Sterne","Die Sonne","Die Wolken"],"ans":"Die Sonne","sa":[8]},
+    {"id":"w6_15","w":6,"type":"tf","diff":1,"q":"Die Sonne ist ein Stern.","ans":true,"sa":[8]},
+    {"id":"w6_02","w":6,"type":"mc","diff":2,"q":"Wie lange braucht die Erde, um einmal um die Sonne zu kreisen?","opts":["1 Monat","1 Woche","1 Tag","1 Jahr (365 Tage)"],"ans":"1 Jahr (365 Tage)","sa":[8]},
+    {"id":"w6_04","w":6,"type":"mc","diff":2,"q":"Warum gibt es Tag und Nacht?","opts":["Weil die Sonne sich dreht","Weil die Erde sich um sich selbst dreht","Weil der Mond leuchtet","Weil es Wolken gibt"],"ans":"Weil die Erde sich um sich selbst dreht","sa":[8]},
+    {"id":"w6_09","w":6,"type":"mc","diff":2,"q":"Was ist größer: die Sonne oder die Erde?","opts":["Die Erde","Beide gleich groß","Die Sonne","Kommt drauf an"],"ans":"Die Sonne","sa":[8]},
+    {"id":"w6_14","w":6,"type":"mc","diff":2,"q":"Wenn es bei uns Tag ist, was ist auf der anderen Seite der Erde?","opts":["Auch Tag","Nacht","Morgen","Mittag"],"ans":"Nacht","sa":[8]},
+    {"id":"w6_16","w":6,"type":"mc","diff":2,"q":"In welcher Reihenfolge kreisen die Himmelskörper?","opts":["Mond um Erde, Erde um Sonne","Erde um Mond, Mond um Sonne","Sonne um Erde, Erde um Mond","Alle kreisen um die Sonne"],"ans":"Mond um Erde, Erde um Sonne","sa":[8]},
+    {"id":"w6_17","w":6,"type":"mc","diff":2,"q":"Wann können wir den Mond am besten sehen?","opts":["Am Mittag","In der Nacht","Am Morgen","Gar nicht"],"ans":"In der Nacht","sa":[9]},
+    {"id":"w6_03","w":6,"type":"mc","diff":3,"q":"Wie lange braucht der Mond ungefähr, um einmal um die Erde zu kreisen?","opts":["1 Tag","1 Woche","Ungefähr 29 Tage (1 Monat)","1 Jahr"],"ans":"Ungefähr 29 Tage (1 Monat)","sa":[9]},
+    {"id":"w6_05","w":6,"type":"mc","diff":3,"q":"Woher kommt das Wort \"Monat\"?","opts":["Von \"montags\"","Vom Mond","Von \"Monate zählen\"","Von der Sonne"],"ans":"Vom Mond","sa":[9],"hint":"Der Mond braucht ungefähr einen Monat, um die Erde zu umkreisen. Deshalb heißt es \"Monat\"!"},
+    {"id":"w6_06","w":6,"type":"mc","diff":3,"q":"Was dreht sich um was?","opts":["Die Sonne um die Erde","Die Erde um den Mond","Die Erde um die Sonne","Der Mars um die Erde"],"ans":"Die Erde um die Sonne","sa":[8]},
+    {"id":"w6_08","w":6,"type":"tf","diff":3,"q":"Die Sonne dreht sich um die Erde.","ans":false,"sa":[8]},
+    {"id":"w6_10","w":6,"type":"mc","diff":3,"q":"Der Mond dreht sich um...","opts":["die Sonne","die Erde","sich selbst","den Mars"],"ans":"die Erde","sa":[9]},
+    {"id":"w6_11","w":6,"type":"mc","diff":3,"q":"Warum leuchtet der Mond nachts?","opts":["Er hat eigenes Licht","Er reflektiert das Sonnenlicht","Die Sterne beleuchten ihn","Er glüht"],"ans":"Er reflektiert das Sonnenlicht","sa":[9]},
+    {"id":"w6_13","w":6,"type":"mc","diff":3,"q":"Was ist der Unterschied zwischen Stern und Planet?","opts":["Sterne leuchten selbst, Planeten nicht","Planeten leuchten, Sterne nicht","Kein Unterschied","Planeten sind immer größer"],"ans":"Sterne leuchten selbst, Planeten nicht","sa":[8]},
+    {"id":"b6_01","w":6,"type":"mc","diff":3,"q":"Welcher Planet ist der Erde am nächsten?","opts":["Mars","Jupiter","Venus","Saturn"],"ans":"Venus","sa":[8],"bonus":true},
+    {"id":"b6_02","w":6,"type":"mc","diff":3,"q":"Wie viele Planeten hat unser Sonnensystem?","opts":["7","8","9","10"],"ans":"8","sa":[8],"bonus":true},
+    {"id":"b6_03","w":6,"type":"mc","diff":3,"q":"Wie heißt unsere Galaxie?","opts":["Andromeda","Milchstraße","Sonnensystem","Nordstern"],"ans":"Milchstraße","sa":[8],"bonus":true}
+  ]
+}

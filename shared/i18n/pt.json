@@ -1,0 +1,87 @@
+{
+  "submit": "✓ Verificar",
+  "next": "Continuar →",
+  "next_last": "Ver resultado!",
+  "understood": "Entendido! Continuar!",
+  "reset": "↩ Limpar",
+  "hint": "💡 Dica",
+  "show_answer": "Mostrar resposta",
+  "placeholder": "Escreve a resposta…",
+  "sort_prompt": "↓ Clica na ordem correta ↓",
+  "true_label": "✓ Verdadeiro",
+  "false_label": "✗ Falso",
+
+  "profile_screen_title": "Quem joga?",
+  "new_profile_placeholder": "O teu nome...",
+  "new_profile_button": "Começar! →",
+  "no_profiles": "Ainda não há perfis. Cria o teu abaixo!",
+  "who_are_you": "Quem és tu?",
+  "delete_profile_confirm": "Apagar o perfil \"%name\"? Todo o progresso será perdido!",
+  "delete_btn_title": "Apagar",
+
+  "difficulty_easy": "Fácil",
+  "difficulty_medium": "Médio",
+  "difficulty_hard": "Difícil",
+  "difficulty_bonus": "Bónus 🎓",
+
+  "hint_used_note": "Dica usada",
+  "bonus_label": "🎓 Pergunta bónus!",
+
+  "feedback_correct": [
+    "✅ Muito bem!", "✅ Excelente!", "✅ Fantástico!", "✅ Boa!",
+    "✅ Perfeito!", "✅ Correto!", "✅ Incrível!", "✅ Genial!"
+  ],
+  "feedback_wrong": [
+    "❌ Quase!", "❌ Tenta outra vez!", "❌ Não foi desta!",
+    "❌ Não desistas!", "❌ Continua a tentar!"
+  ],
+  "feedback_wrong_retry": "Tenta outra vez!",
+  "feedback_wrong_retry_count": "Tenta outra vez! (tentativa %n/3)",
+  "feedback_answer_was": "A resposta era: «%answer».",
+
+  "results_try": "Boa tentativa!",
+  "results_good": "Muito bom!",
+  "results_great": "Excelente! 🌟",
+  "results_emoji_try": "😅",
+  "results_emoji_good": "😊",
+  "results_emoji_great": "🥳",
+  "results_mastered": "Nível dominado! 👑",
+  "results_score": "%correct / %total corretas",
+  "results_score_avg": "%correct / %total corretas — Média: %avg ⭐",
+  "results_msg_mastered": "Parabéns! Dominaste todas as perguntas deste nível! 👑",
+  "results_msg_perfect": "Perfeito! Todas certas à primeira! 🎉",
+  "results_msg_great": "Fantástico! Estás muito bem preparado! 🌟",
+  "results_msg_good": "Estás quase lá! Mais uma tentativa para melhorar! 😊",
+  "results_msg_keep_going": "Continua a praticar — vais conseguir! 💪",
+
+  "archive_stars_none": "Ainda não jogado",
+  "archive_past_exam": "📂 %name (prova passada)",
+  "archive_exam_date": "📅 Prova: %date",
+
+  "level_not_played": "Ainda não jogado",
+  "level_questions": "%answered/%total perguntas",
+  "level_locked": "🔒",
+  "mastered_crown": "👑",
+
+  "home_greeting": "Olá, %name! 👋",
+  "home_subtitle_active": "Escolhe uma disciplina para estudar!",
+  "home_subtitle_no_active": "",
+  "home_no_active": "Ainda não há provas ativas. Pratica com as provas passadas! 📂",
+  "home_levels_summary": "%completed/%total níveis completos",
+
+  "achievements_count": "%n / %total desbloqueadas",
+  "achievements_locked": "Ainda não desbloqueado",
+  "achievement_name_locked": "???",
+
+  "subject_screen_back": "← Voltar",
+  "quit_confirm": "Tens a certeza que queres sair? O progresso desta ronda será perdido.",
+
+  "no_questions": "Não há perguntas neste nível.",
+  "question_progress": "Pergunta %n de %total",
+  "load_error": "Erro ao carregar os dados.",
+  "load_retry": "🔄 Tentar outra vez",
+
+  "profile_summary_new": "Novo!",
+  "profile_summary_achievements": "%n conquista",
+  "profile_summary_achievements_plural": "%n conquistas"
+}

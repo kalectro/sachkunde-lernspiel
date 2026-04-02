@@ -1,0 +1,32 @@
+{
+  "worldId": 1,
+  "learnCard": {
+    "id": "learn_w1",
+    "type": "learn",
+    "w": 1,
+    "title": "Die Wochentage",
+    "html": "\n    <p>Eine Woche hat <strong>7 Tage</strong>. Sie heißen:</p>\n    <ol style=\"font-size:18px;font-weight:600;margin:10px 0 10px 20px;line-height:2\">\n      <li><strong>Mo</strong>ntag</li><li><strong>Di</strong>enstag</li><li><strong>Mi</strong>ttwoch</li>\n      <li><strong>Do</strong>nnerstag</li><li><strong>Fr</strong>eitag</li><li><strong>Sa</strong>mstag</li><li><strong>So</strong>nntag</li>\n    </ol>\n    <p><strong>Merkhilfe:</strong> <em>Mo, Di, Mi, Do, Fr, Sa, So</em></p>\n    <p style=\"margin-top:8px\"><strong>gestern</strong> = der Tag davor<br><strong>morgen</strong> = der nächste Tag<br><strong>vorgestern</strong> = 2 Tage zurück<br><strong>übermorgen</strong> = 2 Tage voraus</p>"
+  },
+  "questions": [
+    {"id":"w1_01","w":1,"type":"mc","diff":1,"q":"Wie viele Tage hat eine Woche?","opts":["5","6","7","8"],"ans":"7","sa":[6]},
+    {"id":"w1_04","w":1,"type":"mc","diff":1,"q":"Mit welchem Tag beginnt die Woche?","opts":["Sonntag","Montag","Dienstag","Samstag"],"ans":"Montag","sa":[6]},
+    {"id":"w1_05","w":1,"type":"mc","diff":1,"q":"Welcher ist der letzte Tag der Woche?","opts":["Freitag","Samstag","Sonntag","Montag"],"ans":"Sonntag","sa":[6]},
+    {"id":"w1_16","w":1,"type":"tf","diff":1,"q":"Samstag kommt vor Sonntag.","ans":true,"sa":[6]},
+    {"id":"w1_02","w":1,"type":"mc","diff":2,"q":"Welcher Tag kommt nach Montag?","opts":["Mittwoch","Dienstag","Sonntag","Freitag"],"ans":"Dienstag","sa":[6]},
+    {"id":"w1_03","w":1,"type":"mc","diff":2,"q":"Welcher Tag kommt vor Freitag?","opts":["Samstag","Donnerstag","Mittwoch","Sonntag"],"ans":"Donnerstag","sa":[6]},
+    {"id":"w1_06","w":1,"type":"mc","diff":2,"q":"Welcher Tag kommt nach Sonntag?","opts":["Montag","Samstag","Dienstag","Mittwoch"],"ans":"Montag","sa":[6]},
+    {"id":"w1_17","w":1,"type":"tf","diff":2,"q":"Nach dem Mittwoch kommt der Freitag.","ans":false,"sa":[6]},
+    {"id":"w1_20","w":1,"type":"mc","diff":2,"q":"Welche Tage sind das Wochenende?","opts":["Montag und Dienstag","Freitag und Samstag","Samstag und Sonntag","Sonntag und Montag"],"ans":"Samstag und Sonntag","sa":[6]},
+    {"id":"w1_08","w":1,"type":"mc","diff":2,"q":"Wenn heute Mittwoch ist, welcher Tag war gestern?","opts":["Montag","Dienstag","Donnerstag","Freitag"],"ans":"Dienstag","sa":[7]},
+    {"id":"w1_09","w":1,"type":"mc","diff":2,"q":"Wenn heute Donnerstag ist, welcher Tag ist morgen?","opts":["Mittwoch","Freitag","Samstag","Sonntag"],"ans":"Freitag","sa":[7]},
+    {"id":"w1_07","w":1,"type":"sort","diff":3,"q":"Bringe die Wochentage in die richtige Reihenfolge!","items":["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"],"sa":[6]},
+    {"id":"w1_10","w":1,"type":"mc","diff":3,"q":"Wenn heute Montag ist, welcher Tag ist übermorgen?","opts":["Dienstag","Mittwoch","Donnerstag","Sonntag"],"ans":"Mittwoch","sa":[7]},
+    {"id":"w1_11","w":1,"type":"mc","diff":3,"q":"Wenn heute Freitag ist, welcher Tag war vorgestern?","opts":["Montag","Dienstag","Mittwoch","Donnerstag"],"ans":"Mittwoch","sa":[7]},
+    {"id":"w1_12","w":1,"type":"scramble","diff":3,"q":"Welcher Wochentag versteckt sich hier?","word":"MONTAG","sa":[6]},
+    {"id":"w1_13","w":1,"type":"scramble","diff":3,"q":"Welcher Wochentag versteckt sich hier?","word":"FREITAG","sa":[6]},
+    {"id":"w1_18","w":1,"type":"mc","diff":3,"q":"Wenn heute Dienstag ist, welcher Tag ist in 3 Tagen?","opts":["Donnerstag","Freitag","Samstag","Sonntag"],"ans":"Freitag","sa":[7],"hint":"Zähle 3 Tage weiter: Mittwoch, Donnerstag, Freitag!"},
+    {"id":"b1_01","w":1,"type":"mc","diff":3,"q":"Das Wort \"Mittwoch\" kommt von \"Mitte der Woche\". Welcher Tag liegt genau in der Mitte?","opts":["Dienstag","Mittwoch","Donnerstag","Freitag"],"ans":"Mittwoch","sa":[6],"bonus":true},
+    {"id":"b1_02","w":1,"type":"mc","diff":3,"q":"In welchem Land beginnt die Woche mit dem Sonntag?","opts":["Deutschland","Frankreich","USA","Japan"],"ans":"USA","sa":[6],"bonus":true},
+    {"id":"b1_03","w":1,"type":"tf","diff":3,"q":"Der Donnerstag ist nach dem Gott \"Donar\" (Thor) benannt.","ans":true,"sa":[6],"bonus":true}
+  ]
+}

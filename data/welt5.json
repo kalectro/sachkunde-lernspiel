@@ -1,0 +1,32 @@
+{
+  "worldId": 5,
+  "learnCard": {
+    "id": "learn_w5",
+    "type": "learn",
+    "w": 5,
+    "title": "Ein Datum schreiben",
+    "html": "\n    <p>Ein Datum schreibt man so:</p>\n    <div style=\"font-size:24px;font-weight:700;text-align:center;margin:12px 0;color:var(--primary)\">Tag . Monat . Jahr</div>\n    <p>Beispiel: <strong>24.12.2026</strong> = 24. Dezember 2026 (Heiligabend!)</p>\n    <p style=\"margin-top:8px\"><strong>Wichtige Daten:</strong></p>\n    <div style=\"margin:6px 0\">1.1. = Neujahr | 31.12. = Silvester | 6.12. = Nikolaus</div>"
+  },
+  "questions": [
+    {"id":"w5_01","w":5,"type":"mc","diff":1,"q":"Wie schreibt man ein Datum richtig?","opts":["Tag.Monat.Jahr","Jahr.Monat.Tag","Monat/Tag/Jahr","Tag-Jahr-Monat"],"ans":"Tag.Monat.Jahr","sa":[5]},
+    {"id":"w5_03","w":5,"type":"mc","diff":1,"q":"Was ist am 1. Januar?","opts":["Silvester","Neujahr","Ostern","Weihnachten"],"ans":"Neujahr","sa":[5]},
+    {"id":"w5_07","w":5,"type":"mc","diff":1,"q":"Was ist der letzte Tag im Jahr?","opts":["30. Dezember","31. Dezember","1. Januar","24. Dezember"],"ans":"31. Dezember","sa":[5]},
+    {"id":"w5_16","w":5,"type":"mc","diff":1,"q":"Wenn heute der 28.2. ist, welches Datum ist morgen (kein Schaltjahr)?","opts":["29.2.","1.3.","28.3.","2.3."],"ans":"1.3.","sa":[5]},
+    {"id":"w5_02","w":5,"type":"mc","diff":2,"q":"Welches Datum ist richtig geschrieben?","opts":["5.3.2026","2026.3.5","März 5 2026","3/5/2026"],"ans":"5.3.2026","sa":[5]},
+    {"id":"w5_06","w":5,"type":"mc","diff":2,"q":"Der 24.12. ist...","opts":["Nikolaus","Silvester","Heiligabend","Neujahr"],"ans":"Heiligabend","sa":[5]},
+    {"id":"w5_08","w":5,"type":"mc","diff":2,"q":"Wie liest man das Datum 1.4.?","opts":["Erster April","Vierter Januar","Erster Vierter","April Erster"],"ans":"Erster April","sa":[5]},
+    {"id":"w5_09","w":5,"type":"mc","diff":2,"q":"Welches Datum ist der Nikolaustag?","opts":["6. Januar","6. Dezember","24. Dezember","1. Dezember"],"ans":"6. Dezember","sa":[5]},
+    {"id":"w5_14","w":5,"type":"mc","diff":2,"q":"Was bedeutet das Datum 3.10.?","opts":["3. Oktober","10. März","30. Oktober","3. Monat, 10. Tag"],"ans":"3. Oktober","sa":[5]},
+    {"id":"w5_17","w":5,"type":"mc","diff":2,"q":"Welcher Feiertag ist am 1. Mai?","opts":["Neujahr","Tag der Arbeit","Nikolaus","Rosenmontag"],"ans":"Tag der Arbeit","sa":[5]},
+    {"id":"w5_18","w":5,"type":"mc","diff":2,"q":"Was bedeutet das Datum 14.2.?","opts":["2. Vierzehnter","14. Februar","14. Zweiter","Februar 14"],"ans":"14. Februar","sa":[5]},
+    {"id":"w5_04","w":5,"type":"mc","diff":3,"q":"Wann ist Frühlingsanfang?","opts":["1. März","20. März","1. April","21. Juni"],"ans":"20. März","sa":[5]},
+    {"id":"w5_05","w":5,"type":"mc","diff":3,"q":"Welches Datum kommt zuerst?","opts":["15.3.","3.5.","Beide gleichzeitig","Kommt drauf an"],"ans":"15.3.","sa":[5],"hint":"Vergleiche zuerst den Monat! 3. Monat (März) kommt vor dem 5. Monat (Mai)."},
+    {"id":"w5_10","w":5,"type":"sort","diff":3,"q":"Ordne diese Daten vom frühesten zum spätesten!","items":["1.1.","20.3.","15.6.","31.12."],"sa":[5]},
+    {"id":"w5_11","w":5,"type":"sort","diff":3,"q":"Ordne diese Daten vom frühesten zum spätesten!","items":["3.2.","14.2.","1.5.","24.12."],"sa":[5]},
+    {"id":"w5_13","w":5,"type":"mc","diff":3,"q":"Welches Datum hat der Rosenmontag 2026?","opts":["16.2.","23.2.","2.3.","9.3."],"ans":"16.2.","sa":[5],"hint":"Rosenmontag ist immer im Februar!"},
+    {"id":"w5_15","w":5,"type":"fill","diff":3,"q":"Heiligabend ist am 24.___.","ans":["12","Dezember"],"sa":[5],"hint":"Weihnachten ist im Dezember - der 12. Monat!"},
+    {"id":"b5_01","w":5,"type":"mc","diff":3,"q":"In den USA schreibt man das Datum anders. Wie?","opts":["Jahr.Tag.Monat","Monat/Tag/Jahr","Tag-Monat-Jahr","Jahr-Monat-Tag"],"ans":"Monat/Tag/Jahr","sa":[5],"bonus":true},
+    {"id":"b5_02","w":5,"type":"mc","diff":3,"q":"Was bedeutet \"v. Chr.\" bei einer Jahreszahl?","opts":["Vor dem Computer","Vor Christus","Viel chronologisch","Vom Chef"],"ans":"Vor Christus","sa":[5],"bonus":true},
+    {"id":"b5_03","w":5,"type":"mc","diff":3,"q":"Welches besondere Datum gibt es nur alle 4 Jahre?","opts":["Der 30. Februar","Der 29. Februar","Der 31. Juni","Der 32. Dezember"],"ans":"Der 29. Februar","sa":[5],"bonus":true}
+  ]
+}

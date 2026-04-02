@@ -297,6 +297,7 @@ body {
   .profile-card { width:120px; padding:12px; }
 }
 </style>
+<script src="../shared/engine.js"></script>
 </head>
 <body>
 <div class="app">
@@ -315,6 +316,7 @@ body {
     <div class="top-header">
       <h1>🎓 Vamos Estudar!</h1>
       <p>3.º A — Escolhe o teu perfil</p>
+      <p style="font-size:0.75em;color:#aaa;margin-top:8px;text-align:center;">Os teus dados ficam guardados neste dispositivo.</p>
     </div>
     <div class="profile-grid" id="profile-grid"></div>
     <div class="new-profile-box">
@@ -424,6 +426,22 @@ const DATA_FILES = {
   ingles:     'data/ingles.json'
 };
 
+// ═══════════════════════════════════════════════════════
+//  SHARED ENGINE
+// ═══════════════════════════════════════════════════════
+// Unpack shared engine
+const { playTone, soundCorrect, soundWrong, soundClick, soundAchievement,
+        launchConfetti, buildStars, esc, shuffle,
+        loadProfiles: _loadProfiles, saveProfiles: _saveProfiles,
+        calculateScore, recordAttempt, isMastered, avgStars,
+        checkMC: _checkMC, checkTF: _checkTF, checkText, checkSort } = window.LernEngine;
+// Wrap profile functions with this app's key
+function loadProfiles() { profiles = _loadProfiles(STORAGE_KEY); }
+function saveProfiles() {
+  if (currentProfile && state) profiles[currentProfile] = state;
+  _saveProfiles(STORAGE_KEY, profiles);
+}
+
 const ACHIEVEMENTS = [
   {id:'primeiro_passo', emoji:'🌟', name:'Primeiro Passo!',
    desc:'Completa o teu primeiro nível'},
@@ -496,28 +514,6 @@ function answerCorrect(acceptArr, raw) {
   return acceptArr.some(a => norm(a) === u || normN(a) === un);
 }
 
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-function esc(s) { return s.replace(/'/g, "\\'").replace(/"/g, '&quot;'); }
-
-function buildStars(avg) {
-  const full = Math.floor(avg);
-  const half = (avg - full) >= 0.25 && (avg - full) < 0.75 ? 1 : 0;
-  const fullCount = (avg - full) >= 0.75 ? full + 1 : full;
-  const halfCount = (avg - full) >= 0.75 ? 0 : half;
-  const empty = 3 - fullCount - halfCount;
-  return '<span class="star-full">'.concat('⭐'.repeat(fullCount), '</span>') +
-    (halfCount ? '<span class="star-half">⭐</span>' : '') +
-    '<span class="star-empty">'.concat('☆'.repeat(Math.max(0, empty)), '</span>');
-}
-
 function buildStarsText(avg) {
   const full = Math.floor(avg);
   const half = (avg - full) >= 0.25 && (avg - full) < 0.75 ? 1 : 0;
@@ -525,45 +521,6 @@ function buildStarsText(avg) {
   const halfCount = (avg - full) >= 0.75 ? 0 : half;
   const empty = 3 - fullCount - halfCount;
   return '⭐'.repeat(fullCount) + (halfCount ? '✨' : '') + '☆'.repeat(Math.max(0, empty));
-}
-
-// ═══════════════════════════════════════════════════════
-//  SOUND
-// ═══════════════════════════════════════════════════════
-let audioCtx = null;
-function getAudio() {
-  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  return audioCtx;
-}
-function playTone(freq, dur, type='sine', vol=0.15) {
-  try {
-    const ctx = getAudio(), o = ctx.createOscillator(), g = ctx.createGain();
-    o.type = type; o.frequency.value = freq;
-    g.gain.value = vol; g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
-    o.connect(g); g.connect(ctx.destination);
-    o.start(); o.stop(ctx.currentTime + dur);
-  } catch(e) {}
-}
-function soundCorrect() { playTone(523,.1); setTimeout(()=>playTone(659,.1),100); setTimeout(()=>playTone(784,.15),200); }
-function soundWrong() { playTone(200,.15,'square',0.1); setTimeout(()=>playTone(180,.2,'square',0.1),150); }
-function soundClick() { playTone(440,.05,'sine',0.08); }
-function soundAchievement() { [523,659,784,1047].forEach((f,i)=>setTimeout(()=>playTone(f,.2,'sine',0.12),i*120)); }
-
-// ═══════════════════════════════════════════════════════
-//  CONFETTI
-// ═══════════════════════════════════════════════════════
-function launchConfetti() {
-  const colors = ['#FF6B6B','#FFD93D','#6BCB77','#4D96FF','#FF6B9D','#C084FC'];
-  for (let i = 0; i < 40; i++) {
-    const el = document.createElement('div');
-    el.className = 'confetti-piece';
-    el.style.left = Math.random()*100+'%';
-    el.style.background = colors[Math.floor(Math.random()*colors.length)];
-    el.style.animationDelay = Math.random()*0.8+'s';
-    el.style.animationDuration = (2+Math.random()*1.5)+'s';
-    document.body.appendChild(el);
-    setTimeout(()=>el.remove(), 4000);
-  }
 }
 
 // ═══════════════════════════════════════════════════════
@@ -617,18 +574,6 @@ function getBonusQuestions(questions) {
 // ═══════════════════════════════════════════════════════
 //  PROFILE SYSTEM
 // ═══════════════════════════════════════════════════════
-function loadProfiles() {
-  try {
-    profiles = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-    if (!profiles || typeof profiles !== 'object' || Array.isArray(profiles)) profiles = {};
-  } catch(e) { profiles = {}; }
-}
-
-function saveProfiles() {
-  if (currentProfile && state) profiles[currentProfile] = state;
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(profiles)); } catch(e) {}
-}
-
 function defaultState() {
   return {
     progress: {},    // { examId: { levels: { levelId: { history:{}, completed:false } } } }

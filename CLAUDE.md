@@ -6,10 +6,24 @@ Interaktives Lernspiel als **einzelne HTML-Datei** (`lernspiel.html` / `index.ht
 **Live:** https://kalectro.github.io/sachkunde-lernspiel/
 
 ## Architektur
-- Alles in einer HTML-Datei: CSS, JavaScript, SVG-Grafiken inline
+- CSS + JS in `index.html`, SVG-Grafiken inline; Fragen in externen JSON-Dateien (`data/welt*.json`)
+- Gemeinsame Engine: `shared/engine.js` — geladen von beiden Apps (Deutsch + Portugiesisch)
 - Kein Build-Schritt, kein Framework, keine externen Abhängigkeiten
-- `lernspiel.html` ist die Quelldatei, `index.html` ist eine Kopie für GitHub Pages
+- `lernspiel.html` ist eine Kopie von `index.html` für GitHub Pages
 - Daten werden in `localStorage` gespeichert (Key: `frankensteinschule_profiles_v3`)
+
+## Shared Engine (`shared/engine.js`)
+Gemeinsame Logik beider Lern-Apps. Exportiert `window.LernEngine`:
+- **Audio**: `playTone`, `soundCorrect/Wrong/Click/Achievement`
+- **Animationen**: `launchConfetti`
+- **UI**: `showScreen`, `buildStars`, `esc`
+- **Utils**: `shuffle`
+- **Profile**: `loadProfiles(key)`, `saveProfiles(key, data)`
+- **Scoring**: `calculateScore`, `recordAttempt`, `isMastered`, `avgStars`
+- **Antwort-Checking**: `checkMC`, `checkTF`, `checkText`, `checkSort`
+- **Rendering**: `renderMC`, `renderTF`, `renderType`, `renderSort`, `renderScramble`, `renderFill`
+
+Neue Fragetypen oder Bug-Fixes in der Engine wirken automatisch auf beide Apps.
 
 ## Spielstruktur
 

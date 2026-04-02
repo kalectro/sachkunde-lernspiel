@@ -313,6 +313,7 @@ input[type="text"]:focus { border-color:var(--primary); }
   .character-svg { width:70px; height:70px; }
 }
 </style>
+<script src="shared/engine.js"></script>
 </head>
 <body>
 <canvas id="confetti-canvas"></canvas>
@@ -329,6 +330,7 @@ input[type="text"]:focus { border-color:var(--primary); }
     <button class="btn btn-primary btn-small" onclick="createNewProfile()">+ Start</button>
   </div>
   <div class="reset-link" onclick="resetAllProfiles()">Alle Daten löschen</div>
+  <p style="font-size:0.75em;color:#aaa;margin-top:16px;">Alle Daten bleiben auf diesem Gerät.</p>
 </div>
 
 <!-- MAP SCREEN -->
@@ -386,6 +388,10 @@ input[type="text"]:focus { border-color:var(--primary); }
 const PROFILES_KEY = 'frankensteinschule_profiles_v3';
 const OLD_KEY = 'frankensteinschule_lernspiel_v2';
 
+// Unpack shared engine
+const { playTone, soundCorrect, soundWrong, soundClick, soundAchievement,
+        launchConfetti, showScreen, buildStars, esc, shuffle } = window.LernEngine;
+
 const WORLDS = [
   {id:1,name:"Mollys Wochentage-Wiese",char:'molly',color:'var(--w1)',colorHex:'#66BB6A',icon:'🌿'},
   {id:2,name:"Ellis Monate-Fluss",char:'elli',color:'var(--w2)',colorHex:'#42A5F5',icon:'🏞️'},
@@ -420,203 +426,18 @@ function charSVG(name, size='') {
 }
 
 // ============================================================
-// SELF-ASSESSMENT
+// DATA (loaded from JSON)
 // ============================================================
-// ============================================================
-// LERNKARTEN
-// ============================================================
-const LERNKARTEN = {
-  1: {id:'learn_w1',w:1,type:'learn',title:'Die Wochentage',content:`
-    <p>Eine Woche hat <strong>7 Tage</strong>. Sie heißen:</p>
-    <ol style="font-size:18px;font-weight:600;margin:10px 0 10px 20px;line-height:2">
-      <li><strong>Mo</strong>ntag</li><li><strong>Di</strong>enstag</li><li><strong>Mi</strong>ttwoch</li>
-      <li><strong>Do</strong>nnerstag</li><li><strong>Fr</strong>eitag</li><li><strong>Sa</strong>mstag</li><li><strong>So</strong>nntag</li>
-    </ol>
-    <p><strong>Merkhilfe:</strong> <em>Mo, Di, Mi, Do, Fr, Sa, So</em></p>
-    <p style="margin-top:8px"><strong>gestern</strong> = der Tag davor<br><strong>morgen</strong> = der nächste Tag<br><strong>vorgestern</strong> = 2 Tage zurück<br><strong>übermorgen</strong> = 2 Tage voraus</p>`},
-  2: {id:'learn_w2',w:2,type:'learn',title:'Die 12 Monate',content:`
-    <p>Ein Jahr hat <strong>12 Monate</strong>:</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 20px;margin:10px 0;font-weight:600">
-      <div>1. Januar</div><div>7. Juli</div><div>2. Februar</div><div>8. August</div>
-      <div>3. März</div><div>9. September</div><div>4. April</div><div>10. Oktober</div>
-      <div>5. Mai</div><div>11. November</div><div>6. Juni</div><div>12. Dezember</div>
-    </div>
-    <p><strong>Merkhilfe:</strong> <em>Ja-Fe-Mä-Ap-Mai-Ju-Ju-Au-Se-Ok-No-De</em></p>`},
-  3: {id:'learn_w3',w:3,type:'learn',title:'Die 4 Jahreszeiten',content:`
-    <p>Es gibt <strong>4 Jahreszeiten</strong>:</p>
-    <div style="margin:10px 0;line-height:2">
-      <div>🌸 <strong>Frühling:</strong> März, April, Mai (Ostern!)</div>
-      <div>☀️ <strong>Sommer:</strong> Juni, Juli, August</div>
-      <div>🍂 <strong>Herbst:</strong> September, Oktober, November</div>
-      <div>❄️ <strong>Winter:</strong> Dezember, Januar, Februar (Weihnachten!)</div>
-    </div>`},
-  4: {id:'learn_w4',w:4,type:'learn',title:'Tage im Monat - Der Knöchel-Trick',content:`
-    <p>Mache eine <strong>Faust</strong> und schau auf deine Knöchel:</p>
-    <div style="font-family:monospace;font-size:14px;margin:10px 0;text-align:center;line-height:1.3">
-      <div>Jan Mär Mai Jul Aug Okt Dez</div>
-      <div> ∧  ∧  ∧  ∧  ∧  ∧  ∧ </div>
-      <div>╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲</div>
-      <div>Feb Apr Jun Sep Nov</div>
-    </div>
-    <p><strong>Knöchel</strong> (oben) = <strong>31 Tage</strong></p>
-    <p><strong>Mulde</strong> (unten) = <strong>30 Tage</strong> (Februar nur 28!)</p>
-    <p style="margin-top:6px">Ein Jahr hat <strong>365 Tage</strong>, <strong>52 Wochen</strong> und <strong>12 Monate</strong>.</p>`},
-  5: {id:'learn_w5',w:5,type:'learn',title:'Ein Datum schreiben',content:`
-    <p>Ein Datum schreibt man so:</p>
-    <div style="font-size:24px;font-weight:700;text-align:center;margin:12px 0;color:var(--primary)">Tag . Monat . Jahr</div>
-    <p>Beispiel: <strong>24.12.2026</strong> = 24. Dezember 2026 (Heiligabend!)</p>
-    <p style="margin-top:8px"><strong>Wichtige Daten:</strong></p>
-    <div style="margin:6px 0">1.1. = Neujahr | 31.12. = Silvester | 6.12. = Nikolaus</div>`},
-  6: {id:'learn_w6',w:6,type:'learn',title:'Erde, Mond und Sonne',content:`
-    <p>🌍 Die <strong>Erde dreht sich um sich selbst</strong> → das dauert <strong>1 Tag</strong> (24 Stunden). Deshalb gibt es Tag und Nacht!</p>
-    <p style="margin-top:8px">🌍→☀️ Die <strong>Erde fliegt um die Sonne</strong> → das dauert <strong>1 Jahr</strong> (365 Tage).</p>
-    <p style="margin-top:8px">🌙→🌍 Der <strong>Mond fliegt um die Erde</strong> → das dauert ungefähr <strong>29 Tage</strong> (1 Monat). Deshalb heißt es "Monat" - vom Wort "Mond"!</p>`},
-};
+let QUESTIONS = [];
+let LERNKARTEN = {};
 
-// ============================================================
-// QUESTIONS with difficulty (diff: 1=easy, 2=medium, 3=hard)
-// ============================================================
-const QUESTIONS = [
-  // === WORLD 1: Wochentage ===
-  {id:'w1_01',w:1,type:'mc',diff:1,q:'Wie viele Tage hat eine Woche?',opts:['5','6','7','8'],ans:'7',sa:[6]},
-  {id:'w1_04',w:1,type:'mc',diff:1,q:'Mit welchem Tag beginnt die Woche?',opts:['Sonntag','Montag','Dienstag','Samstag'],ans:'Montag',sa:[6]},
-  {id:'w1_05',w:1,type:'mc',diff:1,q:'Welcher ist der letzte Tag der Woche?',opts:['Freitag','Samstag','Sonntag','Montag'],ans:'Sonntag',sa:[6]},
-  {id:'w1_16',w:1,type:'tf',diff:1,q:'Samstag kommt vor Sonntag.',ans:true,sa:[6]},
-  {id:'w1_02',w:1,type:'mc',diff:2,q:'Welcher Tag kommt nach Montag?',opts:['Mittwoch','Dienstag','Sonntag','Freitag'],ans:'Dienstag',sa:[6]},
-  {id:'w1_03',w:1,type:'mc',diff:2,q:'Welcher Tag kommt vor Freitag?',opts:['Samstag','Donnerstag','Mittwoch','Sonntag'],ans:'Donnerstag',sa:[6]},
-  {id:'w1_06',w:1,type:'mc',diff:2,q:'Welcher Tag kommt nach Sonntag?',opts:['Montag','Samstag','Dienstag','Mittwoch'],ans:'Montag',sa:[6]},
-  {id:'w1_17',w:1,type:'tf',diff:2,q:'Nach dem Mittwoch kommt der Freitag.',ans:false,sa:[6]},
-  {id:'w1_20',w:1,type:'mc',diff:2,q:'Welche Tage sind das Wochenende?',opts:['Montag und Dienstag','Freitag und Samstag','Samstag und Sonntag','Sonntag und Montag'],ans:'Samstag und Sonntag',sa:[6]},
-  {id:'w1_08',w:1,type:'mc',diff:2,q:'Wenn heute Mittwoch ist, welcher Tag war gestern?',opts:['Montag','Dienstag','Donnerstag','Freitag'],ans:'Dienstag',sa:[7]},
-  {id:'w1_09',w:1,type:'mc',diff:2,q:'Wenn heute Donnerstag ist, welcher Tag ist morgen?',opts:['Mittwoch','Freitag','Samstag','Sonntag'],ans:'Freitag',sa:[7]},
-  {id:'w1_07',w:1,type:'sort',diff:3,q:'Bringe die Wochentage in die richtige Reihenfolge!',items:['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag','Sonntag'],sa:[6]},
-  {id:'w1_10',w:1,type:'mc',diff:3,q:'Wenn heute Montag ist, welcher Tag ist übermorgen?',opts:['Dienstag','Mittwoch','Donnerstag','Sonntag'],ans:'Mittwoch',sa:[7]},
-  {id:'w1_11',w:1,type:'mc',diff:3,q:'Wenn heute Freitag ist, welcher Tag war vorgestern?',opts:['Montag','Dienstag','Mittwoch','Donnerstag'],ans:'Mittwoch',sa:[7]},
-  {id:'w1_12',w:1,type:'scramble',diff:3,q:'Welcher Wochentag versteckt sich hier?',word:'MONTAG',sa:[6]},
-  {id:'w1_13',w:1,type:'scramble',diff:3,q:'Welcher Wochentag versteckt sich hier?',word:'FREITAG',sa:[6]},
-  {id:'w1_18',w:1,type:'mc',diff:3,q:'Wenn heute Dienstag ist, welcher Tag ist in 3 Tagen?',opts:['Donnerstag','Freitag','Samstag','Sonntag'],ans:'Freitag',sa:[7],hint:'Zähle 3 Tage weiter: Mittwoch, Donnerstag, Freitag!'},
-
-  // === WORLD 2: Monate ===
-  {id:'w2_01',w:2,type:'mc',diff:1,q:'Wie heißt der erste Monat des Jahres?',opts:['März','Februar','Januar','April'],ans:'Januar',sa:[1]},
-  {id:'w2_03',w:2,type:'mc',diff:1,q:'Wie heißt der letzte Monat des Jahres?',opts:['November','Oktober','Dezember','September'],ans:'Dezember',sa:[1]},
-  {id:'w2_05',w:2,type:'mc',diff:1,q:'Der wievielte Monat ist der Juli?',opts:['6.','7.','8.','5.'],ans:'7.',sa:[1]},
-  {id:'w2_06',w:2,type:'mc',diff:1,q:'Welcher Monatsname hat nur 3 Buchstaben?',opts:['Juni','Juli','Mai','Alle drei'],ans:'Mai',sa:[1]},
-  {id:'w2_02',w:2,type:'mc',diff:2,q:'Welcher Monat kommt nach März?',opts:['Februar','Mai','April','Juni'],ans:'April',sa:[1]},
-  {id:'w2_04',w:2,type:'mc',diff:2,q:'Welcher Monat kommt vor Juni?',opts:['Juli','April','Mai','März'],ans:'Mai',sa:[1]},
-  {id:'w2_07',w:2,type:'mc',diff:2,q:'Welcher Monat kommt nach September?',opts:['August','November','Oktober','Dezember'],ans:'Oktober',sa:[1]},
-  {id:'w2_10',w:2,type:'mc',diff:2,q:'Welcher Monat liegt zwischen Januar und März?',opts:['April','Februar','Mai','Dezember'],ans:'Februar',sa:[1]},
-  {id:'w2_17',w:2,type:'tf',diff:2,q:'Nach dem Juni kommt der August.',ans:false,sa:[1]},
-  {id:'w2_18',w:2,type:'mc',diff:2,q:'Wie heißt der 11. Monat?',opts:['Oktober','November','Dezember','September'],ans:'November',sa:[1]},
-  {id:'w2_20',w:2,type:'mc',diff:2,q:'In welchem Monat fängt die Schule nach den Sommerferien wieder an?',opts:['Juli','August','September','Oktober'],ans:'August',sa:[1]},
-  {id:'w2_08',w:2,type:'sort',diff:3,q:'Bringe diese Monate in die richtige Reihenfolge!',items:['Januar','Februar','März','April','Mai','Juni'],sa:[1]},
-  {id:'w2_09',w:2,type:'sort',diff:3,q:'Bringe diese Monate in die richtige Reihenfolge!',items:['Juli','August','September','Oktober','November','Dezember'],sa:[1]},
-  {id:'w2_11',w:2,type:'mc',diff:3,q:'2 Monate nach Februar ist...',opts:['März','April','Mai','Juni'],ans:'April',sa:[1],hint:'Zähle 2 Monate weiter: März, April!'},
-  {id:'w2_12',w:2,type:'mc',diff:3,q:'3 Monate vor Dezember ist...',opts:['August','September','Oktober','November'],ans:'September',sa:[1]},
-  {id:'w2_13',w:2,type:'scramble',diff:3,q:'Welcher Monat versteckt sich hier?',word:'APRIL',sa:[1]},
-  {id:'w2_14',w:2,type:'scramble',diff:3,q:'Welcher Monat versteckt sich hier?',word:'AUGUST',sa:[1]},
-
-  // === WORLD 3: Jahreszeiten ===
-  {id:'w3_01',w:3,type:'mc',diff:1,q:'Wie viele Jahreszeiten gibt es?',opts:['2','3','4','5'],ans:'4',sa:[3]},
-  {id:'w3_03',w:3,type:'mc',diff:1,q:'In welcher Jahreszeit feiern wir Weihnachten?',opts:['Herbst','Frühling','Sommer','Winter'],ans:'Winter',sa:[3]},
-  {id:'w3_04',w:3,type:'mc',diff:1,q:'In welcher Jahreszeit feiern wir Ostern?',opts:['Winter','Sommer','Frühling','Herbst'],ans:'Frühling',sa:[3]},
-  {id:'w3_11',w:3,type:'tf',diff:1,q:'Im Sommer ist es kalt und es schneit.',ans:false,sa:[3]},
-  {id:'w3_12',w:3,type:'tf',diff:1,q:'Der Frühling beginnt im März.',ans:true,sa:[3]},
-  {id:'w3_18',w:3,type:'mc',diff:1,q:'Wann gehen wir gerne ins Schwimmbad?',opts:['Im Winter','Im Herbst','Im Frühling','Im Sommer'],ans:'Im Sommer',sa:[3]},
-  {id:'w3_02',w:3,type:'mc',diff:2,q:'Welche Monate gehören zum Frühling?',opts:['März, April, Mai','Juni, Juli, August','Januar, Februar, März','April, Mai, Juni'],ans:'März, April, Mai',sa:[3]},
-  {id:'w3_05',w:3,type:'mc',diff:2,q:'Welche Monate gehören zum Sommer?',opts:['März, April, Mai','Juni, Juli, August','September, Oktober, November','Juli, August, September'],ans:'Juni, Juli, August',sa:[3]},
-  {id:'w3_06',w:3,type:'mc',diff:2,q:'Wann fängt der Herbst an?',opts:['Im Juni','Im September','Im November','Im März'],ans:'Im September',sa:[3]},
-  {id:'w3_07',w:3,type:'mc',diff:2,q:'Was passiert im Herbst mit den Blättern?',opts:['Sie werden größer','Sie fallen von den Bäumen','Sie werden blau','Nichts'],ans:'Sie fallen von den Bäumen',sa:[3]},
-  {id:'w3_14',w:3,type:'mc',diff:2,q:'Welche Monate gehören zum Winter?',opts:['Dezember, Januar, Februar','November, Dezember, Januar','Januar, Februar, März','Oktober, November, Dezember'],ans:'Dezember, Januar, Februar',sa:[3]},
-  {id:'w3_10',w:3,type:'mc',diff:3,q:'Wann ist Martinstag?',opts:['Im März','Im November','Im September','Im Mai'],ans:'Im November',sa:[3]},
-  {id:'w3_13',w:3,type:'mc',diff:3,q:'In welcher Jahreszeit maskieren wir uns (Karneval)?',opts:['Sommer','Winter','Frühling','Herbst'],ans:'Winter',sa:[3],hint:'Karneval ist im Februar - das ist noch Winter!'},
-  {id:'w3_15',w:3,type:'mc',diff:3,q:'Wann ist Muttertag?',opts:['Im März','Im Mai','Im Juli','Im Oktober'],ans:'Im Mai',sa:[3]},
-  {id:'w3_16',w:3,type:'sort',diff:3,q:'Bringe die Jahreszeiten ab Jahresbeginn in die richtige Reihenfolge!',items:['Winter','Frühling','Sommer','Herbst'],sa:[3]},
-  {id:'w3_17',w:3,type:'mc',diff:3,q:'Welche Monate gehören zum Herbst?',opts:['Juni, Juli, August','September, Oktober, November','Oktober, November, Dezember','August, September, Oktober'],ans:'September, Oktober, November',sa:[3]},
-  {id:'w3_19',w:3,type:'tf',diff:2,q:'Im Herbst werden die Tage kürzer.',ans:true,sa:[3]},
-
-  // === WORLD 4: Kalender ===
-  {id:'w4_04',w:4,type:'mc',diff:1,q:'Wie viele Tage hat ein Jahr?',opts:['350','360','365','400'],ans:'365',sa:[4]},
-  {id:'w4_05',w:4,type:'mc',diff:1,q:'Wie viele Monate hat ein Jahr?',opts:['10','11','12','13'],ans:'12',sa:[4]},
-  {id:'w4_11',w:4,type:'tf',diff:1,q:'Der Juli hat 31 Tage.',ans:true,sa:[2]},
-  {id:'w4_17',w:4,type:'tf',diff:1,q:'Jeder Monat hat genau 30 Tage.',ans:false,sa:[2]},
-  {id:'w4_01',w:4,type:'mc',diff:2,q:'Wie viele Tage hat der Januar?',opts:['28','29','30','31'],ans:'31',sa:[2]},
-  {id:'w4_02',w:4,type:'mc',diff:2,q:'Wie viele Tage hat der Februar (normales Jahr)?',opts:['28','29','30','31'],ans:'28',sa:[2]},
-  {id:'w4_03',w:4,type:'mc',diff:2,q:'Wie viele Tage hat der April?',opts:['28','29','30','31'],ans:'30',sa:[2]},
-  {id:'w4_06',w:4,type:'mc',diff:2,q:'Wie viele Wochen hat ein Jahr (ungefähr)?',opts:['48','50','52','54'],ans:'52',sa:[4]},
-  {id:'w4_08',w:4,type:'mc',diff:2,q:'Wie viele Tage hat der Juni?',opts:['28','29','30','31'],ans:'30',sa:[2]},
-  {id:'w4_09',w:4,type:'mc',diff:2,q:'Wie viele Tage hat der Oktober?',opts:['28','29','30','31'],ans:'31',sa:[2]},
-  {id:'w4_07',w:4,type:'mc',diff:3,q:'Was ist ein Schaltjahr?',opts:['Ein Jahr mit 366 Tagen','Ein Jahr mit 360 Tagen','Ein Jahr ohne Februar','Ein kurzes Jahr'],ans:'Ein Jahr mit 366 Tagen',sa:[2],hint:'Im Schaltjahr hat der Februar 29 Tage statt 28!'},
-  {id:'w4_10',w:4,type:'tf',diff:3,q:'Der März hat 30 Tage.',ans:false,sa:[2],hint:'Der März hat 31 Tage!'},
-  {id:'w4_12',w:4,type:'sort',diff:3,q:'Ordne diese Monate nach Anzahl der Tage (wenigste zuerst)!',items:['Februar','April','Juli'],sa:[2]},
-  {id:'w4_13',w:4,type:'tf',diff:3,q:'Der Juni und der September haben gleich viele Tage.',ans:true,sa:[2]},
-  {id:'w4_14',w:4,type:'mc',diff:3,q:'Welche Monate haben 31 Tage?',opts:['Alle ungeraden Monate','Januar, März, Mai, Juli, August, Oktober, Dezember','Nur die ersten 6 Monate','Alle außer Februar'],ans:'Januar, März, Mai, Juli, August, Oktober, Dezember',sa:[2]},
-  {id:'w4_16',w:4,type:'fill',diff:3,q:'Der Februar hat im Schaltjahr ___ Tage.',ans:'29',sa:[2]},
-  {id:'w4_18',w:4,type:'mc',diff:3,q:'Der Knöchel-Trick: Auf dem Knöchel liegen Monate mit...',opts:['30 Tagen','31 Tagen','28 Tagen','29 Tagen'],ans:'31 Tagen',sa:[2],hint:'Die Mulden zwischen den Knöcheln sind die Monate mit 30 (oder weniger) Tagen!'},
-
-  // === WORLD 5: Datum ===
-  {id:'w5_01',w:5,type:'mc',diff:1,q:'Wie schreibt man ein Datum richtig?',opts:['Tag.Monat.Jahr','Jahr.Monat.Tag','Monat/Tag/Jahr','Tag-Jahr-Monat'],ans:'Tag.Monat.Jahr',sa:[5]},
-  {id:'w5_03',w:5,type:'mc',diff:1,q:'Was ist am 1. Januar?',opts:['Silvester','Neujahr','Ostern','Weihnachten'],ans:'Neujahr',sa:[5]},
-  {id:'w5_07',w:5,type:'mc',diff:1,q:'Was ist der letzte Tag im Jahr?',opts:['30. Dezember','31. Dezember','1. Januar','24. Dezember'],ans:'31. Dezember',sa:[5]},
-  {id:'w5_02',w:5,type:'mc',diff:2,q:'Welches Datum ist richtig geschrieben?',opts:['5.3.2026','2026.3.5','März 5 2026','3/5/2026'],ans:'5.3.2026',sa:[5]},
-  {id:'w5_06',w:5,type:'mc',diff:2,q:'Der 24.12. ist...',opts:['Nikolaus','Silvester','Heiligabend','Neujahr'],ans:'Heiligabend',sa:[5]},
-  {id:'w5_08',w:5,type:'mc',diff:2,q:'Wie liest man das Datum 1.4.?',opts:['Erster April','Vierter Januar','Erster Vierter','April Erster'],ans:'Erster April',sa:[5]},
-  {id:'w5_09',w:5,type:'mc',diff:2,q:'Welches Datum ist der Nikolaustag?',opts:['6. Januar','6. Dezember','24. Dezember','1. Dezember'],ans:'6. Dezember',sa:[5]},
-  {id:'w5_14',w:5,type:'mc',diff:2,q:'Was bedeutet das Datum 3.10.?',opts:['3. Oktober','10. März','30. Oktober','3. Monat, 10. Tag'],ans:'3. Oktober',sa:[5]},
-  {id:'w5_04',w:5,type:'mc',diff:3,q:'Wann ist Frühlingsanfang?',opts:['1. März','20. März','1. April','21. Juni'],ans:'20. März',sa:[5]},
-  {id:'w5_05',w:5,type:'mc',diff:3,q:'Welches Datum kommt zuerst?',opts:['15.3.','3.5.','Beide gleichzeitig','Kommt drauf an'],ans:'15.3.',sa:[5],hint:'Vergleiche zuerst den Monat! 3. Monat (März) kommt vor dem 5. Monat (Mai).'},
-  {id:'w5_10',w:5,type:'sort',diff:3,q:'Ordne diese Daten vom frühesten zum spätesten!',items:['1.1.','20.3.','15.6.','31.12.'],sa:[5]},
-  {id:'w5_11',w:5,type:'sort',diff:3,q:'Ordne diese Daten vom frühesten zum spätesten!',items:['3.2.','14.2.','1.5.','24.12.'],sa:[5]},
-  {id:'w5_13',w:5,type:'mc',diff:3,q:'Welches Datum hat der Rosenmontag 2026?',opts:['16.2.','23.2.','2.3.','9.3.'],ans:'16.2.',sa:[5],hint:'Rosenmontag ist immer im Februar!'},
-  {id:'w5_15',w:5,type:'fill',diff:3,q:'Heiligabend ist am 24.___.',ans:['12','Dezember'],sa:[5],hint:'Weihnachten ist im Dezember - der 12. Monat!'},
-  {id:'w5_16',w:5,type:'mc',diff:1,q:'Wenn heute der 28.2. ist, welches Datum ist morgen (kein Schaltjahr)?',opts:['29.2.','1.3.','28.3.','2.3.'],ans:'1.3.',sa:[5]},
-  {id:'w5_17',w:5,type:'mc',diff:2,q:'Welcher Feiertag ist am 1. Mai?',opts:['Neujahr','Tag der Arbeit','Nikolaus','Rosenmontag'],ans:'Tag der Arbeit',sa:[5]},
-  {id:'w5_18',w:5,type:'mc',diff:2,q:'Was bedeutet das Datum 14.2.?',opts:['2. Vierzehnter','14. Februar','14. Zweiter','Februar 14'],ans:'14. Februar',sa:[5]},
-
-  // === WORLD 6: Weltraum ===
-  {id:'w6_01',w:6,type:'mc',diff:1,q:'Wie lange braucht die Erde, um sich einmal um sich selbst zu drehen?',opts:['1 Stunde','12 Stunden','1 Tag (24 Stunden)','1 Woche'],ans:'1 Tag (24 Stunden)',sa:[8]},
-  {id:'w6_07',w:6,type:'mc',diff:1,q:'Was passiert, wenn die Erde sich von der Sonne wegdreht?',opts:['Es wird Sommer','Es wird Nacht','Es regnet','Es wird windig'],ans:'Es wird Nacht',sa:[8]},
-  {id:'w6_12',w:6,type:'mc',diff:1,q:'Was beleuchtet die Erde am Tag?',opts:['Der Mond','Die Sterne','Die Sonne','Die Wolken'],ans:'Die Sonne',sa:[8]},
-  {id:'w6_02',w:6,type:'mc',diff:2,q:'Wie lange braucht die Erde, um einmal um die Sonne zu kreisen?',opts:['1 Monat','1 Woche','1 Tag','1 Jahr (365 Tage)'],ans:'1 Jahr (365 Tage)',sa:[8]},
-  {id:'w6_04',w:6,type:'mc',diff:2,q:'Warum gibt es Tag und Nacht?',opts:['Weil die Sonne sich dreht','Weil die Erde sich um sich selbst dreht','Weil der Mond leuchtet','Weil es Wolken gibt'],ans:'Weil die Erde sich um sich selbst dreht',sa:[8]},
-  {id:'w6_09',w:6,type:'mc',diff:2,q:'Was ist größer: die Sonne oder die Erde?',opts:['Die Erde','Beide gleich groß','Die Sonne','Kommt drauf an'],ans:'Die Sonne',sa:[8]},
-  {id:'w6_14',w:6,type:'mc',diff:2,q:'Wenn es bei uns Tag ist, was ist auf der anderen Seite der Erde?',opts:['Auch Tag','Nacht','Morgen','Mittag'],ans:'Nacht',sa:[8]},
-  {id:'w6_03',w:6,type:'mc',diff:3,q:'Wie lange braucht der Mond ungefähr, um einmal um die Erde zu kreisen?',opts:['1 Tag','1 Woche','Ungefähr 29 Tage (1 Monat)','1 Jahr'],ans:'Ungefähr 29 Tage (1 Monat)',sa:[9]},
-  {id:'w6_05',w:6,type:'mc',diff:3,q:'Woher kommt das Wort "Monat"?',opts:['Von "montags"','Vom Mond','Von "Monate zählen"','Von der Sonne'],ans:'Vom Mond',sa:[9],hint:'Der Mond braucht ungefähr einen Monat, um die Erde zu umkreisen. Deshalb heißt es "Monat"!'},
-  {id:'w6_06',w:6,type:'mc',diff:3,q:'Was dreht sich um was?',opts:['Die Sonne um die Erde','Die Erde um den Mond','Die Erde um die Sonne','Der Mars um die Erde'],ans:'Die Erde um die Sonne',sa:[8]},
-  {id:'w6_08',w:6,type:'tf',diff:3,q:'Die Sonne dreht sich um die Erde.',ans:false,sa:[8]},
-  {id:'w6_10',w:6,type:'mc',diff:3,q:'Der Mond dreht sich um...',opts:['die Sonne','die Erde','sich selbst','den Mars'],ans:'die Erde',sa:[9]},
-  {id:'w6_11',w:6,type:'mc',diff:3,q:'Warum leuchtet der Mond nachts?',opts:['Er hat eigenes Licht','Er reflektiert das Sonnenlicht','Die Sterne beleuchten ihn','Er glüht'],ans:'Er reflektiert das Sonnenlicht',sa:[9]},
-  {id:'w6_13',w:6,type:'mc',diff:3,q:'Was ist der Unterschied zwischen Stern und Planet?',opts:['Sterne leuchten selbst, Planeten nicht','Planeten leuchten, Sterne nicht','Kein Unterschied','Planeten sind immer größer'],ans:'Sterne leuchten selbst, Planeten nicht',sa:[8]},
-  {id:'w6_15',w:6,type:'tf',diff:1,q:'Die Sonne ist ein Stern.',ans:true,sa:[8]},
-  {id:'w6_16',w:6,type:'mc',diff:2,q:'In welcher Reihenfolge kreisen die Himmelskörper?',opts:['Mond um Erde, Erde um Sonne','Erde um Mond, Mond um Sonne','Sonne um Erde, Erde um Mond','Alle kreisen um die Sonne'],ans:'Mond um Erde, Erde um Sonne',sa:[8]},
-  {id:'w6_17',w:6,type:'mc',diff:2,q:'Wann können wir den Mond am besten sehen?',opts:['Am Mittag','In der Nacht','Am Morgen','Gar nicht'],ans:'In der Nacht',sa:[9]},
-
-  // === BONUS QUESTIONS (don't affect stars, but required for crown) ===
-  // World 1
-  {id:'b1_01',w:1,type:'mc',diff:3,q:'Das Wort "Mittwoch" kommt von "Mitte der Woche". Welcher Tag liegt genau in der Mitte?',opts:['Dienstag','Mittwoch','Donnerstag','Freitag'],ans:'Mittwoch',sa:[6],bonus:true},
-  {id:'b1_02',w:1,type:'mc',diff:3,q:'In welchem Land beginnt die Woche mit dem Sonntag?',opts:['Deutschland','Frankreich','USA','Japan'],ans:'USA',sa:[6],bonus:true},
-  {id:'b1_03',w:1,type:'tf',diff:3,q:'Der Donnerstag ist nach dem Gott "Donar" (Thor) benannt.',ans:true,sa:[6],bonus:true},
-  // World 2
-  {id:'b2_01',w:2,type:'mc',diff:3,q:'Welcher Monat wurde nach dem römischen Kaiser Augustus benannt?',opts:['April','Juni','August','Oktober'],ans:'August',sa:[1],bonus:true},
-  {id:'b2_02',w:2,type:'mc',diff:3,q:'Im alten Rom begann das Jahr mit welchem Monat?',opts:['Januar','März','Juni','September'],ans:'März',sa:[1],bonus:true},
-  {id:'b2_03',w:2,type:'tf',diff:3,q:'Der September war im alten Rom der 7. Monat (septem = sieben).',ans:true,sa:[1],bonus:true},
-  // World 3
-  {id:'b3_01',w:3,type:'mc',diff:3,q:'Warum werden die Tage im Winter kürzer?',opts:['Weil die Sonne kleiner wird','Weil die Erde schräg steht','Weil es bewölkt ist','Weil die Erde langsamer dreht'],ans:'Weil die Erde schräg steht',sa:[3],bonus:true},
-  {id:'b3_02',w:3,type:'mc',diff:3,q:'Am 21. Juni ist Sommeranfang. Wie heißt dieser Tag?',opts:['Sommerwende','Sonnenwende','Sonnenaufgang','Sommerpause'],ans:'Sonnenwende',sa:[3],bonus:true},
-  {id:'b3_03',w:3,type:'tf',diff:3,q:'Wenn in Deutschland Sommer ist, ist in Australien Winter.',ans:true,sa:[3],bonus:true},
-  // World 4
-  {id:'b4_01',w:4,type:'mc',diff:3,q:'Warum hat der Februar nur 28 Tage?',opts:['Weil es kalt ist','Weil die Römer ihm Tage weggenommen haben','Weil er der kürzeste Monat sein soll','Weil der Mond es so bestimmt'],ans:'Weil die Römer ihm Tage weggenommen haben',sa:[2],bonus:true},
-  {id:'b4_02',w:4,type:'mc',diff:3,q:'Alle wie viele Jahre gibt es ein Schaltjahr?',opts:['Alle 2 Jahre','Alle 3 Jahre','Alle 4 Jahre','Alle 5 Jahre'],ans:'Alle 4 Jahre',sa:[2],bonus:true},
-  {id:'b4_03',w:4,type:'tf',diff:3,q:'Das Jahr 2028 ist ein Schaltjahr.',ans:true,sa:[2],bonus:true,hint:'Schaltjahre sind durch 4 teilbar: 2024, 2028, 2032...'},
-  // World 5
-  {id:'b5_01',w:5,type:'mc',diff:3,q:'In den USA schreibt man das Datum anders. Wie?',opts:['Jahr.Tag.Monat','Monat/Tag/Jahr','Tag-Monat-Jahr','Jahr-Monat-Tag'],ans:'Monat/Tag/Jahr',sa:[5],bonus:true},
-  {id:'b5_02',w:5,type:'mc',diff:3,q:'Was bedeutet "v. Chr." bei einer Jahreszahl?',opts:['Vor dem Computer','Vor Christus','Viel chronologisch','Vom Chef'],ans:'Vor Christus',sa:[5],bonus:true},
-  {id:'b5_03',w:5,type:'mc',diff:3,q:'Welches besondere Datum gibt es nur alle 4 Jahre?',opts:['Der 30. Februar','Der 29. Februar','Der 31. Juni','Der 32. Dezember'],ans:'Der 29. Februar',sa:[5],bonus:true},
-  // World 6
-  {id:'b6_01',w:6,type:'mc',diff:3,q:'Welcher Planet ist der Erde am nächsten?',opts:['Mars','Jupiter','Venus','Saturn'],ans:'Venus',sa:[8],bonus:true},
-  {id:'b6_02',w:6,type:'mc',diff:3,q:'Wie viele Planeten hat unser Sonnensystem?',opts:['7','8','9','10'],ans:'8',sa:[8],bonus:true},
-  {id:'b6_03',w:6,type:'mc',diff:3,q:'Wie heißt unsere Galaxie?',opts:['Andromeda','Milchstraße','Sonnensystem','Nordstern'],ans:'Milchstraße',sa:[8],bonus:true},
-];
+async function loadAllData() {
+  const files = [1,2,3,4,5,6].map(i => fetch(`data/welt${i}.json`).then(r => r.json()));
+  const worlds = await Promise.all(files);
+  QUESTIONS = worlds.flatMap(w => w.questions);
+  // Store full learnCard objects (with id, type, w, title, html)
+  LERNKARTEN = Object.fromEntries(worlds.filter(w => w.learnCard).map(w => [w.worldId, w.learnCard]));
+}
 
 // ============================================================
 // ACHIEVEMENTS
@@ -797,58 +618,6 @@ function recordPlayDate() {
 }
 
 // ============================================================
-// STAR DISPLAY HELPER (supports half stars)
-// ============================================================
-function buildStars(avg) {
-  // 3 stars ONLY for perfect 3.0, otherwise round DOWN to nearest 0.5
-  let rounded;
-  if (avg >= 3.0) rounded = 3;
-  else rounded = Math.floor(avg * 2) / 2; // always floor, never round up
-  const full = Math.floor(rounded);
-  const hasHalf = (rounded % 1) !== 0;
-  const empty = 3 - full - (hasHalf ? 1 : 0);
-  const s = 'display:inline-block;vertical-align:middle;line-height:1;';
-  let html = `<span style="${s}">⭐</span>`.repeat(full);
-  if (hasHalf) html += `<span style="${s}width:0.55em;overflow:hidden">⭐</span>`;
-  html += `<span style="${s}filter:grayscale(1);opacity:0.3">⭐</span>`.repeat(Math.max(0, empty));
-  return html;
-}
-function starHTML(avg, size='') {
-  const sz = size==='big'?'font-size:48px;':'font-size:36px;';
-  return `<span style="${sz}">${buildStars(avg)}</span>`;
-}
-function starHTMLSmall(avg) { return buildStars(avg); }
-
-// ============================================================
-// SOUNDS
-// ============================================================
-let audioCtx = null;
-function getAudioCtx() { if(!audioCtx) audioCtx=new(window.AudioContext||window.webkitAudioContext)(); return audioCtx; }
-function playTone(f,d,t='sine',v=.15){try{const c=getAudioCtx();const o=c.createOscillator();const g=c.createGain();o.type=t;o.frequency.value=f;g.gain.value=v;g.gain.exponentialRampToValueAtTime(.001,c.currentTime+d);o.connect(g);g.connect(c.destination);o.start(c.currentTime);o.stop(c.currentTime+d);}catch(e){}}
-function soundCorrect(){playTone(523,.15);setTimeout(()=>playTone(659,.15),100);setTimeout(()=>playTone(784,.2),200);}
-function soundWrong(){playTone(200,.3,'square',.08);}
-function soundAchievement(){[523,659,784,1047].forEach((f,i)=>setTimeout(()=>playTone(f,.2,'sine',.12),i*120));}
-function soundClick(){playTone(800,.05,'sine',.06);}
-
-// ============================================================
-// CONFETTI
-// ============================================================
-function launchConfetti(duration=2000){
-  const canvas=document.getElementById('confetti-canvas');const ctx=canvas.getContext('2d');
-  canvas.width=window.innerWidth;canvas.height=window.innerHeight;
-  const particles=[];const colors=['#FF6B35','#4ECDC4','#2ECC71','#E74C3C','#F39C12','#9B59B6','#3498DB','#FFD700'];
-  for(let i=0;i<80;i++){particles.push({x:Math.random()*canvas.width,y:-20-Math.random()*200,vx:(Math.random()-.5)*6,vy:Math.random()*4+2,size:Math.random()*8+4,color:colors[Math.floor(Math.random()*colors.length)],rotation:Math.random()*360,rotationSpeed:(Math.random()-.5)*10});}
-  const start=Date.now();
-  function animate(){if(Date.now()-start>duration+2000){ctx.clearRect(0,0,canvas.width,canvas.height);return;}ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.1;p.rotation+=p.rotationSpeed;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rotation*Math.PI/180);ctx.fillStyle=p.color;ctx.fillRect(-p.size/2,-p.size/2,p.size,p.size*.6);ctx.restore();});requestAnimationFrame(animate);}
-  animate();
-}
-
-// ============================================================
-// SCREENS
-// ============================================================
-function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
-
-// ============================================================
 // START SCREEN
 // ============================================================
 function renderStartScreen() {
@@ -1001,8 +770,6 @@ function selectQuestionsForWorld(worldId) {
   return selected;
 }
 
-function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-
 // ============================================================
 // WORLD START
 // ============================================================
@@ -1048,7 +815,7 @@ function renderQuestion() {
       </div>
       <div class="learn-card">
         <h3>📖 ${q.title}</h3>
-        <div class="learn-content">${q.content}</div>
+        <div class="learn-content">${q.html || q.content || ''}</div>
       </div>
       <button class="btn btn-primary" onclick="nextQuestion()" style="margin-top:15px">Verstanden! Weiter!</button>
     `;
@@ -1088,7 +855,6 @@ function renderQuestion() {
   if(q.type==='fill')setTimeout(()=>{const inp=document.getElementById('fill-input');if(inp)inp.focus();},300);
 }
 
-function esc(s){return String(s).replace(/'/g,"\\'").replace(/"/g,'&quot;');}
 function showHint(btn){state.hintUsed=true;document.getElementById('hint-text').style.display='block';btn.style.display='none';soundClick();}
 
 // ============================================================
@@ -1302,9 +1068,13 @@ document.addEventListener('keydown',e=>{
 // ============================================================
 // INIT
 // ============================================================
-loadProfiles();
-renderStartScreen();
-showScreen('start-screen');
+async function init() {
+  await loadAllData();
+  loadProfiles();
+  renderStartScreen();
+  showScreen('start-screen');
+}
+init();
 </script>
 </body>
 </html>
