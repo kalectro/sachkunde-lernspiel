@@ -1041,9 +1041,37 @@ function selectProfile(name) {
   state = sub;
   if (!profiles[name]) profiles[name] = {};
   profiles[name][SUBSTATE_KEY] = state;
+  backfillAchievements();
   recordPlayDate();
   saveProfiles();
   goHome();
+}
+
+// Leite rückblickend Achievements aus dem bestehenden Fortschritt ab.
+// Wird beim Profil-Öffnen ausgeführt, damit migrierte Spielstände
+// alle Erfolge bekommen, die sie laut State verdient haben.
+function backfillAchievements() {
+  if (!state) return;
+  if (!Array.isArray(state.achievements)) state.achievements = [];
+  const have = new Set(state.achievements);
+  const add = id => { if (!have.has(id)) { state.achievements.push(id); have.add(id); } };
+
+  const completed = countCompletedActiveLevels();
+  const total = countTotalActiveLevels();
+  if (completed >= 1) add('first_step');
+  if (completed >= 3) add('three_levels');
+  if (total > 0 && completed >= total) add('all_levels');
+
+  for (const sid of Object.keys(DATA_FILES)) {
+    for (const exam of getActiveExams(sid)) {
+      for (const level of exam.levels) {
+        if (getLevelAvgStars(sid, exam.id, level.id) >= 2.5) add('three_stars');
+        if (isLevelMastered(sid, exam.id, level.id)) add('crown_one');
+      }
+    }
+  }
+  if (Object.keys(DATA_FILES).every(sid => checkSubjectMastered(sid))) add('master');
+  if (state.playDates && state.playDates.length >= 3) add('bee');
 }
 
 function createProfile() {
