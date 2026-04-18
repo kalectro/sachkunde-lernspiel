@@ -1,0 +1,1559 @@
+{
+  "subject": "sachkunde",
+  "name": "Sachkunde: Das Jahr",
+  "emoji": "🌿",
+  "color": "#FF6B35",
+  "exams": [
+    {
+      "id": "sk_das_jahr_2026",
+      "name": "Sachkunde: Das Jahr",
+      "levels": [
+        {
+          "id": 1,
+          "name": "Mollys Wochentage-Wiese",
+          "sub": "Wochentage, gestern & morgen",
+          "char": "molly",
+          "icon": "🌿",
+          "color": "#66BB6A",
+          "learnCard": {
+            "title": "Die Wochentage",
+            "html": "\n    <p>Eine Woche hat <strong>7 Tage</strong>. Sie heißen:</p>\n    <ol style=\"font-size:18px;font-weight:600;margin:10px 0 10px 20px;line-height:2\">\n      <li><strong>Mo</strong>ntag</li><li><strong>Di</strong>enstag</li><li><strong>Mi</strong>ttwoch</li>\n      <li><strong>Do</strong>nnerstag</li><li><strong>Fr</strong>eitag</li><li><strong>Sa</strong>mstag</li><li><strong>So</strong>nntag</li>\n    </ol>\n    <p><strong>Merkhilfe:</strong> <em>Mo, Di, Mi, Do, Fr, Sa, So</em></p>\n    <p style=\"margin-top:8px\"><strong>gestern</strong> = der Tag davor<br><strong>morgen</strong> = der nächste Tag<br><strong>vorgestern</strong> = 2 Tage zurück<br><strong>übermorgen</strong> = 2 Tage voraus</p>"
+          },
+          "questions": [
+            {
+              "id": "w1_01",
+              "type": "mc",
+              "diff": 1,
+              "q": "Wie viele Tage hat eine Woche?",
+              "options": [
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w1_04",
+              "type": "mc",
+              "diff": 1,
+              "q": "Mit welchem Tag beginnt die Woche?",
+              "options": [
+                "Sonntag",
+                "Montag",
+                "Dienstag",
+                "Samstag"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w1_05",
+              "type": "mc",
+              "diff": 1,
+              "q": "Welcher ist der letzte Tag der Woche?",
+              "options": [
+                "Freitag",
+                "Samstag",
+                "Sonntag",
+                "Montag"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w1_16",
+              "type": "tf",
+              "diff": 1,
+              "q": "Samstag kommt vor Sonntag.",
+              "correct": true
+            },
+            {
+              "id": "w1_02",
+              "type": "mc",
+              "diff": 2,
+              "q": "Welcher Tag kommt nach Montag?",
+              "options": [
+                "Mittwoch",
+                "Dienstag",
+                "Sonntag",
+                "Freitag"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w1_03",
+              "type": "mc",
+              "diff": 2,
+              "q": "Welcher Tag kommt vor Freitag?",
+              "options": [
+                "Samstag",
+                "Donnerstag",
+                "Mittwoch",
+                "Sonntag"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w1_06",
+              "type": "mc",
+              "diff": 2,
+              "q": "Welcher Tag kommt nach Sonntag?",
+              "options": [
+                "Montag",
+                "Samstag",
+                "Dienstag",
+                "Mittwoch"
+              ],
+              "correct": 0
+            },
+            {
+              "id": "w1_17",
+              "type": "tf",
+              "diff": 2,
+              "q": "Nach dem Mittwoch kommt der Freitag.",
+              "correct": false
+            },
+            {
+              "id": "w1_20",
+              "type": "mc",
+              "diff": 2,
+              "q": "Welche Tage sind das Wochenende?",
+              "options": [
+                "Montag und Dienstag",
+                "Freitag und Samstag",
+                "Samstag und Sonntag",
+                "Sonntag und Montag"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w1_08",
+              "type": "mc",
+              "diff": 2,
+              "q": "Wenn heute Mittwoch ist, welcher Tag war gestern?",
+              "options": [
+                "Montag",
+                "Dienstag",
+                "Donnerstag",
+                "Freitag"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w1_09",
+              "type": "mc",
+              "diff": 2,
+              "q": "Wenn heute Donnerstag ist, welcher Tag ist morgen?",
+              "options": [
+                "Mittwoch",
+                "Freitag",
+                "Samstag",
+                "Sonntag"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w1_07",
+              "type": "sort",
+              "diff": 3,
+              "q": "Bringe die Wochentage in die richtige Reihenfolge!",
+              "items": [
+                "Montag",
+                "Dienstag",
+                "Mittwoch",
+                "Donnerstag",
+                "Freitag",
+                "Samstag",
+                "Sonntag"
+              ]
+            },
+            {
+              "id": "w1_10",
+              "type": "mc",
+              "diff": 3,
+              "q": "Wenn heute Montag ist, welcher Tag ist übermorgen?",
+              "options": [
+                "Dienstag",
+                "Mittwoch",
+                "Donnerstag",
+                "Sonntag"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w1_11",
+              "type": "mc",
+              "diff": 3,
+              "q": "Wenn heute Freitag ist, welcher Tag war vorgestern?",
+              "options": [
+                "Montag",
+                "Dienstag",
+                "Mittwoch",
+                "Donnerstag"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w1_12",
+              "type": "scramble",
+              "diff": 3,
+              "q": "Welcher Wochentag versteckt sich hier?",
+              "word": "MONTAG"
+            },
+            {
+              "id": "w1_13",
+              "type": "scramble",
+              "diff": 3,
+              "q": "Welcher Wochentag versteckt sich hier?",
+              "word": "FREITAG"
+            },
+            {
+              "id": "w1_18",
+              "type": "mc",
+              "diff": 3,
+              "q": "Wenn heute Dienstag ist, welcher Tag ist in 3 Tagen?",
+              "hint": "Zähle 3 Tage weiter: Mittwoch, Donnerstag, Freitag!",
+              "options": [
+                "Donnerstag",
+                "Freitag",
+                "Samstag",
+                "Sonntag"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "b1_01",
+              "type": "mc",
+              "diff": 3,
+              "q": "Das Wort \"Mittwoch\" kommt von \"Mitte der Woche\". Welcher Tag liegt genau in der Mitte?",
+              "bonus": true,
+              "options": [
+                "Dienstag",
+                "Mittwoch",
+                "Donnerstag",
+                "Freitag"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "b1_02",
+              "type": "mc",
+              "diff": 3,
+              "q": "In welchem Land beginnt die Woche mit dem Sonntag?",
+              "bonus": true,
+              "options": [
+                "Deutschland",
+                "Frankreich",
+                "USA",
+                "Japan"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "b1_03",
+              "type": "tf",
+              "diff": 3,
+              "q": "Der Donnerstag ist nach dem Gott \"Donar\" (Thor) benannt.",
+              "bonus": true,
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Ellis Monate-Fluss",
+          "sub": "Die 12 Monate, Reihenfolge",
+          "char": "elli",
+          "icon": "🏞️",
+          "color": "#42A5F5",
+          "learnCard": {
+            "title": "Die 12 Monate",
+            "html": "\n    <p>Ein Jahr hat <strong>12 Monate</strong>:</p>\n    <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:2px 20px;margin:10px 0;font-weight:600\">\n      <div>1. Januar</div><div>7. Juli</div><div>2. Februar</div><div>8. August</div>\n      <div>3. März</div><div>9. September</div><div>4. April</div><div>10. Oktober</div>\n      <div>5. Mai</div><div>11. November</div><div>6. Juni</div><div>12. Dezember</div>\n    </div>\n    <p><strong>Merkhilfe:</strong> <em>Ja-Fe-Mä-Ap-Mai-Ju-Ju-Au-Se-Ok-No-De</em></p>"
+          },
+          "questions": [
+            {
+              "id": "w2_01",
+              "type": "mc",
+              "diff": 1,
+              "q": "Wie heißt der erste Monat des Jahres?",
+              "options": [
+                "März",
+                "Februar",
+                "Januar",
+                "April"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w2_03",
+              "type": "mc",
+              "diff": 1,
+              "q": "Wie heißt der letzte Monat des Jahres?",
+              "options": [
+                "November",
+                "Oktober",
+                "Dezember",
+                "September"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w2_05",
+              "type": "mc",
+              "diff": 1,
+              "q": "Der wievielte Monat ist der Juli?",
+              "options": [
+                "6.",
+                "7.",
+                "8.",
+                "5."
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w2_06",
+              "type": "mc",
+              "diff": 1,
+              "q": "Welcher Monatsname hat nur 3 Buchstaben?",
+              "options": [
+                "Juni",
+                "Juli",
+                "Mai",
+                "Alle drei"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w2_02",
+              "type": "mc",
+              "diff": 2,
+              "q": "Welcher Monat kommt nach März?",
+              "options": [
+                "Februar",
+                "Mai",
+                "April",
+                "Juni"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w2_04",
+              "type": "mc",
+              "diff": 2,
+              "q": "Welcher Monat kommt vor Juni?",
+              "options": [
+                "Juli",
+                "April",
+                "Mai",
+                "März"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w2_07",
+              "type": "mc",
+              "diff": 2,
+              "q": "Welcher Monat kommt nach September?",
+              "options": [
+                "August",
+                "November",
+                "Oktober",
+                "Dezember"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w2_10",
+              "type": "mc",
+              "diff": 2,
+              "q": "Welcher Monat liegt zwischen Januar und März?",
+              "options": [
+                "April",
+                "Februar",
+                "Mai",
+                "Dezember"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w2_17",
+              "type": "tf",
+              "diff": 2,
+              "q": "Nach dem Juni kommt der August.",
+              "correct": false
+            },
+            {
+              "id": "w2_18",
+              "type": "mc",
+              "diff": 2,
+              "q": "Wie heißt der 11. Monat?",
+              "options": [
+                "Oktober",
+                "November",
+                "Dezember",
+                "September"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w2_20",
+              "type": "mc",
+              "diff": 2,
+              "q": "In welchem Monat fängt die Schule nach den Sommerferien wieder an?",
+              "options": [
+                "Juli",
+                "August",
+                "September",
+                "Oktober"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w2_08",
+              "type": "sort",
+              "diff": 3,
+              "q": "Bringe diese Monate in die richtige Reihenfolge!",
+              "items": [
+                "Januar",
+                "Februar",
+                "März",
+                "April",
+                "Mai",
+                "Juni"
+              ]
+            },
+            {
+              "id": "w2_09",
+              "type": "sort",
+              "diff": 3,
+              "q": "Bringe diese Monate in die richtige Reihenfolge!",
+              "items": [
+                "Juli",
+                "August",
+                "September",
+                "Oktober",
+                "November",
+                "Dezember"
+              ]
+            },
+            {
+              "id": "w2_11",
+              "type": "mc",
+              "diff": 3,
+              "q": "2 Monate nach Februar ist...",
+              "hint": "Zähle 2 Monate weiter: März, April!",
+              "options": [
+                "März",
+                "April",
+                "Mai",
+                "Juni"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w2_12",
+              "type": "mc",
+              "diff": 3,
+              "q": "3 Monate vor Dezember ist...",
+              "options": [
+                "August",
+                "September",
+                "Oktober",
+                "November"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w2_13",
+              "type": "scramble",
+              "diff": 3,
+              "q": "Welcher Monat versteckt sich hier?",
+              "word": "APRIL"
+            },
+            {
+              "id": "w2_14",
+              "type": "scramble",
+              "diff": 3,
+              "q": "Welcher Monat versteckt sich hier?",
+              "word": "AUGUST"
+            },
+            {
+              "id": "b2_01",
+              "type": "mc",
+              "diff": 3,
+              "q": "Welcher Monat wurde nach dem römischen Kaiser Augustus benannt?",
+              "bonus": true,
+              "options": [
+                "April",
+                "Juni",
+                "August",
+                "Oktober"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "b2_02",
+              "type": "mc",
+              "diff": 3,
+              "q": "Im alten Rom begann das Jahr mit welchem Monat?",
+              "bonus": true,
+              "options": [
+                "Januar",
+                "März",
+                "Juni",
+                "September"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "b2_03",
+              "type": "tf",
+              "diff": 3,
+              "q": "Der September war im alten Rom der 7. Monat (septem = sieben).",
+              "bonus": true,
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Oktis Jahreszeiten-Ozean",
+          "sub": "Jahreszeiten & Feiertage",
+          "char": "okti",
+          "icon": "🌊",
+          "color": "#FFA726",
+          "learnCard": {
+            "title": "Die 4 Jahreszeiten",
+            "html": "\n    <p>Es gibt <strong>4 Jahreszeiten</strong>:</p>\n    <div style=\"margin:10px 0;line-height:2\">\n      <div>🌸 <strong>Frühling:</strong> März, April, Mai (Ostern!)</div>\n      <div>☀️ <strong>Sommer:</strong> Juni, Juli, August</div>\n      <div>🍂 <strong>Herbst:</strong> September, Oktober, November</div>\n      <div>❄️ <strong>Winter:</strong> Dezember, Januar, Februar (Weihnachten!)</div>\n    </div>"
+          },
+          "questions": [
+            {
+              "id": "w3_01",
+              "type": "mc",
+              "diff": 1,
+              "q": "Wie viele Jahreszeiten gibt es?",
+              "options": [
+                "2",
+                "3",
+                "4",
+                "5"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w3_03",
+              "type": "mc",
+              "diff": 1,
+              "q": "In welcher Jahreszeit feiern wir Weihnachten?",
+              "options": [
+                "Herbst",
+                "Frühling",
+                "Sommer",
+                "Winter"
+              ],
+              "correct": 3
+            },
+            {
+              "id": "w3_04",
+              "type": "mc",
+              "diff": 1,
+              "q": "In welcher Jahreszeit feiern wir Ostern?",
+              "options": [
+                "Winter",
+                "Sommer",
+                "Frühling",
+                "Herbst"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w3_11",
+              "type": "tf",
+              "diff": 1,
+              "q": "Im Sommer ist es kalt und es schneit.",
+              "correct": false
+            },
+            {
+              "id": "w3_12",
+              "type": "tf",
+              "diff": 1,
+              "q": "Der Frühling beginnt im März.",
+              "correct": true
+            },
+            {
+              "id": "w3_18",
+              "type": "mc",
+              "diff": 1,
+              "q": "Wann gehen wir gerne ins Schwimmbad?",
+              "options": [
+                "Im Winter",
+                "Im Herbst",
+                "Im Frühling",
+                "Im Sommer"
+              ],
+              "correct": 3
+            },
+            {
+              "id": "w3_02",
+              "type": "mc",
+              "diff": 2,
+              "q": "Welche Monate gehören zum Frühling?",
+              "options": [
+                "März, April, Mai",
+                "Juni, Juli, August",
+                "Januar, Februar, März",
+                "April, Mai, Juni"
+              ],
+              "correct": 0
+            },
+            {
+              "id": "w3_05",
+              "type": "mc",
+              "diff": 2,
+              "q": "Welche Monate gehören zum Sommer?",
+              "options": [
+                "März, April, Mai",
+                "Juni, Juli, August",
+                "September, Oktober, November",
+                "Juli, August, September"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w3_06",
+              "type": "mc",
+              "diff": 2,
+              "q": "Wann fängt der Herbst an?",
+              "options": [
+                "Im Juni",
+                "Im September",
+                "Im November",
+                "Im März"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w3_07",
+              "type": "mc",
+              "diff": 2,
+              "q": "Was passiert im Herbst mit den Blättern?",
+              "options": [
+                "Sie werden größer",
+                "Sie fallen von den Bäumen",
+                "Sie werden blau",
+                "Nichts"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w3_14",
+              "type": "mc",
+              "diff": 2,
+              "q": "Welche Monate gehören zum Winter?",
+              "options": [
+                "Dezember, Januar, Februar",
+                "November, Dezember, Januar",
+                "Januar, Februar, März",
+                "Oktober, November, Dezember"
+              ],
+              "correct": 0
+            },
+            {
+              "id": "w3_19",
+              "type": "tf",
+              "diff": 2,
+              "q": "Im Herbst werden die Tage kürzer.",
+              "correct": true
+            },
+            {
+              "id": "w3_10",
+              "type": "mc",
+              "diff": 3,
+              "q": "Wann ist Martinstag?",
+              "options": [
+                "Im März",
+                "Im November",
+                "Im September",
+                "Im Mai"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w3_13",
+              "type": "mc",
+              "diff": 3,
+              "q": "In welcher Jahreszeit maskieren wir uns (Karneval)?",
+              "hint": "Karneval ist im Februar - das ist noch Winter!",
+              "options": [
+                "Sommer",
+                "Winter",
+                "Frühling",
+                "Herbst"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w3_15",
+              "type": "mc",
+              "diff": 3,
+              "q": "Wann ist Muttertag?",
+              "options": [
+                "Im März",
+                "Im Mai",
+                "Im Juli",
+                "Im Oktober"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w3_16",
+              "type": "sort",
+              "diff": 3,
+              "q": "Bringe die Jahreszeiten ab Jahresbeginn in die richtige Reihenfolge!",
+              "items": [
+                "Winter",
+                "Frühling",
+                "Sommer",
+                "Herbst"
+              ]
+            },
+            {
+              "id": "w3_17",
+              "type": "mc",
+              "diff": 3,
+              "q": "Welche Monate gehören zum Herbst?",
+              "options": [
+                "Juni, Juli, August",
+                "September, Oktober, November",
+                "Oktober, November, Dezember",
+                "August, September, Oktober"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "b3_01",
+              "type": "mc",
+              "diff": 3,
+              "q": "Warum werden die Tage im Winter kürzer?",
+              "bonus": true,
+              "options": [
+                "Weil die Sonne kleiner wird",
+                "Weil die Erde schräg steht",
+                "Weil es bewölkt ist",
+                "Weil die Erde langsamer dreht"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "b3_02",
+              "type": "mc",
+              "diff": 3,
+              "q": "Am 21. Juni ist Sommeranfang. Wie heißt dieser Tag?",
+              "bonus": true,
+              "options": [
+                "Sommerwende",
+                "Sonnenwende",
+                "Sonnenaufgang",
+                "Sommerpause"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "b3_03",
+              "type": "tf",
+              "diff": 3,
+              "q": "Wenn in Deutschland Sommer ist, ist in Australien Winter.",
+              "bonus": true,
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Blitzis Kalender-Koppel",
+          "sub": "Tage im Monat, Knöchel-Trick",
+          "char": "blitzi",
+          "icon": "📅",
+          "color": "#AB47BC",
+          "learnCard": {
+            "title": "Tage im Monat - Der Knöchel-Trick",
+            "html": "\n    <p>Mache eine <strong>Faust</strong> und schau auf deine Knöchel:</p>\n    <div style=\"font-family:monospace;font-size:14px;margin:10px 0;text-align:center;line-height:1.3\">\n      <div>Jan Mär Mai Jul Aug Okt Dez</div>\n      <div> ∧  ∧  ∧  ∧  ∧  ∧  ∧ </div>\n      <div>╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲</div>\n      <div>Feb Apr Jun Sep Nov</div>\n    </div>\n    <p><strong>Knöchel</strong> (oben) = <strong>31 Tage</strong></p>\n    <p><strong>Mulde</strong> (unten) = <strong>30 Tage</strong> (Februar nur 28!)</p>\n    <p style=\"margin-top:6px\">Ein Jahr hat <strong>365 Tage</strong>, <strong>52 Wochen</strong> und <strong>12 Monate</strong>.</p>"
+          },
+          "questions": [
+            {
+              "id": "w4_04",
+              "type": "mc",
+              "diff": 1,
+              "q": "Wie viele Tage hat ein Jahr?",
+              "options": [
+                "350",
+                "360",
+                "365",
+                "400"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w4_05",
+              "type": "mc",
+              "diff": 1,
+              "q": "Wie viele Monate hat ein Jahr?",
+              "options": [
+                "10",
+                "11",
+                "12",
+                "13"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w4_11",
+              "type": "tf",
+              "diff": 1,
+              "q": "Der Juli hat 31 Tage.",
+              "correct": true
+            },
+            {
+              "id": "w4_17",
+              "type": "tf",
+              "diff": 1,
+              "q": "Jeder Monat hat genau 30 Tage.",
+              "correct": false
+            },
+            {
+              "id": "w4_01",
+              "type": "mc",
+              "diff": 2,
+              "q": "Wie viele Tage hat der Januar?",
+              "options": [
+                "28",
+                "29",
+                "30",
+                "31"
+              ],
+              "correct": 3
+            },
+            {
+              "id": "w4_02",
+              "type": "mc",
+              "diff": 2,
+              "q": "Wie viele Tage hat der Februar (normales Jahr)?",
+              "options": [
+                "28",
+                "29",
+                "30",
+                "31"
+              ],
+              "correct": 0
+            },
+            {
+              "id": "w4_03",
+              "type": "mc",
+              "diff": 2,
+              "q": "Wie viele Tage hat der April?",
+              "options": [
+                "28",
+                "29",
+                "30",
+                "31"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w4_06",
+              "type": "mc",
+              "diff": 2,
+              "q": "Wie viele Wochen hat ein Jahr (ungefähr)?",
+              "options": [
+                "48",
+                "50",
+                "52",
+                "54"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w4_08",
+              "type": "mc",
+              "diff": 2,
+              "q": "Wie viele Tage hat der Juni?",
+              "options": [
+                "28",
+                "29",
+                "30",
+                "31"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w4_09",
+              "type": "mc",
+              "diff": 2,
+              "q": "Wie viele Tage hat der Oktober?",
+              "options": [
+                "28",
+                "29",
+                "30",
+                "31"
+              ],
+              "correct": 3
+            },
+            {
+              "id": "w4_07",
+              "type": "mc",
+              "diff": 3,
+              "q": "Was ist ein Schaltjahr?",
+              "hint": "Im Schaltjahr hat der Februar 29 Tage statt 28!",
+              "options": [
+                "Ein Jahr mit 366 Tagen",
+                "Ein Jahr mit 360 Tagen",
+                "Ein Jahr ohne Februar",
+                "Ein kurzes Jahr"
+              ],
+              "correct": 0
+            },
+            {
+              "id": "w4_10",
+              "type": "tf",
+              "diff": 3,
+              "q": "Der März hat 30 Tage.",
+              "hint": "Der März hat 31 Tage!",
+              "correct": false
+            },
+            {
+              "id": "w4_12",
+              "type": "sort",
+              "diff": 3,
+              "q": "Ordne diese Monate nach Anzahl der Tage (wenigste zuerst)!",
+              "items": [
+                "Februar",
+                "April",
+                "Juli"
+              ]
+            },
+            {
+              "id": "w4_13",
+              "type": "tf",
+              "diff": 3,
+              "q": "Der Juni und der September haben gleich viele Tage.",
+              "correct": true
+            },
+            {
+              "id": "w4_14",
+              "type": "mc",
+              "diff": 3,
+              "q": "Welche Monate haben 31 Tage?",
+              "options": [
+                "Alle ungeraden Monate",
+                "Januar, März, Mai, Juli, August, Oktober, Dezember",
+                "Nur die ersten 6 Monate",
+                "Alle außer Februar"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w4_16",
+              "type": "fill",
+              "diff": 3,
+              "q": "Der Februar hat im Schaltjahr ___ Tage.",
+              "accept": [
+                "29"
+              ]
+            },
+            {
+              "id": "w4_18",
+              "type": "mc",
+              "diff": 3,
+              "q": "Der Knöchel-Trick: Auf dem Knöchel liegen Monate mit...",
+              "hint": "Die Mulden zwischen den Knöcheln sind die Monate mit 30 (oder weniger) Tagen!",
+              "options": [
+                "30 Tagen",
+                "31 Tagen",
+                "28 Tagen",
+                "29 Tagen"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "b4_01",
+              "type": "mc",
+              "diff": 3,
+              "q": "Warum hat der Februar nur 28 Tage?",
+              "bonus": true,
+              "options": [
+                "Weil es kalt ist",
+                "Weil die Römer ihm Tage weggenommen haben",
+                "Weil er der kürzeste Monat sein soll",
+                "Weil der Mond es so bestimmt"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "b4_02",
+              "type": "mc",
+              "diff": 3,
+              "q": "Alle wie viele Jahre gibt es ein Schaltjahr?",
+              "bonus": true,
+              "options": [
+                "Alle 2 Jahre",
+                "Alle 3 Jahre",
+                "Alle 4 Jahre",
+                "Alle 5 Jahre"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "b4_03",
+              "type": "tf",
+              "diff": 3,
+              "q": "Das Jahr 2028 ist ein Schaltjahr.",
+              "hint": "Schaltjahre sind durch 4 teilbar: 2024, 2028, 2032...",
+              "bonus": true,
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Datum-Dschungel",
+          "sub": "Datum schreiben, Feiertage",
+          "char": "all",
+          "icon": "🌴",
+          "color": "#26A69A",
+          "learnCard": {
+            "title": "Ein Datum schreiben",
+            "html": "\n    <p>Ein Datum schreibt man so:</p>\n    <div style=\"font-size:24px;font-weight:700;text-align:center;margin:12px 0;color:var(--primary)\">Tag . Monat . Jahr</div>\n    <p>Beispiel: <strong>24.12.2026</strong> = 24. Dezember 2026 (Heiligabend!)</p>\n    <p style=\"margin-top:8px\"><strong>Wichtige Daten:</strong></p>\n    <div style=\"margin:6px 0\">1.1. = Neujahr | 31.12. = Silvester | 6.12. = Nikolaus</div>"
+          },
+          "questions": [
+            {
+              "id": "w5_01",
+              "type": "mc",
+              "diff": 1,
+              "q": "Wie schreibt man ein Datum richtig?",
+              "options": [
+                "Tag.Monat.Jahr",
+                "Jahr.Monat.Tag",
+                "Monat/Tag/Jahr",
+                "Tag-Jahr-Monat"
+              ],
+              "correct": 0
+            },
+            {
+              "id": "w5_03",
+              "type": "mc",
+              "diff": 1,
+              "q": "Was ist am 1. Januar?",
+              "options": [
+                "Silvester",
+                "Neujahr",
+                "Ostern",
+                "Weihnachten"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w5_07",
+              "type": "mc",
+              "diff": 1,
+              "q": "Was ist der letzte Tag im Jahr?",
+              "options": [
+                "30. Dezember",
+                "31. Dezember",
+                "1. Januar",
+                "24. Dezember"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w5_16",
+              "type": "mc",
+              "diff": 1,
+              "q": "Wenn heute der 28.2. ist, welches Datum ist morgen (kein Schaltjahr)?",
+              "options": [
+                "29.2.",
+                "1.3.",
+                "28.3.",
+                "2.3."
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w5_02",
+              "type": "mc",
+              "diff": 2,
+              "q": "Welches Datum ist richtig geschrieben?",
+              "options": [
+                "5.3.2026",
+                "2026.3.5",
+                "März 5 2026",
+                "3/5/2026"
+              ],
+              "correct": 0
+            },
+            {
+              "id": "w5_06",
+              "type": "mc",
+              "diff": 2,
+              "q": "Der 24.12. ist...",
+              "options": [
+                "Nikolaus",
+                "Silvester",
+                "Heiligabend",
+                "Neujahr"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w5_08",
+              "type": "mc",
+              "diff": 2,
+              "q": "Wie liest man das Datum 1.4.?",
+              "options": [
+                "Erster April",
+                "Vierter Januar",
+                "Erster Vierter",
+                "April Erster"
+              ],
+              "correct": 0
+            },
+            {
+              "id": "w5_09",
+              "type": "mc",
+              "diff": 2,
+              "q": "Welches Datum ist der Nikolaustag?",
+              "options": [
+                "6. Januar",
+                "6. Dezember",
+                "24. Dezember",
+                "1. Dezember"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w5_14",
+              "type": "mc",
+              "diff": 2,
+              "q": "Was bedeutet das Datum 3.10.?",
+              "options": [
+                "3. Oktober",
+                "10. März",
+                "30. Oktober",
+                "3. Monat, 10. Tag"
+              ],
+              "correct": 0
+            },
+            {
+              "id": "w5_17",
+              "type": "mc",
+              "diff": 2,
+              "q": "Welcher Feiertag ist am 1. Mai?",
+              "options": [
+                "Neujahr",
+                "Tag der Arbeit",
+                "Nikolaus",
+                "Rosenmontag"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w5_18",
+              "type": "mc",
+              "diff": 2,
+              "q": "Was bedeutet das Datum 14.2.?",
+              "options": [
+                "2. Vierzehnter",
+                "14. Februar",
+                "14. Zweiter",
+                "Februar 14"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w5_04",
+              "type": "mc",
+              "diff": 3,
+              "q": "Wann ist Frühlingsanfang?",
+              "options": [
+                "1. März",
+                "20. März",
+                "1. April",
+                "21. Juni"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w5_05",
+              "type": "mc",
+              "diff": 3,
+              "q": "Welches Datum kommt zuerst?",
+              "hint": "Vergleiche zuerst den Monat! 3. Monat (März) kommt vor dem 5. Monat (Mai).",
+              "options": [
+                "15.3.",
+                "3.5.",
+                "Beide gleichzeitig",
+                "Kommt drauf an"
+              ],
+              "correct": 0
+            },
+            {
+              "id": "w5_10",
+              "type": "sort",
+              "diff": 3,
+              "q": "Ordne diese Daten vom frühesten zum spätesten!",
+              "items": [
+                "1.1.",
+                "20.3.",
+                "15.6.",
+                "31.12."
+              ]
+            },
+            {
+              "id": "w5_11",
+              "type": "sort",
+              "diff": 3,
+              "q": "Ordne diese Daten vom frühesten zum spätesten!",
+              "items": [
+                "3.2.",
+                "14.2.",
+                "1.5.",
+                "24.12."
+              ]
+            },
+            {
+              "id": "w5_13",
+              "type": "mc",
+              "diff": 3,
+              "q": "Welches Datum hat der Rosenmontag 2026?",
+              "hint": "Rosenmontag ist immer im Februar!",
+              "options": [
+                "16.2.",
+                "23.2.",
+                "2.3.",
+                "9.3."
+              ],
+              "correct": 0
+            },
+            {
+              "id": "w5_15",
+              "type": "fill",
+              "diff": 3,
+              "q": "Heiligabend ist am 24.___.",
+              "hint": "Weihnachten ist im Dezember - der 12. Monat!",
+              "accept": [
+                "12",
+                "Dezember"
+              ]
+            },
+            {
+              "id": "b5_01",
+              "type": "mc",
+              "diff": 3,
+              "q": "In den USA schreibt man das Datum anders. Wie?",
+              "bonus": true,
+              "options": [
+                "Jahr.Tag.Monat",
+                "Monat/Tag/Jahr",
+                "Tag-Monat-Jahr",
+                "Jahr-Monat-Tag"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "b5_02",
+              "type": "mc",
+              "diff": 3,
+              "q": "Was bedeutet \"v. Chr.\" bei einer Jahreszahl?",
+              "bonus": true,
+              "options": [
+                "Vor dem Computer",
+                "Vor Christus",
+                "Viel chronologisch",
+                "Vom Chef"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "b5_03",
+              "type": "mc",
+              "diff": 3,
+              "q": "Welches besondere Datum gibt es nur alle 4 Jahre?",
+              "bonus": true,
+              "options": [
+                "Der 30. Februar",
+                "Der 29. Februar",
+                "Der 31. Juni",
+                "Der 32. Dezember"
+              ],
+              "correct": 1
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Weltraum-Abenteuer",
+          "sub": "Erde, Mond & Sonne",
+          "char": "all",
+          "icon": "🚀",
+          "color": "#283593",
+          "learnCard": {
+            "title": "Erde, Mond und Sonne",
+            "html": "\n    <p>🌍 Die <strong>Erde dreht sich um sich selbst</strong> → das dauert <strong>1 Tag</strong> (24 Stunden). Deshalb gibt es Tag und Nacht!</p>\n    <p style=\"margin-top:8px\">🌍→☀️ Die <strong>Erde fliegt um die Sonne</strong> → das dauert <strong>1 Jahr</strong> (365 Tage).</p>\n    <p style=\"margin-top:8px\">🌙→🌍 Der <strong>Mond fliegt um die Erde</strong> → das dauert ungefähr <strong>29 Tage</strong> (1 Monat). Deshalb heißt es \"Monat\" - vom Wort \"Mond\"!</p>"
+          },
+          "questions": [
+            {
+              "id": "w6_01",
+              "type": "mc",
+              "diff": 1,
+              "q": "Wie lange braucht die Erde, um sich einmal um sich selbst zu drehen?",
+              "options": [
+                "1 Stunde",
+                "12 Stunden",
+                "1 Tag (24 Stunden)",
+                "1 Woche"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w6_07",
+              "type": "mc",
+              "diff": 1,
+              "q": "Was passiert, wenn die Erde sich von der Sonne wegdreht?",
+              "options": [
+                "Es wird Sommer",
+                "Es wird Nacht",
+                "Es regnet",
+                "Es wird windig"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w6_12",
+              "type": "mc",
+              "diff": 1,
+              "q": "Was beleuchtet die Erde am Tag?",
+              "options": [
+                "Der Mond",
+                "Die Sterne",
+                "Die Sonne",
+                "Die Wolken"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w6_15",
+              "type": "tf",
+              "diff": 1,
+              "q": "Die Sonne ist ein Stern.",
+              "correct": true
+            },
+            {
+              "id": "w6_02",
+              "type": "mc",
+              "diff": 2,
+              "q": "Wie lange braucht die Erde, um einmal um die Sonne zu kreisen?",
+              "options": [
+                "1 Monat",
+                "1 Woche",
+                "1 Tag",
+                "1 Jahr (365 Tage)"
+              ],
+              "correct": 3
+            },
+            {
+              "id": "w6_04",
+              "type": "mc",
+              "diff": 2,
+              "q": "Warum gibt es Tag und Nacht?",
+              "options": [
+                "Weil die Sonne sich dreht",
+                "Weil die Erde sich um sich selbst dreht",
+                "Weil der Mond leuchtet",
+                "Weil es Wolken gibt"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w6_09",
+              "type": "mc",
+              "diff": 2,
+              "q": "Was ist größer: die Sonne oder die Erde?",
+              "options": [
+                "Die Erde",
+                "Beide gleich groß",
+                "Die Sonne",
+                "Kommt drauf an"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w6_14",
+              "type": "mc",
+              "diff": 2,
+              "q": "Wenn es bei uns Tag ist, was ist auf der anderen Seite der Erde?",
+              "options": [
+                "Auch Tag",
+                "Nacht",
+                "Morgen",
+                "Mittag"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w6_16",
+              "type": "mc",
+              "diff": 2,
+              "q": "In welcher Reihenfolge kreisen die Himmelskörper?",
+              "options": [
+                "Mond um Erde, Erde um Sonne",
+                "Erde um Mond, Mond um Sonne",
+                "Sonne um Erde, Erde um Mond",
+                "Alle kreisen um die Sonne"
+              ],
+              "correct": 0
+            },
+            {
+              "id": "w6_17",
+              "type": "mc",
+              "diff": 2,
+              "q": "Wann können wir den Mond am besten sehen?",
+              "options": [
+                "Am Mittag",
+                "In der Nacht",
+                "Am Morgen",
+                "Gar nicht"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w6_03",
+              "type": "mc",
+              "diff": 3,
+              "q": "Wie lange braucht der Mond ungefähr, um einmal um die Erde zu kreisen?",
+              "options": [
+                "1 Tag",
+                "1 Woche",
+                "Ungefähr 29 Tage (1 Monat)",
+                "1 Jahr"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w6_05",
+              "type": "mc",
+              "diff": 3,
+              "q": "Woher kommt das Wort \"Monat\"?",
+              "hint": "Der Mond braucht ungefähr einen Monat, um die Erde zu umkreisen. Deshalb heißt es \"Monat\"!",
+              "options": [
+                "Von \"montags\"",
+                "Vom Mond",
+                "Von \"Monate zählen\"",
+                "Von der Sonne"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w6_06",
+              "type": "mc",
+              "diff": 3,
+              "q": "Was dreht sich um was?",
+              "options": [
+                "Die Sonne um die Erde",
+                "Die Erde um den Mond",
+                "Die Erde um die Sonne",
+                "Der Mars um die Erde"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "w6_08",
+              "type": "tf",
+              "diff": 3,
+              "q": "Die Sonne dreht sich um die Erde.",
+              "correct": false
+            },
+            {
+              "id": "w6_10",
+              "type": "mc",
+              "diff": 3,
+              "q": "Der Mond dreht sich um...",
+              "options": [
+                "die Sonne",
+                "die Erde",
+                "sich selbst",
+                "den Mars"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w6_11",
+              "type": "mc",
+              "diff": 3,
+              "q": "Warum leuchtet der Mond nachts?",
+              "options": [
+                "Er hat eigenes Licht",
+                "Er reflektiert das Sonnenlicht",
+                "Die Sterne beleuchten ihn",
+                "Er glüht"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "w6_13",
+              "type": "mc",
+              "diff": 3,
+              "q": "Was ist der Unterschied zwischen Stern und Planet?",
+              "options": [
+                "Sterne leuchten selbst, Planeten nicht",
+                "Planeten leuchten, Sterne nicht",
+                "Kein Unterschied",
+                "Planeten sind immer größer"
+              ],
+              "correct": 0
+            },
+            {
+              "id": "b6_01",
+              "type": "mc",
+              "diff": 3,
+              "q": "Welcher Planet ist der Erde am nächsten?",
+              "bonus": true,
+              "options": [
+                "Mars",
+                "Jupiter",
+                "Venus",
+                "Saturn"
+              ],
+              "correct": 2
+            },
+            {
+              "id": "b6_02",
+              "type": "mc",
+              "diff": 3,
+              "q": "Wie viele Planeten hat unser Sonnensystem?",
+              "bonus": true,
+              "options": [
+                "7",
+                "8",
+                "9",
+                "10"
+              ],
+              "correct": 1
+            },
+            {
+              "id": "b6_03",
+              "type": "mc",
+              "diff": 3,
+              "q": "Wie heißt unsere Galaxie?",
+              "bonus": true,
+              "options": [
+                "Andromeda",
+                "Milchstraße",
+                "Sonnensystem",
+                "Nordstern"
+              ],
+              "correct": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

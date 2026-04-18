@@ -346,7 +346,7 @@ body {
   <!-- SUBJECT / LEVELS -->
   <div id="screen-subject" class="screen">
     <div class="col-header" id="subject-header">
-      <button class="back-btn" onclick="goHome()">← Start</button>
+      <button class="back-btn" onclick="goBackFromSubject()">← Plattform</button>
       <h2 id="subject-title"></h2>
       <p id="subject-exam"></p>
     </div>
@@ -382,7 +382,7 @@ body {
     <div class="res-btns">
       <button class="btn-main" onclick="retryLevel()">🔄 Nochmal versuchen</button>
       <button class="btn-sec" onclick="goSubject()">← Zurück zur Liste</button>
-      <button class="btn-sec" onclick="goHome()">🏠 Start</button>
+      <button class="btn-sec" onclick="goPlatform()">🏠 Plattform</button>
     </div>
   </div>
 
@@ -799,9 +799,41 @@ function goPlatform() {
   location.href = '../' + q;
 }
 
+function autoSkipsHome() {
+  // Skip home if there is exactly one active exam and no archive.
+  let activeCount = 0, archiveCount = 0;
+  for (const sid of Object.keys(DATA_FILES)) {
+    for (const exam of getActiveExams(sid)) {
+      if (exam.levels && exam.levels.length > 0) activeCount++;
+    }
+    archiveCount += getArchivedExams(sid).length;
+  }
+  return activeCount === 1 && archiveCount === 0;
+}
+
 function goHome() {
+  if (autoSkipsHome()) {
+    for (const sid of Object.keys(DATA_FILES)) {
+      const exams = getActiveExams(sid);
+      if (exams.length > 0 && exams[0].levels.length > 0) {
+        renderSubject(sid, exams[0].id, false);
+        showScreen('subject');
+        return;
+      }
+    }
+  }
   renderHome();
   showScreen('home');
+}
+
+function goHomeFull() {
+  renderHome();
+  showScreen('home');
+}
+
+function goBackFromSubject() {
+  if (autoSkipsHome()) goPlatform();
+  else goHomeFull();
 }
 
 function goSubject() {
