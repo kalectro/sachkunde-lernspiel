@@ -110,7 +110,7 @@
             {"id": "de_v_4_14", "type": "mc", "diff": 2, "q": "Wie schreibt man? «Der Hund ___» (bellen)", "options": ["bellt", "belt", "bellkt", "bellpt"], "correct": 0, "explanation": "er bellt — mit ll und t!"},
             {"id": "de_v_4_15", "type": "tf", "diff": 2, "q": "Durch Verlängern (z.B. mit der Wir-Form) höre ich besser, ob das Verb mit g oder k bzw. b oder p geschrieben wird.", "correct": true, "explanation": "Richtig! Das ist der Trick: verlängern hilft hören! 👂"},
             {"id": "de_v_4_16", "type": "type", "diff": 3, "q": "Wie schreibt man? «Das Boot ___» (schwimmen) — mit welchem Buchstaben am Ende?", "accept": ["schwimmt"], "explanation": "er schwimmt — wir schwimmen!", "hint": "Denke an «wir schwimmen»"},
-            {"id": "de_v_4_17", "type": "sort", "diff": 3, "q": "Welche Verben enden auf t (mit g im Wortstamm)? Ordne nach Alphabet:", "items": ["fragt", "jagt", "sagt", "zeigt"], "explanation": "Alphabetisch: fragt, jagt, sagt, zeigt!"},
+            {"id": "de_v_4_17", "type": "sort", "diff": 3, "q": "Ordne diese Verben (g im Wortstamm → t am Ende) alphabetisch!", "items": ["fragt", "jagt", "sagt", "zeigt"], "explanation": "Alphabetisch: fragt, jagt, sagt, zeigt! Bei allen hörst du «-t» am Ende — der Stamm hat g (frag-, jag-, sag-, zeig-)."},
             {"id": "de_v_4_b1", "type": "mc", "diff": 3, "bonus": true, "q": "Mit welcher Verbform höre ich den Wortstamm besonders gut?", "options": ["wir-Form", "ich-Form", "er-Form", "Grundform"], "correct": 0, "explanation": "Die wir-Form (= Grundform) zeigt den Wortstamm: wir sagen → der Wortstamm ist «sag»!"}
           ]
         },
@@ -135,7 +135,7 @@
             {"id": "de_v_5_14", "type": "tf", "diff": 2, "q": "«Ver-», «vor-», «ein-», «aus-», «be-» sind Vorsilben.", "correct": true, "explanation": "Richtig! Vorsilben stehen vor dem Wortstamm und verändern die Bedeutung."},
             {"id": "de_v_5_15", "type": "tf", "diff": 2, "q": "Alle Wörter einer Wortfamilie haben den gleichen Wortstamm.", "correct": true, "explanation": "Richtig! Darum gehören sie zusammen. z.B. lesen, lesbar, Leser — alle mit «les»!"},
             {"id": "de_v_5_16", "type": "type", "diff": 3, "q": "Wie heißt der Teil eines Verbs, der die Bedeutung trägt (z.B. «leg» in «legen»)?", "accept": ["wortstamm", "stamm"], "explanation": "Der Wortstamm! An ihn kommen Endungen und Vorsilben."},
-            {"id": "de_v_5_17", "type": "sort", "diff": 3, "q": "Ordne: Bilde die Wortfamilie von «schreiben» alphabetisch:", "items": ["beschreiben", "schreiben", "verschreiben", "vorschreiben"], "explanation": "Alphabetisch: beschreiben, schreiben, verschreiben, vorschreiben!"},
+            {"id": "de_v_5_17", "type": "sort", "diff": 3, "q": "Ordne diese Wörter aus der Wortfamilie von «schreiben» alphabetisch!", "items": ["beschreiben", "schreiben", "verschreiben", "vorschreiben"], "explanation": "Alphabetisch: beschreiben, schreiben, verschreiben, vorschreiben!"},
             {"id": "de_v_5_b1", "type": "type", "diff": 3, "bonus": true, "q": "Bilde ein Verb mit «zer-» und «reiß-». (Tipp: kaputt machen)", "accept": ["zerreißen", "zerreissen"], "explanation": "zerreißen — in Stücke reißen! 💥"}
           ]
         },
