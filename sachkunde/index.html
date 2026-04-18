@@ -313,7 +313,7 @@ input[type="text"]:focus { border-color:var(--primary); }
   .character-svg { width:70px; height:70px; }
 }
 </style>
-<script src="shared/engine.js"></script>
+<script src="../shared/engine.js"></script>
 </head>
 <body>
 <canvas id="confetti-canvas"></canvas>
@@ -344,6 +344,7 @@ input[type="text"]:focus { border-color:var(--primary); }
   <div class="world-grid" id="world-grid"></div>
   <div class="bottom-nav">
     <button class="btn btn-small btn-outline" onclick="showAchievements()">Abzeichen</button>
+    <button class="btn btn-small btn-outline" onclick="goToPlatform()">← Plattform</button>
     <button class="btn btn-small btn-outline" onclick="goToStart()">Spieler wechseln</button>
   </div>
 </div>
@@ -532,24 +533,57 @@ function migrateWorldProgress(wp) {
   return wp;
 }
 
+// Namespace under which Sachkunde state lives inside a profile container.
+// Other tests (Deutschtest, …) live next to it under their own keys.
+const SUBSTATE_KEY = 'sachkunde';
+
+function migrateProfileContainer(p) {
+  // Old flat structure had worldProgress/achievements/streak/playDates at profile root.
+  // New structure: profile = { sachkunde: {...state...}, deutschtest: {...}, ... }
+  if (p && p.worldProgress !== undefined && !p[SUBSTATE_KEY]) {
+    p[SUBSTATE_KEY] = {
+      worldProgress: p.worldProgress || {},
+      achievements: p.achievements || [],
+      streak: p.streak || 0,
+      currentWorld: p.currentWorld || 0,
+      currentQuestions: p.currentQuestions || [],
+      currentQIndex: p.currentQIndex || 0,
+      attempts: p.attempts || 0,
+      hintUsed: p.hintUsed || false,
+      playDates: p.playDates || []
+    };
+    delete p.worldProgress; delete p.achievements; delete p.streak;
+    delete p.currentWorld; delete p.currentQuestions; delete p.currentQIndex;
+    delete p.attempts; delete p.hintUsed; delete p.playDates;
+  }
+  return p;
+}
+
 function loadProfiles() {
   try {
     profiles = JSON.parse(localStorage.getItem(PROFILES_KEY) || '{}');
-    // Migrate old single-profile data
+    // Migrate old single-profile data (v2 key)
     const old = localStorage.getItem(OLD_KEY);
     if (old && Object.keys(profiles).length === 0) {
       const oldState = JSON.parse(old);
       const name = oldState.playerName || 'Spieler';
-      profiles[name] = oldState;
-      saveProfiles();
+      profiles[name] = { [SUBSTATE_KEY]: oldState };
       localStorage.removeItem(OLD_KEY);
     }
+    // Migrate flat-profile structure → namespaced container
+    for (const name of Object.keys(profiles)) {
+      profiles[name] = migrateProfileContainer(profiles[name]);
+    }
+    localStorage.setItem(PROFILES_KEY, JSON.stringify(profiles));
   } catch(e) { profiles = {}; }
 }
 
 function saveProfiles() {
   try {
-    if (currentProfile && state) profiles[currentProfile] = state;
+    if (currentProfile && state) {
+      if (!profiles[currentProfile]) profiles[currentProfile] = {};
+      profiles[currentProfile][SUBSTATE_KEY] = state;
+    }
     localStorage.setItem(PROFILES_KEY, JSON.stringify(profiles));
   } catch(e) {}
 }
@@ -558,7 +592,11 @@ function saveState() { saveProfiles(); }
 
 function selectProfile(name) {
   currentProfile = name;
-  state = profiles[name];
+  if (!profiles[name]) profiles[name] = {};
+  if (!profiles[name][SUBSTATE_KEY]) {
+    profiles[name][SUBSTATE_KEY] = JSON.parse(JSON.stringify(DEFAULT_STATE));
+  }
+  state = profiles[name][SUBSTATE_KEY];
   // Migrate all worldProgress to history format
   for (const wid of Object.keys(state.worldProgress||{})) {
     state.worldProgress[wid] = migrateWorldProgress(state.worldProgress[wid]);
@@ -575,9 +613,9 @@ function createNewProfile() {
   if (!name) { input.style.borderColor='var(--error)'; input.focus(); return; }
   if (profiles[name]) { selectProfile(name); return; }
   soundClick();
-  profiles[name] = JSON.parse(JSON.stringify(DEFAULT_STATE));
+  profiles[name] = { [SUBSTATE_KEY]: JSON.parse(JSON.stringify(DEFAULT_STATE)) };
   currentProfile = name;
-  state = profiles[name];
+  state = profiles[name][SUBSTATE_KEY];
   saveProfiles();
   initWorldProgress();
   showScreen('map-screen');
@@ -633,7 +671,7 @@ function renderStartScreen() {
   } else {
     container.innerHTML = '<p class="subtitle" style="margin-bottom:8px">Wer bist du?</p><div class="profiles-grid">' +
       names.map(name => {
-        const p = profiles[name];
+        const p = (profiles[name] && profiles[name][SUBSTATE_KEY]) || {};
         const completedWorlds = Object.values(p.worldProgress||{}).filter(wp=>wp.completed).length;
         let totalAnswered = 0;
         Object.values(p.worldProgress||{}).forEach(wp => { totalAnswered += Object.keys(wp.history||wp.stars||{}).length; });
@@ -784,6 +822,12 @@ function startWorld(worldId) {
 }
 
 function backToMap() { soundClick(); showScreen('map-screen'); renderMap(); }
+
+function goToPlatform() {
+  soundClick();
+  const name = currentProfile ? encodeURIComponent(currentProfile) : '';
+  location.href = '../' + (name ? `?profile=${name}` : '');
+}
 
 // ============================================================
 // RENDER QUESTION
@@ -1071,6 +1115,13 @@ document.addEventListener('keydown',e=>{
 async function init() {
   await loadAllData();
   loadProfiles();
+  const params = new URLSearchParams(location.search);
+  const preselect = params.get('profile');
+  if (preselect) history.replaceState({}, '', location.pathname);
+  if (preselect && profiles[preselect]) {
+    selectProfile(preselect);
+    return;
+  }
   renderStartScreen();
   showScreen('start-screen');
 }

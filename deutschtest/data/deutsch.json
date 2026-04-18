@@ -1,0 +1,172 @@
+{
+  "subject": "deutsch",
+  "name": "Deutsch",
+  "emoji": "📚",
+  "color": "#E84393",
+  "exams": [
+    {
+      "id": "de_verben_2026",
+      "name": "Deutschtest: Verben & Wortarten",
+      "examDate": "2026-04-24",
+      "archived": false,
+      "levels": [
+        {
+          "id": 1,
+          "name": "Nomen & Artikel",
+          "sub": "Nomen erkennen, der/die/das",
+          "questions": [
+            {"id": "de_v_1_01", "type": "mc", "diff": 1, "q": "Welcher Artikel passt zu «Hund»?", "options": ["der", "die", "das"], "correct": 0, "explanation": "der Hund — männlich! 🐕"},
+            {"id": "de_v_1_02", "type": "mc", "diff": 1, "q": "Welcher Artikel passt zu «Katze»?", "options": ["die", "der", "das"], "correct": 0, "explanation": "die Katze — weiblich! 🐱"},
+            {"id": "de_v_1_03", "type": "mc", "diff": 1, "q": "Welcher Artikel passt zu «Auto»?", "options": ["das", "der", "die"], "correct": 0, "explanation": "das Auto — sächlich! 🚗"},
+            {"id": "de_v_1_04", "type": "mc", "diff": 1, "q": "Welcher Artikel passt zu «Traktor»?", "options": ["der", "die", "das"], "correct": 0, "explanation": "der Traktor — männlich! 🚜"},
+            {"id": "de_v_1_05", "type": "mc", "diff": 1, "q": "Welcher Artikel passt zu «Bahn»?", "options": ["die", "der", "das"], "correct": 0, "explanation": "die Bahn — weiblich! 🚆"},
+            {"id": "de_v_1_06", "type": "mc", "diff": 1, "q": "Welcher Artikel passt zu «Flugzeug»?", "options": ["das", "der", "die"], "correct": 0, "explanation": "das Flugzeug — sächlich! ✈️"},
+            {"id": "de_v_1_07", "type": "mc", "diff": 1, "q": "Welches Wort ist ein NOMEN?", "options": ["Baum", "laufen", "schön", "schnell"], "correct": 0, "explanation": "Nomen sind Wörter für Menschen, Tiere, Pflanzen oder Dinge. «Baum» ist ein Ding! 🌳"},
+            {"id": "de_v_1_08", "type": "mc", "diff": 2, "q": "Welches Wort ist KEIN Nomen?", "options": ["singen", "Lied", "Kind", "Mutter"], "correct": 0, "explanation": "«Singen» ist ein Verb (Tunwort). Nomen sind z.B. Lied, Kind, Mutter."},
+            {"id": "de_v_1_09", "type": "tf", "diff": 1, "q": "Nomen schreibt man groß.", "correct": true, "explanation": "Richtig! Nomen beginnen immer mit einem großen Buchstaben. 📝"},
+            {"id": "de_v_1_10", "type": "tf", "diff": 1, "q": "Verben schreibt man groß.", "correct": false, "explanation": "Falsch! Verben (Tunwörter) schreibt man klein."},
+            {"id": "de_v_1_11", "type": "tf", "diff": 2, "q": "Vor einem Nomen kann man immer «der», «die» oder «das» setzen.", "correct": true, "explanation": "Richtig! Jedes Nomen hat einen Artikel: der, die oder das."},
+            {"id": "de_v_1_12", "type": "type", "diff": 2, "q": "Schreibe den Artikel zu «Pferd».", "accept": ["das", "das pferd"], "explanation": "das Pferd — sächlich! 🐴"},
+            {"id": "de_v_1_13", "type": "type", "diff": 2, "q": "Schreibe den Artikel zu «Bagger».", "accept": ["der", "der bagger"], "explanation": "der Bagger — männlich!"},
+            {"id": "de_v_1_14", "type": "type", "diff": 2, "q": "Schreibe den Artikel zu «Kutsche».", "accept": ["die", "die kutsche"], "explanation": "die Kutsche — weiblich!"},
+            {"id": "de_v_1_15", "type": "mc", "diff": 2, "q": "Welches Wort ist ein Nomen?", "options": ["Futternapf", "fressen", "hungrig", "schnell"], "correct": 0, "explanation": "«Futternapf» ist ein Ding — ein Nomen! 🥣"},
+            {"id": "de_v_1_16", "type": "type", "diff": 3, "q": "Wie heißt der Oberbegriff für Wörter wie Hund, Katze, Tisch, Karl?", "accept": ["nomen", "namenwort", "namenwörter", "namenwoerter"], "explanation": "Das sind alles NOMEN (auch Namenwörter genannt)!", "hint": "Beginnt mit N und hat 5 Buchstaben."},
+            {"id": "de_v_1_17", "type": "tf", "diff": 1, "q": "«Dieb» ist ein Nomen.", "correct": true, "explanation": "Richtig! Ein Dieb ist eine Person — also ein Nomen."},
+            {"id": "de_v_1_18", "type": "sort", "diff": 3, "q": "Ordne die Wörter nach dem Alphabet!", "items": ["Bagger", "Flugzeug", "Kutsche", "Traktor"], "explanation": "Alphabetisch: Bagger, Flugzeug, Kutsche, Traktor!"},
+            {"id": "de_v_1_b1", "type": "type", "diff": 3, "bonus": true, "q": "Welcher Artikel passt zu «Kind»?", "accept": ["das", "das kind"], "explanation": "Bonus! das Kind — sächlich, auch wenn es ein Junge oder Mädchen ist!"}
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Verben erkennen",
+          "sub": "Was sind Verben (Tunwörter)?",
+          "questions": [
+            {"id": "de_v_2_01", "type": "mc", "diff": 1, "q": "Welches Wort ist ein VERB (Tunwort)?", "options": ["laufen", "Baum", "schön", "Hund"], "correct": 0, "explanation": "Verben sagen, was Menschen, Tiere oder Dinge tun. «Laufen» ist ein Tunwort! 🏃"},
+            {"id": "de_v_2_02", "type": "mc", "diff": 1, "q": "Welches Wort ist KEIN Verb?", "options": ["Tisch", "essen", "trinken", "schlafen"], "correct": 0, "explanation": "«Tisch» ist ein Nomen. Verben sind essen, trinken, schlafen."},
+            {"id": "de_v_2_03", "type": "mc", "diff": 1, "q": "Was passt zum Bild eines schlafenden Kindes?", "options": ["schlafen", "essen", "malen", "lesen"], "correct": 0, "explanation": "Das Kind schläft — das Verb ist «schlafen»! 😴"},
+            {"id": "de_v_2_04", "type": "mc", "diff": 1, "q": "Was passt: Das Kind hält ein Buch und…", "options": ["liest", "schneidet", "kocht", "tanzt"], "correct": 0, "explanation": "Mit einem Buch: lesen! 📖"},
+            {"id": "de_v_2_05", "type": "mc", "diff": 1, "q": "Welches Verb passt: «Die Katze ___ Milch.»", "options": ["trinkt", "backt", "schwimmt", "schreibt"], "correct": 0, "explanation": "Die Katze trinkt Milch! 🥛"},
+            {"id": "de_v_2_06", "type": "mc", "diff": 1, "q": "Welches Verb passt: «Die Ente ___ vor Angst.»", "options": ["piepst", "kräht", "quakt", "bellt"], "correct": 0, "explanation": "Die Ente piepst vor Angst! 🦆"},
+            {"id": "de_v_2_07", "type": "mc", "diff": 2, "q": "Welches Verb passt: «Der Hahn ___ kikeriki.»", "options": ["kräht", "bellt", "miaut", "quakt"], "correct": 0, "explanation": "Der Hahn kräht kikeriki! 🐓"},
+            {"id": "de_v_2_08", "type": "mc", "diff": 2, "q": "Welches Verb passt: «Der Frosch ___ quak.»", "options": ["quakt", "bellt", "piept", "kräht"], "correct": 0, "explanation": "Der Frosch quakt! 🐸"},
+            {"id": "de_v_2_09", "type": "tf", "diff": 1, "q": "Verben schreibt man klein.", "correct": true, "explanation": "Richtig! Verben werden kleingeschrieben."},
+            {"id": "de_v_2_10", "type": "tf", "diff": 2, "q": "Verben sagen, was jemand tut.", "correct": true, "explanation": "Richtig! Verben beschreiben, was Menschen, Tiere oder Dinge tun."},
+            {"id": "de_v_2_11", "type": "tf", "diff": 2, "q": "Ein Satz kann ohne Verb sein.", "correct": false, "explanation": "Falsch! Jeder Satz braucht ein Verb."},
+            {"id": "de_v_2_12", "type": "type", "diff": 2, "q": "Wie heißt das Tunwort für «mit dem Mund Essen zu sich nehmen»?", "accept": ["essen"], "explanation": "Essen! 🍎"},
+            {"id": "de_v_2_13", "type": "type", "diff": 2, "q": "Wie heißt das Tunwort für «mit einem Stift ein Bild machen»?", "accept": ["malen"], "explanation": "Malen! 🎨"},
+            {"id": "de_v_2_14", "type": "type", "diff": 2, "q": "Wie heißt das Tunwort für «ein Buch betrachten und die Wörter verstehen»?", "accept": ["lesen"], "explanation": "Lesen! 📖"},
+            {"id": "de_v_2_15", "type": "type", "diff": 3, "q": "Suche das Verb: «Der Vogel zwitschert hoch im Baum.»", "accept": ["zwitschert", "zwitschern"], "explanation": "Das Verb ist «zwitschert»! 🐦"},
+            {"id": "de_v_2_16", "type": "type", "diff": 3, "q": "Suche das Verb: «Die Maus beißt den Brief an.»", "accept": ["beißt", "beisst", "beissen", "beißen"], "explanation": "Das Verb ist «beißt»! 🐭"},
+            {"id": "de_v_2_17", "type": "sort", "diff": 3, "q": "Ordne die Verben nach dem Alphabet!", "items": ["essen", "lesen", "malen", "schlafen"], "explanation": "Alphabetisch: essen, lesen, malen, schlafen!"},
+            {"id": "de_v_2_18", "type": "mc", "diff": 3, "q": "Welcher Satz enthält ZWEI Verben?", "options": ["Ich möchte schlafen.", "Das Pferd läuft.", "Die Katze schläft.", "Der Hund bellt."], "correct": 0, "explanation": "«möchte» und «schlafen» — beides Verben!"},
+            {"id": "de_v_2_b1", "type": "type", "diff": 3, "bonus": true, "q": "Wie heißt der Oberbegriff für Wörter wie laufen, essen, malen, spielen?", "accept": ["verben", "verb", "tunwörter", "tunwoerter", "tunwort"], "explanation": "Verben oder Tunwörter! 🏃"}
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Personalformen",
+          "sub": "ich, du, er/sie/es, wir, ihr, sie",
+          "questions": [
+            {"id": "de_v_3_01", "type": "type", "diff": 1, "q": "Setze ein: Ich ___ (lieben).", "accept": ["liebe"], "explanation": "ich liebe — Endung -e! ❤️"},
+            {"id": "de_v_3_02", "type": "type", "diff": 1, "q": "Setze ein: Du ___ (lieben).", "accept": ["liebst"], "explanation": "du liebst — Endung -st!"},
+            {"id": "de_v_3_03", "type": "type", "diff": 1, "q": "Setze ein: Er ___ (lieben).", "accept": ["liebt"], "explanation": "er liebt — Endung -t!"},
+            {"id": "de_v_3_04", "type": "type", "diff": 1, "q": "Setze ein: Wir ___ (lieben).", "accept": ["lieben"], "explanation": "wir lieben — Endung -en!"},
+            {"id": "de_v_3_05", "type": "type", "diff": 2, "q": "Setze ein: Ihr ___ (lieben).", "accept": ["liebt"], "explanation": "ihr liebt — Endung -t!"},
+            {"id": "de_v_3_06", "type": "type", "diff": 2, "q": "Setze ein: Sie (alle) ___ (lieben).", "accept": ["lieben"], "explanation": "sie lieben — Endung -en!"},
+            {"id": "de_v_3_07", "type": "type", "diff": 2, "q": "Setze ein: Ich ___ (kochen).", "accept": ["koche"], "explanation": "ich koche! 🍳"},
+            {"id": "de_v_3_08", "type": "type", "diff": 2, "q": "Setze ein: Du ___ (schreiben).", "accept": ["schreibst"], "explanation": "du schreibst! ✍️"},
+            {"id": "de_v_3_09", "type": "type", "diff": 2, "q": "Setze ein: Er ___ (spielen).", "accept": ["spielt"], "explanation": "er spielt! ⚽"},
+            {"id": "de_v_3_10", "type": "type", "diff": 2, "q": "Setze ein: Wir ___ (tanzen).", "accept": ["tanzen"], "explanation": "wir tanzen! 💃"},
+            {"id": "de_v_3_11", "type": "mc", "diff": 1, "q": "Welche Endung passt bei «du»?", "options": ["-st", "-e", "-t", "-en"], "correct": 0, "explanation": "Bei «du» ist die Endung -st. Beispiel: du machst!"},
+            {"id": "de_v_3_12", "type": "mc", "diff": 1, "q": "Welche Endung passt bei «ich»?", "options": ["-e", "-st", "-t", "-en"], "correct": 0, "explanation": "Bei «ich» ist die Endung -e. Beispiel: ich mache!"},
+            {"id": "de_v_3_13", "type": "mc", "diff": 2, "q": "Welche Endung passt bei «wir» und «sie (alle)»?", "options": ["-en", "-e", "-st", "-t"], "correct": 0, "explanation": "Bei «wir» und «sie (alle)» ist die Endung -en!"},
+            {"id": "de_v_3_14", "type": "mc", "diff": 2, "q": "Welche Endung passt bei «er/sie/es» und «ihr»?", "options": ["-t", "-e", "-st", "-en"], "correct": 0, "explanation": "Bei «er/sie/es» und «ihr» ist die Endung -t!"},
+            {"id": "de_v_3_15", "type": "type", "diff": 3, "q": "Schreibe die Grundform von «du liebst».", "accept": ["lieben"], "explanation": "Die Grundform ist «lieben» — sie endet auf -en!"},
+            {"id": "de_v_3_16", "type": "type", "diff": 3, "q": "Unregelmäßig: Setze ein: Du ___ (geben).", "accept": ["gibst"], "explanation": "Bei «geben» wird aus e ein i: du gibst! ⚠️"},
+            {"id": "de_v_3_17", "type": "type", "diff": 3, "q": "Unregelmäßig: Setze ein: Du ___ (wachsen).", "accept": ["wächst", "waechst"], "explanation": "Bei «wachsen» wird aus a ein ä: du wächst! ⚠️"},
+            {"id": "de_v_3_18", "type": "tf", "diff": 3, "q": "Bei allen Verben bleibt der Wortstamm immer gleich.", "correct": false, "explanation": "Falsch! Bei manchen Verben (z.B. geben → du gibst, wachsen → du wächst) verändert sich der Wortstamm."},
+            {"id": "de_v_3_b1", "type": "type", "diff": 3, "bonus": true, "q": "Wie heißen die Teile eines Verbs? Wortstamm und ___?", "accept": ["endung", "endungen", "personalendung", "personalendungen"], "explanation": "Richtig! Wortstamm + Endung = Personalform!"},
+            {"id": "de_v_3_b2", "type": "mc", "diff": 3, "bonus": true, "q": "Die Grundform endet meistens auf…?", "options": ["-en", "-e", "-st", "-t"], "correct": 0, "explanation": "Die Grundform (z.B. lieben, spielen, kochen) endet fast immer auf -en!"}
+          ]
+        },
+        {
+          "id": 4,
+          "name": "g/k, b/p bei Verben",
+          "sub": "Verlängern — was hörst du am Ende?",
+          "questions": [
+            {"id": "de_v_4_01", "type": "type", "diff": 2, "q": "Verlängere mit der Wir-Form und schreibe die ER-Form: sagen → er ___", "accept": ["sagt"], "explanation": "wir sagen → er sagt (mit g, weil wir sagen)!"},
+            {"id": "de_v_4_02", "type": "type", "diff": 2, "q": "Verlängere: fragen → er ___", "accept": ["fragt"], "explanation": "wir fragen → er fragt (mit g)!"},
+            {"id": "de_v_4_03", "type": "type", "diff": 2, "q": "Verlängere: zeigen → er ___", "accept": ["zeigt"], "explanation": "wir zeigen → er zeigt (mit g)!"},
+            {"id": "de_v_4_04", "type": "type", "diff": 2, "q": "Verlängere: jagen → er ___", "accept": ["jagt"], "explanation": "wir jagen → er jagt (mit g)!"},
+            {"id": "de_v_4_05", "type": "type", "diff": 2, "q": "Verlängere: schweigen → er ___", "accept": ["schweigt"], "explanation": "wir schweigen → er schweigt (mit g)!"},
+            {"id": "de_v_4_06", "type": "type", "diff": 2, "q": "Verlängere: pflegen → er ___", "accept": ["pflegt"], "explanation": "wir pflegen → er pflegt (mit g)!"},
+            {"id": "de_v_4_07", "type": "type", "diff": 2, "q": "Verlängere: bewegen → er ___", "accept": ["bewegt"], "explanation": "wir bewegen → er bewegt (mit g)!"},
+            {"id": "de_v_4_08", "type": "type", "diff": 2, "q": "Verlängere: geben → er ___", "accept": ["gibt"], "explanation": "wir geben → er gibt (mit b)! Achtung: unregelmäßig!"},
+            {"id": "de_v_4_09", "type": "type", "diff": 2, "q": "Verlängere: kleben → er ___", "accept": ["klebt"], "explanation": "wir kleben → er klebt (mit b)!"},
+            {"id": "de_v_4_10", "type": "type", "diff": 2, "q": "Verlängere: üben → er ___", "accept": ["übt", "uebt"], "explanation": "wir üben → er übt (mit b)!"},
+            {"id": "de_v_4_11", "type": "type", "diff": 2, "q": "Verlängere: heben → er ___", "accept": ["hebt"], "explanation": "wir heben → er hebt (mit b)!"},
+            {"id": "de_v_4_12", "type": "type", "diff": 2, "q": "Verlängere: leben → er ___", "accept": ["lebt"], "explanation": "wir leben → er lebt (mit b)!"},
+            {"id": "de_v_4_13", "type": "type", "diff": 2, "q": "Verlängere: bleiben → er ___", "accept": ["bleibt"], "explanation": "wir bleiben → er bleibt (mit b)!"},
+            {"id": "de_v_4_14", "type": "mc", "diff": 2, "q": "Wie schreibt man? «Der Hund ___» (bellen)", "options": ["bellt", "belt", "bellkt", "bellpt"], "correct": 0, "explanation": "er bellt — mit ll und t!"},
+            {"id": "de_v_4_15", "type": "tf", "diff": 2, "q": "Durch Verlängern (z.B. mit der Wir-Form) höre ich besser, ob das Verb mit g oder k bzw. b oder p geschrieben wird.", "correct": true, "explanation": "Richtig! Das ist der Trick: verlängern hilft hören! 👂"},
+            {"id": "de_v_4_16", "type": "type", "diff": 3, "q": "Wie schreibt man? «Das Boot ___» (schwimmen) — mit welchem Buchstaben am Ende?", "accept": ["schwimmt"], "explanation": "er schwimmt — wir schwimmen!", "hint": "Denke an «wir schwimmen»"},
+            {"id": "de_v_4_17", "type": "sort", "diff": 3, "q": "Welche Verben enden auf t (mit g im Wortstamm)? Ordne nach Alphabet:", "items": ["fragt", "jagt", "sagt", "zeigt"], "explanation": "Alphabetisch: fragt, jagt, sagt, zeigt!"},
+            {"id": "de_v_4_b1", "type": "mc", "diff": 3, "bonus": true, "q": "Mit welcher Verbform höre ich den Wortstamm besonders gut?", "options": ["wir-Form", "ich-Form", "er-Form", "Grundform"], "correct": 0, "explanation": "Die wir-Form (= Grundform) zeigt den Wortstamm: wir sagen → der Wortstamm ist «sag»!"}
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Vorsilben & Wortfamilien",
+          "sub": "ver-, vor-, ein-, aus-, be- und Wortstamm",
+          "questions": [
+            {"id": "de_v_5_01", "type": "mc", "diff": 1, "q": "Welches Verb passt: «Manchmal kann ich am Abend nicht ___.»", "options": ["einschlafen", "ausschlafen", "aufschlafen", "vorschlafen"], "correct": 0, "explanation": "Am Abend kann ich nicht einschlafen! 😴"},
+            {"id": "de_v_5_02", "type": "mc", "diff": 1, "q": "Welches Verb passt: «Dann möchte ich am nächsten Morgen ___.»", "options": ["ausschlafen", "einschlafen", "vorschlafen", "anschlafen"], "correct": 0, "explanation": "Am Morgen möchte ich ausschlafen! 🛏️"},
+            {"id": "de_v_5_03", "type": "mc", "diff": 2, "q": "Welches Verb passt: «Vor der Abreise müssen wir unsere Sachen ___.»", "options": ["einpacken", "auspacken", "anpacken", "vorpacken"], "correct": 0, "explanation": "Vor der Reise: einpacken!"},
+            {"id": "de_v_5_04", "type": "mc", "diff": 2, "q": "Welches Verb passt: «Nach dem Urlaub werden wir sie wieder ___.»", "options": ["auspacken", "einpacken", "vorpacken", "anpacken"], "correct": 0, "explanation": "Nach dem Urlaub: auspacken!"},
+            {"id": "de_v_5_05", "type": "mc", "diff": 2, "q": "Welches Verb passt: «Vor der Sendung werde ich den Fernseher ___.»", "options": ["einschalten", "ausschalten", "vorschalten", "anschalten"], "correct": 0, "explanation": "Vor der Sendung: einschalten! 📺"},
+            {"id": "de_v_5_06", "type": "mc", "diff": 2, "q": "Welches Verb passt: «Nach der Sendung muss ich ihn ___.»", "options": ["ausschalten", "einschalten", "vorschalten", "anschalten"], "correct": 0, "explanation": "Nach der Sendung: ausschalten!"},
+            {"id": "de_v_5_07", "type": "type", "diff": 2, "q": "Setze die Vorsilbe ver- oder vor- ein: Der Arzt ___schreibt ein Rezept. (Welche Vorsilbe? Schreibe nur ver oder vor)", "accept": ["ver"], "explanation": "Der Arzt VERschreibt ein Rezept! 💊"},
+            {"id": "de_v_5_08", "type": "mc", "diff": 2, "q": "Welches Wort gehört zur Wortfamilie «leben»?", "options": ["erleben", "üben", "legen", "fragen"], "correct": 0, "explanation": "«Erleben» hat den gleichen Wortstamm «leb» wie «leben»!"},
+            {"id": "de_v_5_09", "type": "mc", "diff": 2, "q": "Welches Wort gehört zur Wortfamilie «üben»?", "options": ["ausüben", "leben", "fragen", "legen"], "correct": 0, "explanation": "«Ausüben» hat den Wortstamm «üb»!"},
+            {"id": "de_v_5_10", "type": "mc", "diff": 2, "q": "Welches Wort gehört zur Wortfamilie «legen»?", "options": ["auslegen", "fragen", "leben", "üben"], "correct": 0, "explanation": "«Auslegen» hat den Wortstamm «leg»!"},
+            {"id": "de_v_5_11", "type": "mc", "diff": 2, "q": "Welches Wort gehört zur Wortfamilie «fragen»?", "options": ["befragen", "legen", "leben", "üben"], "correct": 0, "explanation": "«Befragen» hat den Wortstamm «frag»!"},
+            {"id": "de_v_5_12", "type": "type", "diff": 3, "q": "Bilde ein Verb mit «be-» und dem Wortstamm «komm-». (Tipp: etwas erhalten)", "accept": ["bekommen"], "explanation": "bekommen — etwas erhalten! 🎁"},
+            {"id": "de_v_5_13", "type": "type", "diff": 3, "q": "Bilde ein Verb mit «über-» und dem Wortstamm «leg-». (Tipp: nachdenken)", "accept": ["überlegen", "ueberlegen"], "explanation": "überlegen — nachdenken! 🤔"},
+            {"id": "de_v_5_14", "type": "tf", "diff": 2, "q": "«Ver-», «vor-», «ein-», «aus-», «be-» sind Vorsilben.", "correct": true, "explanation": "Richtig! Vorsilben stehen vor dem Wortstamm und verändern die Bedeutung."},
+            {"id": "de_v_5_15", "type": "tf", "diff": 2, "q": "Alle Wörter einer Wortfamilie haben den gleichen Wortstamm.", "correct": true, "explanation": "Richtig! Darum gehören sie zusammen. z.B. lesen, lesbar, Leser — alle mit «les»!"},
+            {"id": "de_v_5_16", "type": "type", "diff": 3, "q": "Wie heißt der Teil eines Verbs, der die Bedeutung trägt (z.B. «leg» in «legen»)?", "accept": ["wortstamm", "stamm"], "explanation": "Der Wortstamm! An ihn kommen Endungen und Vorsilben."},
+            {"id": "de_v_5_17", "type": "sort", "diff": 3, "q": "Ordne: Bilde die Wortfamilie von «schreiben» alphabetisch:", "items": ["beschreiben", "schreiben", "verschreiben", "vorschreiben"], "explanation": "Alphabetisch: beschreiben, schreiben, verschreiben, vorschreiben!"},
+            {"id": "de_v_5_b1", "type": "type", "diff": 3, "bonus": true, "q": "Bilde ein Verb mit «zer-» und «reiß-». (Tipp: kaputt machen)", "accept": ["zerreißen", "zerreissen"], "explanation": "zerreißen — in Stücke reißen! 💥"}
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Die Grundform",
+          "sub": "Tätigkeit, Wortstamm + Endung (-en, -ern, -eln)",
+          "questions": [
+            {"id": "de_v_6_01", "type": "mc", "diff": 1, "q": "Was sagt dir die Grundform eines Verbs?", "options": ["Wie die Tätigkeit genau heißt", "Wer etwas tut", "Wann etwas passiert", "Wo etwas passiert"], "correct": 0, "explanation": "Die Grundform sagt, wie die Tätigkeit heißt — z.B. angeln, laufen, lesen! 🎣"},
+            {"id": "de_v_6_02", "type": "mc", "diff": 1, "q": "Die Grundform endet fast immer auf…", "options": ["-en", "-e", "-st", "-t"], "correct": 0, "explanation": "Richtig! Die Grundform endet meistens auf -en: lesen, spielen, lachen."},
+            {"id": "de_v_6_03", "type": "type", "diff": 1, "q": "Wie heißt die Grundform von «du malst»?", "accept": ["malen"], "explanation": "malen — die Grundform endet auf -en! 🎨"},
+            {"id": "de_v_6_04", "type": "type", "diff": 1, "q": "Wie heißt die Grundform von «ich singe»?", "accept": ["singen"], "explanation": "singen! 🎵"},
+            {"id": "de_v_6_05", "type": "type", "diff": 1, "q": "Wie heißt die Grundform von «wir lesen»?", "accept": ["lesen"], "explanation": "lesen! 📖"},
+            {"id": "de_v_6_06", "type": "type", "diff": 2, "q": "Wie heißt die Grundform von «er springt»?", "accept": ["springen"], "explanation": "springen! 🦘"},
+            {"id": "de_v_6_07", "type": "mc", "diff": 2, "q": "Welches Verb steht in der Grundform?", "options": ["lachen", "lache", "lachst", "lacht"], "correct": 0, "explanation": "«lachen» ist die Grundform. Die anderen sind Personalformen: ich lache, du lachst, er lacht."},
+            {"id": "de_v_6_08", "type": "mc", "diff": 2, "q": "Welches Verb steht NICHT in der Grundform?", "options": ["fragst", "fragen", "essen", "kochen"], "correct": 0, "explanation": "«fragst» ist eine Personalform (du fragst). Die Grundform heißt «fragen»."},
+            {"id": "de_v_6_09", "type": "mc", "diff": 2, "q": "Auf welche Endung endet «feiern»?", "options": ["-ern", "-en", "-eln", "-t"], "correct": 0, "explanation": "feiern endet auf -ern! 🎉 Auch: wandern, baggern, ärgern."},
+            {"id": "de_v_6_10", "type": "mc", "diff": 2, "q": "Auf welche Endung endet «basteln»?", "options": ["-eln", "-en", "-ern", "-st"], "correct": 0, "explanation": "basteln endet auf -eln! ✂️ Auch: bügeln, lächeln, bummeln."},
+            {"id": "de_v_6_11", "type": "mc", "diff": 1, "q": "Auf welche Endung endet «sagen»?", "options": ["-en", "-ern", "-eln", "-gen"], "correct": 0, "explanation": "sagen endet auf -en — wie die meisten Verben."},
+            {"id": "de_v_6_12", "type": "type", "diff": 2, "q": "Ergänze den Wortstamm mit der Endung -en: streich___", "accept": ["streichen"], "explanation": "streichen — Wortstamm «streich» + Endung «-en»! 🖌️"},
+            {"id": "de_v_6_13", "type": "type", "diff": 2, "q": "Ergänze mit -en: bau___", "accept": ["bauen"], "explanation": "bauen — wie auf der Baustelle! 🏗️"},
+            {"id": "de_v_6_14", "type": "type", "diff": 2, "q": "Ergänze mit -en: bohr___", "accept": ["bohren"], "explanation": "bohren! 🔩"},
+            {"id": "de_v_6_15", "type": "type", "diff": 2, "q": "Wie heißt die Grundform von «ihr wandert»?", "accept": ["wandern"], "explanation": "wandern — endet auf -ern! 🥾"},
+            {"id": "de_v_6_16", "type": "type", "diff": 3, "q": "Wie heißt die Grundform von «ich sammle»?", "accept": ["sammeln"], "explanation": "sammeln — endet auf -eln!"},
+            {"id": "de_v_6_17", "type": "tf", "diff": 2, "q": "Ein Verb besteht aus Wortstamm und Endung.", "correct": true, "explanation": "Richtig! Beispiel: «spiel» (Wortstamm) + «-en» (Endung) = «spielen»."},
+            {"id": "de_v_6_18", "type": "sort", "diff": 3, "q": "Ordne die Grundformen alphabetisch!", "items": ["hängen", "springen", "wandern", "winken"], "explanation": "Alphabetisch: hängen, springen, wandern, winken!"},
+            {"id": "de_v_6_b1", "type": "mc", "diff": 3, "bonus": true, "q": "Welche Endung haben «bügeln» und «basteln» gemeinsam?", "options": ["-eln", "-ern", "-en", "-ln"], "correct": 0, "explanation": "Beide enden auf -eln! Weitere Beispiele: lächeln, bummeln."},
+            {"id": "de_v_6_b2", "type": "type", "diff": 3, "bonus": true, "q": "Wie heißt die Grundform von «er untersucht»?", "accept": ["untersuchen"], "explanation": "untersuchen! 🔍"}
+          ]
+        }
+      ]
+    }
+  ]
+}

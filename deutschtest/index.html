@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>📚 Deutschtest — 2. Klasse</title>
+<style>
+:root {
+  --primary: #667eea;
+  --primary-dark: #764ba2;
+  --success: #2ECC71;
+  --error: #E74C3C;
+  --warning: #F39C12;
+  --bg: #F0F4F8;
+  --text: #2D3436;
+  --text-light: #636e72;
+  --card: #FFFFFF;
+  --shadow: 0 3px 14px rgba(0,0,0,0.09);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.15);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --de: #E84393; --de-light: #FFE4F1;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  min-height: 100vh; display: flex; justify-content: center;
+}
+.app { width:100%; max-width:680px; min-height:100vh; background:var(--bg); position:relative; overflow-x:hidden; }
+.screen { display:none; padding:20px; padding-bottom:100px; animation:fadeIn .3s ease; }
+.screen.active { display:block; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+@keyframes pop { 0%{transform:scale(1)} 50%{transform:scale(1.08)} 100%{transform:scale(1)} }
+@keyframes wiggle { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-6px)} 80%{transform:translateX(4px)} }
+@keyframes bounceIn { 0%{transform:scale(0)} 60%{transform:scale(1.1)} 100%{transform:scale(1)} }
+@keyframes confettiFall { 0%{transform:translateY(-10px) rotate(0deg);opacity:1} 100%{transform:translateY(100vh) rotate(720deg);opacity:0} }
+
+/* ── headers ── */
+.top-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color:white; padding:28px 20px 22px; text-align:center;
+  border-radius:0 0 28px 28px; margin:-20px -20px 22px; position:relative;
+}
+.top-header h1 { font-size:1.9em; }
+.top-header h2 { font-size:1.5em; }
+.top-header p { opacity:.85; font-size:.92em; margin-top:3px; }
+.col-header {
+  color:white; padding:22px 20px 20px; border-radius:0 0 26px 26px;
+  margin:-20px -20px 22px; position:relative;
+}
+.col-header h2 { font-size:1.5em; margin-bottom:4px; }
+.exam-badge {
+  display:inline-block; background:rgba(255,255,255,.22);
+  padding:3px 12px; border-radius:20px; font-size:.82em; margin-top:4px;
+}
+.back-btn {
+  position:absolute; top:16px; left:16px;
+  background:rgba(255,255,255,.22); border:none; color:white;
+  border-radius:10px; padding:6px 12px; font-size:.88em;
+  cursor:pointer; font-family:inherit;
+}
+.back-btn:hover { background:rgba(255,255,255,.35); }
+
+/* ── buttons ── */
+.btn-main {
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:14px 28px; border:none; border-radius:var(--radius-sm);
+  font-size:1.05em; font-weight:700; cursor:pointer; color:white;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  box-shadow:var(--shadow); transition:all .2s; font-family:inherit;
+  -webkit-tap-highlight-color:transparent; user-select:none; min-width:180px;
+}
+.btn-main:active { transform:scale(.95); }
+.btn-main:disabled { opacity:.5; cursor:default; }
+.btn-sec {
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:12px 24px; border:2px solid #ddd; border-radius:var(--radius-sm);
+  font-size:.95em; font-weight:600; cursor:pointer; color:var(--text);
+  background:white; transition:all .2s; font-family:inherit;
+  -webkit-tap-highlight-color:transparent; user-select:none;
+}
+.btn-sec:active { transform:scale(.95); }
+
+/* ── profile screen ── */
+.profile-grid { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin:16px 0; }
+.profile-card {
+  background:white; border-radius:var(--radius); padding:16px;
+  box-shadow:var(--shadow); cursor:pointer; transition:all .2s;
+  width:140px; text-align:center; position:relative; user-select:none;
+}
+.profile-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-lg); }
+.profile-card:active { transform:scale(.95); }
+.profile-card .avatar { font-size:2.5em; margin-bottom:6px; }
+.profile-card .name { font-weight:700; font-size:1em; }
+.profile-card .info { font-size:.75em; color:var(--text-light); margin-top:4px; }
+.profile-card .del-btn {
+  position:absolute; top:6px; right:8px; background:none; border:none;
+  color:#ccc; font-size:1.1em; cursor:pointer; padding:2px 6px; border-radius:6px;
+}
+.profile-card .del-btn:hover { color:var(--error); background:#fee; }
+.new-profile-box {
+  background:white; border-radius:var(--radius); padding:20px;
+  box-shadow:var(--shadow); text-align:center; margin-top:16px; width:100%;
+}
+.new-profile-box input {
+  width:100%; max-width:280px; padding:12px 16px; border:2px solid #ddd;
+  border-radius:var(--radius-sm); font-size:1.1em; text-align:center;
+  font-family:inherit; outline:none; transition:border-color .2s;
+}
+.new-profile-box input:focus { border-color:var(--primary); }
+
+/* ── home ── */
+.total-box {
+  background:white; border-radius:14px; padding:12px 20px; text-align:center;
+  box-shadow:var(--shadow); font-weight:700; color:var(--text); font-size:1em; margin-bottom:18px;
+}
+.subjects-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; width:100%; }
+.subject-card {
+  background:white; border-radius:var(--radius); padding:18px 16px;
+  box-shadow:var(--shadow); cursor:pointer; transition:transform .18s, box-shadow .18s;
+  border-top:5px solid var(--col); user-select:none;
+}
+.subject-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-lg); }
+.subject-card:active { transform:scale(.97); }
+.sc-emoji { font-size:2.4em; display:block; margin-bottom:8px; }
+.subject-card h3 { font-size:.97em; color:var(--text); margin-bottom:4px; }
+.sc-date { font-size:.72em; color:var(--text-light); margin-bottom:8px; }
+.prog-bar { background:#eee; border-radius:8px; height:7px; overflow:hidden; }
+.prog-fill { height:100%; border-radius:8px; transition:width .5s ease; }
+.sc-stars { font-size:.8em; color:var(--text-light); margin-top:5px; }
+.archive-section { margin-top:24px; width:100%; }
+.archive-section h3 { font-size:1em; color:var(--text-light); margin-bottom:10px; text-align:center; }
+.archive-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.archive-card {
+  background:white; border-radius:var(--radius-sm); padding:14px;
+  box-shadow:0 2px 8px rgba(0,0,0,.06); cursor:pointer; transition:transform .18s;
+  border-top:4px solid #ccc; opacity:.75; user-select:none;
+}
+.archive-card:hover { transform:translateY(-2px); opacity:1; }
+.archive-card .sc-emoji { font-size:1.8em; }
+.archive-card h4 { font-size:.85em; color:var(--text-light); }
+.archive-card .sc-date { font-size:.7em; }
+
+/* ── levels ── */
+.levels-list { display:flex; flex-direction:column; gap:11px; width:100%; }
+.level-card {
+  background:white; border-radius:14px; padding:16px 18px;
+  box-shadow:var(--shadow); cursor:pointer; transition:transform .18s;
+  display:flex; align-items:center; gap:14px; user-select:none;
+}
+.level-card:hover { transform:translateX(5px); }
+.level-card.locked { opacity:.45; pointer-events:none; }
+.lv-num {
+  width:42px; height:42px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; color:white; font-size:1.15em; flex-shrink:0;
+}
+.lv-info { flex:1; }
+.lv-info h4 { font-size:.93em; color:var(--text); }
+.lv-info .sub { font-size:.73em; color:var(--text-light); margin-top:2px; }
+.lv-info .stars { font-size:.85em; margin-top:3px; }
+.lv-crown { font-size:1.3em; }
+
+/* ── quiz ── */
+.q-progress { text-align:center; font-size:.85em; color:var(--text-light); margin-bottom:8px; }
+.q-progress-bar { background:#e0e0e0; border-radius:8px; height:6px; margin-bottom:16px; overflow:hidden; }
+.q-progress-fill { height:100%; border-radius:8px; transition:width .3s; }
+.q-text { font-size:1.15em; font-weight:600; text-align:center; margin-bottom:20px; line-height:1.4; }
+.q-options { display:flex; flex-direction:column; gap:10px; width:100%; }
+.opt-btn {
+  background:white; border:2px solid #e0e0e0; border-radius:var(--radius-sm);
+  padding:14px 18px; font-size:1em; cursor:pointer; transition:all .2s;
+  text-align:left; font-family:inherit; user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.opt-btn:hover { border-color:#bbb; background:#fafafa; }
+.opt-btn:active { transform:scale(.98); }
+.opt-btn.correct { border-color:var(--success); background:#e8f8ef; color:#27ae60; animation:pop .3s; }
+.opt-btn.wrong { border-color:var(--error); background:#fde8e8; color:#c0392b; animation:wiggle .4s; }
+.opt-btn.reveal { border-color:var(--success); background:#e8f8ef; color:#27ae60; }
+.opt-btn.disabled { pointer-events:none; opacity:.7; }
+
+/* type input */
+.type-area { text-align:center; }
+.type-input {
+  width:100%; max-width:400px; padding:14px 18px; border:2px solid #e0e0e0;
+  border-radius:var(--radius-sm); font-size:1.1em; text-align:center;
+  font-family:inherit; outline:none; transition:border-color .2s;
+}
+.type-input:focus { border-color:var(--primary); }
+.type-input.correct { border-color:var(--success); background:#e8f8ef; }
+.type-input.wrong { border-color:var(--error); background:#fde8e8; }
+.check-btn {
+  margin-top:12px; padding:12px 32px; border:none; border-radius:var(--radius-sm);
+  font-size:1em; font-weight:700; cursor:pointer; color:white;
+  background:var(--primary); font-family:inherit; transition:all .2s;
+}
+.check-btn:disabled { opacity:.4; cursor:default; }
+
+/* feedback */
+.feedback {
+  margin-top:16px; padding:14px 18px; border-radius:var(--radius-sm);
+  font-size:.95em; line-height:1.4; display:none; text-align:center;
+}
+.feedback.show { display:block; animation:fadeIn .3s; }
+.feedback.ok { background:#e8f8ef; color:#27ae60; border:1px solid #a3d9a5; }
+.feedback.nok { background:#fde8e8; color:#c0392b; border:1px solid #f5a5a5; }
+.feedback.info { background:#e8f0fe; color:#1a73e8; border:1px solid #a5c8fe; }
+
+/* stars display */
+.stars-display { font-size:1.5em; text-align:center; margin:8px 0; letter-spacing:2px; }
+.star-full { color:var(--warning); }
+.star-half { color:var(--warning); opacity:.6; }
+.star-empty { color:#ddd; }
+
+/* hint */
+.hint-btn {
+  display:inline-block; margin-top:10px; padding:8px 16px; border:1px dashed #ccc;
+  border-radius:var(--radius-sm); font-size:.85em; cursor:pointer;
+  color:var(--text-light); background:white; font-family:inherit; transition:all .2s;
+}
+.hint-btn:hover { border-color:var(--primary); color:var(--primary); }
+.hint-text { margin-top:8px; padding:10px; background:#FFF8E1; border-radius:8px; font-size:.9em; color:#F57F17; display:none; }
+.hint-text.show { display:block; }
+
+/* next button */
+.next-btn {
+  display:none; margin:20px auto 0; padding:14px 40px; border:none;
+  border-radius:var(--radius-sm); font-size:1.05em; font-weight:700;
+  cursor:pointer; color:white; background:var(--primary); font-family:inherit;
+  transition:all .2s;
+}
+.next-btn.show { display:block; animation:fadeIn .3s; }
+.next-btn:active { transform:scale(.95); }
+
+/* attempt indicator */
+.attempt-info { text-align:center; font-size:.8em; color:var(--text-light); margin-bottom:12px; }
+
+/* ── results ── */
+.res-emoji { font-size:4em; text-align:center; animation:bounceIn .5s; }
+.res-title { font-size:1.5em; font-weight:700; text-align:center; margin:10px 0 5px; }
+.res-stars { font-size:2em; text-align:center; letter-spacing:4px; }
+.res-score { text-align:center; color:var(--text-light); margin:5px 0; }
+.res-msg { text-align:center; font-size:.95em; margin:10px 0 20px; line-height:1.4; }
+.res-btns { display:flex; flex-direction:column; gap:10px; align-items:center; }
+
+/* ── achievements ── */
+.ach-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.ach-badge {
+  background:white; border-radius:var(--radius-sm); padding:16px;
+  text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.06);
+  opacity:.5; filter:grayscale(1); transition:all .3s;
+}
+.ach-badge.unlocked { opacity:1; filter:none; border:2px solid var(--warning); }
+.ab-emoji { font-size:2em; display:block; margin-bottom:6px; }
+.ach-badge h4 { font-size:.85em; margin-bottom:3px; }
+.ach-badge p { font-size:.72em; color:var(--text-light); }
+
+/* ── toast ── */
+.toast {
+  position:fixed; top:-100px; left:50%; transform:translateX(-50%);
+  background:linear-gradient(135deg,#ffd700,#ffb700); color:#333;
+  padding:16px 28px; border-radius:16px; font-weight:700;
+  box-shadow:0 8px 30px rgba(0,0,0,.2); z-index:999;
+  transition:top .4s ease; text-align:center; max-width:90%;
+}
+.toast.show { top:24px; }
+.toast h4 { font-size:.95em; }
+.toast p { font-size:.85em; margin-top:4px; }
+
+/* ── fab ── */
+.fab {
+  position:fixed; bottom:24px; right:24px; width:56px; height:56px;
+  border-radius:50%; border:none; font-size:1.5em;
+  background:linear-gradient(135deg,#ffd700,#ffb700);
+  box-shadow:0 4px 14px rgba(0,0,0,.2); cursor:pointer;
+  z-index:50; display:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.fab.show { display:block; }
+
+/* ── confetti ── */
+.confetti-piece {
+  position:fixed; top:-10px; width:8px; height:8px; z-index:998;
+  border-radius:2px; animation:confettiFall 2.5s ease-out forwards;
+}
+
+/* ── responsive ── */
+@media(max-width:480px) {
+  .top-header h1 { font-size:1.5em; }
+  .subjects-grid { grid-template-columns:1fr 1fr; gap:10px; }
+  .ach-grid { grid-template-columns:1fr 1fr; gap:8px; }
+  .profile-card { width:120px; padding:12px; }
+}
+</style>
+<script src="../shared/engine.js"></script>
+</head>
+<body>
+<div class="app">
+
+  <!-- LOADING -->
+  <div id="screen-loading" class="screen active" style="display:flex;align-items:center;justify-content:center;min-height:100vh;">
+    <div style="text-align:center;">
+      <div style="font-size:3em;margin-bottom:16px;">📚</div>
+      <h2 style="color:var(--text);">Deutschtest</h2>
+      <p style="color:var(--text-light);margin-top:8px;" id="loading-msg">Fragen werden geladen…</p>
+    </div>
+  </div>
+
+  <!-- PROFILE SELECT -->
+  <div id="screen-profile" class="screen">
+    <div class="top-header">
+      <h1>📚 Deutschtest</h1>
+      <p>2. Klasse — Wähle dein Profil</p>
+      <p style="font-size:0.75em;color:#aaa;margin-top:8px;text-align:center;">Profile werden mit der Lernplattform geteilt.</p>
+    </div>
+    <div style="text-align:center;margin-bottom:12px;">
+      <a href="../" class="btn-sec" style="text-decoration:none;">← Zur Plattform</a>
+    </div>
+    <div class="profile-grid" id="profile-grid"></div>
+    <div class="new-profile-box">
+      <p style="margin-bottom:10px;font-weight:600;">Neuer Spieler:</p>
+      <input type="text" id="new-name" placeholder="Schreibe deinen Namen" maxlength="20"
+             onkeydown="if(event.key==='Enter')createProfile()">
+      <br>
+      <button class="btn-main" style="margin-top:12px;" onclick="createProfile()">➕ Profil erstellen</button>
+    </div>
+  </div>
+
+  <!-- HOME -->
+  <div id="screen-home" class="screen">
+    <div class="top-header" style="position:relative;">
+      <button class="back-btn" onclick="goPlatform()">← Plattform</button>
+      <h2 id="home-title">Hallo!</h2>
+      <p id="home-subtitle"></p>
+    </div>
+    <div class="total-box" id="total-box"></div>
+    <div class="subjects-grid" id="subjects-grid"></div>
+    <div class="archive-section" id="archive-section" style="display:none;">
+      <h3>📂 Vergangene Tests</h3>
+      <div class="archive-grid" id="archive-grid"></div>
+    </div>
+  </div>
+
+  <!-- SUBJECT / LEVELS -->
+  <div id="screen-subject" class="screen">
+    <div class="col-header" id="subject-header">
+      <button class="back-btn" onclick="goHome()">← Start</button>
+      <h2 id="subject-title"></h2>
+      <p id="subject-exam"></p>
+    </div>
+    <div class="levels-list" id="levels-list"></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="screen-quiz" class="screen">
+    <div class="col-header" id="quiz-header" style="padding-bottom:16px;">
+      <button class="back-btn" onclick="confirmQuit()">✕</button>
+      <h2 id="quiz-title"></h2>
+    </div>
+    <div class="q-progress" id="q-progress"></div>
+    <div class="q-progress-bar"><div class="q-progress-fill" id="q-progress-fill"></div></div>
+    <div class="attempt-info" id="attempt-info"></div>
+    <div class="q-text" id="q-text"></div>
+    <div id="q-body"></div>
+    <div id="hint-area"></div>
+    <div class="feedback" id="feedback"></div>
+    <button class="next-btn" id="next-btn" onclick="nextQ()">Weiter →</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="screen-results" class="screen">
+    <div class="top-header">
+      <h2>📊 Ergebnis</h2>
+    </div>
+    <div class="res-emoji" id="res-emoji"></div>
+    <div class="res-title" id="res-title"></div>
+    <div class="res-stars" id="res-stars"></div>
+    <div class="res-score" id="res-score"></div>
+    <p class="res-msg" id="res-msg"></p>
+    <div class="res-btns">
+      <button class="btn-main" onclick="retryLevel()">🔄 Nochmal versuchen</button>
+      <button class="btn-sec" onclick="goSubject()">← Zurück zur Liste</button>
+      <button class="btn-sec" onclick="goHome()">🏠 Start</button>
+    </div>
+  </div>
+
+  <!-- ACHIEVEMENTS -->
+  <div id="screen-achievements" class="screen">
+    <div class="top-header" style="position:relative;">
+      <button class="back-btn" onclick="goHome()">← Start</button>
+      <h2>🏆 Erfolge</h2>
+      <p id="ach-count"></p>
+    </div>
+    <div class="ach-grid" id="ach-grid"></div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast">
+  <h4>🏆 Neuer Erfolg freigeschaltet!</h4>
+  <p id="toast-text"></p>
+</div>
+<button class="fab" id="fab" onclick="goAchievements()" title="Erfolge">🏆</button>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  CONSTANTS & CONFIG
+// ═══════════════════════════════════════════════════════
+const STORAGE_KEY = 'frankensteinschule_profiles_v3';
+const SUBSTATE_KEY = 'deutschtest';
+const SESSION_QS = 10;
+const BONUS_THRESHOLD = 0.7; // 70% answered to unlock bonus
+
+const SUBJECT_META = {
+  deutsch: { name:'Deutsch', emoji:'📚', color:'var(--de)', colorHex:'#E84393', colorLight:'var(--de-light)' }
+};
+
+const DATA_FILES = {
+  deutsch: 'data/deutsch.json'
+};
+
+// ═══════════════════════════════════════════════════════
+//  SHARED ENGINE
+// ═══════════════════════════════════════════════════════
+// Unpack shared engine
+const { playTone, soundCorrect, soundWrong, soundClick, soundAchievement,
+        launchConfetti, buildStars, esc, shuffle,
+        loadProfiles: _loadProfiles, saveProfiles: _saveProfiles,
+        calculateScore, recordAttempt, isMastered, avgStars,
+        checkMC: _checkMC, checkTF: _checkTF, checkText, checkSort } = window.LernEngine;
+// Profiles are shared with the main Sachkunde app. We only read/write
+// the `deutschtest` sub-object of each profile, leaving worldProgress,
+// achievements, streak etc. untouched.
+function loadProfiles() { profiles = _loadProfiles(STORAGE_KEY); }
+function saveProfiles() {
+  if (currentProfile && state) {
+    if (!profiles[currentProfile]) profiles[currentProfile] = {};
+    profiles[currentProfile][SUBSTATE_KEY] = state;
+  }
+  _saveProfiles(STORAGE_KEY, profiles);
+}
+function getSubstate(name) {
+  const p = profiles[name];
+  if (!p || !p[SUBSTATE_KEY]) return null;
+  return p[SUBSTATE_KEY];
+}
+
+const ACHIEVEMENTS = [
+  {id:'primeiro_passo', emoji:'🌟', name:'Erster Schritt!',
+   desc:'Schaffe deine erste Stufe'},
+  {id:'five_levels', emoji:'🚀', name:'Weiter so!',
+   desc:'Schaffe 3 Stufen'},
+  {id:'all_levels', emoji:'📖', name:'Fleißiger Schüler',
+   desc:'Schaffe alle aktiven Stufen'},
+  {id:'perfect', emoji:'💯', name:'Perfekt!',
+   desc:'Alle Fragen einer Runde beim 1. Versuch richtig'},
+  {id:'three_stars', emoji:'⭐', name:'3 Sterne!',
+   desc:'Erreiche 3 Sterne in einer Stufe'},
+  {id:'de_master', emoji:'📝', name:'Deutsch-Meister',
+   desc:'Krone in allen Deutsch-Stufen'},
+  {id:'champion', emoji:'🏆', name:'Super-Champion!',
+   desc:'Krone in ALLEN Stufen'},
+  {id:'relampago', emoji:'⚡', name:'Blitz!',
+   desc:'5 Fragen hintereinander beim 1. Versuch richtig'},
+  {id:'abelha', emoji:'🐝', name:'Fleißige Biene',
+   desc:'Spiele an 3 verschiedenen Tagen'}
+];
+
+const FEEDBACK_CORRECT = [
+  '✅ Sehr gut!', '✅ Ausgezeichnet!', '✅ Fantastisch!', '✅ Bravo!',
+  '✅ Perfekt!', '✅ Richtig!', '✅ Super!', '✅ Genial!'
+];
+const FEEDBACK_WRONG = [
+  '❌ Fast!', '❌ Versuch\'s nochmal!', '❌ Leider nicht!',
+  '❌ Nicht aufgeben!', '❌ Weiter versuchen!'
+];
+
+// ═══════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════
+let questionData = {};    // { subject_id: parsed JSON }
+let profiles = {};
+let currentProfile = null;
+let state = null;         // profiles[currentProfile]
+
+// Quiz state
+let curSubjectId = null;
+let curExamId = null;
+let curLevelId = null;
+let curIsArchive = false;
+let curQuestions = [];
+let curIdx = 0;
+let curAttempts = 0;
+let curHintUsed = false;
+let curAnswered = false;
+let curRoundScores = [];  // scores per question in this round
+let curStreak = 0;
+
+// ═══════════════════════════════════════════════════════
+//  HELPERS
+// ═══════════════════════════════════════════════════════
+function norm(s) {
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().trim().replace(/\s+/g, ' ');
+}
+function normN(s) { return norm(s).replace(/\s/g, ''); }
+
+function answerCorrect(acceptArr, raw) {
+  if (!raw || !raw.trim()) return false;
+  const u = norm(raw), un = normN(raw);
+  return acceptArr.some(a => norm(a) === u || normN(a) === un);
+}
+
+function buildStarsText(avg) {
+  const full = Math.floor(avg);
+  const half = (avg - full) >= 0.25 && (avg - full) < 0.75 ? 1 : 0;
+  const fullCount = (avg - full) >= 0.75 ? full + 1 : full;
+  const halfCount = (avg - full) >= 0.75 ? 0 : half;
+  const empty = 3 - fullCount - halfCount;
+  return '⭐'.repeat(fullCount) + (halfCount ? '✨' : '') + '☆'.repeat(Math.max(0, empty));
+}
+
+// ═══════════════════════════════════════════════════════
+//  DATA LOADING
+// ═══════════════════════════════════════════════════════
+async function loadAllData() {
+  const entries = Object.entries(DATA_FILES);
+  const results = await Promise.all(
+    entries.map(([sid, file]) =>
+      fetch(file).then(r => {
+        if (!r.ok) throw new Error(`Failed to load ${file}`);
+        return r.json();
+      })
+    )
+  );
+  entries.forEach(([sid], i) => { questionData[sid] = results[i]; });
+}
+
+// Get active exams for a subject
+function getActiveExams(sid) {
+  const data = questionData[sid];
+  if (!data || !data.exams) return [];
+  return data.exams.filter(e => !e.archived);
+}
+
+// Get archived exams for a subject
+function getArchivedExams(sid) {
+  const data = questionData[sid];
+  if (!data || !data.exams) return [];
+  return data.exams.filter(e => e.archived);
+}
+
+// Get all questions for an exam's level
+function getLevelQuestions(sid, examId, levelId) {
+  const data = questionData[sid];
+  if (!data) return [];
+  const exam = data.exams.find(e => e.id === examId);
+  if (!exam) return [];
+  const level = exam.levels.find(l => l.id === levelId);
+  return level ? level.questions : [];
+}
+
+function getNormalQuestions(questions) {
+  return questions.filter(q => !q.bonus);
+}
+
+function getBonusQuestions(questions) {
+  return questions.filter(q => q.bonus);
+}
+
+// ═══════════════════════════════════════════════════════
+//  PROFILE SYSTEM
+// ═══════════════════════════════════════════════════════
+function defaultState() {
+  return {
+    progress: {},    // { examId: { levels: { levelId: { history:{}, completed:false } } } }
+    archive: {},     // { examId: { levels: { levelId: { bestStars:0, lastScore:0 } } } }
+    achievements: [],
+    streak: 0,
+    playDates: []
+  };
+}
+
+function ensureProgress(examId, levelId) {
+  if (!state.progress) state.progress = {};
+  if (!state.progress[examId]) state.progress[examId] = { levels: {} };
+  if (!state.progress[examId].levels[levelId]) {
+    state.progress[examId].levels[levelId] = { history: {}, completed: false };
+  }
+  return state.progress[examId].levels[levelId];
+}
+
+function ensureArchive(examId, levelId) {
+  if (!state.archive) state.archive = {};
+  if (!state.archive[examId]) state.archive[examId] = { levels: {} };
+  if (!state.archive[examId].levels[levelId]) {
+    state.archive[examId].levels[levelId] = { bestStars: 0, lastScore: 0 };
+  }
+  return state.archive[examId].levels[levelId];
+}
+
+function getHistory(examId, levelId, qid) {
+  const lp = ensureProgress(examId, levelId);
+  if (!lp.history[qid]) lp.history[qid] = [];
+  return lp.history[qid];
+}
+
+// ═══════════════════════════════════════════════════════
+//  SCORING HELPERS
+// ═══════════════════════════════════════════════════════
+function getQuestionAvg(examId, levelId, qid) {
+  const h = getHistory(examId, levelId, qid);
+  if (!h.length) return 0;
+  return h.reduce((a,b) => a+b, 0) / h.length;
+}
+
+function getLevelAvgStars(sid, examId, levelId) {
+  const allQ = getLevelQuestions(sid, examId, levelId);
+  const normal = getNormalQuestions(allQ);
+  if (!normal.length) return 0;
+  let total = 0, count = 0;
+  normal.forEach(q => {
+    const h = getHistory(examId, levelId, q.id);
+    if (h.length > 0) {
+      total += h.reduce((a,b) => a+b, 0) / h.length;
+      count++;
+    }
+  });
+  return count > 0 ? total / count : 0;
+}
+
+function getLevelAnswered(examId, levelId, questions) {
+  const normal = getNormalQuestions(questions);
+  let count = 0;
+  normal.forEach(q => {
+    const h = getHistory(examId, levelId, q.id);
+    if (h.length > 0) count++;
+  });
+  return count;
+}
+
+function isLevelCompleted(examId, levelId) {
+  const lp = ensureProgress(examId, levelId);
+  return lp.completed;
+}
+
+function isLevelMastered(sid, examId, levelId) {
+  const allQ = getLevelQuestions(sid, examId, levelId);
+  if (!allQ.length) return false;
+  return allQ.every(q => {
+    const h = getHistory(examId, levelId, q.id);
+    return h.length >= 2 && h[0] === 3 && h[1] === 3;
+  });
+}
+
+function countCompletedActiveLevels() {
+  let count = 0;
+  for (const sid of Object.keys(DATA_FILES)) {
+    const exams = getActiveExams(sid);
+    for (const exam of exams) {
+      for (const level of exam.levels) {
+        if (isLevelCompleted(exam.id, level.id)) count++;
+      }
+    }
+  }
+  return count;
+}
+
+function countTotalActiveLevels() {
+  let count = 0;
+  for (const sid of Object.keys(DATA_FILES)) {
+    const exams = getActiveExams(sid);
+    for (const exam of exams) count += exam.levels.length;
+  }
+  return count;
+}
+
+function getGlobalAvgStars() {
+  let total = 0, count = 0;
+  for (const sid of Object.keys(DATA_FILES)) {
+    for (const exam of getActiveExams(sid)) {
+      for (const level of exam.levels) {
+        const normal = getNormalQuestions(level.questions);
+        normal.forEach(q => {
+          const h = getHistory(exam.id, level.id, q.id);
+          if (h.length > 0) {
+            total += h.reduce((a,b) => a+b, 0) / h.length;
+            count++;
+          }
+        });
+      }
+    }
+  }
+  return count > 0 ? total / count : 0;
+}
+
+// ═══════════════════════════════════════════════════════
+//  QUESTION SELECTION (active exams only)
+// ═══════════════════════════════════════════════════════
+function selectQuestions(sid, examId, levelId) {
+  const allQ = getLevelQuestions(sid, examId, levelId);
+  const normal = getNormalQuestions(allQ);
+  const bonus = getBonusQuestions(allQ);
+
+  // Check bonus unlock
+  const answered = getLevelAnswered(examId, levelId, allQ);
+  const bonusUnlocked = normal.length > 0 && (answered / normal.length) >= BONUS_THRESHOLD;
+
+  // Categorize normal questions
+  const crownNeeded = []; // not yet 2x perfect
+  const weak = [];        // answered but not perfect
+  const unanswered = [];  // never answered
+  const mastered = [];    // 2x perfect (review)
+
+  normal.forEach(q => {
+    const h = getHistory(examId, levelId, q.id);
+    if (h.length === 0) {
+      unanswered.push(q);
+    } else if (h.length >= 2 && h[0] === 3 && h[1] === 3) {
+      mastered.push(q);
+    } else if (h.length > 0 && h[0] < 3) {
+      weak.push(q);
+      crownNeeded.push(q);
+    } else {
+      crownNeeded.push(q);
+    }
+  });
+
+  // Build selection
+  let selected = [];
+  const target = Math.min(SESSION_QS, normal.length + (bonusUnlocked ? Math.min(2, bonus.length) : 0));
+
+  // Priority: weak first, then unanswered, then crown-needed, then mastered
+  const priority = [...shuffle(weak), ...shuffle(unanswered), ...shuffle(crownNeeded.filter(q => !weak.includes(q))), ...shuffle(mastered)];
+
+  // Ensure >= 50% crown-needed
+  const minCrown = Math.ceil(target / 2);
+  const crownPool = [...shuffle(weak), ...shuffle(unanswered), ...shuffle(crownNeeded.filter(q => !weak.includes(q) && !unanswered.includes(q)))];
+
+  // Take crown-needed first
+  for (const q of crownPool) {
+    if (selected.length >= minCrown) break;
+    if (!selected.includes(q)) selected.push(q);
+  }
+
+  // Fill rest from priority
+  for (const q of priority) {
+    if (selected.length >= target - (bonusUnlocked ? Math.min(2, bonus.length) : 0)) break;
+    if (!selected.includes(q)) selected.push(q);
+  }
+
+  // Fill any remaining with mastered
+  for (const q of shuffle(mastered)) {
+    if (selected.length >= target - (bonusUnlocked ? Math.min(2, bonus.length) : 0)) break;
+    if (!selected.includes(q)) selected.push(q);
+  }
+
+  // Add bonus questions
+  if (bonusUnlocked && bonus.length > 0) {
+    const bonusSelection = shuffle(bonus).slice(0, 2);
+    selected.push(...bonusSelection);
+  }
+
+  // Sort by difficulty
+  selected.sort((a, b) => (a.diff || 1) - (b.diff || 1));
+
+  return selected;
+}
+
+// For archive: simple random 10
+function selectArchiveQuestions(sid, examId, levelId) {
+  const allQ = getLevelQuestions(sid, examId, levelId);
+  return shuffle(allQ).slice(0, Math.min(SESSION_QS, allQ.length));
+}
+
+// ═══════════════════════════════════════════════════════
+//  NAVIGATION
+// ═══════════════════════════════════════════════════════
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => { s.classList.remove('active'); s.style.display = ''; });
+  const el = document.getElementById('screen-' + id);
+  if (el) el.classList.add('active');
+  window.scrollTo(0, 0);
+
+  const fab = document.getElementById('fab');
+  fab.className = (id === 'home' || id === 'subject') ? 'fab show' : 'fab';
+}
+
+function goProfile() {
+  currentProfile = null; state = null;
+  renderProfileScreen();
+  showScreen('profile');
+}
+
+function goPlatform() {
+  const q = currentProfile ? `?profile=${encodeURIComponent(currentProfile)}` : '';
+  location.href = '../' + q;
+}
+
+function goHome() {
+  renderHome();
+  showScreen('home');
+}
+
+function goSubject() {
+  renderSubject(curSubjectId, curExamId, curIsArchive);
+  showScreen('subject');
+}
+
+function goAchievements() {
+  renderAchievements();
+  showScreen('achievements');
+}
+
+function confirmQuit() {
+  if (confirm('Bist du sicher, dass du aufhören möchtest? Der Fortschritt dieser Runde geht verloren.')) {
+    goSubject();
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//  PROFILE SCREEN
+// ═══════════════════════════════════════════════════════
+function renderProfileScreen() {
+  const grid = document.getElementById('profile-grid');
+  grid.innerHTML = '';
+  const names = Object.keys(profiles);
+  if (names.length === 0) {
+    grid.innerHTML = '<p style="color:var(--text-light);text-align:center;">Noch keine Profile. Erstelle dein eigenes unten!</p>';
+    return;
+  }
+  const avatars = ['🧒','👧','🧑','👦','👩','🐱','🦊','🐸','🦄','🐻'];
+  names.forEach((name, idx) => {
+    const card = document.createElement('div');
+    card.className = 'profile-card';
+    card.onclick = () => selectProfile(name);
+    const avatar = avatars[idx % avatars.length];
+    card.innerHTML = `
+      <button class="del-btn" onclick="event.stopPropagation();deleteProfile('${esc(name)}')" title="Löschen">✕</button>
+      <div class="avatar">${avatar}</div>
+      <div class="name">${name}</div>
+      <div class="info">${getProfileSummary(name)}</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function getProfileSummary(name) {
+  const sub = getSubstate(name);
+  if (!sub || !sub.achievements || sub.achievements.length === 0) return 'Noch nicht gespielt';
+  const ach = sub.achievements.length;
+  return `${ach} Erfolg${ach>1?'e':''}`;
+}
+
+function selectProfile(name) {
+  currentProfile = name;
+  let sub = getSubstate(name);
+  if (!sub) sub = defaultState();
+  if (!sub.progress) sub.progress = {};
+  if (!sub.archive) sub.archive = {};
+  if (!sub.achievements) sub.achievements = [];
+  if (!sub.playDates) sub.playDates = [];
+  state = sub;
+  if (!profiles[name]) profiles[name] = {};
+  profiles[name][SUBSTATE_KEY] = state;
+  recordPlayDate();
+  saveProfiles();
+  goHome();
+}
+
+function createProfile() {
+  const inp = document.getElementById('new-name');
+  const name = inp.value.trim();
+  if (!name) return;
+  if (!profiles[name]) profiles[name] = {};
+  if (!profiles[name][SUBSTATE_KEY]) profiles[name][SUBSTATE_KEY] = defaultState();
+  saveProfiles();
+  inp.value = '';
+  selectProfile(name);
+}
+
+function deleteProfile(name) {
+  if (!confirm(`Nur den Deutschtest-Fortschritt von "${name}" zurücksetzen? (Sachkunde bleibt erhalten)`)) return;
+  if (profiles[name]) delete profiles[name][SUBSTATE_KEY];
+  if (currentProfile === name) { currentProfile = null; state = null; }
+  saveProfiles();
+  renderProfileScreen();
+}
+
+function recordPlayDate() {
+  const today = new Date().toISOString().slice(0, 10);
+  if (!state.playDates.includes(today)) {
+    state.playDates.push(today);
+    saveProfiles();
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//  HOME SCREEN
+// ═══════════════════════════════════════════════════════
+function renderHome() {
+  document.getElementById('home-title').textContent = `Hallo, ${currentProfile}! 👋`;
+
+  // Collect active and archived data
+  const activeSubjects = [];
+  const archivedItems = [];
+
+  for (const sid of Object.keys(DATA_FILES)) {
+    const meta = SUBJECT_META[sid];
+    const data = questionData[sid];
+    if (!data) continue;
+
+    const activeExams = getActiveExams(sid);
+    const archivedExams = getArchivedExams(sid);
+
+    // Active exams
+    for (const exam of activeExams) {
+      if (exam.levels.length === 0) continue; // skip empty placeholders
+      activeSubjects.push({ sid, exam, meta });
+    }
+
+    // Archived exams
+    for (const exam of archivedExams) {
+      archivedItems.push({ sid, exam, meta });
+    }
+  }
+
+  // Total box
+  const totalLevels = countTotalActiveLevels();
+  const completedLevels = countCompletedActiveLevels();
+  const globalAvg = getGlobalAvgStars();
+
+  const totalBox = document.getElementById('total-box');
+  if (totalLevels > 0) {
+    totalBox.innerHTML = `${buildStars(globalAvg)} ${completedLevels}/${totalLevels} Stufen geschafft`;
+    totalBox.style.display = '';
+  } else {
+    totalBox.innerHTML = 'Noch kein aktiver Test. Übe mit vergangenen Tests! 📂';
+    totalBox.style.display = '';
+  }
+
+  document.getElementById('home-subtitle').textContent = totalLevels > 0
+    ? 'Wähle einen Test zum Üben!'
+    : '';
+
+  // Active subjects grid
+  const grid = document.getElementById('subjects-grid');
+  grid.innerHTML = '';
+
+  for (const { sid, exam, meta } of activeSubjects) {
+    const card = document.createElement('div');
+    card.className = 'subject-card';
+    card.style.setProperty('--col', meta.colorHex);
+    card.onclick = () => { renderSubject(sid, exam.id, false); showScreen('subject'); };
+
+    let totalQ = 0, answeredQ = 0, avgStars = 0;
+    let allMastered = exam.levels.length > 0;
+    for (const level of exam.levels) {
+      const normal = getNormalQuestions(level.questions);
+      totalQ += normal.length;
+      answeredQ += getLevelAnswered(exam.id, level.id, level.questions);
+      const lavg = getLevelAvgStars(sid, exam.id, level.id);
+      avgStars += lavg;
+      if (!isLevelMastered(sid, exam.id, level.id)) allMastered = false;
+    }
+    const pct = totalQ > 0 ? Math.round(answeredQ / totalQ * 100) : 0;
+    const subjectAvg = exam.levels.length > 0 ? avgStars / exam.levels.length : 0;
+
+    const examDateStr = exam.examDate
+      ? `📅 Test: ${formatDate(exam.examDate)}`
+      : '';
+
+    card.innerHTML = `
+      <span class="sc-emoji">${meta.emoji}</span>
+      <h3>${meta.name}${allMastered && exam.levels.length > 0 ? ' 👑' : ''}</h3>
+      ${examDateStr ? `<div class="sc-date">${examDateStr}</div>` : ''}
+      <div class="prog-bar"><div class="prog-fill" style="width:${pct}%;background:${meta.colorHex}"></div></div>
+      <div class="sc-stars">${buildStarsText(subjectAvg)} ${pct}%</div>
+    `;
+    grid.appendChild(card);
+  }
+
+  // Archive section
+  const archiveSection = document.getElementById('archive-section');
+  const archiveGrid = document.getElementById('archive-grid');
+  if (archivedItems.length > 0) {
+    archiveSection.style.display = '';
+    archiveGrid.innerHTML = '';
+    for (const { sid, exam, meta } of archivedItems) {
+      const card = document.createElement('div');
+      card.className = 'archive-card';
+      card.onclick = () => { renderSubject(sid, exam.id, true); showScreen('subject'); };
+      const examDateStr = exam.examDate ? formatDate(exam.examDate) : '';
+      card.innerHTML = `
+        <span class="sc-emoji">${meta.emoji}</span>
+        <h4>${meta.name}</h4>
+        <div class="sc-date">${exam.name}${examDateStr ? ' — '+examDateStr : ''}</div>
+      `;
+      archiveGrid.appendChild(card);
+    }
+  } else {
+    archiveSection.style.display = 'none';
+  }
+}
+
+function formatDate(dateStr) {
+  try {
+    const d = new Date(dateStr + 'T00:00:00');
+    const months = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
+    return `${d.getDate()} ${months[d.getMonth()]}`;
+  } catch(e) { return dateStr; }
+}
+
+// ═══════════════════════════════════════════════════════
+//  SUBJECT / LEVEL SCREEN
+// ═══════════════════════════════════════════════════════
+function renderSubject(sid, examId, isArchive) {
+  curSubjectId = sid;
+  curExamId = examId;
+  curIsArchive = isArchive;
+
+  const meta = SUBJECT_META[sid];
+  const data = questionData[sid];
+  const exam = data.exams.find(e => e.id === examId);
+  if (!exam) return;
+
+  const header = document.getElementById('subject-header');
+  header.style.background = `linear-gradient(135deg, ${meta.colorHex}, ${meta.colorHex}dd)`;
+
+  document.getElementById('subject-title').textContent = `${meta.emoji} ${meta.name}`;
+  const examInfo = isArchive
+    ? `📂 ${exam.name} (vergangener Test)`
+    : (exam.examDate ? `📅 Test: ${formatDate(exam.examDate)}` : exam.name);
+  document.getElementById('subject-exam').innerHTML = `<span class="exam-badge">${examInfo}</span>`;
+
+  const list = document.getElementById('levels-list');
+  list.innerHTML = '';
+
+  exam.levels.forEach((level, idx) => {
+    const card = document.createElement('div');
+    card.className = 'level-card';
+
+    if (isArchive) {
+      // Archive: simple scoring
+      const archData = ensureArchive(examId, level.id);
+      const stars = archData.bestStars || 0;
+      card.onclick = () => startLevel(sid, examId, level.id, true);
+      card.innerHTML = `
+        <div class="lv-num" style="background:${meta.colorHex}">${level.id}</div>
+        <div class="lv-info">
+          <h4>${level.name}</h4>
+          <div class="sub">${level.sub || ''}</div>
+          <div class="stars">${stars > 0 ? '⭐'.repeat(stars)+'☆'.repeat(3-stars) : 'Noch nicht gespielt'}</div>
+        </div>
+      `;
+    } else {
+      // Active: full scoring with history + crowns
+      const lp = ensureProgress(examId, level.id);
+      const allQ = level.questions;
+      const normal = getNormalQuestions(allQ);
+      const answered = getLevelAnswered(examId, level.id, allQ);
+      const avg = getLevelAvgStars(sid, examId, level.id);
+      const mastered = isLevelMastered(sid, examId, level.id);
+      const completed = lp.completed;
+
+      // Level locking: level must be 1, or previous level must be completed
+      const prevLevel = idx > 0 ? exam.levels[idx - 1] : null;
+      const locked = idx > 0 && prevLevel && !isLevelCompleted(examId, prevLevel.id);
+
+      if (locked) card.classList.add('locked');
+      card.onclick = locked ? null : () => startLevel(sid, examId, level.id, false);
+
+      const starsHtml = answered > 0 ? buildStars(avg) : '<span style="color:var(--text-light)">Noch nicht gespielt</span>';
+
+      card.innerHTML = `
+        <div class="lv-num" style="background:${locked ? '#ccc' : meta.colorHex}">${level.id}</div>
+        <div class="lv-info">
+          <h4>${level.name}${locked ? ' 🔒' : ''}</h4>
+          <div class="sub">${level.sub || ''} — ${answered}/${normal.length} Fragen</div>
+          <div class="stars">${starsHtml}</div>
+        </div>
+        ${mastered ? '<div class="lv-crown">👑</div>' : ''}
+      `;
+    }
+
+    list.appendChild(card);
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+//  QUIZ
+// ═══════════════════════════════════════════════════════
+function startLevel(sid, examId, levelId, isArchive) {
+  curSubjectId = sid;
+  curExamId = examId;
+  curLevelId = levelId;
+  curIsArchive = isArchive;
+  curIdx = 0;
+  curRoundScores = [];
+  curStreak = state.streak || 0;
+
+  if (isArchive) {
+    curQuestions = selectArchiveQuestions(sid, examId, levelId);
+  } else {
+    curQuestions = selectQuestions(sid, examId, levelId);
+  }
+
+  if (curQuestions.length === 0) {
+    alert('Es gibt keine Fragen in dieser Stufe.');
+    return;
+  }
+
+  const meta = SUBJECT_META[sid];
+  const header = document.getElementById('quiz-header');
+  header.style.background = `linear-gradient(135deg, ${meta.colorHex}, ${meta.colorHex}dd)`;
+  document.getElementById('quiz-title').textContent = `${meta.emoji} ${meta.name}`;
+  document.getElementById('q-progress-fill').style.background = meta.colorHex;
+
+  showScreen('quiz');
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = curQuestions[curIdx];
+  curAttempts = 0;
+  curHintUsed = false;
+  curAnswered = false;
+
+  // Progress
+  document.getElementById('q-progress').textContent = `Frage ${curIdx+1} von ${curQuestions.length}`;
+  document.getElementById('q-progress-fill').style.width = ((curIdx) / curQuestions.length * 100) + '%';
+
+  // Attempt info
+  const attemptEl = document.getElementById('attempt-info');
+  attemptEl.textContent = q.bonus ? '🎓 Bonus-Frage!' : '';
+
+  // Question text
+  document.getElementById('q-text').textContent = q.q;
+
+  // Body
+  const body = document.getElementById('q-body');
+  body.innerHTML = '';
+
+  // Hint area
+  const hintArea = document.getElementById('hint-area');
+  hintArea.innerHTML = '';
+  if (q.hint && !curIsArchive) {
+    hintArea.innerHTML = `
+      <button class="hint-btn" onclick="showHint()">💡 Tipp</button>
+      <div class="hint-text" id="hint-text">${q.hint}</div>
+    `;
+  }
+
+  // Feedback
+  const fb = document.getElementById('feedback');
+  fb.className = 'feedback';
+  fb.textContent = '';
+
+  // Next button
+  document.getElementById('next-btn').className = 'next-btn';
+
+  if (q.type === 'mc') renderMC(q, body);
+  else if (q.type === 'type') renderType(q, body);
+  else if (q.type === 'tf') renderTF(q, body);
+  else if (q.type === 'sort') renderSort(q, body);
+}
+
+function renderMC(q, body) {
+  const div = document.createElement('div');
+  div.className = 'q-options';
+
+  // Shuffle options but remember correct index
+  const correctText = q.options[q.correct];
+  const shuffled = shuffle([...q.options]);
+
+  shuffled.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.textContent = opt;
+    btn.onclick = () => pickMC(btn, opt === correctText, div, q);
+    div.appendChild(btn);
+  });
+  body.appendChild(div);
+}
+
+function pickMC(btn, isCorrect, container, q) {
+  if (curAnswered) return;
+  curAttempts++;
+  soundClick();
+
+  if (isCorrect) {
+    btn.classList.add('correct');
+    container.querySelectorAll('.opt-btn').forEach(b => b.classList.add('disabled'));
+    onCorrect(q);
+  } else {
+    btn.classList.add('wrong');
+    btn.classList.add('disabled');
+
+    if (curIsArchive || curAttempts >= 3) {
+      // Show correct answer
+      container.querySelectorAll('.opt-btn').forEach(b => {
+        if (!b.classList.contains('wrong')) {
+          const correctText = q.options[q.correct];
+          if (b.textContent === correctText) b.classList.add('reveal');
+        }
+        b.classList.add('disabled');
+      });
+      onWrong(q, true);
+    } else {
+      showFeedback(false, FEEDBACK_WRONG[Math.floor(Math.random()*FEEDBACK_WRONG.length)] + ' Versuch\'s nochmal!');
+    }
+  }
+}
+
+function renderType(q, body) {
+  const div = document.createElement('div');
+  div.className = 'type-area';
+  div.innerHTML = `
+    <input class="type-input" id="type-input" type="text" placeholder="Schreibe die Antwort…"
+           autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    <br>
+    <button class="check-btn" id="check-btn" onclick="checkTypeAnswer()">✓ Prüfen</button>
+  `;
+  body.appendChild(div);
+
+  const input = document.getElementById('type-input');
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') checkTypeAnswer();
+  });
+  setTimeout(() => input.focus(), 100);
+}
+
+function checkTypeAnswer() {
+  if (curAnswered) return;
+  const input = document.getElementById('type-input');
+  const raw = input.value.trim();
+  if (!raw) return;
+
+  curAttempts++;
+  soundClick();
+  const q = curQuestions[curIdx];
+  const isCorrect = answerCorrect(q.accept, raw);
+
+  if (isCorrect) {
+    input.classList.add('correct');
+    input.disabled = true;
+    document.getElementById('check-btn').disabled = true;
+    onCorrect(q);
+  } else {
+    input.classList.add('wrong');
+    setTimeout(() => input.classList.remove('wrong'), 400);
+
+    if (curIsArchive || curAttempts >= 3) {
+      input.disabled = true;
+      document.getElementById('check-btn').disabled = true;
+      onWrong(q, true);
+    } else {
+      input.value = '';
+      input.focus();
+      showFeedback(false, FEEDBACK_WRONG[Math.floor(Math.random()*FEEDBACK_WRONG.length)] + ` Versuch\'s nochmal! (Versuch ${curAttempts}/3)`);
+    }
+  }
+}
+
+function renderTF(q, body) {
+  const div = document.createElement('div');
+  div.className = 'q-options';
+  div.innerHTML = `
+    <button class="opt-btn" style="text-align:center;font-weight:700;" onclick="pickTF(this,true,${q.correct})">✓ Wahr</button>
+    <button class="opt-btn" style="text-align:center;font-weight:700;" onclick="pickTF(this,false,${q.correct})">✗ Falsch</button>
+  `;
+  body.appendChild(div);
+}
+
+function pickTF(btn, chosen, correct) {
+  if (curAnswered) return;
+  curAttempts++;
+  soundClick();
+  const q = curQuestions[curIdx];
+  const container = btn.parentElement;
+
+  if (chosen === correct) {
+    btn.classList.add('correct');
+    container.querySelectorAll('.opt-btn').forEach(b => b.classList.add('disabled'));
+    onCorrect(q);
+  } else {
+    btn.classList.add('wrong');
+    container.querySelectorAll('.opt-btn').forEach(b => {
+      b.classList.add('disabled');
+      if (!b.classList.contains('wrong')) b.classList.add('reveal');
+    });
+    onWrong(q, true); // TF: show answer immediately on wrong
+  }
+}
+
+function renderSort(q, body) {
+  const div = document.createElement('div');
+  div.className = 'sort-area';
+
+  const items = shuffle([...q.items]);
+  let placed = [];
+
+  div.innerHTML = `
+    <div class="q-options" id="sort-pool"></div>
+    <div style="margin:12px 0;text-align:center;font-size:.85em;color:var(--text-light);">↓ Klicke in der richtigen Reihenfolge ↓</div>
+    <div class="q-options" id="sort-placed" style="min-height:50px;border:2px dashed #ddd;border-radius:12px;padding:10px;"></div>
+    <div style="text-align:center;margin-top:12px;">
+      <button class="btn-sec" onclick="resetSort()" style="font-size:.85em;">↩ Zurück</button>
+      <button class="check-btn" id="sort-check" onclick="checkSortAnswer()" disabled>✓ Prüfen</button>
+    </div>
+  `;
+  body.appendChild(div);
+
+  const pool = document.getElementById('sort-pool');
+  const placedEl = document.getElementById('sort-placed');
+
+  items.forEach(item => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.textContent = item;
+    btn.style.textAlign = 'center';
+    btn.onclick = () => {
+      if (curAnswered) return;
+      placed.push(item);
+      btn.style.display = 'none';
+      renderPlaced();
+      if (placed.length === items.length) {
+        document.getElementById('sort-check').disabled = false;
+      }
+    };
+    pool.appendChild(btn);
+  });
+
+  function renderPlaced() {
+    placedEl.innerHTML = '';
+    placed.forEach((item, idx) => {
+      const span = document.createElement('span');
+      span.style.cssText = 'display:inline-block;background:#e8f0fe;padding:6px 12px;margin:4px;border-radius:8px;font-size:.95em;';
+      span.textContent = `${idx+1}. ${item}`;
+      placedEl.appendChild(span);
+    });
+  }
+
+  window._sortPlaced = placed;
+  window._sortItems = items;
+  window._resetSort = () => {
+    placed.length = 0;
+    placedEl.innerHTML = '';
+    pool.querySelectorAll('.opt-btn').forEach(b => b.style.display = '');
+    document.getElementById('sort-check').disabled = true;
+  };
+}
+
+function resetSort() { if (window._resetSort) window._resetSort(); }
+
+function checkSortAnswer() {
+  if (curAnswered) return;
+  curAttempts++;
+  soundClick();
+  const q = curQuestions[curIdx];
+  const placed = window._sortPlaced;
+  const isCorrect = JSON.stringify(placed) === JSON.stringify(q.items);
+
+  if (isCorrect) {
+    onCorrect(q);
+  } else {
+    if (curIsArchive || curAttempts >= 3) {
+      onWrong(q, true);
+    } else {
+      window._resetSort();
+      showFeedback(false, FEEDBACK_WRONG[Math.floor(Math.random()*FEEDBACK_WRONG.length)] + ` Versuch\'s nochmal! (Versuch ${curAttempts}/3)`);
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//  ANSWER HANDLING
+// ═══════════════════════════════════════════════════════
+function showHint() {
+  curHintUsed = true;
+  const el = document.getElementById('hint-text');
+  if (el) el.classList.add('show');
+}
+
+function showFeedback(ok, text) {
+  const fb = document.getElementById('feedback');
+  fb.className = 'feedback show ' + (ok ? 'ok' : 'nok');
+  fb.textContent = text;
+}
+
+function onCorrect(q) {
+  curAnswered = true;
+  soundCorrect();
+
+  // Calculate stars for this answer
+  let stars;
+  if (curAttempts === 1 && !curHintUsed) stars = 3;
+  else if (curAttempts === 1) stars = 2; // used hint
+  else if (curAttempts === 2) stars = 2;
+  else if (curAttempts === 3) stars = 1;
+  else stars = 0;
+
+  curRoundScores.push(stars);
+
+  // Track streak
+  if (stars === 3) {
+    curStreak++;
+    state.streak = curStreak;
+  } else {
+    curStreak = 0;
+    state.streak = 0;
+  }
+
+  // Record in history (active only)
+  if (!curIsArchive) {
+    const h = getHistory(curExamId, curLevelId, q.id);
+    h.unshift(stars);
+    if (h.length > 2) h.length = 2;
+  }
+
+  // Feedback
+  const fb = FEEDBACK_CORRECT[Math.floor(Math.random()*FEEDBACK_CORRECT.length)];
+  const explanation = q.explanation ? ' ' + q.explanation : '';
+
+  if (q.bonus) {
+    showFeedback(true, `🎓 ${fb}${explanation}`);
+  } else if (!curIsArchive) {
+    const starsText = '⭐'.repeat(stars) + '☆'.repeat(3-stars);
+    showFeedback(true, `${starsText} ${fb}${explanation}`);
+  } else {
+    showFeedback(true, `${fb}${explanation}`);
+  }
+
+  if (stars === 3) launchConfetti();
+  saveProfiles();
+  document.getElementById('next-btn').className = 'next-btn show';
+}
+
+function onWrong(q, showAnswer) {
+  curAnswered = true;
+  soundWrong();
+
+  let stars = 0;
+  curRoundScores.push(stars);
+  curStreak = 0;
+  state.streak = 0;
+
+  // Record in history (active only)
+  if (!curIsArchive) {
+    const h = getHistory(curExamId, curLevelId, q.id);
+    h.unshift(stars);
+    if (h.length > 2) h.length = 2;
+  }
+
+  // Show correct answer in feedback
+  let correctAnswer = '';
+  if (q.type === 'mc') correctAnswer = q.options[q.correct];
+  else if (q.type === 'type') correctAnswer = q.accept[0];
+  else if (q.type === 'tf') correctAnswer = q.correct ? 'Wahr' : 'Falsch';
+  else if (q.type === 'sort') correctAnswer = q.items.join(' → ');
+
+  const explanation = q.explanation ? ' ' + q.explanation : '';
+  showFeedback(false, `Die richtige Antwort war: «${correctAnswer}».${explanation}`);
+
+  saveProfiles();
+  document.getElementById('next-btn').className = 'next-btn show';
+}
+
+function nextQ() {
+  curIdx++;
+  if (curIdx >= curQuestions.length) {
+    showResults();
+  } else {
+    renderQuestion();
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//  RESULTS
+// ═══════════════════════════════════════════════════════
+function showResults() {
+  const total = curQuestions.length;
+  const normalScores = [];
+  const allScores = [];
+
+  curQuestions.forEach((q, i) => {
+    allScores.push(curRoundScores[i] || 0);
+    if (!q.bonus) normalScores.push(curRoundScores[i] || 0);
+  });
+
+  const correctCount = allScores.filter(s => s > 0).length;
+  const pct = correctCount / total;
+
+  if (curIsArchive) {
+    // Archive: simple percentage-based stars
+    const stars = pct >= 0.8 ? 3 : pct >= 0.6 ? 2 : 1;
+    const archData = ensureArchive(curExamId, curLevelId);
+    archData.bestStars = Math.max(stars, archData.bestStars);
+    archData.lastScore = correctCount;
+    saveProfiles();
+
+    document.getElementById('res-emoji').textContent = ['', '😅', '😊', '🥳'][stars];
+    document.getElementById('res-title').textContent = ['', 'Guter Versuch!', 'Sehr gut!', 'Ausgezeichnet! 🌟'][stars];
+    document.getElementById('res-stars').textContent = '⭐'.repeat(stars) + '☆'.repeat(3-stars);
+    document.getElementById('res-score').textContent = `${correctCount} / ${total} richtig`;
+    document.getElementById('res-msg').textContent = {
+      1: 'Übe weiter — du schaffst das! 💪',
+      2: 'Du bist fast da! Noch ein Versuch, um besser zu werden! 😊',
+      3: pct === 1 ? 'Perfekt! Keine falsch! 🎉🏆' : 'Fantastisch! Du bist super vorbereitet! 🌟'
+    }[stars];
+
+  } else {
+    // Active: mark completed and calculate avg stars
+    const lp = ensureProgress(curExamId, curLevelId);
+    lp.completed = true;
+
+    const avg = getLevelAvgStars(curSubjectId, curExamId, curLevelId);
+    const mastered = isLevelMastered(curSubjectId, curExamId, curLevelId);
+
+    const roundAvg = normalScores.length > 0 ? normalScores.reduce((a,b)=>a+b,0)/normalScores.length : 0;
+    const displayStars = Math.min(3, roundAvg);
+
+    document.getElementById('res-emoji').textContent = displayStars >= 2.5 ? '🥳' : displayStars >= 1.5 ? '😊' : '😅';
+    document.getElementById('res-title').textContent = mastered ? 'Stufe gemeistert! 👑' :
+      displayStars >= 2.5 ? 'Ausgezeichnet! 🌟' : displayStars >= 1.5 ? 'Sehr gut!' : 'Guter Versuch!';
+    document.getElementById('res-stars').innerHTML = buildStars(avg);
+    document.getElementById('res-score').textContent = `${correctCount} / ${total} richtig — Durchschnitt: ${avg.toFixed(1)} ⭐`;
+
+    const allPerfect = curRoundScores.every(s => s === 3);
+    document.getElementById('res-msg').textContent = mastered ? 'Glückwunsch! Du beherrschst alle Fragen dieser Stufe! 👑' :
+      allPerfect ? 'Perfekt! Alle auf Anhieb richtig! 🎉' :
+      displayStars >= 2.5 ? 'Fantastisch! Du bist super vorbereitet! 🌟' :
+      displayStars >= 1.5 ? 'Fast geschafft! Noch ein Versuch zum Verbessern! 😊' :
+      'Übe weiter — du schaffst das! 💪';
+
+    saveProfiles();
+
+    // Check achievements
+    checkAllAchievements();
+
+    if (mastered || allPerfect) launchConfetti();
+  }
+
+  showScreen('results');
+}
+
+function retryLevel() {
+  startLevel(curSubjectId, curExamId, curLevelId, curIsArchive);
+}
+
+// ═══════════════════════════════════════════════════════
+//  ACHIEVEMENTS
+// ═══════════════════════════════════════════════════════
+function checkAllAchievements() {
+  const fresh = [];
+
+  ACHIEVEMENTS.forEach(ach => {
+    if (state.achievements.includes(ach.id)) return;
+
+    let unlocked = false;
+    switch (ach.id) {
+      case 'primeiro_passo':
+        unlocked = countCompletedActiveLevels() >= 1;
+        break;
+      case 'five_levels':
+        unlocked = countCompletedActiveLevels() >= 3;
+        break;
+      case 'all_levels':
+        unlocked = countTotalActiveLevels() > 0 && countCompletedActiveLevels() >= countTotalActiveLevels();
+        break;
+      case 'perfect':
+        unlocked = curRoundScores.length > 0 && curRoundScores.every(s => s === 3);
+        break;
+      case 'three_stars': {
+        // Any active level with avg >= 2.5
+        for (const sid of Object.keys(DATA_FILES)) {
+          for (const exam of getActiveExams(sid)) {
+            for (const level of exam.levels) {
+              if (getLevelAvgStars(sid, exam.id, level.id) >= 2.5) unlocked = true;
+            }
+          }
+        }
+        break;
+      }
+      case 'de_master':
+        unlocked = checkSubjectMastered('deutsch');
+        break;
+      case 'champion':
+        unlocked = Object.keys(DATA_FILES).every(sid => checkSubjectMastered(sid));
+        break;
+      case 'relampago':
+        unlocked = curStreak >= 5;
+        break;
+      case 'abelha':
+        unlocked = state.playDates && state.playDates.length >= 3;
+        break;
+    }
+
+    if (unlocked) {
+      state.achievements.push(ach.id);
+      fresh.push(ach);
+    }
+  });
+
+  saveProfiles();
+  if (fresh.length > 0) {
+    setTimeout(() => showToast(fresh[0]), 600);
+    soundAchievement();
+  }
+}
+
+function checkSubjectMastered(sid) {
+  const activeExams = getActiveExams(sid);
+  if (activeExams.length === 0) return false;
+  for (const exam of activeExams) {
+    if (exam.levels.length === 0) return false;
+    for (const level of exam.levels) {
+      if (!isLevelMastered(sid, exam.id, level.id)) return false;
+    }
+  }
+  return true;
+}
+
+function showToast(ach) {
+  document.getElementById('toast-text').textContent = `${ach.emoji} ${ach.name}`;
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4200);
+}
+
+function renderAchievements() {
+  const unlocked = state.achievements || [];
+  document.getElementById('ach-count').textContent = `${unlocked.length} / ${ACHIEVEMENTS.length} freigeschaltet`;
+  const grid = document.getElementById('ach-grid');
+  grid.innerHTML = '';
+  ACHIEVEMENTS.forEach(a => {
+    const ok = unlocked.includes(a.id);
+    const d = document.createElement('div');
+    d.className = 'ach-badge ' + (ok ? 'unlocked' : '');
+    d.innerHTML = `<span class="ab-emoji">${ok ? a.emoji : '🔒'}</span>
+      <h4>${ok ? a.name : '???'}</h4><p>${ok ? a.desc : 'Noch nicht freigeschaltet'}</p>`;
+    grid.appendChild(d);
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════
+async function init() {
+  try {
+    await loadAllData();
+    loadProfiles();
+    // Auto-select profile if passed via ?profile=NAME (from the Lernplattform)
+    const params = new URLSearchParams(location.search);
+    const preselect = params.get('profile');
+    if (preselect) history.replaceState({}, '', location.pathname);
+    if (preselect && profiles[preselect]) {
+      selectProfile(preselect);
+      return;
+    }
+    renderProfileScreen();
+    showScreen('profile');
+  } catch(e) {
+    console.error('Error loading data:', e);
+    document.getElementById('loading-msg').innerHTML =
+      'Fehler beim Laden der Daten. <br><button class="btn-sec" onclick="location.reload()" style="margin-top:12px;">🔄 Nochmal versuchen</button>';
+  }
+}
+
+init();
+</script>
+</body>
+</html>

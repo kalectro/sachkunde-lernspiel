@@ -1,0 +1,183 @@
+/* ============================================================
+   Lernplattform – gemeinsame Basis-Styles
+   Benutzt vom Platform-Hub (/) und vom Deutschtest (/deutschtest/).
+   Sachkunde (/sachkunde/) hat aus historischen Gründen eigene Styles.
+   ============================================================ */
+
+:root {
+  --primary: #667eea;
+  --primary-dark: #764ba2;
+  --success: #2ECC71;
+  --error: #E74C3C;
+  --warning: #F39C12;
+  --bg: #F0F4F8;
+  --text: #2D3436;
+  --text-light: #636e72;
+  --card: #FFFFFF;
+  --shadow: 0 3px 14px rgba(0,0,0,0.09);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.15);
+  --radius: 18px;
+  --radius-sm: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  min-height: 100vh; display: flex; justify-content: center;
+}
+
+.app {
+  width: 100%; max-width: 680px; min-height: 100vh;
+  background: var(--bg); position: relative; overflow-x: hidden;
+}
+
+.screen { display: none; padding: 20px; padding-bottom: 100px; animation: fadeIn .3s ease; }
+.screen.active { display: block; }
+
+@keyframes fadeIn { from { opacity:0; transform:translateY(14px) } to { opacity:1; transform:translateY(0) } }
+@keyframes pop { 0%{transform:scale(1)} 50%{transform:scale(1.08)} 100%{transform:scale(1)} }
+@keyframes wiggle { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-6px)} 80%{transform:translateX(4px)} }
+@keyframes bounceIn { 0%{transform:scale(0)} 60%{transform:scale(1.1)} 100%{transform:scale(1)} }
+@keyframes confettiFall { 0%{transform:translateY(-10px) rotate(0deg);opacity:1} 100%{transform:translateY(100vh) rotate(720deg);opacity:0} }
+
+/* ── headers ── */
+.top-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white; padding: 28px 20px 22px; text-align: center;
+  border-radius: 0 0 28px 28px; margin: -20px -20px 22px; position: relative;
+}
+.top-header h1 { font-size: 1.9em; }
+.top-header h2 { font-size: 1.5em; }
+.top-header p  { opacity: .85; font-size: .92em; margin-top: 3px; }
+
+.col-header {
+  color: white; padding: 22px 20px 20px; border-radius: 0 0 26px 26px;
+  margin: -20px -20px 22px; position: relative;
+}
+.col-header h2 { font-size: 1.5em; margin-bottom: 4px; }
+
+.back-btn {
+  position: absolute; top: 16px; left: 16px;
+  background: rgba(255,255,255,.22); border: none; color: white;
+  border-radius: 10px; padding: 6px 12px; font-size: .88em;
+  cursor: pointer; font-family: inherit;
+}
+.back-btn:hover { background: rgba(255,255,255,.35); }
+
+/* ── buttons ── */
+.btn-main {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px 28px; border: none; border-radius: var(--radius-sm);
+  font-size: 1.05em; font-weight: 700; cursor: pointer; color: white;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  box-shadow: var(--shadow); transition: all .2s; font-family: inherit;
+  -webkit-tap-highlight-color: transparent; user-select: none; min-width: 180px;
+}
+.btn-main:active   { transform: scale(.95); }
+.btn-main:disabled { opacity: .5; cursor: default; }
+
+.btn-sec {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 24px; border: 2px solid #ddd; border-radius: var(--radius-sm);
+  font-size: .95em; font-weight: 600; cursor: pointer; color: var(--text);
+  background: white; transition: all .2s; font-family: inherit;
+  -webkit-tap-highlight-color: transparent; user-select: none;
+}
+.btn-sec:active { transform: scale(.95); }
+
+/* ── profile screen ── */
+.profile-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 16px 0; }
+.profile-card {
+  background: white; border-radius: var(--radius); padding: 16px;
+  box-shadow: var(--shadow); cursor: pointer; transition: all .2s;
+  width: 140px; text-align: center; position: relative; user-select: none;
+}
+.profile-card:hover  { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.profile-card:active { transform: scale(.95); }
+.profile-card .avatar { font-size: 2.5em; margin-bottom: 6px; }
+.profile-card .name   { font-weight: 700; font-size: 1em; }
+.profile-card .info   { font-size: .75em; color: var(--text-light); margin-top: 4px; }
+.profile-card .del-btn {
+  position: absolute; top: 6px; right: 8px; background: none; border: none;
+  color: #ccc; font-size: 1.1em; cursor: pointer; padding: 2px 6px; border-radius: 6px;
+}
+.profile-card .del-btn:hover { color: var(--error); background: #fee; }
+
+.new-profile-box {
+  background: white; border-radius: var(--radius); padding: 20px;
+  box-shadow: var(--shadow); text-align: center; margin-top: 16px; width: 100%;
+}
+.new-profile-box input {
+  width: 100%; max-width: 280px; padding: 12px 16px; border: 2px solid #ddd;
+  border-radius: var(--radius-sm); font-size: 1.1em; text-align: center;
+  font-family: inherit; outline: none; transition: border-color .2s;
+}
+.new-profile-box input:focus { border-color: var(--primary); }
+
+/* ── test/subject cards grid ── */
+.total-box {
+  background: white; border-radius: 14px; padding: 12px 20px; text-align: center;
+  box-shadow: var(--shadow); font-weight: 700; color: var(--text);
+  font-size: 1em; margin-bottom: 18px;
+}
+.subjects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; width: 100%; }
+.subject-card {
+  background: white; border-radius: var(--radius); padding: 18px 16px;
+  box-shadow: var(--shadow); cursor: pointer; transition: transform .18s, box-shadow .18s;
+  border-top: 5px solid var(--col); user-select: none;
+}
+.subject-card:hover  { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.subject-card:active { transform: scale(.97); }
+.sc-emoji { font-size: 2.4em; display: block; margin-bottom: 8px; }
+.subject-card h3 { font-size: .97em; color: var(--text); margin-bottom: 4px; }
+.sc-date  { font-size: .72em; color: var(--text-light); margin-bottom: 8px; }
+.sc-stars { font-size: .8em; color: var(--text-light); margin-top: 5px; }
+
+.prog-bar  { background: #eee; border-radius: 8px; height: 7px; overflow: hidden; }
+.prog-fill { height: 100%; border-radius: 8px; transition: width .5s ease; }
+
+.archive-section { margin-top: 24px; width: 100%; }
+.archive-section h3 { font-size: 1em; color: var(--text-light); margin-bottom: 10px; text-align: center; }
+.archive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.archive-card {
+  background: white; border-radius: var(--radius-sm); padding: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06); cursor: pointer; transition: transform .18s;
+  border-top: 4px solid #ccc; opacity: .75; user-select: none;
+}
+.archive-card:hover { transform: translateY(-2px); opacity: 1; }
+.archive-card .sc-emoji { font-size: 1.8em; }
+.archive-card h4 { font-size: .85em; color: var(--text-light); }
+.archive-card .sc-date { font-size: .7em; }
+
+/* ── confetti ── */
+.confetti-piece {
+  position: fixed; top: -10px; width: 8px; height: 8px; z-index: 998;
+  border-radius: 2px; animation: confettiFall 2.5s ease-out forwards;
+}
+
+/* ── toast ── */
+.toast {
+  position: fixed; top: -100px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg,#ffd700,#ffb700); color: #333;
+  padding: 16px 28px; border-radius: 16px; font-weight: 700;
+  box-shadow: 0 8px 30px rgba(0,0,0,.2); z-index: 999;
+  transition: top .4s ease; text-align: center; max-width: 90%;
+}
+.toast.show { top: 24px; }
+.toast h4 { font-size: .95em; }
+.toast p  { font-size: .85em; margin-top: 4px; }
+
+/* ── stars ── */
+.stars-display { font-size: 1.5em; text-align: center; margin: 8px 0; letter-spacing: 2px; }
+.star-full  { color: var(--warning); }
+.star-half  { color: var(--warning); opacity: .6; }
+.star-empty { color: #ddd; }
+
+/* ── responsive ── */
+@media(max-width: 480px) {
+  .top-header h1 { font-size: 1.5em; }
+  .subjects-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .profile-card  { width: 120px; padding: 12px; }
+}
