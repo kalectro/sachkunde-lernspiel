@@ -54,13 +54,7 @@ body {
   display:inline-block; background:rgba(255,255,255,.22);
   padding:3px 12px; border-radius:20px; font-size:.82em; margin-top:4px;
 }
-.back-btn {
-  position:absolute; top:16px; left:16px;
-  background:rgba(255,255,255,.22); border:none; color:white;
-  border-radius:10px; padding:6px 12px; font-size:.88em;
-  cursor:pointer; font-family:inherit;
-}
-.back-btn:hover { background:rgba(255,255,255,.35); }
+/* .back-btn styles come from shared/platform.css */
 
 /* ── buttons ── */
 .btn-main {
@@ -476,7 +470,8 @@ const SESSION_QS = 10;
 const BONUS_THRESHOLD = 0.7; // 70% answered to unlock bonus
 
 const SUBJECT_META = {
-  sachkunde: { name:'Sachkunde: Das Jahr', emoji:'🌿', color:'var(--sk)', colorHex:'#FF6B35', colorLight:'var(--sk-light)' }
+  sachkunde: { name:'Sachkunde: Das Jahr', emoji:'🌿', color:'var(--sk)', colorHex:'#FF6B35', colorLight:'var(--sk-light)',
+               desc:'Wochentage · Monate · Jahreszeiten · Kalender · Weltraum' }
 };
 
 const DATA_FILES = {
@@ -514,6 +509,12 @@ const { playTone, soundCorrect, soundWrong, soundClick, soundAchievement,
 // the `deutschtest` sub-object of each profile, leaving worldProgress,
 // achievements, streak etc. untouched.
 const LEGACY_EXAM_ID = 'sk_das_jahr_2026';
+const LEGACY_ACH_MAP = {
+  blitzschnell:         'lightning',
+  durchhalte_champion:  'all_levels',
+  perfektionist:        'master',
+  fleissige_biene:      'bee',
+};
 
 function migrateOldSachkunde(p) {
   if (!p) return p;
@@ -541,6 +542,15 @@ function migrateOldSachkunde(p) {
       };
     }
     delete sub.worldProgress;
+  }
+  // Step 3: remap legacy achievement ids and drop any that no longer exist
+  if (sub && Array.isArray(sub.achievements)) {
+    const validIds = new Set(ACHIEVEMENTS.map(a => a.id));
+    sub.achievements = [...new Set(
+      sub.achievements
+        .map(id => LEGACY_ACH_MAP[id] || id)
+        .filter(id => validIds.has(id))
+    )];
   }
   return p;
 }
@@ -1000,9 +1010,24 @@ function renderProfileScreen() {
 
 function getProfileSummary(name) {
   const sub = getSubstate(name);
-  if (!sub || !sub.achievements || sub.achievements.length === 0) return 'Noch nicht gespielt';
-  const ach = sub.achievements.length;
-  return `${ach} Erfolg${ach>1?'e':''}`;
+  if (!sub) return 'Noch nicht gespielt';
+  let totalLv = 0, doneLv = 0;
+  for (const sid of Object.keys(DATA_FILES)) {
+    for (const exam of getActiveExams(sid)) {
+      for (const lv of (exam.levels || [])) {
+        totalLv++;
+        const lvState = sub.progress && sub.progress[exam.id] && sub.progress[exam.id].levels && sub.progress[exam.id].levels[lv.id];
+        if (lvState && lvState.completed) doneLv++;
+      }
+    }
+  }
+  if (totalLv === 0) {
+    const ach = sub.achievements ? sub.achievements.length : 0;
+    return ach ? `${ach} Erfolg${ach>1?'e':''}` : 'Noch nicht gespielt';
+  }
+  const pct = Math.round(doneLv / totalLv * 100);
+  if (pct === 0) return 'Noch nicht gespielt';
+  return `${pct}% · ${doneLv}/${totalLv} Stufen`;
 }
 
 function selectProfile(name) {
@@ -1126,6 +1151,7 @@ function renderHome() {
     card.innerHTML = `
       <span class="sc-emoji">${meta.emoji}</span>
       <h3>${meta.name}${allMastered && exam.levels.length > 0 ? ' 👑' : ''}</h3>
+      ${meta.desc ? `<div class="sc-date">${meta.desc}</div>` : ''}
       ${examDateStr ? `<div class="sc-date">${examDateStr}</div>` : ''}
       <div class="prog-bar"><div class="prog-fill" style="width:${pct}%;background:${meta.colorHex}"></div></div>
       <div class="sc-stars">${buildStarsText(subjectAvg)} ${pct}%</div>
@@ -1184,7 +1210,8 @@ function renderSubject(sid, examId, isArchive) {
   const examInfo = isArchive
     ? `📂 ${exam.name} (vergangener Test)`
     : (exam.examDate ? `📅 Test: ${formatDate(exam.examDate)}` : exam.name);
-  document.getElementById('subject-exam').innerHTML = `<span class="exam-badge">${examInfo}</span>`;
+  const descHtml = meta.desc ? `<div class="subject-desc">${meta.desc}</div>` : '';
+  document.getElementById('subject-exam').innerHTML = `${descHtml}<span class="exam-badge">${examInfo}</span>`;
 
   const list = document.getElementById('levels-list');
   list.innerHTML = '';

@@ -47,13 +47,33 @@ Neue Fragetypen oder Bug-Fixes in der Engine wirken automatisch auf beide Apps.
 
 ## Spielstruktur
 
-### 6 Welten mit je 18 normalen + 3 Bonusfragen
+Beide Apps nutzen die gleiche Exam/Level/Question-Struktur. Fragen liegen in einer einzelnen JSON-Datei pro Test (`sachkunde/data/sachkunde.json`, `deutschtest/data/deutsch.json`):
+
+```json
+{
+  "subject":"sachkunde",
+  "exams":[
+    { "id":"sk_das_jahr_2026", "name":"...", "examDate":"2026-04-23",
+      "levels":[
+        { "id":1, "name":"Wochentage", "char":"molly", "icon":"🐕",
+          "color":"#FF6B35", "learnCard":{...}, "questions":[...] }
+      ] }
+  ]
+}
+```
+
+### Sachkunde — 6 Stufen mit Charakteren
 1. **Mollys Wochentage-Wiese** (Hund) - Wochentage, gestern/morgen
 2. **Ellis Monate-Fluss** (Eisvogel) - 12 Monate, Reihenfolge
 3. **Oktis Jahreszeiten-Ozean** (Oktopus) - 4 Jahreszeiten, Feiertage
 4. **Blitzis Kalender-Koppel** (Pferd) - Tage im Monat, Knöchel-Trick
 5. **Datum-Dschungel** (alle Tiere) - Datum schreiben, Feiertage
 6. **Weltraum-Abenteuer** (alle Tiere) - Erde, Mond, Sonne
+
+Charaktere sind **nicht mehr Mittelpunkt der UI**, sondern werden nach einer richtigen Antwort als kurzes Popup (`.char-popup`) eingeblendet. Inline-SVGs in der Funktion `charSVG(name)` — keine externen Assets.
+
+### Deutschtest — 5 Stufen
+Nomen & Artikel · Verben erkennen · Personalformen · g/k b/p · Vorsilben/Wortfamilien. Keine Charaktere.
 
 ### Fragetypen
 - `mc` - Multiple Choice (4 Optionen)
@@ -100,20 +120,23 @@ Neue Fragetypen oder Bug-Fixes in der Engine wirken automatisch auf beide Apps.
 - Eigenes Feedback-Design (kein Sterne-Display)
 
 ## Profil-System
-Ein Profil ist ein **Container** mit Namespace-Keys pro Test:
+Ein Profil ist ein **Container** mit symmetrischen Namespace-Keys pro Test:
 ```js
 profiles = {
   "Max": {
-    sachkunde:   { worldProgress, achievements, streak, playDates, ... },
-    deutschtest: { progress: { examId: { levels: { levelId: { history, completed } } } }, achievements, ... }
-  },
-  ...
+    sachkunde:   { progress: { examId: { levels: { levelId: { history, completed } } } },
+                   achievements, streak, playDates, archive, ... },
+    deutschtest: { progress: { ... }, achievements, streak, playDates, archive, ... }
+  }
 }
 ```
-- Sachkunde schreibt nur unter `profile.sachkunde`; Deutschtest nur unter `profile.deutschtest`. Der Hub liest beides, schreibt nichts (außer beim Profil-Anlegen/Löschen).
-- Migration: Wenn `profile.worldProgress` direkt am Profil hängt (alte flache Struktur), wird sie beim Laden in Sachkunde in `profile.sachkunde` umgehängt.
+- Beide Sub-Apps schreiben nur unter ihrem eigenen Namespace. Der Hub liest beide, schreibt nichts (außer Profil-Anlegen/Löschen).
+- `history[qid] = [neu, alt]` (letzte 2 Versuche; Score 0–3).
+- **Sachkunde-Migration** (`migrateOldSachkunde` in `sachkunde/index.html`) ist dreistufig:
+  1. Flach (`profile.worldProgress`) → namespaced (`profile.sachkunde.worldProgress`)
+  2. Alt (`sub.worldProgress`) → neu (`sub.progress[examId].levels`), examId `sk_das_jahr_2026`
+  3. Achievement-IDs remappen (`LEGACY_ACH_MAP`: `blitzschnell→lightning`, `durchhalte_champion→all_levels`, `perfektionist→master`, `fleissige_biene→bee`) und unbekannte IDs verwerfen — Nutzer verdient weggefallene Erfolge neu.
 - Legacy-Key `frankensteinschule_lernspiel_v2` wird beim ersten Laden migriert.
-- `worldProgress[wid].history[qid] = [score_neu, score_alt]` (letzte 2 Versuche).
 
 ## Fragenauswahl (`selectQuestionsForWorld`)
 - 10 Fragen pro Runde
@@ -148,7 +171,15 @@ Test im Unterverzeichnis `deutschtest/`. Teilt Profile mit dem Rest der Plattfor
 - **Namespace:** schreibt nur unter `profile.deutschtest`
 - **Einstieg:** Testkarte im Plattform-Hub (`/`); Profil wird per `?profile=NAME` übergeben und automatisch vorausgewählt
 - **Zurück-Link:** "← Plattform" in Profil- und Home-Screen
-- **Daten:** `deutschtest/data/deutsch.json` — Test "Verben & Wortarten" mit 5 Stufen (Nomen/Artikel, Verben erkennen, Personalformen, g/k b/p, Vorsilben/Wortfamilien)
+- **Daten:** `deutschtest/data/deutsch.json` — Test "Verben & Wortarten" mit 5 Stufen
+- **Nächste Klausur:** Donnerstag, 2026-04-23
+
+## Navigation & UI-Pattern
+
+- `autoSkipsHome()` in jeder Sub-App: Wenn genau **eine** aktive Klausur und **kein** Archiv existiert, überspringt die App den Home-Screen und landet direkt auf der Stufen-Auswahl. So reicht ein Klick vom Hub.
+- Back-Button (`.back-btn`) wird in `shared/platform.css` definiert (dunkler Halbtransparenz-Look mit weißem Rand, damit er auf farbigen `.col-header`-Hintergründen lesbar ist). Sub-Apps dürfen ihn **nicht** inline überschreiben.
+- Subject-Cards und `.col-header` zeigen eine `meta.desc` (z. B. "Nomen · Verben · Personalformen") über `.subject-desc`.
+- Profil-Auswahl (Hub + Sub-Apps) zeigt pro Profil einen Gesamt-Prozent-Fortschritt: Hub mittelt über alle Tests, Sub-Apps berechnen ihren eigenen `completedLv/totalLv`.
 
 ## Einen neuen Test hinzufügen
 

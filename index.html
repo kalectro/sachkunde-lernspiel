@@ -171,20 +171,19 @@ function renderProfileScreen() {
     card.className = 'profile-card';
     card.onclick = () => selectProfile(name);
     const safeName = esc(name);
-    // Kurze Gesamtsummary über alle Tests
-    let totalAnswered = 0;
     const p = profiles[name] || {};
-    const sachkundeWp = (p.sachkunde && p.sachkunde.worldProgress) || p.worldProgress;
-    if (sachkundeWp) {
-      Object.values(sachkundeWp).forEach(w => {
-        if (w && w.history) totalAnswered += Object.keys(w.history).length;
-      });
-    }
+    // Durchschnittlicher Fortschritt über alle Tests (rein lesend)
+    const pcts = TESTS.map(t => {
+      const pr = t.progress(p[t.id], p);
+      return (pr && typeof pr.pct === 'number') ? pr.pct : 0;
+    });
+    const avgPct = pcts.length ? Math.round(pcts.reduce((a,b)=>a+b,0) / pcts.length) : 0;
+    const info = avgPct > 0 ? `${avgPct}% geschafft` : 'Bereit zum Start';
     card.innerHTML = `
       <button class="del-btn" onclick="event.stopPropagation(); deleteProfile('${safeName.replace(/'/g,"\\'")}')">✕</button>
       <div class="avatar">🧒</div>
       <div class="name">${safeName}</div>
-      <div class="info">${totalAnswered ? totalAnswered + ' Fragen gelöst' : 'Bereit zum Start'}</div>
+      <div class="info">${info}</div>
     `;
     grid.appendChild(card);
   });
