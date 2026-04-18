@@ -366,6 +366,7 @@ body {
   <!-- RESULTS -->
   <div id="screen-results" class="screen">
     <div class="top-header">
+      <button class="back-btn" onclick="goPlatform()">← Plattform</button>
       <h2>📊 Ergebnis</h2>
     </div>
     <div class="res-emoji" id="res-emoji"></div>
@@ -374,9 +375,8 @@ body {
     <div class="res-score" id="res-score"></div>
     <p class="res-msg" id="res-msg"></p>
     <div class="res-btns">
-      <button class="btn-main" onclick="retryLevel()">🔄 Nochmal versuchen</button>
-      <button class="btn-sec" onclick="goSubject()">← Zurück zur Liste</button>
-      <button class="btn-sec" onclick="goPlatform()">🏠 Plattform</button>
+      <button id="res-btn-back" onclick="goSubject()">← Zurück zur Liste</button>
+      <button id="res-btn-retry" onclick="retryLevel()">🔄 Nochmal versuchen</button>
     </div>
   </div>
 
@@ -1585,6 +1585,15 @@ function showResults() {
     checkAllAchievements();
 
     if (mastered || allPerfect) launchConfetti();
+  }
+
+  // Dominanten Button nach Ergebnis wählen: ab 80% ist "Weiter" primär.
+  const backBtn = document.getElementById('res-btn-back');
+  const retryBtn = document.getElementById('res-btn-retry');
+  if (pct >= 0.8) {
+    backBtn.className = 'btn-main'; retryBtn.className = 'btn-sec';
+  } else {
+    retryBtn.className = 'btn-main'; backBtn.className = 'btn-sec';
   }
 
   showScreen('results');
