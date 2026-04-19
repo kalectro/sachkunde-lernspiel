@@ -706,29 +706,26 @@ function defaultState() {
   };
 }
 
-function currentProfileObj() {
-  return currentProfile ? profiles[currentProfile] : null;
-}
-
 function ensureCompanions() {
-  const p = currentProfileObj();
-  if (!p) return;
-  window.LernEngine.companions.ensure(p);
+  if (!state) return;
+  // One-time cleanup: orphan legacy companion data at profile root (from earlier version)
+  const p = profiles[currentProfile];
+  if (p && p.companions) delete p.companions;
+  window.LernEngine.companions.ensure(state);
   // Backfill from completed sachkunde levels for migrated profiles
   for (const [lvlId, compId] of Object.entries(COMPANION_UNLOCK_BY_LEVEL)) {
     if (isLevelCompleted(LEGACY_EXAM_ID, Number(lvlId))) {
-      window.LernEngine.companions.unlock(p, compId);
+      window.LernEngine.companions.unlock(state, compId);
     }
   }
 }
 
 // Returns array of newly unlocked companion ids after completing the given level.
 function checkCompanionUnlocks(levelId) {
-  const p = currentProfileObj();
-  if (!p) return [];
+  if (!state) return [];
   ensureCompanions();
   const compId = COMPANION_UNLOCK_BY_LEVEL[levelId];
-  if (compId && window.LernEngine.companions.unlock(p, compId)) return [compId];
+  if (compId && window.LernEngine.companions.unlock(state, compId)) return [compId];
   return [];
 }
 
@@ -1771,9 +1768,8 @@ function showCharPopup() {
   const lv = getCurrentLevel();
   // Level-eigener Charakter hat Vorrang; bei "all"-Levels zeigt der aktive Begleiter.
   let charName = lv && lv.char;
-  const p = currentProfileObj();
   if (!charName || charName === 'all') {
-    charName = (p && p.companions && p.companions.active) || charName;
+    charName = (state && state.companions && state.companions.active) || charName;
   }
   if (!charName) return;
   const charData = CHARACTERS[charName];
@@ -1789,10 +1785,9 @@ function showCharPopup() {
 
 function renderCompanions() {
   const strip = document.getElementById('companions-strip');
-  const p = currentProfileObj();
-  if (!strip || !p) return;
+  if (!strip || !state) return;
   ensureCompanions();
-  window.LernEngine.companions.renderStrip(strip, p, {
+  window.LernEngine.companions.renderStrip(strip, state, {
     onSelect: () => saveProfiles()
   });
 }

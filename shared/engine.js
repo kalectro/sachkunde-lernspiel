@@ -394,35 +394,32 @@
     return '';
   }
 
-  function ensureCompanions(profile) {
-    if (!profile || typeof profile !== 'object') return null;
-    // Migration: legacy position was profile.sachkunde.companions — lift to profile root
-    if (!profile.companions && profile.sachkunde && profile.sachkunde.companions) {
-      profile.companions = profile.sachkunde.companions;
-      delete profile.sachkunde.companions;
+  // Works on any container object (typically a test's substate like profile.sachkunde).
+  // Companions are tracked per-test so each test has its own collection.
+  function ensureCompanions(container) {
+    if (!container || typeof container !== 'object') return null;
+    if (!container.companions || typeof container.companions !== 'object') {
+      container.companions = { active: 'molly', unlocked: ['molly'] };
     }
-    if (!profile.companions || typeof profile.companions !== 'object') {
-      profile.companions = { active: 'molly', unlocked: ['molly'] };
+    if (!Array.isArray(container.companions.unlocked)) container.companions.unlocked = ['molly'];
+    if (!container.companions.unlocked.includes('molly')) container.companions.unlocked.unshift('molly');
+    if (!container.companions.active || !container.companions.unlocked.includes(container.companions.active)) {
+      container.companions.active = container.companions.unlocked[0] || 'molly';
     }
-    if (!Array.isArray(profile.companions.unlocked)) profile.companions.unlocked = ['molly'];
-    if (!profile.companions.unlocked.includes('molly')) profile.companions.unlocked.unshift('molly');
-    if (!profile.companions.active || !profile.companions.unlocked.includes(profile.companions.active)) {
-      profile.companions.active = profile.companions.unlocked[0] || 'molly';
-    }
-    return profile.companions;
+    return container.companions;
   }
 
   // Returns true if newly unlocked.
-  function unlockCompanion(profile, id) {
-    const c = ensureCompanions(profile);
+  function unlockCompanion(container, id) {
+    const c = ensureCompanions(container);
     if (!c || !COMPANION_ORDER.includes(id)) return false;
     if (c.unlocked.includes(id)) return false;
     c.unlocked.push(id);
     return true;
   }
 
-  function setActiveCompanion(profile, id) {
-    const c = ensureCompanions(profile);
+  function setActiveCompanion(container, id) {
+    const c = ensureCompanions(container);
     if (!c || !c.unlocked.includes(id)) return false;
     if (c.active === id) return false;
     c.active = id;
@@ -461,10 +458,12 @@
     document.head.appendChild(style);
   }
 
-  function renderCompanionStrip(container, profile, opts) {
-    if (!container || !profile) return;
+  // Renders a strip of 5 companions into the given DOM container.
+  // `state` is the test's substate (contains `companions`).
+  function renderCompanionStrip(domContainer, state, opts) {
+    if (!domContainer || !state) return;
     _injectCompanionStyles();
-    const c = ensureCompanions(profile);
+    const c = ensureCompanions(state);
     const unlocked = new Set(c.unlocked);
     const active = c.active;
     const onSelect = (opts && opts.onSelect) || null;
@@ -482,15 +481,15 @@
         <div class="comp-hint">${hint}</div>
       </div>`;
     }).join('');
-    container.innerHTML = `<div class="companions-title">🌟 Begleiter</div><div class="companions-row">${cells}</div>`;
-    container.querySelectorAll('.comp-cell').forEach(el => {
+    domContainer.innerHTML = `<div class="companions-title">🌟 Begleiter</div><div class="companions-row">${cells}</div>`;
+    domContainer.querySelectorAll('.comp-cell').forEach(el => {
       const id = el.getAttribute('data-comp-id');
       if (!unlocked.has(id)) return;
       el.addEventListener('click', () => {
-        if (setActiveCompanion(profile, id)) {
+        if (setActiveCompanion(state, id)) {
           soundClick();
           if (onSelect) onSelect(id);
-          renderCompanionStrip(container, profile, opts);
+          renderCompanionStrip(domContainer, state, opts);
         }
       });
     });

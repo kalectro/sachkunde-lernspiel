@@ -905,9 +905,11 @@ const COMPANION_UNLOCK_BY_LEVEL = {
 };
 
 function ensureCompanions() {
+  if (!state) return;
+  // One-time cleanup: orphan legacy companion data at profile root (from earlier version)
   const p = profiles[currentProfile];
-  if (!p) return;
-  window.LernEngine.companions.ensure(p);
+  if (p && p.companions) delete p.companions;
+  window.LernEngine.companions.ensure(state);
   // Backfill from deutschtest level completions
   const data = questionData[curSubjectId] || questionData['deutschtest'];
   if (data) {
@@ -916,7 +918,7 @@ function ensureCompanions() {
         const comp = COMPANION_UNLOCK_BY_LEVEL[lvl.id];
         if (!comp) continue;
         const lp = state.progress && state.progress[exam.id] && state.progress[exam.id].levels && state.progress[exam.id].levels[lvl.id];
-        if (lp && lp.completed) window.LernEngine.companions.unlock(p, comp);
+        if (lp && lp.completed) window.LernEngine.companions.unlock(state, comp);
       }
     }
   }
@@ -1108,14 +1110,11 @@ function renderSubject(sid, examId, isArchive) {
 
   const compStrip = document.getElementById('companions-strip');
   if (compStrip) {
-    if (!isArchive) {
+    if (!isArchive && state) {
       compStrip.style.display = '';
-      const p = profiles[currentProfile];
-      if (p) {
-        window.LernEngine.companions.renderStrip(compStrip, p, {
-          onSelect: () => saveProfiles()
-        });
-      }
+      window.LernEngine.companions.renderStrip(compStrip, state, {
+        onSelect: () => saveProfiles()
+      });
     } else {
       compStrip.style.display = 'none';
     }
@@ -1621,13 +1620,10 @@ function showResults() {
       displayStars >= 1.5 ? 'Fast geschafft! Noch ein Versuch zum Verbessern! 😊' :
       'Übe weiter — du schaffst das! 💪';
 
-    // Companion unlocks on level completion (shared across all tests)
-    const p = profiles[currentProfile];
+    // Companion unlocks on level completion (per-test collection)
     const newCompanions = [];
-    if (p) {
-      const comp = COMPANION_UNLOCK_BY_LEVEL[curLevelId];
-      if (comp && window.LernEngine.companions.unlock(p, comp)) newCompanions.push(comp);
-    }
+    const comp = COMPANION_UNLOCK_BY_LEVEL[curLevelId];
+    if (comp && window.LernEngine.companions.unlock(state, comp)) newCompanions.push(comp);
 
     saveProfiles();
 
