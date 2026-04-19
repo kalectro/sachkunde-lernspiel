@@ -136,45 +136,7 @@ body {
 .archive-card h4 { font-size:.85em; color:var(--text-light); }
 .archive-card .sc-date { font-size:.7em; }
 
-/* ── companions ── */
-.companions {
-  background:white; border-radius:14px; padding:10px 10px 12px;
-  box-shadow:var(--shadow); margin-bottom:14px;
-}
-.companions-title {
-  font-size:.78em; color:var(--text-light); font-weight:700;
-  text-align:center; margin-bottom:8px; letter-spacing:.5px; text-transform:uppercase;
-}
-.companions-row { display:flex; justify-content:space-around; align-items:flex-end; gap:6px; }
-.comp-cell {
-  flex:1; text-align:center; cursor:pointer; padding:6px 2px; border-radius:10px;
-  transition:background .15s, transform .15s; user-select:none; position:relative;
-  min-width:0;
-}
-.comp-cell:hover:not(.locked) { background:#F0F4F8; transform:translateY(-2px); }
-.comp-cell.active { background:linear-gradient(135deg,#FFE082,#FFD54F); box-shadow:0 2px 6px rgba(255,165,0,.3); }
-.comp-cell.locked { cursor:default; opacity:.55; }
-.comp-svg { width:44px; height:44px; margin:0 auto; }
-.comp-svg svg { width:100%; height:100%; }
-.comp-cell.locked .comp-svg { filter:grayscale(1) brightness(.9); }
-.comp-name { font-size:.72em; font-weight:700; color:var(--text); margin-top:2px; }
-.comp-hint { font-size:.62em; color:var(--text-light); line-height:1.1; margin-top:1px; }
-.comp-lock { position:absolute; top:2px; right:4px; font-size:.85em; opacity:.7; }
-.comp-cell.active .comp-name { color:#5D4037; }
-
-.comp-toast {
-  position:fixed; bottom:-200px; left:50%; transform:translateX(-50%);
-  background:linear-gradient(135deg,#FFD54F,#FF8A65); color:#3E2723;
-  padding:14px 22px; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,.25);
-  font-weight:700; text-align:center; z-index:1000;
-  transition:bottom .4s ease; display:flex; gap:12px; align-items:center; max-width:90%;
-}
-.comp-toast.show { bottom:28px; }
-.comp-toast-svg { width:52px; height:52px; flex-shrink:0; }
-.comp-toast-svg svg { width:100%; height:100%; }
-.comp-toast-text h4 { font-size:.95em; margin-bottom:2px; }
-.comp-toast-text p { font-size:.78em; font-weight:600; opacity:.85; }
-
+/* ── companions: Styles kommen aus shared/engine.js ── */
 /* ── levels ── */
 .levels-list { display:flex; flex-direction:column; gap:11px; width:100%; }
 .level-card {
@@ -498,13 +460,7 @@ body {
   <div id="char-popup-svg"></div>
   <div class="bubble" id="char-popup-text"></div>
 </div>
-<div class="comp-toast" id="comp-toast">
-  <div class="comp-toast-svg" id="comp-toast-svg"></div>
-  <div class="comp-toast-text">
-    <h4 id="comp-toast-title">Neuer Begleiter!</h4>
-    <p id="comp-toast-name"></p>
-  </div>
-</div>
+<!-- Begleiter-Toast wird von shared/engine.js bei Bedarf erzeugt -->
 <button class="fab" id="fab" onclick="goAchievements()" title="Erfolge">🏆</button>
 
 <script>
@@ -525,45 +481,15 @@ const DATA_FILES = {
   sachkunde: 'data/sachkunde.json'
 };
 
-// Character data — shown briefly as a reward after a correct answer.
-const CHARACTERS = {
-  molly:  { name:'Molly',  emoji:'🐕',  lines:["Wuff! Super!","Pfote hoch!","Schlaukopf!","Wau, richtig!"] },
-  elli:   { name:'Elli',   emoji:'🐦',  lines:["Piep, richtig!","Volltreffer!","Schnell wie ich!","Fantastisch!"] },
-  okti:   { name:'Okti',   emoji:'🐙',  lines:["Blubb! Genial!","Alle 8 Arme klatschen!","Perfekt!","Du bist ein Genie!"] },
-  blitzi: { name:'Blitzi', emoji:'🐴',  lines:["Hopp hopp!","Blitzschnell!","Wiehe, super!","Im Galopp richtig!"] },
-  wuesti: { name:'Wüsti',  emoji:'🦊',  lines:["Jiihaa, stark!","Sand-stark!","Wüstenschlau!","Große Ohren, großes Lob!"] },
-  all:    { name:'Team',   emoji:'🎉',  lines:["Alle jubeln!","Fantastisch!","Perfekt!","Bravo!"] }
-};
-
-// Order of companions the player can collect. "all" is not a companion.
-const COMPANION_ORDER = ['molly', 'elli', 'okti', 'blitzi', 'wuesti'];
-
-// Level-completion-based unlock: completing the level with this char unlocks the NEXT companion.
-// Molly is the starter and always unlocked.
+// Companions + character SVGs live in shared engine (LernEngine.companions)
+const CHARACTERS = window.LernEngine.companions.CHARACTERS;
+const charSVG = window.LernEngine.companions.charSVG;
 const COMPANION_UNLOCK_BY_LEVEL = {
-  1: 'elli',    // Molly's Wiese → unlocks Elli
-  2: 'okti',    // Ellis Fluss → unlocks Okti
-  3: 'blitzi',  // Oktis Ozean → unlocks Blitzi
-  4: 'wuesti'   // Blitzis Koppel → unlocks Wüsti
+  1: 'elli',    // Mollys Wiese → Elli
+  2: 'okti',    // Ellis Fluss → Okti
+  3: 'blitzi',  // Oktis Ozean → Blitzi
+  4: 'wuesti'   // Blitzis Koppel → Wüsti
 };
-
-const COMPANION_HINT = {
-  molly:  'Startbegleiter',
-  elli:   'Stufe 1 beenden',
-  okti:   'Stufe 2 beenden',
-  blitzi: 'Stufe 3 beenden',
-  wuesti: 'Stufe 4 beenden'
-};
-
-function charSVG(name) {
-  if(name==='molly') return `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="72" rx="22" ry="18" fill="#A0522D"/><ellipse cx="28" cy="28" rx="12" ry="18" fill="#8B4513" transform="rotate(-15 28 28)"/><ellipse cx="72" cy="28" rx="12" ry="18" fill="#8B4513" transform="rotate(15 72 28)"/><circle cx="50" cy="40" r="22" fill="#C68642"/><circle cx="42" cy="36" r="4.5" fill="white"/><circle cx="58" cy="36" r="4.5" fill="white"/><circle cx="43" cy="37" r="2.5" fill="#333"/><circle cx="59" cy="37" r="2.5" fill="#333"/><ellipse cx="50" cy="45" rx="4" ry="3" fill="#333"/><path d="M44 49 Q50 54 56 49" stroke="#333" fill="none" stroke-width="1.5"/><ellipse cx="50" cy="53" rx="3" ry="4" fill="#FF8A80"/></svg>`;
-  if(name==='elli') return `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="58" rx="18" ry="22" fill="#1976D2"/><ellipse cx="50" cy="62" rx="12" ry="16" fill="#FF8F00"/><circle cx="50" cy="35" r="18" fill="#1565C0"/><circle cx="43" cy="32" r="3.5" fill="white"/><circle cx="57" cy="32" r="3.5" fill="white"/><circle cx="44" cy="33" r="2" fill="#333"/><circle cx="58" cy="33" r="2" fill="#333"/><polygon points="50,38 65,42 50,44" fill="#FF6F00"/><ellipse cx="32" cy="55" rx="14" ry="6" fill="#1976D2" transform="rotate(-20 32 55)"/><ellipse cx="68" cy="55" rx="14" ry="6" fill="#1976D2" transform="rotate(20 68 55)"/></svg>`;
-  if(name==='okti') return `<svg viewBox="0 0 100 100"><circle cx="50" cy="35" r="25" fill="#9C27B0"/><circle cx="50" cy="35" r="20" fill="#BA68C8"/><circle cx="42" cy="30" r="5" fill="white"/><circle cx="58" cy="30" r="5" fill="white"/><circle cx="43" cy="31" r="3" fill="#333"/><circle cx="59" cy="31" r="3" fill="#333"/><path d="M44 42 Q50 47 56 42" stroke="#333" fill="none" stroke-width="2"/>${[0,1,2,3,4,5,6,7].map(i=>{const a=(i*45-90)*Math.PI/180;const sx=50+Math.cos(a)*20;const sy=55+Math.sin(a)*8;const ex=50+Math.cos(a)*38;const ey=55+Math.sin(a)*30;const mx=50+Math.cos(a+.3)*30;const my=55+Math.sin(a+.3)*20;return`<path d="M${sx} ${sy} Q${mx} ${my} ${ex} ${ey}" stroke="#9C27B0" fill="none" stroke-width="4" stroke-linecap="round"/>`;}).join('')}</svg>`;
-  if(name==='blitzi') return `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="65" rx="20" ry="25" fill="#795548"/><circle cx="50" cy="32" r="20" fill="#8D6E63"/><ellipse cx="35" cy="22" rx="5" ry="10" fill="#8D6E63" transform="rotate(-15 35 22)"/><ellipse cx="65" cy="22" rx="5" ry="10" fill="#8D6E63" transform="rotate(15 65 22)"/><circle cx="42" cy="30" r="4" fill="white"/><circle cx="58" cy="30" r="4" fill="white"/><circle cx="43" cy="31" r="2.5" fill="#333"/><circle cx="59" cy="31" r="2.5" fill="#333"/><ellipse cx="50" cy="40" rx="6" ry="4" fill="#6D4C41"/><path d="M40 18 Q50 5 60 18" stroke="#5D4037" fill="none" stroke-width="6" stroke-linecap="round"/></svg>`;
-  if(name==='wuesti') return `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="75" rx="20" ry="16" fill="#E8B27A"/><polygon points="22,10 18,44 40,30" fill="#E8B27A"/><polygon points="25,16 26,36 36,28" fill="#FFD9B0"/><polygon points="78,10 82,44 60,30" fill="#E8B27A"/><polygon points="75,16 74,36 64,28" fill="#FFD9B0"/><circle cx="50" cy="48" r="22" fill="#F4C78C"/><path d="M30 48 Q35 68 50 70 Q65 68 70 48 Q60 60 50 60 Q40 60 30 48" fill="#FFF3E0"/><circle cx="40" cy="44" r="5.5" fill="white"/><circle cx="60" cy="44" r="5.5" fill="white"/><circle cx="41" cy="45" r="3.5" fill="#333"/><circle cx="61" cy="45" r="3.5" fill="#333"/><circle cx="41.8" cy="44.2" r="1" fill="white"/><circle cx="61.8" cy="44.2" r="1" fill="white"/><ellipse cx="50" cy="56" rx="3" ry="2.2" fill="#3E2723"/><path d="M45 60 Q50 64 55 60" stroke="#3E2723" fill="none" stroke-width="1.5" stroke-linecap="round"/><circle cx="33" cy="54" r="3" fill="#FFB5A7" opacity=".6"/><circle cx="67" cy="54" r="3" fill="#FFB5A7" opacity=".6"/></svg>`;
-  if(name==='all') return `<svg viewBox="0 0 100 100"><text x="50" y="58" font-size="48" text-anchor="middle">🎉</text></svg>`;
-  return '';
-}
 
 // ═══════════════════════════════════════════════════════
 //  SHARED ENGINE
@@ -776,40 +702,34 @@ function defaultState() {
     archive: {},     // { examId: { levels: { levelId: { bestStars:0, lastScore:0 } } } }
     achievements: [],
     streak: 0,
-    playDates: [],
-    companions: { active: 'molly', unlocked: ['molly'] }
+    playDates: []
   };
 }
 
+function currentProfileObj() {
+  return currentProfile ? profiles[currentProfile] : null;
+}
+
 function ensureCompanions() {
-  if (!state) return;
-  if (!state.companions || typeof state.companions !== 'object') {
-    state.companions = { active: 'molly', unlocked: ['molly'] };
-  }
-  if (!Array.isArray(state.companions.unlocked)) state.companions.unlocked = ['molly'];
-  if (!state.companions.unlocked.includes('molly')) state.companions.unlocked.unshift('molly');
-  // Backfill from existing completed levels so migrated profiles don't lose progress.
+  const p = currentProfileObj();
+  if (!p) return;
+  window.LernEngine.companions.ensure(p);
+  // Backfill from completed sachkunde levels for migrated profiles
   for (const [lvlId, compId] of Object.entries(COMPANION_UNLOCK_BY_LEVEL)) {
-    if (isLevelCompleted(LEGACY_EXAM_ID, Number(lvlId)) && !state.companions.unlocked.includes(compId)) {
-      state.companions.unlocked.push(compId);
+    if (isLevelCompleted(LEGACY_EXAM_ID, Number(lvlId))) {
+      window.LernEngine.companions.unlock(p, compId);
     }
-  }
-  if (!state.companions.active || !state.companions.unlocked.includes(state.companions.active)) {
-    state.companions.active = state.companions.unlocked[0] || 'molly';
   }
 }
 
 // Returns array of newly unlocked companion ids after completing the given level.
 function checkCompanionUnlocks(levelId) {
-  if (!state) return [];
+  const p = currentProfileObj();
+  if (!p) return [];
   ensureCompanions();
-  const newly = [];
   const compId = COMPANION_UNLOCK_BY_LEVEL[levelId];
-  if (compId && !state.companions.unlocked.includes(compId)) {
-    state.companions.unlocked.push(compId);
-    newly.push(compId);
-  }
-  return newly;
+  if (compId && window.LernEngine.companions.unlock(p, compId)) return [compId];
+  return [];
 }
 
 function ensureProgress(examId, levelId) {
@@ -1851,8 +1771,9 @@ function showCharPopup() {
   const lv = getCurrentLevel();
   // Level-eigener Charakter hat Vorrang; bei "all"-Levels zeigt der aktive Begleiter.
   let charName = lv && lv.char;
+  const p = currentProfileObj();
   if (!charName || charName === 'all') {
-    charName = (state && state.companions && state.companions.active) || charName;
+    charName = (p && p.companions && p.companions.active) || charName;
   }
   if (!charName) return;
   const charData = CHARACTERS[charName];
@@ -1868,48 +1789,16 @@ function showCharPopup() {
 
 function renderCompanions() {
   const strip = document.getElementById('companions-strip');
-  if (!strip || !state) return;
+  const p = currentProfileObj();
+  if (!strip || !p) return;
   ensureCompanions();
-  const unlocked = new Set(state.companions.unlocked);
-  const active = state.companions.active;
-  const cells = COMPANION_ORDER.map(id => {
-    const data = CHARACTERS[id];
-    const isUnlocked = unlocked.has(id);
-    const isActive = id === active;
-    const cls = 'comp-cell' + (isUnlocked ? '' : ' locked') + (isActive ? ' active' : '');
-    const hint = isUnlocked ? (isActive ? 'Aktiv ✨' : 'Wählen') : (COMPANION_HINT[id] || '');
-    const lockIcon = isUnlocked ? '' : '<span class="comp-lock">🔒</span>';
-    const onclick = isUnlocked ? `onclick="setActiveCompanion('${id}')"` : '';
-    return `<div class="${cls}" ${onclick}>
-      ${lockIcon}
-      <div class="comp-svg">${charSVG(id)}</div>
-      <div class="comp-name">${data.name}</div>
-      <div class="comp-hint">${hint}</div>
-    </div>`;
-  }).join('');
-  strip.innerHTML = `<div class="companions-title">🌟 Begleiter</div><div class="companions-row">${cells}</div>`;
-}
-
-function setActiveCompanion(id) {
-  if (!state || !state.companions) return;
-  if (!state.companions.unlocked.includes(id)) return;
-  state.companions.active = id;
-  saveProfiles();
-  soundClick();
-  renderCompanions();
+  window.LernEngine.companions.renderStrip(strip, p, {
+    onSelect: () => saveProfiles()
+  });
 }
 
 function showCompanionUnlockToast(id) {
-  const data = CHARACTERS[id];
-  if (!data) return;
-  const toast = document.getElementById('comp-toast');
-  if (!toast) return;
-  document.getElementById('comp-toast-svg').innerHTML = charSVG(id);
-  document.getElementById('comp-toast-name').textContent = data.name + ' ist dabei!';
-  document.getElementById('comp-toast-title').textContent = '🎉 Neuer Begleiter!';
-  toast.classList.add('show');
-  soundAchievement();
-  setTimeout(() => toast.classList.remove('show'), 2000);
+  window.LernEngine.companions.showUnlockToast(id);
 }
 
 function onCorrect(q) {

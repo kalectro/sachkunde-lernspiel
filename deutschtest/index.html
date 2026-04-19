@@ -344,6 +344,7 @@ body {
       <h2 id="subject-title"></h2>
       <p id="subject-exam"></p>
     </div>
+    <div class="companions" id="companions-strip"></div>
     <div class="levels-list" id="levels-list"></div>
   </div>
 
@@ -896,6 +897,31 @@ function getProfileSummary(name) {
   return `${pct}% · ${doneLv}/${totalLv} Stufen`;
 }
 
+const COMPANION_UNLOCK_BY_LEVEL = {
+  1: 'elli',
+  2: 'okti',
+  3: 'blitzi',
+  4: 'wuesti'
+};
+
+function ensureCompanions() {
+  const p = profiles[currentProfile];
+  if (!p) return;
+  window.LernEngine.companions.ensure(p);
+  // Backfill from deutschtest level completions
+  const data = questionData[curSubjectId] || questionData['deutschtest'];
+  if (data) {
+    for (const exam of data.exams) {
+      for (const lvl of exam.levels) {
+        const comp = COMPANION_UNLOCK_BY_LEVEL[lvl.id];
+        if (!comp) continue;
+        const lp = state.progress && state.progress[exam.id] && state.progress[exam.id].levels && state.progress[exam.id].levels[lvl.id];
+        if (lp && lp.completed) window.LernEngine.companions.unlock(p, comp);
+      }
+    }
+  }
+}
+
 function selectProfile(name) {
   currentProfile = name;
   let sub = getSubstate(name);
@@ -907,6 +933,7 @@ function selectProfile(name) {
   state = sub;
   if (!profiles[name]) profiles[name] = {};
   profiles[name][SUBSTATE_KEY] = state;
+  ensureCompanions();
   recordPlayDate();
   saveProfiles();
   goHome();
@@ -1078,6 +1105,21 @@ function renderSubject(sid, examId, isArchive) {
     : (exam.examDate ? `📅 Test: ${formatDate(exam.examDate)}` : exam.name);
   const descHtml = meta.desc ? `<div class="subject-desc">${meta.desc}</div>` : '';
   document.getElementById('subject-exam').innerHTML = `${descHtml}<span class="exam-badge">${examInfo}</span>`;
+
+  const compStrip = document.getElementById('companions-strip');
+  if (compStrip) {
+    if (!isArchive) {
+      compStrip.style.display = '';
+      const p = profiles[currentProfile];
+      if (p) {
+        window.LernEngine.companions.renderStrip(compStrip, p, {
+          onSelect: () => saveProfiles()
+        });
+      }
+    } else {
+      compStrip.style.display = 'none';
+    }
+  }
 
   const list = document.getElementById('levels-list');
   list.innerHTML = '';
@@ -1579,10 +1621,20 @@ function showResults() {
       displayStars >= 1.5 ? 'Fast geschafft! Noch ein Versuch zum Verbessern! 😊' :
       'Übe weiter — du schaffst das! 💪';
 
+    // Companion unlocks on level completion (shared across all tests)
+    const p = profiles[currentProfile];
+    const newCompanions = [];
+    if (p) {
+      const comp = COMPANION_UNLOCK_BY_LEVEL[curLevelId];
+      if (comp && window.LernEngine.companions.unlock(p, comp)) newCompanions.push(comp);
+    }
+
     saveProfiles();
 
     // Check achievements
     checkAllAchievements();
+
+    newCompanions.forEach((c, i) => setTimeout(() => window.LernEngine.companions.showUnlockToast(c), 600 + i * 2200));
 
     if (mastered || allPerfect) launchConfetti();
   }
