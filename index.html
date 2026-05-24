@@ -86,6 +86,33 @@ const { loadProfiles: _loadProfiles, saveProfiles: _saveProfiles,
 // ============================================================
 const TESTS = [
   {
+    id: 'mathe',
+    name: 'Mathe: Einmaleins & Würfel',
+    short: 'Kernaufgaben · Rechengeschichten · Baupläne',
+    emoji: '🔢',
+    color: '#00B894',
+    path: 'mathe/',
+    progress: (sub) => {
+      // sub = profile.mathe — shape:
+      //   { progress: { [examId]: { levels: { [levelId]: { history, completed } } } } }
+      if (!sub || !sub.progress) return { text: 'Noch nicht gespielt', pct: 0 };
+      let completedLv = 0, totalLv = 0, answered = 0;
+      for (const exam of Object.values(sub.progress)) {
+        const levels = (exam && exam.levels) || {};
+        for (const lv of Object.values(levels)) {
+          totalLv++;
+          if (lv && lv.completed) completedLv++;
+          if (lv && lv.history) answered += Object.keys(lv.history).length;
+        }
+      }
+      if (!answered) return { text: 'Noch nicht gespielt', pct: 0 };
+      const text = totalLv
+        ? `${completedLv}/${totalLv} Stufen · ${answered} Fragen`
+        : `${answered} Fragen beantwortet`;
+      return { text, pct: totalLv ? completedLv / totalLv * 100 : 0 };
+    }
+  },
+  {
     id: 'sachkunde',
     name: 'Sachkunde: Das Jahr',
     short: 'Wochentage · Monate · Jahreszeiten · Weltraum',

@@ -1,0 +1,142 @@
+{
+  "subject": "mathe",
+  "name": "Mathe",
+  "emoji": "🔢",
+  "color": "#00B894",
+  "exams": [
+    {
+      "id": "ma_03_06_2026",
+      "name": "Mathearbeit 03.06.2026",
+      "examDate": "2026-06-03",
+      "archived": false,
+      "levels": [
+        {
+          "id": 1,
+          "name": "Kernaufgaben",
+          "sub": "1er, 2er, 5er, 10er auswendig",
+          "questions": [
+            {"id": "m_l1_01", "type": "fill", "diff": 1, "q": "1 · 5 = ___", "accept": ["5"], "explanation": "1 mal irgendwas ist immer die Zahl selbst!"},
+            {"id": "m_l1_02", "type": "fill", "diff": 1, "q": "2 · 5 = ___", "accept": ["10"], "explanation": "2er-Reihe: 2, 4, 6, 8, 10!"},
+            {"id": "m_l1_03", "type": "fill", "diff": 1, "q": "5 · 5 = ___", "accept": ["25"], "explanation": "5er-Reihe: 5, 10, 15, 20, 25!"},
+            {"id": "m_l1_04", "type": "fill", "diff": 1, "q": "10 · 5 = ___", "accept": ["50"], "explanation": "5er-Reihe: 5, 10, ..., 45, 50!"},
+            {"id": "m_l1_05", "type": "fill", "diff": 1, "q": "3 · 10 = ___", "accept": ["30"], "explanation": "10er-Reihe: einfach eine 0 hintendran! 3 → 30"},
+            {"id": "m_l1_06", "type": "fill", "diff": 1, "q": "7 · 10 = ___", "accept": ["70"], "explanation": "10er-Reihe: 7 → 70 (Null anhängen)"},
+            {"id": "m_l1_07", "type": "fill", "diff": 2, "q": "4 · 2 = ___", "accept": ["8"], "explanation": "Das Doppelte von 4 ist 8!"},
+            {"id": "m_l1_08", "type": "fill", "diff": 2, "q": "8 · 2 = ___", "accept": ["16"], "explanation": "Das Doppelte von 8 ist 16!"},
+            {"id": "m_l1_09", "type": "fill", "diff": 2, "q": "6 · 5 = ___", "accept": ["30"], "explanation": "5er-Reihe: 5, 10, 15, 20, 25, 30!"},
+            {"id": "m_l1_10", "type": "fill", "diff": 2, "q": "9 · 10 = ___", "accept": ["90"], "explanation": "9 → 90 (Null anhängen)"},
+            {"id": "m_l1_11", "type": "fill", "diff": 2, "q": "7 · ___ = 14", "accept": ["2"], "explanation": "7 mal WAS ist 14? → 2! (7+7=14)"},
+            {"id": "m_l1_12", "type": "fill", "diff": 2, "q": "___ · 10 = 100", "accept": ["10"], "explanation": "10 · 10 = 100!"},
+            {"id": "m_l1_13", "type": "fill", "diff": 2, "q": "___ · 5 = 35", "accept": ["7"], "explanation": "5er-Reihe: 5,10,15,20,25,30,35 → das ist die 7!"},
+            {"id": "m_l1_14", "type": "fill", "diff": 3, "q": "___ · 2 = 16", "accept": ["8"], "explanation": "Doppelt von 8 = 16!"},
+            {"id": "m_l1_15", "type": "fill", "diff": 3, "q": "8 · ___ = 80", "accept": ["10"], "explanation": "8 · 10 = 80 (Null anhängen)"},
+            {"id": "m_l1_16", "type": "fill", "diff": 3, "q": "___ · 10 = 20", "accept": ["2"], "explanation": "2 · 10 = 20!"},
+            {"id": "m_l1_17", "type": "fill", "diff": 3, "q": "9 · ___ = 18", "accept": ["2"], "explanation": "Doppeltes von 9 = 18, also 9 · 2 = 18!"},
+            {"id": "m_l1_18", "type": "fill", "diff": 3, "q": "4 · ___ = 20", "accept": ["5"], "explanation": "4 · 5 = 20 (oder 5 · 4 = 20 — Tauschaufgabe!)"},
+            {"id": "m_l1_19", "type": "fill", "diff": 3, "q": "___ · 5 = 25", "accept": ["5"], "explanation": "5 · 5 = 25!"},
+            {"id": "m_l1_20", "type": "fill", "diff": 3, "q": "6 · ___ = 60", "accept": ["10"], "explanation": "6 · 10 = 60!"},
+            {"id": "m_l1_b1", "type": "fill", "diff": 3, "bonus": true, "q": "___ · ___ = 100 (eine der beiden Zahlen ist 10)", "accept": ["10"], "explanation": "Bonus! 10 · 10 = 100 — die einzige Möglichkeit mit zwei 10er-Reihen-Zahlen!", "hint": "Beide Zahlen sind gleich."},
+            {"id": "m_l1_b2", "type": "fill", "diff": 3, "bonus": true, "q": "0 · 7 = ___", "accept": ["0"], "explanation": "Bonus! 0 mal IRGENDWAS ist immer 0. 🤯"}
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Beziehungen",
+          "sub": "Hälfte, Doppeltes, Tauschaufgabe",
+          "questions": [
+            {"id": "m_l2_01", "type": "mc", "diff": 1, "q": "4 · 5 ist die HÄLFTE von …?", "options": ["4 · 10", "4 · 2", "2 · 5", "8 · 5"], "correct": 0, "explanation": "4·5 = 20 und 4·10 = 40. Die Hälfte von 40 ist 20! ✓"},
+            {"id": "m_l2_02", "type": "mc", "diff": 1, "q": "3 · 10 ist das DOPPELTE von …?", "options": ["3 · 5", "3 · 2", "1 · 10", "6 · 5"], "correct": 0, "explanation": "3·10 = 30 und 3·5 = 15. Das Doppelte von 15 ist 30! ✓"},
+            {"id": "m_l2_03", "type": "tf", "diff": 1, "q": "2 · 5 hat das gleiche Ergebnis wie 5 · 2.", "correct": true, "explanation": "Richtig! Das ist die Tauschaufgabe — die Reihenfolge ist egal. Beide = 10!"},
+            {"id": "m_l2_04", "type": "tf", "diff": 1, "q": "6 · 5 ist die Hälfte von 6 · 10.", "correct": true, "explanation": "Richtig! 6·10 = 60, halbiert: 30. Und 6·5 = 30! ✓"},
+            {"id": "m_l2_05", "type": "mc", "diff": 2, "q": "Welche Aufgabe hat das GLEICHE Ergebnis wie 7 · 2?", "options": ["2 · 7", "7 · 5", "2 · 10", "7 + 2"], "correct": 0, "explanation": "Tauschaufgabe: 7·2 = 2·7 = 14!"},
+            {"id": "m_l2_06", "type": "mc", "diff": 2, "q": "Das DOPPELTE von 4 · 5 ist…?", "options": ["4 · 10", "8 · 5", "4 · 5 · 2", "Alle drei!"], "correct": 3, "explanation": "Alle drei stimmen! 4·5=20, doppelt =40. Und 4·10=40, 8·5=40, 4·5·2=40."},
+            {"id": "m_l2_07", "type": "tf", "diff": 2, "q": "Wenn 3 · 5 = 15, dann ist 6 · 5 = 30.", "correct": true, "explanation": "Richtig! Doppelt so viele Päckchen → doppeltes Ergebnis. 3·5=15 → 6·5=30."},
+            {"id": "m_l2_08", "type": "tf", "diff": 2, "q": "Wenn 2 · 10 = 20, dann ist 1 · 10 die Hälfte davon, also 10.", "correct": true, "explanation": "Richtig! Hälfte der Päckchen → halbiertes Ergebnis. ✓"},
+            {"id": "m_l2_09", "type": "mc", "diff": 2, "q": "8 · 5 ist die Hälfte von …?", "options": ["8 · 10", "4 · 5", "16 · 5", "8 · 2"], "correct": 0, "explanation": "8·5 = 40 und 8·10 = 80. Halb von 80 = 40! ✓"},
+            {"id": "m_l2_10", "type": "mc", "diff": 3, "q": "Welche Aufgabe ist das DOPPELTE von 5 · 5?", "options": ["10 · 5", "5 · 10", "5 · 5 + 5 · 5", "Alle drei!"], "correct": 3, "explanation": "Alle drei = 50! 5·5 = 25, das Doppelte = 50."},
+            {"id": "m_l2_11", "type": "tf", "diff": 3, "q": "5 · 2 ist das Doppelte von 5 · 1.", "correct": true, "explanation": "Richtig! 5·1=5, doppelt =10. Und 5·2=10. ✓"},
+            {"id": "m_l2_12", "type": "tf", "diff": 3, "q": "10 · 4 ist die Hälfte von 5 · 8.", "correct": false, "explanation": "Falsch! 10·4 = 40 und 5·8 = 40. Sie sind GLEICH, nicht halb so groß."},
+            {"id": "m_l2_b1", "type": "mc", "diff": 3, "bonus": true, "q": "4 · 5 = 20. Wie groß ist dann 4 · 6?", "options": ["24 (= 20 + 4)", "26", "20 + 6", "30"], "correct": 0, "explanation": "Bonus! Wenn 4·5=20, dann ist 4·6 = 4·5 + 4 = 20+4 = 24!", "hint": "4·6 hat EINE Vierer-Gruppe mehr als 4·5."}
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Rechenwege",
+          "sub": "Schwere Aufgaben mit Kernaufgaben lösen",
+          "questions": [
+            {"id": "m_l3_01", "type": "mc", "diff": 2, "q": "Welcher Rechenweg führt zu 9 · 6?", "options": ["10 · 6 − 1 · 6", "10 · 6 + 1 · 6", "9 · 5 − 9", "9 + 6"], "correct": 0, "explanation": "Schlauer Weg: 10·6 = 60, dann minus 1·6 = 6 → 54. ✓"},
+            {"id": "m_l3_02", "type": "mc", "diff": 2, "q": "Wie kannst du 4 · 4 rechnen?", "options": ["2 · 4 + 2 · 4", "4 · 5 + 4", "4 + 4", "2 · 4 + 4"], "correct": 0, "explanation": "Halbieren! 2·4=8, plus 2·4=8 → 16. ✓"},
+            {"id": "m_l3_03", "type": "mc", "diff": 2, "q": "Wie rechnest du 6 · 6?", "options": ["5 · 6 + 1 · 6", "10 · 6 − 4", "6 · 5 − 6", "6 + 6"], "correct": 0, "explanation": "Schlau: 5·6 = 30, plus 1·6 = 6 → 36. ✓"},
+            {"id": "m_l3_04", "type": "mc", "diff": 2, "q": "Wie rechnest du 11 · 5?", "options": ["10 · 5 + 1 · 5", "10 · 5 − 1 · 5", "5 · 5 + 5", "11 + 5"], "correct": 0, "explanation": "10·5 = 50, plus 1·5 = 5 → 55. ✓"},
+            {"id": "m_l3_05", "type": "type", "diff": 2, "q": "Rechne 9 · 6 mit dem Trick «10·6 − 1·6». Ergebnis?", "accept": ["54"], "explanation": "10·6 = 60, minus 6 = 54!"},
+            {"id": "m_l3_06", "type": "type", "diff": 2, "q": "Rechne 4 · 4 mit «2·4 + 2·4». Ergebnis?", "accept": ["16"], "explanation": "8 + 8 = 16!"},
+            {"id": "m_l3_07", "type": "type", "diff": 2, "q": "5 · 6 = ___ (Tipp: 5er-Reihe!)", "accept": ["30"], "explanation": "5·6 = 30 (5er-Reihe!)"},
+            {"id": "m_l3_08", "type": "type", "diff": 3, "q": "6 · 6 = ___ (Tipp: 5·6 + 1·6)", "accept": ["36"], "explanation": "30 + 6 = 36!"},
+            {"id": "m_l3_09", "type": "type", "diff": 3, "q": "9 · 5 = ___ (Tipp: 10·5 − 1·5)", "accept": ["45"], "explanation": "50 − 5 = 45!"},
+            {"id": "m_l3_10", "type": "type", "diff": 3, "q": "8 · 5 = ___ (Tipp: Hälfte von 8·10)", "accept": ["40"], "explanation": "8·10 = 80, halbiert = 40!"},
+            {"id": "m_l3_11", "type": "mc", "diff": 3, "q": "Welcher Rechenweg führt am schlausten zu 9 · 10?", "options": ["Direkt aus der 10er-Reihe!", "10·10 − 1·10", "9 + 9 + 9 + …", "5·9 + 5·9"], "correct": 0, "explanation": "9·10 ist eine KERNAUFGABE — direkt auswendig: 90!"},
+            {"id": "m_l3_12", "type": "type", "diff": 3, "q": "11 · 5 = ___", "accept": ["55"], "explanation": "10·5 + 1·5 = 50 + 5 = 55!"},
+            {"id": "m_l3_b1", "type": "type", "diff": 3, "bonus": true, "q": "12 · 5 = ___ (Tipp: 10·5 + 2·5)", "accept": ["60"], "explanation": "Bonus! 50 + 10 = 60!", "hint": "10·5 = 50, dann noch 2·5 = 10 dazu."}
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Rechengeschichten",
+          "sub": "Text → Rechnung → Antwort",
+          "questions": [
+            {"id": "m_l4_01", "type": "mc", "diff": 1, "q": "Emma hat 5 Tüten mit je 10 Bonbons. Wie viele Bonbons sind das?", "options": ["50", "15", "5", "100"], "correct": 0, "explanation": "5 Tüten · 10 Bonbons = 50 Bonbons. ✓"},
+            {"id": "m_l4_02", "type": "mc", "diff": 1, "q": "In der Klasse stehen 4 Tische mit je 2 Kindern. Wie viele Kinder sind das?", "options": ["8", "6", "4", "10"], "correct": 0, "explanation": "4 · 2 = 8 Kinder. ✓"},
+            {"id": "m_l4_03", "type": "mc", "diff": 1, "q": "Eine Hand hat 5 Finger. Wie viele Finger haben 3 Hände?", "options": ["15", "8", "10", "20"], "correct": 0, "explanation": "3 · 5 = 15 Finger. ✓"},
+            {"id": "m_l4_04", "type": "mc", "diff": 2, "q": "Welche Rechnung passt zu «6 Kinder bekommen je 5 Sticker»?", "options": ["6 · 5", "6 + 5", "6 − 5", "5 · 5"], "correct": 0, "explanation": "Pro Kind 5 Sticker, mal 6 Kinder = 6·5 = 30 Sticker!"},
+            {"id": "m_l4_05", "type": "mc", "diff": 2, "q": "Welche Rechnung passt zu «10 Türme aus je 2 Würfeln»?", "options": ["10 · 2", "10 + 2", "10 − 2", "2 · 2"], "correct": 0, "explanation": "10 Türme · 2 Würfel = 10·2 = 20 Würfel!"},
+            {"id": "m_l4_06", "type": "type", "diff": 2, "q": "Lina hat 4 Päckchen mit je 5 Kekse. Wie viele Kekse hat sie? (nur Zahl)", "accept": ["20"], "explanation": "4 · 5 = 20 Kekse!"},
+            {"id": "m_l4_07", "type": "type", "diff": 2, "q": "Auf jedem von 7 Autos sitzen 2 Kinder. Wie viele Kinder sind das?", "accept": ["14"], "explanation": "7 · 2 = 14 Kinder!"},
+            {"id": "m_l4_08", "type": "type", "diff": 3, "q": "Im Bus sitzen 9 Reihen à 2 Personen. Wie viele Personen sind das?", "accept": ["18"], "explanation": "9 · 2 = 18 Personen!"},
+            {"id": "m_l4_09", "type": "type", "diff": 3, "q": "Eine Schachtel hat 10 Stifte. Wie viele Stifte sind in 8 Schachteln?", "accept": ["80"], "explanation": "8 · 10 = 80 Stifte!"},
+            {"id": "m_l4_10", "type": "type", "diff": 3, "q": "Lukas kauft 5 Päckchen mit je 6 Sammelkarten. Wie viele Karten hat er?", "accept": ["30"], "explanation": "5 · 6 = 30 Karten (5er-Reihe!)"},
+            {"id": "m_l4_b1", "type": "mc", "diff": 3, "bonus": true, "q": "Welche Geschichte passt zu 4 · 5 = 20?", "options": ["4 Tüten mit je 5 Murmeln = 20 Murmeln", "4 Murmeln plus 5 Murmeln = 20 Murmeln", "20 Murmeln auf 4 Kinder verteilt = 5 pro Kind", "4 Murmeln im Glas, 5 dazu = 20"], "correct": 0, "explanation": "Bonus! Mal-Aufgaben passen zu «mehrere gleich große Päckchen». ✓"},
+            {"id": "m_l4_b2", "type": "type", "diff": 3, "bonus": true, "q": "Mama backt für 6 Kinder je 5 Muffins. Wie viele Muffins backt sie?", "accept": ["30"], "explanation": "Bonus! 6 · 5 = 30 Muffins! 🧁"}
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Baupläne zeichnen",
+          "sub": "Würfelgebäude → Bauplan-Grid",
+          "questions": [
+            {"id": "m_l5_01", "type": "bauplan", "diff": 1, "q": "Schreibe den Bauplan für dieses Würfelgebäude auf:", "building": [[1,1,1]], "explanation": "Drei einzelne Würfel in einer Reihe — jedes Feld 1!"},
+            {"id": "m_l5_02", "type": "bauplan", "diff": 1, "q": "Wie sieht der Bauplan aus?", "building": [[2,2,1]], "explanation": "Zwei Würfel übereinander, zwei Würfel übereinander, ein Würfel."},
+            {"id": "m_l5_03", "type": "bauplan", "diff": 1, "q": "Schreibe den Bauplan auf:", "building": [[2,1,3]], "explanation": "Von links: 2, dann 1, dann 3 Würfel hoch."},
+            {"id": "m_l5_04", "type": "bauplan", "diff": 2, "q": "Was steht in den Feldern?", "building": [[3,2,2]], "explanation": "3 Würfel, 2 Würfel, 2 Würfel."},
+            {"id": "m_l5_05", "type": "bauplan", "diff": 2, "q": "Bauplan dieser Treppe:", "building": [[1,3,1]], "explanation": "Ein Würfel — drei Würfel hoch — ein Würfel. Wie eine Treppe!"},
+            {"id": "m_l5_06", "type": "bauplan", "diff": 2, "q": "Bauplan für dieses L:", "building": [[1,0,0],[1,1,1]], "explanation": "Hinten ein Würfel, vorne eine Dreierreihe — wie ein L."},
+            {"id": "m_l5_07", "type": "bauplan", "diff": 2, "q": "Bauplan für diese Bauwerk:", "building": [[1,3,2],[1,1,1]], "explanation": "Hinten: 1-3-2. Vorne: alles 1. Zähle gut!", "hint": "Schau zuerst die hintere Reihe an, dann die vordere."},
+            {"id": "m_l5_08", "type": "bauplan", "diff": 3, "q": "Schreibe den Bauplan auf:", "building": [[1,3,2],[2,1,1]], "explanation": "Hinten 1-3-2, vorne 2-1-1!"},
+            {"id": "m_l5_09", "type": "bauplan", "diff": 3, "q": "Bauplan für dieses 3×3-Gebäude:", "building": [[3,3,3],[1,3,2],[1,2,2]], "explanation": "Hinten alles 3, Mitte 1-3-2, vorne 1-2-2.", "hint": "Beginne mit der hinteren Reihe (am weitesten weg)."},
+            {"id": "m_l5_10", "type": "bauplan", "diff": 3, "q": "Schreibe den Bauplan auf:", "building": [[2,1,2],[1,0,1],[2,1,2]], "explanation": "Die Ecken sind 2 Würfel hoch, die Mitte ist leer!"},
+            {"id": "m_l5_b1", "type": "bauplan", "diff": 3, "bonus": true, "q": "Bonus! Schwieriger Bauplan:", "building": [[4,1,0],[4,2,1],[1,1,1]], "explanation": "Bonus! Hinten: 4-1-0, Mitte: 4-2-1, vorne: 1-1-1. Stark!", "hint": "Der höchste Stapel ist 4 Würfel hoch."}
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Würfel zählen",
+          "sub": "Wie viele Würfel sind das?",
+          "questions": [
+            {"id": "m_l6_01", "type": "cube-count", "diff": 1, "q": "Wie viele Würfel sind das?", "building": [[1,1,1]], "accept": ["3"], "explanation": "Drei Würfel in einer Reihe = 3!"},
+            {"id": "m_l6_02", "type": "cube-count", "diff": 1, "q": "Wie viele Würfel zählst du?", "building": [[2,1]], "accept": ["3"], "explanation": "2 + 1 = 3 Würfel!"},
+            {"id": "m_l6_03", "type": "cube-count", "diff": 1, "q": "Wie viele Würfel sind das?", "building": [[2,2,1]], "accept": ["5"], "explanation": "2 + 2 + 1 = 5 Würfel!"},
+            {"id": "m_l6_04", "type": "cube-count", "diff": 1, "q": "Wie viele Würfel sind das?", "building": [[1,3,1]], "accept": ["5"], "explanation": "1 + 3 + 1 = 5 Würfel!"},
+            {"id": "m_l6_05", "type": "cube-count", "diff": 2, "q": "Wie viele Würfel sind das?", "building": [[2,1,3]], "accept": ["6"], "explanation": "2 + 1 + 3 = 6 Würfel!"},
+            {"id": "m_l6_06", "type": "cube-count", "diff": 2, "q": "Wie viele Würfel sind das?", "building": [[1,0,0],[1,1,1]], "accept": ["4"], "explanation": "1 hinten + 3 vorne = 4 Würfel!"},
+            {"id": "m_l6_07", "type": "cube-count", "diff": 2, "q": "Zähl alle Würfel:", "building": [[2,2],[1,1]], "accept": ["6"], "explanation": "2+2+1+1 = 6 Würfel!"},
+            {"id": "m_l6_08", "type": "cube-count", "diff": 2, "q": "Wie viele Würfel?", "building": [[3,2,2]], "accept": ["7"], "explanation": "3 + 2 + 2 = 7 Würfel!"},
+            {"id": "m_l6_09", "type": "cube-count", "diff": 3, "q": "Zähle alle Würfel:", "building": [[1,3,2],[1,1,1]], "accept": ["9"], "explanation": "Hinten 1+3+2=6, vorne 1+1+1=3 → 9 Würfel!", "hint": "Zähle erst die hintere Reihe, dann die vordere."},
+            {"id": "m_l6_10", "type": "cube-count", "diff": 3, "q": "Wie viele Würfel sind hier verbaut?", "building": [[2,1,2],[1,0,1],[2,1,2]], "accept": ["12"], "explanation": "Ecken (4×2 = 8) + Kanten (4×1 = 4) + Mitte (0) = 12 Würfel!"},
+            {"id": "m_l6_11", "type": "cube-count", "diff": 3, "q": "Knifflig — wie viele Würfel?", "building": [[3,3,3],[1,3,2],[1,2,2]], "accept": ["20"], "explanation": "9 + 6 + 5 = 20 Würfel!", "hint": "Reihe für Reihe zählen: hinten, Mitte, vorne."},
+            {"id": "m_l6_b1", "type": "cube-count", "diff": 3, "bonus": true, "q": "Bonus! Wie viele Würfel sind das?", "building": [[4,1,0],[4,2,1],[1,1,1]], "accept": ["15"], "explanation": "Bonus! 5 + 7 + 3 = 15 Würfel! 💪"},
+            {"id": "m_l6_b2", "type": "mc", "diff": 3, "bonus": true, "q": "Aus welcher Richtung schaut man auf ein Würfelgebäude, wenn man «von OBEN» sagt?", "options": ["Von der Decke nach unten", "Von vorne", "Von hinten", "Von der Seite"], "correct": 0, "explanation": "Bonus! «Von oben» = Blick von der Decke — das ist der BAUPLAN!"}
+          ]
+        }
+      ]
+    }
+  ]
+}
