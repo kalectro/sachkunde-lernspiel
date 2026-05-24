@@ -1524,6 +1524,15 @@ function checkSortAnswer() {
 // `building` is a 2D array: building[row][col] = stack height (0 = empty).
 // Row 0 is the back row, last row is the front. Col 0 is left, last is right.
 // Renders from back-to-front, bottom-to-top so closer cubes occlude farther ones.
+//
+// HINWEIS für Aufgaben-Autoren (in mathe.json):
+// - Vermeide einsame 1er-Würfel zwischen höheren Nachbarn in derselben Reihe.
+//   Ein 1er-Stapel zwischen 2er und 3er wirkt wie eine rechteckige Vertiefung
+//   und wird von Kindern oft als "Loch" gelesen.
+//   Beispiel: [[2,1,3]] → besser [[1,2,3]] (Treppe, alles sichtbar).
+// - Vermeide vordere Reihen, die HÖHER sind als die hintere Reihe in derselben
+//   Spalte — die hintere wird komplett verdeckt.
+//   Beispiel: [[1,1],[2,2]] → besser [[2,2],[1,1]] (Treppe nach hinten).
 function renderCubeBuilding(building) {
   const rows = building.length;
   const cols = building[0].length;
@@ -1543,25 +1552,32 @@ function renderCubeBuilding(building) {
     };
   }
   let minX=Infinity, maxX=-Infinity, minY=Infinity, maxY=-Infinity;
+  function addBound(p) {
+    if (p.x < minX) minX = p.x;
+    if (p.x > maxX) maxX = p.x;
+    if (p.y < minY) minY = p.y;
+    if (p.y > maxY) maxY = p.y;
+  }
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
-      [proj(c, r, 0), proj(c+1, r, 0), proj(c, r+1, 0), proj(c+1, r+1, maxStack)].forEach(p => {
-        if (p.x < minX) minX = p.x;
-        if (p.x > maxX) maxX = p.x;
-        if (p.y < minY) minY = p.y;
-        if (p.y > maxY) maxY = p.y;
-      });
+      addBound(proj(c, r, 0));
+      addBound(proj(c+1, r, 0));
+      addBound(proj(c, r+1, 0));
+      addBound(proj(c+1, r+1, maxStack));
     }
   }
+  // Also include the front-right floor corner so the floor grid isn't cropped.
+  addBound(proj(cols, rows, 0));
+  addBound(proj(cols, 0,    0));
   const pad = 8;
   const W = (maxX - minX) + 2 * pad;
   const Ht = (maxY - minY) + 2 * pad;
   const offX = pad - minX;
   const offY = pad - minY;
 
+  const fmt = pts => pts.map(p => `${(p.x+offX).toFixed(1)},${(p.y+offY).toFixed(1)}`).join(' ');
+
   function cubePolys(col, row, level) {
-    const p = proj(col, row, level);
-    const t = proj(col, row, level + 1);
     // 4 corners on top face
     const A = proj(col,   row,   level + 1);  // back
     const B = proj(col+1, row,   level + 1);  // right-back
@@ -1572,7 +1588,6 @@ function renderCubeBuilding(building) {
     const Cb = proj(col+1, row+1, level);
     const Db = proj(col,   row+1, level);
 
-    const fmt = pts => pts.map(p => `${(p.x+offX).toFixed(1)},${(p.y+offY).toFixed(1)}`).join(' ');
     const top   = fmt([A,B,C,D]);
     const right = fmt([B,C,Cb,Bb]);
     const front = fmt([D,C,Cb,Db]);
@@ -1581,8 +1596,30 @@ function renderCubeBuilding(building) {
            `<polygon points="${front}" fill="#A89368" stroke="#3D3220" stroke-width="1" stroke-linejoin="round"/>`;
   }
 
+  // Dashed grid of the full ground plate (rows × cols, level 0).
+  // Helps children see the standing surface even when middle cubes are short.
+  // Draws an outline PLUS internal cell grid lines, so each square is visible.
+  function floorOutline() {
+    let g = '';
+    // Vertical grid lines (along col axis, fixed col, varying row)
+    for (let c = 0; c <= cols; c++) {
+      const a = proj(c, 0,    0);
+      const b = proj(c, rows, 0);
+      g += `<line x1="${(a.x+offX).toFixed(1)}" y1="${(a.y+offY).toFixed(1)}" x2="${(b.x+offX).toFixed(1)}" y2="${(b.y+offY).toFixed(1)}" stroke="#6B5D3E" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.7"/>`;
+    }
+    // Horizontal grid lines (along row axis, fixed row, varying col)
+    for (let r = 0; r <= rows; r++) {
+      const a = proj(0,    r, 0);
+      const b = proj(cols, r, 0);
+      g += `<line x1="${(a.x+offX).toFixed(1)}" y1="${(a.y+offY).toFixed(1)}" x2="${(b.x+offX).toFixed(1)}" y2="${(b.y+offY).toFixed(1)}" stroke="#6B5D3E" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.7"/>`;
+    }
+    return g;
+  }
+
+  // Floor outline goes first (lowest z) so cubes paint on top.
+  let polys = floorOutline();
+
   // Back-to-front, bottom-to-top — painter's order so near cubes cover far ones.
-  let polys = '';
   for (let r = 0; r < rows; r++) {
     for (let lev = 0; lev < maxStack; lev++) {
       for (let c = 0; c < cols; c++) {
@@ -1591,6 +1628,13 @@ function renderCubeBuilding(building) {
       }
     }
   }
+
+  // Bold front edge along the bottom of the front-most row.
+  // Visually anchors "ground level" so a single 1-cube doesn't read as a void.
+  const FE1 = proj(0,    rows, 0);
+  const FE2 = proj(cols, rows, 0);
+  polys += `<line x1="${(FE1.x+offX).toFixed(1)}" y1="${(FE1.y+offY).toFixed(1)}" x2="${(FE2.x+offX).toFixed(1)}" y2="${(FE2.y+offY).toFixed(1)}" stroke="#3D3220" stroke-width="1.8" stroke-linecap="round"/>`;
+
   return `<svg viewBox="0 0 ${W.toFixed(1)} ${Ht.toFixed(1)}" width="${Math.min(W, 320)}" style="max-width:100%;height:auto;display:block;margin:0 auto;">${polys}</svg>`;
 }
 

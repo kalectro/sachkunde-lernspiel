@@ -105,14 +105,14 @@
           "questions": [
             {"id": "m_l5_01", "type": "bauplan", "diff": 1, "q": "Schreibe den Bauplan für dieses Würfelgebäude auf:", "building": [[1,1,1]], "explanation": "Drei einzelne Würfel in einer Reihe — jedes Feld 1!"},
             {"id": "m_l5_02", "type": "bauplan", "diff": 1, "q": "Wie sieht der Bauplan aus?", "building": [[2,2,1]], "explanation": "Zwei Würfel übereinander, zwei Würfel übereinander, ein Würfel."},
-            {"id": "m_l5_03", "type": "bauplan", "diff": 1, "q": "Schreibe den Bauplan auf:", "building": [[2,1,3]], "explanation": "Von links: 2, dann 1, dann 3 Würfel hoch."},
+            {"id": "m_l5_03", "type": "bauplan", "diff": 1, "q": "Schreibe den Bauplan auf:", "building": [[1,2,3]], "explanation": "Eine Treppe nach oben: 1, dann 2, dann 3 Würfel hoch."},
             {"id": "m_l5_04", "type": "bauplan", "diff": 2, "q": "Was steht in den Feldern?", "building": [[3,2,2]], "explanation": "3 Würfel, 2 Würfel, 2 Würfel."},
             {"id": "m_l5_05", "type": "bauplan", "diff": 2, "q": "Bauplan dieser Treppe:", "building": [[1,3,1]], "explanation": "Ein Würfel — drei Würfel hoch — ein Würfel. Wie eine Treppe!"},
             {"id": "m_l5_06", "type": "bauplan", "diff": 2, "q": "Bauplan für dieses L:", "building": [[1,0,0],[1,1,1]], "explanation": "Hinten ein Würfel, vorne eine Dreierreihe — wie ein L."},
             {"id": "m_l5_07", "type": "bauplan", "diff": 2, "q": "Bauplan für diese Bauwerk:", "building": [[1,3,2],[1,1,1]], "explanation": "Hinten: 1-3-2. Vorne: alles 1. Zähle gut!", "hint": "Schau zuerst die hintere Reihe an, dann die vordere."},
-            {"id": "m_l5_08", "type": "bauplan", "diff": 3, "q": "Schreibe den Bauplan auf:", "building": [[1,3,2],[2,1,1]], "explanation": "Hinten 1-3-2, vorne 2-1-1!"},
+            {"id": "m_l5_08", "type": "bauplan", "diff": 3, "q": "Schreibe den Bauplan auf:", "building": [[2,1,1],[1,3,2]], "explanation": "Hinten 2-1-1, vorne 1-3-2 (Schornstein vorne Mitte). Tipp: Hinten rechts steht 1 Würfel, der ist vom 2er-Stapel davor verdeckt!", "hint": "Schau zuerst die ganz hintere Reihe an: 2-1-1. Vorne hat es einen Schornstein."},
             {"id": "m_l5_09", "type": "bauplan", "diff": 3, "q": "Bauplan für dieses 3×3-Gebäude:", "building": [[3,3,3],[1,3,2],[1,2,2]], "explanation": "Hinten alles 3, Mitte 1-3-2, vorne 1-2-2.", "hint": "Beginne mit der hinteren Reihe (am weitesten weg)."},
-            {"id": "m_l5_10", "type": "bauplan", "diff": 3, "q": "Schreibe den Bauplan auf:", "building": [[2,1,2],[1,0,1],[2,1,2]], "explanation": "Die Ecken sind 2 Würfel hoch, die Mitte ist leer!"},
+            {"id": "m_l5_10", "type": "bauplan", "diff": 3, "q": "Schreibe den Bauplan auf:", "building": [[2,1,1],[1,2,1]], "explanation": "Hinten 2-1-1, vorne 1-2-1!"},
             {"id": "m_l5_b1", "type": "bauplan", "diff": 3, "bonus": true, "q": "Bonus! Schwieriger Bauplan:", "building": [[4,1,0],[4,2,1],[1,1,1]], "explanation": "Bonus! Hinten: 4-1-0, Mitte: 4-2-1, vorne: 1-1-1. Stark!", "hint": "Der höchste Stapel ist 4 Würfel hoch."}
           ]
         },
@@ -125,12 +125,12 @@
             {"id": "m_l6_02", "type": "cube-count", "diff": 1, "q": "Wie viele Würfel zählst du?", "building": [[2,1]], "accept": ["3"], "explanation": "2 + 1 = 3 Würfel!"},
             {"id": "m_l6_03", "type": "cube-count", "diff": 1, "q": "Wie viele Würfel sind das?", "building": [[2,2,1]], "accept": ["5"], "explanation": "2 + 2 + 1 = 5 Würfel!"},
             {"id": "m_l6_04", "type": "cube-count", "diff": 1, "q": "Wie viele Würfel sind das?", "building": [[1,3,1]], "accept": ["5"], "explanation": "1 + 3 + 1 = 5 Würfel!"},
-            {"id": "m_l6_05", "type": "cube-count", "diff": 2, "q": "Wie viele Würfel sind das?", "building": [[2,1,3]], "accept": ["6"], "explanation": "2 + 1 + 3 = 6 Würfel!"},
+            {"id": "m_l6_05", "type": "cube-count", "diff": 2, "q": "Wie viele Würfel sind das?", "building": [[1,2,3]], "accept": ["6"], "explanation": "1 + 2 + 3 = 6 Würfel (Treppe!)"},
             {"id": "m_l6_06", "type": "cube-count", "diff": 2, "q": "Wie viele Würfel sind das?", "building": [[1,0,0],[1,1,1]], "accept": ["4"], "explanation": "1 hinten + 3 vorne = 4 Würfel!"},
             {"id": "m_l6_07", "type": "cube-count", "diff": 2, "q": "Zähl alle Würfel:", "building": [[2,2],[1,1]], "accept": ["6"], "explanation": "2+2+1+1 = 6 Würfel!"},
             {"id": "m_l6_08", "type": "cube-count", "diff": 2, "q": "Wie viele Würfel?", "building": [[3,2,2]], "accept": ["7"], "explanation": "3 + 2 + 2 = 7 Würfel!"},
             {"id": "m_l6_09", "type": "cube-count", "diff": 3, "q": "Zähle alle Würfel:", "building": [[1,3,2],[1,1,1]], "accept": ["9"], "explanation": "Hinten 1+3+2=6, vorne 1+1+1=3 → 9 Würfel!", "hint": "Zähle erst die hintere Reihe, dann die vordere."},
-            {"id": "m_l6_10", "type": "cube-count", "diff": 3, "q": "Wie viele Würfel sind hier verbaut?", "building": [[2,1,2],[1,0,1],[2,1,2]], "accept": ["12"], "explanation": "Ecken (4×2 = 8) + Kanten (4×1 = 4) + Mitte (0) = 12 Würfel!"},
+            {"id": "m_l6_10", "type": "cube-count", "diff": 3, "q": "Wie viele Würfel sind hier verbaut?", "building": [[3,2,1],[2,1,1],[1,1,1]], "accept": ["13"], "explanation": "Hinten 3+2+1 = 6, Mitte 2+1+1 = 4, vorne 1+1+1 = 3 → 6+4+3 = 13 Würfel!"},
             {"id": "m_l6_11", "type": "cube-count", "diff": 3, "q": "Knifflig — wie viele Würfel?", "building": [[3,3,3],[1,3,2],[1,2,2]], "accept": ["20"], "explanation": "9 + 6 + 5 = 20 Würfel!", "hint": "Reihe für Reihe zählen: hinten, Mitte, vorne."},
             {"id": "m_l6_b1", "type": "cube-count", "diff": 3, "bonus": true, "q": "Bonus! Wie viele Würfel sind das?", "building": [[4,1,0],[4,2,1],[1,1,1]], "accept": ["15"], "explanation": "Bonus! 5 + 7 + 3 = 15 Würfel! 💪"},
             {"id": "m_l6_b2", "type": "mc", "diff": 3, "bonus": true, "q": "Aus welcher Richtung schaut man auf ein Würfelgebäude, wenn man «von OBEN» sagt?", "options": ["Von der Decke nach unten", "Von vorne", "Von hinten", "Von der Seite"], "correct": 0, "explanation": "Bonus! «Von oben» = Blick von der Decke — das ist der BAUPLAN!"}
