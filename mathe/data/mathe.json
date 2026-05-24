@@ -110,9 +110,9 @@
             {"id": "m_l5_05", "type": "bauplan", "diff": 2, "q": "Bauplan dieser Treppe:", "building": [[1,3,1]], "explanation": "Ein Würfel — drei Würfel hoch — ein Würfel. Wie eine Treppe!"},
             {"id": "m_l5_06", "type": "bauplan", "diff": 2, "q": "Bauplan für dieses L:", "building": [[1,0,0],[1,1,1]], "explanation": "Hinten ein Würfel, vorne eine Dreierreihe — wie ein L."},
             {"id": "m_l5_07", "type": "bauplan", "diff": 2, "q": "Bauplan für diese Bauwerk:", "building": [[1,3,2],[1,1,1]], "explanation": "Hinten: 1-3-2. Vorne: alles 1. Zähle gut!", "hint": "Schau zuerst die hintere Reihe an, dann die vordere."},
-            {"id": "m_l5_08", "type": "bauplan", "diff": 3, "q": "Schreibe den Bauplan auf:", "building": [[2,1,1],[1,3,2]], "explanation": "Hinten 2-1-1, vorne 1-3-2 (Schornstein vorne Mitte). Tipp: Hinten rechts steht 1 Würfel, der ist vom 2er-Stapel davor verdeckt!", "hint": "Schau zuerst die ganz hintere Reihe an: 2-1-1. Vorne hat es einen Schornstein."},
+            {"id": "m_l5_08", "type": "bauplan", "diff": 3, "q": "Schreibe den Bauplan auf:", "building": [[3,2,1],[2,1,1]], "explanation": "Treppe nach hinten/links ansteigend: hinten 3-2-1, vorne 2-1-1. Jeder Würfel überragt den davor um 1 — alles gut sichtbar."},
             {"id": "m_l5_09", "type": "bauplan", "diff": 3, "q": "Bauplan für dieses 3×3-Gebäude:", "building": [[3,3,3],[1,3,2],[1,2,2]], "explanation": "Hinten alles 3, Mitte 1-3-2, vorne 1-2-2.", "hint": "Beginne mit der hinteren Reihe (am weitesten weg)."},
-            {"id": "m_l5_10", "type": "bauplan", "diff": 3, "q": "Schreibe den Bauplan auf:", "building": [[2,1,1],[1,2,1]], "explanation": "Hinten 2-1-1, vorne 1-2-1!"},
+            {"id": "m_l5_10", "type": "bauplan", "diff": 3, "q": "Schreibe den Bauplan auf:", "building": [[2,1,2],[1,1,1]], "explanation": "Hinten zwei 2er-Türme mit einem 1er in der Mitte, vorne alles 1!"},
             {"id": "m_l5_b1", "type": "bauplan", "diff": 3, "bonus": true, "q": "Bonus! Schwieriger Bauplan:", "building": [[4,1,0],[4,2,1],[1,1,1]], "explanation": "Bonus! Hinten: 4-1-0, Mitte: 4-2-1, vorne: 1-1-1. Stark!", "hint": "Der höchste Stapel ist 4 Würfel hoch."}
           ]
         },
