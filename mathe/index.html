@@ -1536,10 +1536,21 @@ function checkSortAnswer() {
 function renderCubeBuilding(building) {
   const rows = building.length;
   const cols = building[0].length;
-  const S = 34;        // tile edge in screen pixels
-  const DX = S;        // horizontal step per col/row
-  const DY = S * 0.5;  // vertical step per col/row (isometric)
-  const H  = S;        // cube height
+  const S = 34;          // tile edge in screen pixels
+  // Cavalier-like projection (instead of isometric):
+  //   col-axis is purely horizontal → front/back rows are HORIZONTAL lines.
+  //   row-axis tilts back-up with a moderate slope (less than 45°) →
+  //   back row is clearly above the front row, but not so far left that
+  //   the grid looks like a rotated diamond. This matches the rectangular
+  //   answer-grid below the picture better.
+  const COL_DX =  S * 1.00;  // col +1 → mostly right
+  const COL_DY =  0;          // col +1 → no vertical change
+  const ROW_DX = -S * 0.40;  // row +1 → a little left (so back cubes peek out)
+  const ROW_DY =  S * 0.55;  // row +1 → notably down/forward
+  const H      =  S;          // level +1 → up
+  // Note: previously isometric — (col-row)*S, (col+row)*S/2 — which produced a
+  // diamond grid rotated 45° from the answer grid. Children had trouble
+  // mapping rows visually. Cavalier projection keeps rows axis-aligned.
 
   let maxStack = 0;
   for (const r of building) for (const v of r) if (v > maxStack) maxStack = v;
@@ -1547,8 +1558,8 @@ function renderCubeBuilding(building) {
   // viewBox bounds — compute by checking all corner projections
   function proj(col, row, level) {
     return {
-      x: (col - row) * DX,
-      y: (col + row) * DY - level * H
+      x: col * COL_DX + row * ROW_DX,
+      y: col * COL_DY + row * ROW_DY - level * H
     };
   }
   let minX=Infinity, maxX=-Infinity, minY=Infinity, maxY=-Infinity;
