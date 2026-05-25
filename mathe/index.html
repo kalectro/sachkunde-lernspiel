@@ -1558,17 +1558,24 @@ function renderCubeBuilding(building) {
     if (p.y < minY) minY = p.y;
     if (p.y > maxY) maxY = p.y;
   }
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < cols; c++) {
+  // All 4 floor corners (for grid + base) at every cell, including the outer edge.
+  for (let r = 0; r <= rows; r++) {
+    for (let c = 0; c <= cols; c++) {
       addBound(proj(c, r, 0));
-      addBound(proj(c+1, r, 0));
-      addBound(proj(c, r+1, 0));
-      addBound(proj(c+1, r+1, maxStack));
     }
   }
-  // Also include the front-right floor corner so the floor grid isn't cropped.
-  addBound(proj(cols, rows, 0));
-  addBound(proj(cols, 0,    0));
+  // All 4 top-face corners at the ACTUAL stack height (not maxStack), so the
+  // back-left corner of a tall stack — which has the smallest y — is included.
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const h = building[r][c];
+      if (h === 0) continue;
+      addBound(proj(c,   r,   h));
+      addBound(proj(c+1, r,   h));
+      addBound(proj(c,   r+1, h));
+      addBound(proj(c+1, r+1, h));
+    }
+  }
   const pad = 8;
   const W = (maxX - minX) + 2 * pad;
   const Ht = (maxY - minY) + 2 * pad;

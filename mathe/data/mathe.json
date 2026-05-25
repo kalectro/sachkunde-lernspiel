@@ -107,7 +107,7 @@
             {"id": "m_l5_02", "type": "bauplan", "diff": 1, "q": "Wie sieht der Bauplan aus?", "building": [[2,2,1]], "explanation": "Zwei Würfel übereinander, zwei Würfel übereinander, ein Würfel."},
             {"id": "m_l5_03", "type": "bauplan", "diff": 1, "q": "Schreibe den Bauplan auf:", "building": [[1,2,3]], "explanation": "Eine Treppe nach oben: 1, dann 2, dann 3 Würfel hoch."},
             {"id": "m_l5_04", "type": "bauplan", "diff": 2, "q": "Was steht in den Feldern?", "building": [[3,2,2]], "explanation": "3 Würfel, 2 Würfel, 2 Würfel."},
-            {"id": "m_l5_05", "type": "bauplan", "diff": 2, "q": "Bauplan dieser Treppe:", "building": [[1,3,1]], "explanation": "Ein Würfel — drei Würfel hoch — ein Würfel. Wie eine Treppe!"},
+            {"id": "m_l5_05", "type": "bauplan", "diff": 2, "q": "Bauplan dieses Gebäudes mit Turm in der Mitte:", "building": [[1,3,1]], "explanation": "Ein Würfel — drei Würfel hoch (Turm) — ein Würfel. Symmetrisch um die Mitte!"},
             {"id": "m_l5_06", "type": "bauplan", "diff": 2, "q": "Bauplan für dieses L:", "building": [[1,0,0],[1,1,1]], "explanation": "Hinten ein Würfel, vorne eine Dreierreihe — wie ein L."},
             {"id": "m_l5_07", "type": "bauplan", "diff": 2, "q": "Bauplan für diese Bauwerk:", "building": [[1,3,2],[1,1,1]], "explanation": "Hinten: 1-3-2. Vorne: alles 1. Zähle gut!", "hint": "Schau zuerst die hintere Reihe an, dann die vordere."},
             {"id": "m_l5_08", "type": "bauplan", "diff": 3, "q": "Schreibe den Bauplan auf:", "building": [[3,2,1],[2,1,1]], "explanation": "Treppe nach hinten/links ansteigend: hinten 3-2-1, vorne 2-1-1. Jeder Würfel überragt den davor um 1 — alles gut sichtbar."},
