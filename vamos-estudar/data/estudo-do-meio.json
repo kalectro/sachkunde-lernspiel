@@ -15,7 +15,7 @@
           "name": "Terra, Continentes e Relevo",
           "sub": "Representação da Terra, continentes, oceanos e formas de relevo",
           "questions": [
-            {"id": "em2p_1_01", "type": "mc", "diff": 1, "q": "Quantos continentes existem no mundo?", "options": ["5", "4", "6", "7"], "correct": 0, "explanation": "São 5 continentes: Europa, Ásia, África, América e Oceânia! 🌍"},
+            {"id": "em2p_1_01", "type": "mc", "diff": 1, "q": "Quantos continentes existem no mundo?", "options": ["5", "4", "6", "7"], "correct": 3, "explanation": "São 7 continentes: Europa, Ásia, África, América do Norte, América do Sul, Oceânia e Antártida! 🌍"},
             {"id": "em2p_1_02", "type": "mc", "diff": 1, "q": "Qual é o MAIOR oceano do mundo?", "options": ["Pacífico", "Atlântico", "Índico", "Ártico"], "correct": 0, "explanation": "O Oceano Pacífico é o maior!"},
             {"id": "em2p_1_03", "type": "mc", "diff": 1, "q": "Portugal fica no continente…?", "options": ["Europa", "Ásia", "África", "América"], "correct": 0, "explanation": "Portugal fica na Europa, a sudoeste! 🇵🇹"},
             {"id": "em2p_1_04", "type": "mc", "diff": 1, "q": "Como se chama a representação PLANA da Terra?", "options": ["Mapa", "Globo", "Atlas", "Bússola"], "correct": 0, "explanation": "O mapa é uma representação plana da Terra!"},
@@ -28,7 +28,7 @@
             {"id": "em2p_1_11", "type": "mc", "diff": 2, "q": "Qual é o MENOR oceano do mundo?", "options": ["Ártico", "Pacífico", "Atlântico", "Índico"], "correct": 0, "explanation": "O Oceano Ártico é o menor!"},
             {"id": "em2p_1_12", "type": "mc", "diff": 2, "q": "Em que continente fica a China?", "options": ["Ásia", "Europa", "África", "América"], "correct": 0, "explanation": "A China fica na Ásia!"},
             {"id": "em2p_1_13", "type": "type", "diff": 2, "q": "Qual instrumento representa a Terra em forma esférica?", "accept": ["globo"], "explanation": "O globo representa a Terra em forma esférica!"},
-            {"id": "em2p_1_14", "type": "type", "diff": 2, "q": "Quantos continentes existem? (escreve o número)", "accept": ["5", "cinco"], "explanation": "Existem 5 continentes!"},
+            {"id": "em2p_1_14", "type": "type", "diff": 2, "q": "Quantos continentes existem? (escreve o número)", "accept": ["7", "sete"], "explanation": "Existem 7 continentes: Europa, Ásia, África, América do Norte, América do Sul, Oceânia e Antártida! 🌍"},
             {"id": "em2p_1_15", "type": "type", "diff": 3, "q": "Qual oceano banha Portugal? (só o nome do oceano)", "accept": ["atlantico", "atlântico", "oceano atlantico", "oceano atlântico"], "explanation": "Portugal é banhado pelo Oceano Atlântico!"},
             {"id": "em2p_1_16", "type": "type", "diff": 3, "q": "Em que continente fica o Egito?", "accept": ["africa", "áfrica"], "explanation": "O Egito fica no continente africano!"},
             {"id": "em2p_1_17", "type": "type", "diff": 3, "q": "Em que continente fica o Japão?", "accept": ["asia", "ásia"], "explanation": "O Japão fica na Ásia!"},
