@@ -90,9 +90,160 @@
     {
       "id": "en_3p_2026",
       "name": "3.º Período 2025/26",
-      "examDate": null,
+      "examDate": "2026-05-27",
       "archived": false,
-      "levels": []
+      "levels": [
+        {
+          "id": 1,
+          "name": "Family & Pets",
+          "sub": "Família e animais de estimação: «She's my ___», «I have a ___»",
+          "questions": [
+            {"id": "en3p_1_01", "type": "mc", "diff": 1, "q": "Como se diz «mãe» em inglês?", "options": ["Mother / Mum", "Father", "Sister", "Aunt"], "correct": 0, "explanation": "Mãe = Mother (também «Mum» em UK ou «Mom» em US)! 💝"},
+            {"id": "en3p_1_02", "type": "mc", "diff": 1, "q": "Como se diz «pai» em inglês?", "options": ["Father / Dad", "Uncle", "Brother", "Cousin"], "correct": 0, "explanation": "Pai = Father (também «Dad»)! 👨"},
+            {"id": "en3p_1_03", "type": "mc", "diff": 1, "q": "What pet barks? 🐕", "options": ["Dog", "Cat", "Fish", "Bird"], "correct": 0, "explanation": "A dog barks! Cão = Dog!"},
+            {"id": "en3p_1_04", "type": "mc", "diff": 1, "q": "Complete: «I _____ a cat.» (Eu tenho um gato.)", "options": ["have", "am", "is", "are"], "correct": 0, "explanation": "I HAVE a cat = Eu tenho um gato. Padrão: I have a ___."},
+            {"id": "en3p_1_05", "type": "mc", "diff": 1, "q": "What pet says «meow»? 🐱", "options": ["Cat", "Dog", "Hamster", "Rabbit"], "correct": 0, "explanation": "Cats say «meow»! Gato = Cat!"},
+            {"id": "en3p_1_06", "type": "mc", "diff": 2, "q": "Como se diz «avó» em inglês?", "options": ["Grandmother / Grandma", "Aunt", "Mother", "Sister"], "correct": 0, "explanation": "Avó = Grandmother (informal: Grandma / Granny)! 👵"},
+            {"id": "en3p_1_07", "type": "mc", "diff": 2, "q": "Como se diz «primo / prima» em inglês?", "options": ["Cousin", "Brother", "Uncle", "Aunt"], "correct": 0, "explanation": "Primo/prima = Cousin (a mesma palavra para masculino e feminino)!"},
+            {"id": "en3p_1_08", "type": "mc", "diff": 2, "q": "Which pet can talk? 🦜", "options": ["Parrot", "Fish", "Mouse", "Turtle"], "correct": 0, "explanation": "Parrots can talk! Papagaio = Parrot!"},
+            {"id": "en3p_1_09", "type": "type", "diff": 2, "q": "Como se diz «irmã» em inglês?", "accept": ["sister", "Sister"], "explanation": "Irmã = Sister! 👧"},
+            {"id": "en3p_1_10", "type": "type", "diff": 2, "q": "Como se diz «irmão» em inglês?", "accept": ["brother", "Brother"], "explanation": "Irmão = Brother! 👦"},
+            {"id": "en3p_1_11", "type": "type", "diff": 2, "q": "Como se diz «avô» em inglês?", "accept": ["grandfather", "Grandfather", "grandpa", "Grandpa", "granddad", "Granddad"], "explanation": "Avô = Grandfather (informal: Grandpa / Granddad)! 👴"},
+            {"id": "en3p_1_12", "type": "type", "diff": 2, "q": "Como se diz «tia» em inglês?", "accept": ["aunt", "Aunt"], "explanation": "Tia = Aunt! 💃"},
+            {"id": "en3p_1_13", "type": "type", "diff": 3, "q": "Como se diz «tio» em inglês?", "accept": ["uncle", "Uncle"], "explanation": "Tio = Uncle!"},
+            {"id": "en3p_1_14", "type": "type", "diff": 3, "q": "Como se diz «pais» (mãe e pai juntos) em inglês?", "accept": ["parents", "Parents"], "explanation": "Pais = Parents (sempre plural!)!"},
+            {"id": "en3p_1_15", "type": "type", "diff": 3, "q": "Como se diz «pássaro» em inglês?", "accept": ["bird", "Bird"], "explanation": "Pássaro = Bird! 🐦"},
+            {"id": "en3p_1_16", "type": "type", "diff": 3, "q": "Como se diz «peixe» em inglês?", "accept": ["fish", "Fish"], "explanation": "Peixe = Fish! 🐟"},
+            {"id": "en3p_1_17", "type": "tf", "diff": 1, "q": "True or false? «My mother's mother is my grandmother.»", "correct": true, "explanation": "True! A mãe da minha mãe é a minha avó! 👵"},
+            {"id": "en3p_1_18", "type": "type", "diff": 3, "bonus": true, "q": "Bonus! Como se diz «porquinho-da-índia» em inglês?", "accept": ["guinea pig", "Guinea pig", "guinea-pig", "Guinea-pig"], "explanation": "Porquinho-da-índia = Guinea pig! Pode escrever-se com ou sem hífen. 🐹"}
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Jobs — What are you?",
+          "sub": "Profissões: «What are you?» → «I am a ___»",
+          "questions": [
+            {"id": "en3p_2_01", "type": "mc", "diff": 1, "q": "Como se diz «professor / professora» em inglês?", "options": ["Teacher", "Student", "Doctor", "Pilot"], "correct": 0, "explanation": "Professor = Teacher! 👨‍🏫"},
+            {"id": "en3p_2_02", "type": "mc", "diff": 1, "q": "Como se diz «médico / médica» em inglês?", "options": ["Doctor", "Nurse", "Vet", "Cook"], "correct": 0, "explanation": "Médico = Doctor! 👨‍⚕️"},
+            {"id": "en3p_2_03", "type": "mc", "diff": 1, "q": "Como se diz «aluno / aluna» em inglês?", "options": ["Student", "Teacher", "Baker", "Farmer"], "correct": 0, "explanation": "Aluno = Student! 🎒"},
+            {"id": "en3p_2_04", "type": "mc", "diff": 1, "q": "Complete: «What are you? I _____ a student.»", "options": ["am", "is", "are", "have"], "correct": 0, "explanation": "«I AM a student» — com I usa-se sempre «am»!"},
+            {"id": "en3p_2_05", "type": "mc", "diff": 1, "q": "A doctor works in a ___.", "options": ["Hospital", "School", "Farm", "Bakery"], "correct": 0, "explanation": "Doctors work in hospitals! 🏥"},
+            {"id": "en3p_2_06", "type": "mc", "diff": 2, "q": "Quem cuida dos animais doentes?", "options": ["Vet", "Farmer", "Doctor", "Cook"], "correct": 0, "explanation": "Veterinário = Vet! 🐶"},
+            {"id": "en3p_2_07", "type": "mc", "diff": 2, "q": "Quem faz pão?", "options": ["Baker", "Cook", "Farmer", "Doctor"], "correct": 0, "explanation": "Padeiro = Baker! 🥖"},
+            {"id": "en3p_2_08", "type": "mc", "diff": 2, "q": "Quem trabalha numa quinta com animais?", "options": ["Farmer", "Pilot", "Dentist", "Nurse"], "correct": 0, "explanation": "Agricultor = Farmer! 🚜"},
+            {"id": "en3p_2_09", "type": "type", "diff": 2, "q": "Como se diz «médico» em inglês?", "accept": ["doctor", "Doctor"], "explanation": "Médico = Doctor!"},
+            {"id": "en3p_2_10", "type": "type", "diff": 2, "q": "Como se diz «enfermeiro / enfermeira» em inglês?", "accept": ["nurse", "Nurse"], "explanation": "Enfermeiro = Nurse! 👩‍⚕️"},
+            {"id": "en3p_2_11", "type": "type", "diff": 2, "q": "Como se diz «cozinheiro» em inglês?", "accept": ["cook", "Cook", "chef", "Chef"], "explanation": "Cozinheiro = Cook (ou Chef)! 👨‍🍳"},
+            {"id": "en3p_2_12", "type": "type", "diff": 2, "q": "Como se diz «dentista» em inglês?", "accept": ["dentist", "Dentist"], "explanation": "Dentista = Dentist! 🦷"},
+            {"id": "en3p_2_13", "type": "type", "diff": 3, "q": "Como se diz «bombeiro / bombeira» em inglês?", "accept": ["firefighter", "Firefighter", "fireman", "Fireman"], "explanation": "Bombeiro = Firefighter (ou Fireman)! 🚒"},
+            {"id": "en3p_2_14", "type": "type", "diff": 3, "q": "Como se diz «polícia» em inglês?", "accept": ["police officer", "Police officer", "policeman", "Policeman", "policewoman", "Policewoman"], "explanation": "Polícia = Police officer (ou Policeman / Policewoman)! 👮"},
+            {"id": "en3p_2_15", "type": "type", "diff": 3, "q": "Como se diz «piloto» (de avião) em inglês?", "accept": ["pilot", "Pilot"], "explanation": "Piloto = Pilot! ✈️"},
+            {"id": "en3p_2_16", "type": "type", "diff": 3, "q": "Como se diz «padeiro» em inglês?", "accept": ["baker", "Baker"], "explanation": "Padeiro = Baker! 🥐"},
+            {"id": "en3p_2_17", "type": "tf", "diff": 2, "q": "True or false? A vet helps sick animals.", "correct": true, "explanation": "True! Vet = Veterinário, ajuda animais doentes! 🐕‍🦺"},
+            {"id": "en3p_2_18", "type": "type", "diff": 3, "bonus": true, "q": "Bonus! Como se diz «agricultor» em inglês?", "accept": ["farmer", "Farmer"], "explanation": "Agricultor = Farmer! Cuida da quinta e dos animais. 🌾"}
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Clothes & Accessories",
+          "sub": "Roupa e acessórios — inclui combos com o tempo!",
+          "questions": [
+            {"id": "en3p_3_01", "type": "mc", "diff": 1, "q": "Como se diz «camisola» em inglês?", "options": ["Sweater / Jumper / Pullover", "Coat", "Dress", "Jeans"], "correct": 0, "explanation": "Camisola = Sweater (US) / Jumper (UK) / Pullover — todas valem! 🧥"},
+            {"id": "en3p_3_02", "type": "mc", "diff": 1, "q": "Como se diz «vestido» em inglês?", "options": ["Dress", "Skirt", "Shirt", "Jacket"], "correct": 0, "explanation": "Vestido = Dress! 👗"},
+            {"id": "en3p_3_03", "type": "mc", "diff": 1, "q": "Como se diz «sapatos» em inglês?", "options": ["Shoes", "Socks", "Boots", "Hat"], "correct": 0, "explanation": "Sapatos = Shoes! 👟"},
+            {"id": "en3p_3_04", "type": "mc", "diff": 1, "q": "Como se diz «chapéu» em inglês?", "options": ["Hat", "Cap", "Scarf", "Belt"], "correct": 0, "explanation": "Chapéu = Hat! 🎩"},
+            {"id": "en3p_3_05", "type": "mc", "diff": 1, "q": "Como se diz «calças» em inglês?", "options": ["Trousers / Pants", "Shorts", "Jeans", "Skirt"], "correct": 0, "explanation": "Calças = Trousers (UK) / Pants (US) — ambos valem!"},
+            {"id": "en3p_3_06", "type": "mc", "diff": 2, "q": "Como se diz «meias» em inglês?", "options": ["Socks", "Shoes", "Boots", "Gloves"], "correct": 0, "explanation": "Meias = Socks! 🧦"},
+            {"id": "en3p_3_07", "type": "mc", "diff": 2, "q": "Como se diz «mochila» em inglês?", "options": ["Backpack", "Bag", "Belt", "Watch"], "correct": 0, "explanation": "Mochila = Backpack (também Rucksack)! 🎒"},
+            {"id": "en3p_3_08", "type": "mc", "diff": 2, "q": "Como se diz «óculos de sol» em inglês?", "options": ["Sunglasses", "Glasses", "Watch", "Umbrella"], "correct": 0, "explanation": "Óculos de sol = Sunglasses (sempre plural!) 😎"},
+            {"id": "en3p_3_09", "type": "type", "diff": 2, "q": "Como se diz «t-shirt» em inglês?", "accept": ["t-shirt", "T-shirt", "tshirt", "Tshirt"], "explanation": "T-shirt = T-shirt (com ou sem hífen)! 👕"},
+            {"id": "en3p_3_10", "type": "type", "diff": 2, "q": "Como se diz «pijama» em inglês?", "accept": ["pyjamas", "Pyjamas", "pajamas", "Pajamas"], "explanation": "Pijama = Pyjamas (UK) ou Pajamas (US) — sempre plural! 🌙"},
+            {"id": "en3p_3_11", "type": "type", "diff": 2, "q": "Como se diz «calças de ganga» em inglês?", "accept": ["jeans", "Jeans"], "explanation": "Calças de ganga = Jeans! 👖"},
+            {"id": "en3p_3_12", "type": "type", "diff": 2, "q": "Como se diz «boné» em inglês?", "accept": ["cap", "Cap"], "explanation": "Boné = Cap! 🧢"},
+            {"id": "en3p_3_13", "type": "type", "diff": 3, "q": "Como se diz «casaco» em inglês?", "accept": ["coat", "Coat", "jacket", "Jacket"], "explanation": "Casaco = Coat (mais comprido) / Jacket (mais curto)! 🧥"},
+            {"id": "en3p_3_14", "type": "type", "diff": 3, "q": "Como se diz «botas» em inglês?", "accept": ["boots", "Boots"], "explanation": "Botas = Boots! 🥾"},
+            {"id": "en3p_3_15", "type": "type", "diff": 3, "q": "Como se diz «luvas» em inglês?", "accept": ["gloves", "Gloves"], "explanation": "Luvas = Gloves (sempre plural!) 🧤"},
+            {"id": "en3p_3_16", "type": "type", "diff": 3, "q": "Como se diz «cachecol» em inglês?", "accept": ["scarf", "Scarf"], "explanation": "Cachecol = Scarf! 🧣"},
+            {"id": "en3p_3_17", "type": "type", "diff": 3, "bonus": true, "q": "Combo! «It's raining. I wear my ___.» (Escreve uma peça de roupa.)", "accept": ["coat", "Coat", "jacket", "Jacket", "raincoat", "Raincoat", "boots", "Boots"], "explanation": "Quando chove vestimos coat, jacket, raincoat ou boots! ☔"},
+            {"id": "en3p_3_18", "type": "type", "diff": 3, "bonus": true, "q": "Combo! «It's snowing. I wear my ___.» (Escreve uma peça de roupa ou acessório.)", "accept": ["coat", "Coat", "scarf", "Scarf", "gloves", "Gloves", "boots", "Boots", "hat", "Hat"], "explanation": "Quando neva vestimos coat, scarf, gloves, boots ou hat! ❄️"}
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Numbers 1–50",
+          "sub": "Números por extenso — atenção ao hífen! «twenty-one» (não «twenty one» nem «twentyone»)",
+          "questions": [
+            {"id": "en3p_4_01", "type": "mc", "diff": 1, "q": "What number is «twenty»?", "options": ["20", "12", "30", "22"], "correct": 0, "explanation": "Twenty = 20!"},
+            {"id": "en3p_4_02", "type": "mc", "diff": 1, "q": "What number is «thirty»?", "options": ["30", "13", "40", "33"], "correct": 0, "explanation": "Thirty = 30!"},
+            {"id": "en3p_4_03", "type": "mc", "diff": 1, "q": "Como se diz «40» em inglês?", "options": ["Forty", "Fourteen", "Fifty", "Fourty"], "correct": 0, "explanation": "40 = Forty! Atenção: NÃO é «Fourty» (sem U)!"},
+            {"id": "en3p_4_04", "type": "mc", "diff": 1, "q": "Como se diz «50» em inglês?", "options": ["Fifty", "Fifteen", "Forty", "Fivety"], "correct": 0, "explanation": "50 = Fifty! Atenção: NÃO é «Fivety»!"},
+            {"id": "en3p_4_05", "type": "mc", "diff": 2, "q": "What number is «twenty-five»?", "options": ["25", "52", "15", "55"], "correct": 0, "explanation": "Twenty-five = 25!"},
+            {"id": "en3p_4_06", "type": "mc", "diff": 2, "q": "Como se diz «38» em inglês?", "options": ["Thirty-eight", "Three-eight", "Eighty-three", "Thirteen-eight"], "correct": 0, "explanation": "38 = Thirty-eight (com hífen)!"},
+            {"id": "en3p_4_07", "type": "mc", "diff": 2, "q": "Como é que se escreve corretamente o número 21?", "options": ["twenty-one", "twentyone", "twenty one", "twentee-one"], "correct": 0, "explanation": "21 = twenty-one — SEMPRE com hífen! ⚠️"},
+            {"id": "en3p_4_08", "type": "type", "diff": 2, "q": "Escreve em inglês o número «21» por extenso.", "accept": ["twenty-one", "Twenty-one"], "explanation": "21 = twenty-one — sempre com hífen! ⚠️ NÃO «twenty one», NÃO «twentyone»."},
+            {"id": "en3p_4_09", "type": "type", "diff": 2, "q": "Escreve em inglês o número «20» por extenso.", "accept": ["twenty", "Twenty"], "explanation": "20 = twenty (sem hífen, palavra única)!"},
+            {"id": "en3p_4_10", "type": "type", "diff": 2, "q": "Escreve em inglês o número «30» por extenso.", "accept": ["thirty", "Thirty"], "explanation": "30 = thirty (sem hífen)!"},
+            {"id": "en3p_4_11", "type": "type", "diff": 2, "q": "Escreve em inglês o número «40» por extenso.", "accept": ["forty", "Forty"], "explanation": "40 = forty — atenção: SEM «u»! Não é «fourty»."},
+            {"id": "en3p_4_12", "type": "type", "diff": 2, "q": "Escreve em inglês o número «35» por extenso.", "accept": ["thirty-five", "Thirty-five"], "explanation": "35 = thirty-five (com hífen!) ⚠️"},
+            {"id": "en3p_4_13", "type": "type", "diff": 3, "q": "Escreve em inglês o número «48» por extenso.", "accept": ["forty-eight", "Forty-eight"], "explanation": "48 = forty-eight (com hífen!) ⚠️"},
+            {"id": "en3p_4_14", "type": "type", "diff": 3, "q": "Escreve em inglês o número «27» por extenso.", "accept": ["twenty-seven", "Twenty-seven"], "explanation": "27 = twenty-seven (com hífen!) ⚠️"},
+            {"id": "en3p_4_15", "type": "type", "diff": 3, "q": "Escreve em inglês o número «43» por extenso.", "accept": ["forty-three", "Forty-three"], "explanation": "43 = forty-three (com hífen!) ⚠️"},
+            {"id": "en3p_4_16", "type": "type", "diff": 3, "q": "Escreve em inglês o número «50» por extenso.", "accept": ["fifty", "Fifty"], "explanation": "50 = fifty (sem hífen, palavra única). NÃO é «fivety»!"},
+            {"id": "en3p_4_17", "type": "type", "diff": 3, "q": "Escreve em inglês o número «39» por extenso.", "accept": ["thirty-nine", "Thirty-nine"], "explanation": "39 = thirty-nine (com hífen!) ⚠️"},
+            {"id": "en3p_4_18", "type": "type", "diff": 3, "bonus": true, "q": "Bonus! Quanto é 20 + 5? Escreve a resposta em inglês por extenso.", "accept": ["twenty-five", "Twenty-five"], "explanation": "20 + 5 = 25 = twenty-five (com hífen!) ⚠️"}
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Shapes & Colours",
+          "sub": "Formas e cores",
+          "questions": [
+            {"id": "en3p_5_01", "type": "mc", "diff": 1, "q": "Como se diz «vermelho» em inglês?", "options": ["Red", "Blue", "Green", "Yellow"], "correct": 0, "explanation": "Vermelho = Red! 🔴"},
+            {"id": "en3p_5_02", "type": "mc", "diff": 1, "q": "Como se diz «azul» em inglês?", "options": ["Blue", "Red", "Green", "Purple"], "correct": 0, "explanation": "Azul = Blue! 🔵"},
+            {"id": "en3p_5_03", "type": "mc", "diff": 1, "q": "Como se diz «verde» em inglês?", "options": ["Green", "Yellow", "Blue", "Brown"], "correct": 0, "explanation": "Verde = Green! 🟢"},
+            {"id": "en3p_5_04", "type": "mc", "diff": 1, "q": "Como se diz «círculo» em inglês?", "options": ["Circle", "Square", "Triangle", "Star"], "correct": 0, "explanation": "Círculo = Circle! ⭕"},
+            {"id": "en3p_5_05", "type": "mc", "diff": 1, "q": "Como se diz «quadrado» em inglês?", "options": ["Square", "Circle", "Rectangle", "Heart"], "correct": 0, "explanation": "Quadrado = Square! 🟥"},
+            {"id": "en3p_5_06", "type": "mc", "diff": 2, "q": "Como se diz «cor-de-rosa» em inglês?", "options": ["Pink", "Purple", "Red", "Orange"], "correct": 0, "explanation": "Cor-de-rosa = Pink! 💗"},
+            {"id": "en3p_5_07", "type": "mc", "diff": 2, "q": "Como se diz «cinzento» em inglês?", "options": ["Grey", "Brown", "Black", "Blue"], "correct": 0, "explanation": "Cinzento = Grey (UK) ou Gray (US)! 🩶"},
+            {"id": "en3p_5_08", "type": "mc", "diff": 2, "q": "Como se diz «retângulo» em inglês?", "options": ["Rectangle", "Triangle", "Square", "Diamond"], "correct": 0, "explanation": "Retângulo = Rectangle!"},
+            {"id": "en3p_5_09", "type": "type", "diff": 2, "q": "Como se diz «amarelo» em inglês?", "accept": ["yellow", "Yellow"], "explanation": "Amarelo = Yellow! 🟡"},
+            {"id": "en3p_5_10", "type": "type", "diff": 2, "q": "Como se diz «laranja» em inglês?", "accept": ["orange", "Orange"], "explanation": "Laranja = Orange! 🟠"},
+            {"id": "en3p_5_11", "type": "type", "diff": 2, "q": "Como se diz «triângulo» em inglês?", "accept": ["triangle", "Triangle"], "explanation": "Triângulo = Triangle (3 lados)! 🔺"},
+            {"id": "en3p_5_12", "type": "type", "diff": 2, "q": "Como se diz «coração» em inglês?", "accept": ["heart", "Heart"], "explanation": "Coração = Heart! ❤️"},
+            {"id": "en3p_5_13", "type": "type", "diff": 3, "q": "Como se diz «roxo / violeta» em inglês?", "accept": ["purple", "Purple"], "explanation": "Roxo = Purple! 🟣"},
+            {"id": "en3p_5_14", "type": "type", "diff": 3, "q": "Como se diz «castanho» em inglês?", "accept": ["brown", "Brown"], "explanation": "Castanho = Brown! 🤎"},
+            {"id": "en3p_5_15", "type": "type", "diff": 3, "q": "Como se diz «estrela» em inglês?", "accept": ["star", "Star"], "explanation": "Estrela = Star! ⭐"},
+            {"id": "en3p_5_16", "type": "type", "diff": 3, "q": "Como se diz «forma oval» em inglês?", "accept": ["oval", "Oval"], "explanation": "Oval = Oval (como um ovo)! 🥚"},
+            {"id": "en3p_5_17", "type": "tf", "diff": 1, "q": "True or false? «White» significa «preto».", "correct": false, "explanation": "False! White = branco. Preto = Black! ⚫⚪"},
+            {"id": "en3p_5_18", "type": "type", "diff": 3, "bonus": true, "q": "Bonus! Como se diz «losango» em inglês?", "accept": ["diamond", "Diamond"], "explanation": "Losango = Diamond (também significa «diamante»)! 💎"}
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Seasons & Weather",
+          "sub": "Estações + clima — inclui combos!",
+          "questions": [
+            {"id": "en3p_6_01", "type": "mc", "diff": 1, "q": "Como se diz «verão» em inglês?", "options": ["Summer", "Winter", "Spring", "Autumn"], "correct": 0, "explanation": "Verão = Summer! ☀️"},
+            {"id": "en3p_6_02", "type": "mc", "diff": 1, "q": "Como se diz «inverno» em inglês?", "options": ["Winter", "Summer", "Autumn", "Spring"], "correct": 0, "explanation": "Inverno = Winter! ❄️"},
+            {"id": "en3p_6_03", "type": "mc", "diff": 1, "q": "Como se diz «Está sol» em inglês?", "options": ["It's sunny", "It's raining", "It's cloudy", "It's windy"], "correct": 0, "explanation": "Está sol = It's sunny! ☀️"},
+            {"id": "en3p_6_04", "type": "mc", "diff": 1, "q": "Como se diz «Está a chover» em inglês?", "options": ["It's raining", "It's snowing", "It's sunny", "It's cold"], "correct": 0, "explanation": "Está a chover = It's raining! 🌧️"},
+            {"id": "en3p_6_05", "type": "mc", "diff": 2, "q": "Como se diz «primavera» em inglês?", "options": ["Spring", "Summer", "Autumn", "Winter"], "correct": 0, "explanation": "Primavera = Spring! 🌸"},
+            {"id": "en3p_6_06", "type": "mc", "diff": 2, "q": "Como se diz «Está a nevar» em inglês?", "options": ["It's snowing", "It's raining", "It's cold", "It's windy"], "correct": 0, "explanation": "Está a nevar = It's snowing! ❄️"},
+            {"id": "en3p_6_07", "type": "mc", "diff": 2, "q": "Como se diz «outono» em inglês?", "options": ["Autumn / Fall", "Winter", "Summer", "Spring"], "correct": 0, "explanation": "Outono = Autumn (UK) ou Fall (US)! 🍂"},
+            {"id": "en3p_6_08", "type": "type", "diff": 2, "q": "Escreve em inglês: «Está sol.»", "accept": ["it's sunny", "its sunny", "it is sunny", "It's sunny", "It is sunny", "it's sunny.", "its sunny.", "it is sunny.", "It's sunny.", "It is sunny."], "explanation": "Está sol = It's sunny! ☀️"},
+            {"id": "en3p_6_09", "type": "type", "diff": 2, "q": "Escreve em inglês: «Está nublado.»", "accept": ["it's cloudy", "its cloudy", "it is cloudy", "It's cloudy", "It is cloudy", "it's cloudy.", "its cloudy.", "it is cloudy.", "It's cloudy.", "It is cloudy."], "explanation": "Está nublado = It's cloudy! ☁️"},
+            {"id": "en3p_6_10", "type": "type", "diff": 2, "q": "Como se diz «verão» em inglês?", "accept": ["summer", "Summer"], "explanation": "Verão = Summer! ☀️"},
+            {"id": "en3p_6_11", "type": "type", "diff": 2, "q": "Como se diz «primavera» em inglês?", "accept": ["spring", "Spring"], "explanation": "Primavera = Spring! 🌸"},
+            {"id": "en3p_6_12", "type": "type", "diff": 3, "q": "Escreve em inglês: «Está vento.»", "accept": ["it's windy", "its windy", "it is windy", "It's windy", "It is windy", "it's windy.", "its windy.", "it is windy.", "It's windy.", "It is windy."], "explanation": "Está vento = It's windy! 💨"},
+            {"id": "en3p_6_13", "type": "type", "diff": 3, "q": "Escreve em inglês: «Está frio.»", "accept": ["it's cold", "its cold", "it is cold", "It's cold", "It is cold", "it's cold.", "its cold.", "it is cold.", "It's cold.", "It is cold."], "explanation": "Está frio = It's cold! 🥶"},
+            {"id": "en3p_6_14", "type": "type", "diff": 3, "q": "Escreve em inglês: «Está calor.»", "accept": ["it's hot", "its hot", "it is hot", "It's hot", "It is hot", "it's warm", "its warm", "it is warm", "It's warm", "It is warm", "it's hot.", "its hot.", "it is hot.", "It's hot.", "It is hot.", "it's warm.", "its warm.", "it is warm.", "It's warm.", "It is warm."], "explanation": "Está calor = It's hot (muito quente) ou It's warm (quentinho)! 🔥"},
+            {"id": "en3p_6_15", "type": "type", "diff": 3, "q": "Como se diz «outono» em inglês?", "accept": ["autumn", "Autumn", "fall", "Fall"], "explanation": "Outono = Autumn (UK) ou Fall (US)! 🍂"},
+            {"id": "en3p_6_16", "type": "sort", "diff": 2, "q": "Coloca as estações por ordem, começando pela primavera.", "items": ["spring", "summer", "autumn", "winter"], "explanation": "Spring → Summer → Autumn → Winter 🌸☀️🍂❄️"},
+            {"id": "en3p_6_17", "type": "type", "diff": 3, "bonus": true, "q": "Combo! «In winter it is often ___.» (Escreve uma palavra sobre o tempo.)", "accept": ["cold", "Cold", "snowy", "Snowy", "snowing", "Snowing"], "explanation": "No inverno está frequentemente cold, snowy ou snowing! ❄️🥶"},
+            {"id": "en3p_6_18", "type": "type", "diff": 3, "bonus": true, "q": "Combo! «In summer it is often ___.» (Escreve uma palavra sobre o tempo.)", "accept": ["hot", "Hot", "sunny", "Sunny", "warm", "Warm"], "explanation": "No verão está frequentemente hot, sunny ou warm! ☀️🔥"}
+          ]
+        }
+      ]
     }
   ]
 }
