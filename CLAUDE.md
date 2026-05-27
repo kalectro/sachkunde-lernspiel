@@ -1,5 +1,21 @@
 # Lernplattform — Frankensteinschule
 
+## ⚠️ Workflow-Regel: neue Fragen → grade-questions
+
+**Sobald in einer Test-Daten-Datei der Plattform (irgendein `<test>/data/*.json`) neue Fragen hinzugefügt oder bestehende fachlich verändert wurden, MUSS Claude unaufgefordert den `grade-questions`-Skill ausführen, bevor die Änderungen committet werden.**
+
+Ablauf:
+1. Fragen hinzufügen/ändern via Edit/Write
+2. **Direkt im Anschluss**: Skill `grade-questions` auslösen (Workflow: build → Sonnet-Subagent → grade → Review-HTML)
+3. Wenn der User die Review-Bewertungen runtergeladen hat: Lösch-Entscheidungen anwenden
+4. Erst dann committen + pushen
+
+Reine kosmetische Änderungen (z. B. nur `explanation`-Text umformuliert) brauchen keinen Check. Bei Unsicherheit: lieber ausführen.
+
+Der Skill ist **vollständig generisch** — er erkennt automatisch alle Tests im Repo (jedes Verzeichnis mit `data/*.json` im Exam+Levels-Schema). Neue Fächer (Biologie, Englisch, …) brauchen keine Anpassung am Grader.
+
+Skill-Details: siehe Abschnitt "Frage-Qualitäts-Check" unten.
+
 ## Überblick
 Lernplattform der Frankensteinschule, gehostet auf GitHub Pages. Root (`/`) ist ein **Hub**, der mehrere Tests als gleichrangige Karten auflistet. Jeder Test lebt in einem eigenen Unterordner.
 
@@ -174,6 +190,21 @@ Test im Unterverzeichnis `deutschtest/`. Teilt Profile mit dem Rest der Plattfor
 - **Daten:** `deutschtest/data/deutsch.json` — Test "Verben & Wortarten" mit 5 Stufen
 - **Nächste Klausur:** Donnerstag, 2026-04-23
 
+## Mathearbeit (Mathe 2. Klasse)
+
+Test im Unterverzeichnis `mathe/`. Teilt Profile mit dem Rest der Plattform.
+
+- **Live:** https://kalectro.github.io/sachkunde-lernspiel/mathe/
+- **localStorage Key:** `frankensteinschule_profiles_v3` (plattformweit geteilt)
+- **Namespace:** schreibt nur unter `profile.mathe`
+- **Daten:** `mathe/data/mathe.json` — Test "Einmaleins & Würfel" mit 6 Stufen
+- **Custom Question-Types:**
+  - `fill` — Frage mit `___`-Placeholder, der inline durch Input ersetzt wird (`"7 · ___ = 14"`)
+  - `bauplan` — 3D-Würfelgebäude (SVG, cavalier-Projektion) + 2D-Grid-Eingabe
+  - `cube-count` — Würfelgebäude + Single-Number-Input
+- **SVG-Renderer:** `renderCubeBuilding(building)` in `mathe/index.html`. Cavalier-Projektion: vordere/hintere Reihe = horizontale Linien, hintere leicht nach links-oben versetzt. Floor-Grid gestrichelt eingezeichnet. **Regel für Aufgaben-Autoren** (im Code als Kommentar): keine einsamen 1er-Würfel zwischen höheren Nachbarn, keine vordere Reihe höher als hintere in derselben Spalte (siehe Kommentar in `renderCubeBuilding`).
+- **Nächste Klausur:** Mittwoch, 2026-06-03
+
 ## Navigation & UI-Pattern
 
 - `autoSkipsHome()` in jeder Sub-App: Wenn genau **eine** aktive Klausur und **kein** Archiv existiert, überspringt die App den Home-Screen und landet direkt auf der Stufen-Auswahl. So reicht ein Klick vom Hub.
@@ -188,3 +219,30 @@ Test im Unterverzeichnis `deutschtest/`. Teilt Profile mit dem Rest der Plattfor
 3. Daten unter `<test-id>/data/` ablegen
 4. Im Hub (`/index.html`) einen Eintrag in das `TESTS`-Array pushen (id, name, emoji, farbe, path, progress-funktion)
 5. Pfad zur Engine ist `../shared/engine.js`, Plattform-CSS via `<link rel="stylesheet" href="../shared/platform.css">`
+6. Neue Aufgaben **durch den Frage-Qualitäts-Check schicken** (siehe nächster Abschnitt), bevor sie live gehen
+
+## Frage-Qualitäts-Check (Skill `grade-questions`)
+
+Automatisierter Prüf-Workflow für alle Plattform-Fragen: ein Sonnet-Subagent beantwortet jede Frage ohne Lösungs-Spionage. Falsche Antworten landen in einer Review-HTML mit drei Bewertungs-Buttons (OK lassen / Entfernen / Sonstiges + Kommentar) plus JSON-Download.
+
+**Plattformweit & generisch:** der Skill entdeckt automatisch alle Tests im Repo. Jedes Top-Level-Verzeichnis mit einer `data/*.json`-Datei im Exam+Levels-Schema wird mit aufgenommen. Neue Fächer (Biologie, Englisch, …) brauchen keine Anpassung — Build-Skript scannt das Dateisystem.
+
+**Auslösen:** `/grade-questions` oder z. B. "alle Fragen prüfen", "neue Aufgaben checken". Skill-Definition: `.claude/skills/grade-questions/SKILL.md`.
+
+**Workflow (4 Schritte):**
+1. `node _mathe_quellen/grader/build.mjs` → erzeugt `briefing.html` (alle Fragen ohne Lösungen) + `solutions.json` (privat)
+2. Sonnet-Subagent → liest briefing.html, schreibt `answers.json`
+3. `node _mathe_quellen/grader/grade.mjs` → vergleicht, erzeugt `review.html` mit nur den Fehlern
+4. User öffnet `review.html`, bewertet, lädt `review-<timestamp>.json` runter
+
+**Manueller Cleanup:** User schickt das Download-JSON zurück, Claude entfernt alle Fragen mit `verdict: "entfernen"` via Edit aus der jeweiligen Daten-JSON. Die `solutions.json` enthält pro Eintrag `testId`, `examId`, `levelId` — daraus ist der Dateipfad direkt ableitbar (`<testId>/data/*.json`).
+
+**Was wo liegt** (alles unter `_mathe_quellen/grader/` — **NICHT im Git-Repo**, kein Risiko für die Live-App):
+- `build.mjs` — Auto-Discovery aller Tests + Generierung
+- `grade.mjs` — generisches Vergleichen, liest Test-Kontext aus solutions.json
+- `shared-cube-render.mjs` — SVG-Würfel-Renderer (1:1 aus `mathe/index.html`)
+- generiert: `briefing.html`, `solutions.json`, `answers.json`, `review.html`
+
+**Out of scope:**
+- `learn`-Karten (haben keine Antwort)
+- Automatische Anwendung der Lösch-Entscheidungen (bewusst manuell)
