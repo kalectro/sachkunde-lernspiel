@@ -114,7 +114,7 @@
             {"id": "en3p_1_14", "type": "type", "diff": 3, "q": "Como se diz «pais» (mãe e pai juntos) em inglês?", "accept": ["parents", "Parents"], "explanation": "Pais = Parents (sempre plural!)!"},
             {"id": "en3p_1_15", "type": "type", "diff": 3, "q": "Como se diz «pássaro» em inglês?", "accept": ["bird", "Bird"], "explanation": "Pássaro = Bird! 🐦"},
             {"id": "en3p_1_16", "type": "type", "diff": 3, "q": "Como se diz «peixe» em inglês?", "accept": ["fish", "Fish"], "explanation": "Peixe = Fish! 🐟"},
-            {"id": "en3p_1_17", "type": "tf", "diff": 1, "q": "True or false? «My mother's mother is my grandmother.»", "correct": true, "explanation": "True! A mãe da minha mãe é a minha avó! 👵"},
+            {"id": "en3p_1_17", "type": "tf", "diff": 1, "q": "«My mother's mother is my grandmother.»", "correct": true, "explanation": "True! A mãe da minha mãe é a minha avó! 👵"},
             {"id": "en3p_1_18", "type": "type", "diff": 3, "bonus": true, "q": "Bonus! Como se diz «porquinho-da-índia» em inglês?", "accept": ["guinea pig", "Guinea pig", "guinea-pig", "Guinea-pig"], "explanation": "Porquinho-da-índia = Guinea pig! Pode escrever-se com ou sem hífen. 🐹"}
           ]
         },
@@ -139,7 +139,7 @@
             {"id": "en3p_2_14", "type": "type", "diff": 3, "q": "Como se diz «polícia» em inglês?", "accept": ["police officer", "Police officer", "policeman", "Policeman", "policewoman", "Policewoman"], "explanation": "Polícia = Police officer (ou Policeman / Policewoman)! 👮"},
             {"id": "en3p_2_15", "type": "type", "diff": 3, "q": "Como se diz «piloto» (de avião) em inglês?", "accept": ["pilot", "Pilot"], "explanation": "Piloto = Pilot! ✈️"},
             {"id": "en3p_2_16", "type": "type", "diff": 3, "q": "Como se diz «padeiro» em inglês?", "accept": ["baker", "Baker"], "explanation": "Padeiro = Baker! 🥐"},
-            {"id": "en3p_2_17", "type": "tf", "diff": 2, "q": "True or false? A vet helps sick animals.", "correct": true, "explanation": "True! Vet = Veterinário, ajuda animais doentes! 🐕‍🦺"},
+            {"id": "en3p_2_17", "type": "tf", "diff": 2, "q": "«A vet helps sick animals.»", "correct": true, "explanation": "True! Vet = Veterinário, ajuda animais doentes! 🐕‍🦺"},
             {"id": "en3p_2_18", "type": "type", "diff": 3, "bonus": true, "q": "Bonus! Como se diz «agricultor» em inglês?", "accept": ["farmer", "Farmer"], "explanation": "Agricultor = Farmer! Cuida da quinta e dos animais. 🌾"}
           ]
         },
@@ -214,7 +214,7 @@
             {"id": "en3p_5_14", "type": "type", "diff": 3, "q": "Como se diz «castanho» em inglês?", "accept": ["brown", "Brown"], "explanation": "Castanho = Brown! 🤎"},
             {"id": "en3p_5_15", "type": "type", "diff": 3, "q": "Como se diz «estrela» em inglês?", "accept": ["star", "Star"], "explanation": "Estrela = Star! ⭐"},
             {"id": "en3p_5_16", "type": "type", "diff": 3, "q": "Como se diz «forma oval» em inglês?", "accept": ["oval", "Oval"], "explanation": "Oval = Oval (como um ovo)! 🥚"},
-            {"id": "en3p_5_17", "type": "tf", "diff": 1, "q": "True or false? «White» significa «preto».", "correct": false, "explanation": "False! White = branco. Preto = Black! ⚫⚪"},
+            {"id": "en3p_5_17", "type": "tf", "diff": 1, "q": "«White» significa «preto».", "correct": false, "explanation": "False! White = branco. Preto = Black! ⚫⚪"},
             {"id": "en3p_5_18", "type": "type", "diff": 3, "bonus": true, "q": "Bonus! Como se diz «losango» em inglês?", "accept": ["diamond", "Diamond"], "explanation": "Losango = Diamond (também significa «diamante»)! 💎"}
           ]
         },

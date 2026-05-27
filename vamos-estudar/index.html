@@ -1258,11 +1258,14 @@ function checkTypeAnswer() {
 }
 
 function renderTF(q, body) {
+  const isEnglish = curSubjectId === 'ingles';
+  const trueLabel  = isEnglish ? '✓ True'  : '✓ Verdadeiro';
+  const falseLabel = isEnglish ? '✗ False' : '✗ Falso';
   const div = document.createElement('div');
   div.className = 'q-options';
   div.innerHTML = `
-    <button class="opt-btn" style="text-align:center;font-weight:700;" onclick="pickTF(this,true,${q.correct})">✓ Verdadeiro</button>
-    <button class="opt-btn" style="text-align:center;font-weight:700;" onclick="pickTF(this,false,${q.correct})">✗ Falso</button>
+    <button class="opt-btn" style="text-align:center;font-weight:700;" onclick="pickTF(this,true,${q.correct})">${trueLabel}</button>
+    <button class="opt-btn" style="text-align:center;font-weight:700;" onclick="pickTF(this,false,${q.correct})">${falseLabel}</button>
   `;
   body.appendChild(div);
 }
@@ -1451,7 +1454,12 @@ function onWrong(q, showAnswer) {
   let correctAnswer = '';
   if (q.type === 'mc') correctAnswer = q.options[q.correct];
   else if (q.type === 'type') correctAnswer = q.accept[0];
-  else if (q.type === 'tf') correctAnswer = q.correct ? 'Verdadeiro' : 'Falso';
+  else if (q.type === 'tf') {
+    const isEnglish = curSubjectId === 'ingles';
+    correctAnswer = q.correct
+      ? (isEnglish ? 'True'  : 'Verdadeiro')
+      : (isEnglish ? 'False' : 'Falso');
+  }
   else if (q.type === 'sort') correctAnswer = q.items.join(' → ');
 
   const explanation = q.explanation ? ' ' + q.explanation : '';
