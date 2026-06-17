@@ -96,7 +96,116 @@
       "name": "3.º Período 2025/26",
       "examDate": null,
       "archived": false,
-      "levels": []
+      "levels": [
+        {
+          "id": 1,
+          "name": "Movimentos da Terra e Orientação",
+          "sub": "Rotação, translação, fases da Lua e orientação pelo Sol e estrelas",
+          "questions": [
+            {"id": "em3p_1_01", "type": "mc", "diff": 1, "q": "A ROTAÇÃO é o movimento da Terra em torno do seu...?", "options": ["Eixo", "Sol", "Lua", "Outro planeta"], "correct": 0, "explanation": "A rotação é o movimento da Terra em torno do seu próprio eixo!"},
+            {"id": "em3p_1_02", "type": "mc", "diff": 1, "q": "A TRANSLAÇÃO é o movimento da Terra em torno do...?", "options": ["Sol", "Eixo", "Lua", "Polo Norte"], "correct": 0, "explanation": "A translação é o movimento da Terra em torno do Sol! ☀️"},
+            {"id": "em3p_1_03", "type": "mc", "diff": 1, "q": "A rotação da Terra demora aproximadamente...?", "options": ["Um dia", "Um ano", "Um mês", "Uma semana"], "correct": 0, "explanation": "A rotação demora aproximadamente um dia (24 horas)!"},
+            {"id": "em3p_1_04", "type": "mc", "diff": 1, "q": "A translação da Terra demora aproximadamente...?", "options": ["Um ano", "Um dia", "Um mês", "Uma semana"], "correct": 0, "explanation": "A translação demora aproximadamente um ano (365 dias)! 🌍"},
+            {"id": "em3p_1_05", "type": "mc", "diff": 1, "q": "A rotação da Terra é responsável pela sucessão dos...?", "options": ["Dias e noites", "Estações do ano", "Fases da Lua", "Marés"], "correct": 0, "explanation": "Como a Terra roda, um lado fica com Sol (dia) e outro fica escuro (noite)!"},
+            {"id": "em3p_1_06", "type": "mc", "diff": 1, "q": "A translação da Terra é responsável pela sucessão das...?", "options": ["Estações do ano", "Dias e noites", "Fases da Lua", "Chuvas"], "correct": 0, "explanation": "A translação (órbita em torno do Sol) causa as 4 estações do ano!"},
+            {"id": "em3p_1_07", "type": "mc", "diff": 1, "q": "O Sol NASCE a...?", "options": ["Este (E)", "Oeste (O)", "Norte (N)", "Sul (S)"], "correct": 0, "explanation": "O Sol nasce sempre a Este (nascente) e põe-se a Oeste (poente)!"},
+            {"id": "em3p_1_08", "type": "mc", "diff": 2, "q": "Ao meio-dia, o Sol indica o ponto cardeal...?", "options": ["Sul (S)", "Norte (N)", "Este (E)", "Oeste (O)"], "correct": 0, "explanation": "Ao meio-dia, o Sol está a Sul! Em Portugal, o Sol nasce a Este, indica o Sul ao meio-dia e põe-se a Oeste!"},
+            {"id": "em3p_1_09", "type": "mc", "diff": 2, "q": "Ao fim da tarde, o Sol indica o ponto cardeal...?", "options": ["Oeste (O)", "Este (E)", "Norte (N)", "Sul (S)"], "correct": 0, "explanation": "Ao fim da tarde, o Sol indica o Oeste (poente)!"},
+            {"id": "em3p_1_10", "type": "mc", "diff": 2, "q": "A Estrela Polar permite localizar o ponto cardeal...?", "options": ["Norte (N)", "Sul (S)", "Este (E)", "Oeste (O)"], "correct": 0, "explanation": "No hemisfério norte, a Estrela Polar indica sempre o Norte!"},
+            {"id": "em3p_1_11", "type": "mc", "diff": 2, "q": "Quantas fases tem a Lua?", "options": ["4", "2", "6", "8"], "correct": 0, "explanation": "A Lua tem 4 fases: Lua Nova, Quarto Crescente, Lua Cheia e Quarto Minguante! 🌙"},
+            {"id": "em3p_1_12", "type": "mc", "diff": 2, "q": "Na fase LUA NOVA, como vemos a Lua?", "options": ["Não a vemos (escura)", "Completamente iluminada", "Metade iluminada a crescer", "Metade iluminada a diminuir"], "correct": 0, "explanation": "Na Lua Nova, o lado iluminado está voltado para longe de nós — não a vemos!"},
+            {"id": "em3p_1_13", "type": "type", "diff": 2, "q": "Como se chama o movimento da Terra em torno do seu eixo? (uma palavra)", "accept": ["rotacao", "rotação"], "explanation": "Rotação! A Terra roda em torno do seu próprio eixo."},
+            {"id": "em3p_1_14", "type": "type", "diff": 2, "q": "A translação da Terra demora aproximadamente quantos dias? (escreve o número)", "accept": ["365"], "explanation": "A translação demora aproximadamente 365 dias (1 ano)!"},
+            {"id": "em3p_1_15", "type": "type", "diff": 3, "q": "Como se chama o movimento da Terra em torno do Sol? (uma palavra)", "accept": ["translacao", "translação"], "explanation": "Translação! A Terra orbita o Sol em aproximadamente 1 ano."},
+            {"id": "em3p_1_16", "type": "type", "diff": 3, "q": "Qual estrela indica o ponto cardeal Norte no hemisfério norte? (duas palavras)", "accept": ["estrela polar", "polar"], "explanation": "A Estrela Polar! Está sempre alinhada com o polo norte e indica o Norte."},
+            {"id": "em3p_1_17", "type": "type", "diff": 3, "q": "Como se chama a fase da Lua em que a vemos completamente iluminada? (duas palavras)", "accept": ["lua cheia", "cheia"], "explanation": "Lua Cheia! 🌕 É quando vemos a Lua completamente iluminada."},
+            {"id": "em3p_1_18", "type": "tf", "diff": 1, "q": "A rotação da Terra demora aproximadamente um dia.", "correct": true, "explanation": "Verdade! A rotação dura ~24 horas = 1 dia."},
+            {"id": "em3p_1_19", "type": "tf", "diff": 2, "q": "A translação da Terra causa a sucessão dos dias e das noites.", "correct": false, "explanation": "Falso! A ROTAÇÃO causa os dias e as noites. A TRANSLAÇÃO causa as estações do ano!"},
+            {"id": "em3p_1_20", "type": "tf", "diff": 2, "q": "O Sol nasce a Oeste e põe-se a Este.", "correct": false, "explanation": "Falso! O Sol nasce a ESTE (nascente) e põe-se a OESTE (poente)!"}
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Magnetismo e Comportamento da Luz",
+          "sub": "Ímanes, bússola e materiais transparentes, translúcidos e opacos",
+          "questions": [
+            {"id": "em3p_2_01", "type": "mc", "diff": 1, "q": "Um íman é um objeto metálico com...?", "options": ["Magnetismo", "Eletricidade", "Gravidade", "Luminosidade"], "correct": 0, "explanation": "Um íman é um objeto metálico com magnetismo! 🧲"},
+            {"id": "em3p_2_02", "type": "mc", "diff": 1, "q": "Os ímanes atraem materiais como...?", "options": ["Ferro", "Plástico", "Madeira", "Vidro"], "correct": 0, "explanation": "Os ímanes atraem materiais ferrosos (ferro e aço)!"},
+            {"id": "em3p_2_03", "type": "mc", "diff": 1, "q": "Um íman tem quantos polos?", "options": ["2", "1", "4", "3"], "correct": 0, "explanation": "Todo o íman tem sempre 2 polos: Norte (N) e Sul (S)!"},
+            {"id": "em3p_2_04", "type": "mc", "diff": 1, "q": "Os polos de um íman ATRAEM-SE quando são...?", "options": ["Diferentes", "Iguais", "Grandes", "Pequenos"], "correct": 0, "explanation": "Polos diferentes atraem-se: N e S ficam juntos!"},
+            {"id": "em3p_2_05", "type": "mc", "diff": 1, "q": "Os polos de um íman REPELEM-SE quando são...?", "options": ["Iguais", "Diferentes", "Opostos", "Grandes"], "correct": 0, "explanation": "Polos iguais repelem-se: N+N ou S+S afastam-se!"},
+            {"id": "em3p_2_06", "type": "mc", "diff": 1, "q": "A bússola é um instrumento de...?", "options": ["Orientação", "Medição de temperatura", "Medição de velocidade", "Observação"], "correct": 0, "explanation": "A bússola é um instrumento de orientação! 🧭"},
+            {"id": "em3p_2_07", "type": "mc", "diff": 1, "q": "A agulha da bússola indica sempre o...?", "options": ["Norte", "Sul", "Este", "Oeste"], "correct": 0, "explanation": "A agulha da bússola é atraída pela força magnética da Terra e indica sempre o Norte!"},
+            {"id": "em3p_2_08", "type": "mc", "diff": 1, "q": "Materiais TRANSPARENTES...?", "options": ["Deixam-se atravessar pela luz", "Não deixam passar a luz", "Deixam passar alguma luz", "Refletem toda a luz"], "correct": 0, "explanation": "Materiais transparentes deixam-se atravessar completamente pela luz! Ex: vidro, cristal, água."},
+            {"id": "em3p_2_09", "type": "mc", "diff": 1, "q": "O vidro é um material...?", "options": ["Transparente", "Opaco", "Translúcido", "Magnético"], "correct": 0, "explanation": "O vidro é transparente — deixa-se atravessar completamente pela luz!"},
+            {"id": "em3p_2_10", "type": "mc", "diff": 2, "q": "A madeira é um material...?", "options": ["Opaco", "Transparente", "Translúcido", "Brilhante"], "correct": 0, "explanation": "A madeira é opaca — não deixa passar a luz e provoca sombra!"},
+            {"id": "em3p_2_11", "type": "mc", "diff": 2, "q": "Materiais OPACOS...?", "options": ["Não deixam passar a luz e provocam sombra", "Deixam passar toda a luz", "Deixam passar alguma luz", "Refletem a luz para trás"], "correct": 0, "explanation": "Materiais opacos não se deixam atravessar pela luz e provocam sombra! Ex: madeira, rocha, cartão."},
+            {"id": "em3p_2_12", "type": "mc", "diff": 2, "q": "Lentes de óculos de sol são materiais...?", "options": ["Translúcidos", "Transparentes", "Opacos", "Magnéticos"], "correct": 0, "explanation": "As lentes de óculos de sol são translúcidas — deixam-se atravessar parcialmente pela luz!"},
+            {"id": "em3p_2_13", "type": "mc", "diff": 2, "q": "A força que faz a agulha da bússola apontar para o Norte é a força...?", "options": ["Magnética da Terra", "Gravitacional", "Elétrica", "Solar"], "correct": 0, "explanation": "A agulha da bússola é atraída pela força magnética da Terra!"},
+            {"id": "em3p_2_14", "type": "type", "diff": 2, "q": "Como se chama um material que deixa passar TODA a luz? (uma palavra)", "accept": ["transparente"], "explanation": "Transparente! Ex: vidro, cristal, água."},
+            {"id": "em3p_2_15", "type": "type", "diff": 2, "q": "Como se chama um material que NÃO deixa passar a luz? (uma palavra)", "accept": ["opaco"], "explanation": "Opaco! Ex: madeira, rocha, cartão. Os opacos provocam sombra!"},
+            {"id": "em3p_2_16", "type": "type", "diff": 3, "q": "Como se chama um material que deixa passar ALGUMA luz, mas não toda? (uma palavra)", "accept": ["translucido", "translúcido"], "explanation": "Translúcido! Ex: algum papel, alguns tecidos, lentes de óculos de sol."},
+            {"id": "em3p_2_17", "type": "type", "diff": 3, "q": "Que polo tem um íman para além do polo Norte? (uma palavra)", "accept": ["sul"], "explanation": "Um íman tem sempre dois polos: Norte (N) e Sul (S)!"},
+            {"id": "em3p_2_18", "type": "tf", "diff": 1, "q": "Os polos DIFERENTES de um íman atraem-se.", "correct": true, "explanation": "Verdade! Polos diferentes (N e S) atraem-se!"},
+            {"id": "em3p_2_19", "type": "tf", "diff": 2, "q": "A bússola indica sempre o Sul.", "correct": false, "explanation": "Falso! A agulha da bússola indica sempre o NORTE!"},
+            {"id": "em3p_2_20", "type": "tf", "diff": 2, "q": "A rocha é um material translúcido.", "correct": false, "explanation": "Falso! A rocha é um material OPACO — não deixa passar a luz e provoca sombra!"}
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Primeiros Socorros",
+          "sub": "Número de emergência, como tratar lesões e caixa de primeiros socorros",
+          "questions": [
+            {"id": "em3p_3_01", "type": "mc", "diff": 1, "q": "Qual é o número de emergência médica em Portugal?", "options": ["112", "911", "999", "115"], "correct": 0, "explanation": "112 é o número de emergência médica em Portugal! 🚑"},
+            {"id": "em3p_3_02", "type": "mc", "diff": 1, "q": "Os primeiros socorros servem para...?", "options": ["Prestar assistência até chegar ajuda profissional", "Substituir o médico permanentemente", "Curar doenças graves", "Fazer cirurgias"], "correct": 0, "explanation": "Os primeiros socorros são prestados até chegar ajuda médica profissional!"},
+            {"id": "em3p_3_03", "type": "mc", "diff": 1, "q": "Em caso de QUEIMADURA, o que se deve fazer primeiro?", "options": ["Arrefecer a zona queimada", "Espremer a zona", "Cobrir com algodão", "Aplicar álcool"], "correct": 0, "explanation": "O primeiro passo é ARREFECER a zona queimada, depois cobrir com compressa e aplicar gelo!"},
+            {"id": "em3p_3_04", "type": "mc", "diff": 1, "q": "Em caso de HEMORRAGIA, o que se aplica na ferida para desinfetar?", "options": ["Pomada antissética", "Álcool puro", "Água quente", "Açúcar"], "correct": 0, "explanation": "Aplica-se pomada antissética para desinfetar a ferida na hemorragia!"},
+            {"id": "em3p_3_05", "type": "mc", "diff": 1, "q": "Em caso de HEMATOMA, o que se deve aplicar?", "options": ["Gelo", "Calor", "Compressa seca", "Álcool"], "correct": 0, "explanation": "Aplica-se gelo no hematoma! Se necessário, aplica-se também pomada."},
+            {"id": "em3p_3_06", "type": "mc", "diff": 2, "q": "Em caso de FRATURA, o que se deve fazer?", "options": ["Imobilizar a zona e chamar uma ambulância", "Tentar endireitar o osso", "Massajar vigorosamente", "Aplicar calor"], "correct": 0, "explanation": "Em caso de fratura: expor a zona, IMOBILIZAR e chamar uma ambulância! 🚑"},
+            {"id": "em3p_3_07", "type": "mc", "diff": 2, "q": "Em caso de DISTENSÃO, além de gelo, o que se pode tomar (com orientação médica)?", "options": ["Anti-inflamatório", "Antibiótico", "Vitaminas", "Xarope para a tosse"], "correct": 0, "explanation": "Na distensão: aplica-se gelo e, se necessário, toma-se anti-inflamatório sob orientação médica!"},
+            {"id": "em3p_3_08", "type": "mc", "diff": 2, "q": "Em caso de MORDEDURA de animal, o que se faz com a ferida?", "options": ["Lavar e desinfetar", "Deixar sem tratar", "Apertar com força", "Aplicar calor"], "correct": 0, "explanation": "Em caso de mordedura: lavar a ferida, desinfetar e, se necessário, aplicar um penso!"},
+            {"id": "em3p_3_09", "type": "mc", "diff": 2, "q": "O que deve conter a caixa de primeiros socorros?", "options": ["Objetos e medicamentos para tratar a vítima", "Apenas pensos rápidos", "Apenas medicamentos líquidos", "Instrumentos cirúrgicos"], "correct": 0, "explanation": "A caixa de primeiros socorros deve conter objetos e medicamentos que nos ajudem a tratar a vítima!"},
+            {"id": "em3p_3_10", "type": "mc", "diff": 2, "q": "Em caso de HEMORRAGIA, depois de lavar e aplicar pomada, o que se faz?", "options": ["Cobrir com ligadura ou penso", "Deixar a ferida aberta ao ar", "Aplicar gelo por cima", "Espremer a ferida"], "correct": 0, "explanation": "Após lavar e aplicar pomada antissética, cobre-se a ferida com ligadura ou penso!"},
+            {"id": "em3p_3_11", "type": "type", "diff": 2, "q": "Qual é o número de emergência médica em Portugal? (escreve o número)", "accept": ["112"], "explanation": "112 é o número de emergência médica! 🚑"},
+            {"id": "em3p_3_12", "type": "type", "diff": 2, "q": "Em caso de queimadura, qual é o PRIMEIRO passo? (uma palavra — o que se faz à zona)", "accept": ["arrefecer"], "explanation": "O primeiro passo é ARREFECER a zona queimada!"},
+            {"id": "em3p_3_13", "type": "type", "diff": 3, "q": "Em caso de fratura, que veículo de socorro se deve chamar? (uma palavra)", "accept": ["ambulancia", "ambulância"], "explanation": "Deve-se chamar uma ambulância! 🚑"},
+            {"id": "em3p_3_14", "type": "type", "diff": 3, "q": "Em caso de mordedura de animal, o que se deve fazer à mordedura depois de lavar? (uma palavra)", "accept": ["desinfetar", "desinfectar", "desinfeção", "desinfeçao"], "explanation": "Depois de lavar, deve-se DESINFETAR a mordedura!"},
+            {"id": "em3p_3_15", "type": "tf", "diff": 1, "q": "O número de emergência médica em Portugal é o 112.", "correct": true, "explanation": "Verdade! 112 é o número de emergência médica em Portugal!"},
+            {"id": "em3p_3_16", "type": "tf", "diff": 2, "q": "Em caso de queimadura, deve-se aplicar CALOR na zona afetada.", "correct": false, "explanation": "Falso! Em caso de queimadura deve-se ARREFECER a zona queimada, nunca aplicar calor!"},
+            {"id": "em3p_3_17", "type": "tf", "diff": 2, "q": "Em caso de fratura, deve-se tentar movimentar o osso para o endireitar.", "correct": false, "explanation": "Falso! Em caso de fratura deve-se IMOBILIZAR a zona e chamar uma ambulância — nunca mexer no osso!"},
+            {"id": "em3p_3_18", "type": "tf", "diff": 2, "q": "Em caso de hematoma, aplica-se gelo na zona.", "correct": true, "explanation": "Verdade! O gelo ajuda a reduzir o inchaço no hematoma!"},
+            {"id": "em3p_3_19", "type": "tf", "diff": 3, "q": "Em caso de hemorragia, cobre-se a ferida com ligadura ou penso.", "correct": true, "explanation": "Verdade! Depois de lavar e aplicar pomada antissética, cobre-se com ligadura ou penso!"},
+            {"id": "em3p_3_20", "type": "mc", "diff": 3, "q": "Qual destas lesões exige IMOBILIZAÇÃO e chamada de ambulância?", "options": ["Fratura", "Hematoma", "Distensão", "Queimadura"], "correct": 0, "explanation": "A fratura exige imobilizar a zona lesionada e chamar uma ambulância!"}
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Saúde, Ambiente e Seres Vivos",
+          "sub": "Fatores de risco, cadeias alimentares, reprodução e ameaças",
+          "questions": [
+            {"id": "em3p_4_01", "type": "mc", "diff": 1, "q": "Quais são os fatores do ambiente ESSENCIAIS aos seres vivos?", "options": ["Ar, luz, temperatura, água e solo", "Apenas água e ar", "Apenas luz e temperatura", "Apenas solo e água"], "correct": 0, "explanation": "Os seres vivos precisam de ar, luz, temperatura adequada, água e solo! 🌱"},
+            {"id": "em3p_4_02", "type": "mc", "diff": 1, "q": "O álcool provoca...?", "options": ["Dependência e várias doenças", "Apenas cansaço passageiro", "Apenas dores de cabeça", "Nada de grave"], "correct": 0, "explanation": "O álcool provoca dependência e várias doenças, e afeta as relações pessoais!"},
+            {"id": "em3p_4_03", "type": "mc", "diff": 1, "q": "Numa cadeia alimentar, o PRODUTOR é normalmente...?", "options": ["Uma planta", "Um leão", "Uma girafa", "Um inseto"], "correct": 0, "explanation": "As plantas são produtoras — produzem o seu próprio alimento! 🌿"},
+            {"id": "em3p_4_04", "type": "mc", "diff": 1, "q": "Os animais VIVÍPAROS nascem...?", "options": ["Do ventre materno", "De um ovo", "De uma semente", "De uma larva"], "correct": 0, "explanation": "Vivíparos nascem do ventre materno! Ex: cão, cavalo, ser humano. 🐴"},
+            {"id": "em3p_4_05", "type": "mc", "diff": 1, "q": "Os animais OVÍPAROS nascem...?", "options": ["De um ovo", "Do ventre materno", "De uma flor", "De uma semente"], "correct": 0, "explanation": "Ovíparos nascem de um ovo! Ex: galinha, pássaro, crocodilo. 🥚"},
+            {"id": "em3p_4_06", "type": "mc", "diff": 1, "q": "As plantas podem reproduzir-se por semente e por...?", "options": ["Estaca", "Ovo", "Divisão celular", "Broto"], "correct": 0, "explanation": "As plantas reproduzem-se por semente e por estaca!"},
+            {"id": "em3p_4_07", "type": "mc", "diff": 1, "q": "O tabaco é uma das principais causas de...?", "options": ["Morte", "Alegria", "Crescimento", "Mais energia"], "correct": 0, "explanation": "O tabaco é uma das principais causas de morte e provoca dependência!"},
+            {"id": "em3p_4_08", "type": "mc", "diff": 2, "q": "Numa cadeia alimentar, o consumidor PRIMÁRIO come...?", "options": ["O produtor (plantas)", "O consumidor final", "Outros animais grandes", "Apenas água"], "correct": 0, "explanation": "O consumidor primário consome o produtor (plantas)! Ex: a girafa come plantas. 🦒"},
+            {"id": "em3p_4_09", "type": "mc", "diff": 2, "q": "Qual NÃO é uma ameaça aos seres vivos?", "options": ["A chuva moderada", "A poluição", "Os incêndios", "O aquecimento global"], "correct": 0, "explanation": "A chuva moderada é benéfica! As ameaças são: poluição, incêndios, desflorestação e aquecimento global!"},
+            {"id": "em3p_4_10", "type": "mc", "diff": 2, "q": "A exposição MODERADA ao sol ajuda a produzir no organismo...?", "options": ["Vitamina D", "Vitamina C", "Proteínas", "Açúcar"], "correct": 0, "explanation": "A exposição moderada ao sol ajuda a produzir vitamina D, fortalece os ossos e estimula a circulação!"},
+            {"id": "em3p_4_11", "type": "mc", "diff": 2, "q": "O consumidor FINAL numa cadeia alimentar...?", "options": ["Come o consumidor primário", "Come as plantas", "É uma planta", "Não come nada"], "correct": 0, "explanation": "O consumidor final come o consumidor primário! Ex: o leão come a girafa. 🦁"},
+            {"id": "em3p_4_12", "type": "mc", "diff": 2, "q": "O ar puro é importante porque nos dá mais...?", "options": ["Oxigénio", "Açúcar", "Vitaminas", "Proteínas"], "correct": 0, "explanation": "Com ar puro recebemos mais oxigénio e ficamos mais saudáveis e resistentes a doenças!"},
+            {"id": "em3p_4_13", "type": "type", "diff": 2, "q": "Como se chamam os animais que nascem do VENTRE materno? (uma palavra)", "accept": ["viviparos", "vivíparos"], "explanation": "Vivíparos! Nascem do ventre materno. Ex: cão, cavalo, ser humano."},
+            {"id": "em3p_4_14", "type": "type", "diff": 2, "q": "Como se chamam os animais que nascem de um OVO? (uma palavra)", "accept": ["oviparos", "ovíparos"], "explanation": "Ovíparos! Nascem de um ovo. Ex: galinha, pássaro, crocodilo. 🥚"},
+            {"id": "em3p_4_15", "type": "type", "diff": 3, "q": "Numa cadeia alimentar, como se chama o ser que produz o seu próprio alimento? (uma palavra)", "accept": ["produtor"], "explanation": "O produtor! Normalmente são as plantas, que produzem o seu próprio alimento. 🌿"},
+            {"id": "em3p_4_16", "type": "type", "diff": 3, "q": "Indica um fator do ambiente ESSENCIAL aos seres vivos (uma palavra)", "accept": ["ar", "luz", "agua", "água", "solo", "temperatura"], "explanation": "Os fatores essenciais são: ar, luz, temperatura adequada, água e solo!"},
+            {"id": "em3p_4_17", "type": "tf", "diff": 1, "q": "O tabaco provoca dependência e doenças.", "correct": true, "explanation": "Verdade! O tabaco é uma das principais causas de morte e provoca dependência!"},
+            {"id": "em3p_4_18", "type": "tf", "diff": 2, "q": "Os seres vivos apresentam sempre EXATAMENTE as mesmas características dos seus progenitores.", "correct": false, "explanation": "Falso! Os seres vivos apresentam semelhanças E diferenças em relação aos seus progenitores!"},
+            {"id": "em3p_4_19", "type": "tf", "diff": 2, "q": "A poluição é uma ameaça aos seres vivos.", "correct": true, "explanation": "Verdade! Poluição, incêndios, desflorestação e aquecimento global ameaçam os seres vivos!"},
+            {"id": "em3p_4_20", "type": "sort", "diff": 3, "q": "Ordena a cadeia alimentar do PRODUTOR ao CONSUMIDOR FINAL:", "items": ["Produtor (planta)", "Consumidor primário (girafa)", "Consumidor final (leão)"], "explanation": "Planta → Girafa → Leão! A energia passa do produtor para os consumidores. 🌿🦒🦁"}
+          ]
+        }
+      ]
     }
   ]
 }

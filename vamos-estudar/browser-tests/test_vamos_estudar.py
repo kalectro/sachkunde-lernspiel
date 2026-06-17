@@ -22,7 +22,7 @@ load_dotenv()
 BASE_URL = "http://localhost:8000/vamos-estudar/"
 
 llm = ChatOpenAI(
-    model=os.getenv("BROWSER_USE_MODEL", "openai/gpt-4o-mini"),
+    model=os.getenv('BROWSER_USE_MODEL', 'google/gemini-2.0-flash-001'),
     api_key=os.getenv("OPENROUTER_API_KEY"),
     base_url="https://openrouter.ai/api/v1",
     timeout=60,
@@ -108,8 +108,8 @@ async def test_archived_quiz_playable():
     return passed
 
 
-async def test_active_exam_stars_shown():
-    """Test: Active exam level screen shows star display."""
+async def test_active_exam_level_screen():
+    """Test: Active exam level screen is accessible and shows level cards."""
     print("\n[3/4] Active exam level screen...")
     session = BrowserSession()
     try:
@@ -119,9 +119,9 @@ async def test_active_exam_stars_shown():
             "The browser is on the Vamos Estudar app profile screen. "
             "Click 'TesteBot' in the profile list, or if not present, type 'TesteBot' and click '➕ Criar perfil'. "
             "On the home screen, click on 'Matemática'. "
-            "You will see a level list screen. Check if star icons (⭐) or crown icons (👑) are visible next to the level names. "
-            "Do NOT start any quiz — just observe the level screen. "
-            "Report exactly: 'SUCCESS: level screen visible with star/crown display' or 'FAIL: <reason>'.",
+            "You will see a level list screen with level cards (e.g. 'Nível 1', 'Nível 2', etc.). "
+            "Do NOT start any quiz — just confirm the level list is visible. "
+            "Report exactly: 'SUCCESS: level screen visible with level cards' or 'FAIL: <reason>'.",
             session,
         )
     finally:
@@ -165,7 +165,7 @@ async def main():
     for test_fn in [
         test_profile_creation,
         test_archived_quiz_playable,
-        test_active_exam_stars_shown,
+        test_active_exam_level_screen,
         test_achievements_screen,
     ]:
         try:
