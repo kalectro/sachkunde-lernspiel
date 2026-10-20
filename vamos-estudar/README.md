@@ -1,7 +1,7 @@
 # 🎓 Vamos Estudar!
 
-Aplicação de estudo interativa para alunos do 3.º ano em Portugal.
-Interaktive Lern-App für die 3. Klasse in Portugal.
+Aplicação de estudo interativa para alunos do 4.º ano em Portugal.
+Interaktive Lern-App für die 4. Klasse in Portugal.
 
 **🔗 [Abrir / Öffnen](https://kalectro.github.io/sachkunde-lernspiel/vamos-estudar/)**
 
@@ -15,7 +15,7 @@ Interaktive Lern-App für die 3. Klasse in Portugal.
 
 **Disciplinas:** Português 📚, Matemática 🔢, Estudo do Meio 🌍, Inglês 🇬🇧
 
-Cada disciplina tem 3 níveis com perguntas de escolha múltipla e resposta escrita. Ganha estrelas ⭐ e conquistas 🏆!
+Cada disciplina tem vários níveis com perguntas de escolha múltipla e resposta escrita. Ganha estrelas ⭐ e conquistas 🏆!
 
 As provas já realizadas ficam disponíveis em "Provas passadas" para praticares quando quiseres.
 

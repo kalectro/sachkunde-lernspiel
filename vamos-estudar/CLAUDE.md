@@ -1,7 +1,7 @@
-# Vamos Estudar — Lern-App für 3. Klasse Portugal
+# Vamos Estudar — Lern-App für 4. Klasse Portugal
 
 ## Überblick
-Interaktive Lern-App als **einzelne HTML-Datei** (`index.html`) + externe JSON-Datendateien. Für ~25 Familien, gehostet auf GitHub Pages. Zielgruppe: 9-Jährige (3.º ano, Portugal).
+Interaktive Lern-App als **einzelne HTML-Datei** (`index.html`) + externe JSON-Datendateien. Für ~25 Familien, gehostet auf GitHub Pages. Zielgruppe: Klasse 4.º A, Schuljahr 2026/27 (9–10 Jahre, Portugal). Bis Sommer 2026 war es 3.º A; die Prüfungen 2025/26 liegen archiviert unter „Provas passadas“.
 
 **Live:** https://kalectro.github.io/sachkunde-lernspiel/vamos-estudar/
 
@@ -77,6 +77,8 @@ Optional: `bonus: true`, `hint: "Tipptext"`
 - **`archived: false`** = aktive Prüfung → zählt für Sterne, Kronen, Achievements
 - **`archived: true`** = vergangene Prüfung → spielbar zum Üben, zählt NICHT für Gesamtbewertung
 - Prüfungswechsel: `"archived": true` setzen, neue Prüfung hinzufügen
+- **Platzhalter** (Prüfung mit `"levels": []`, z. B. `pt_3p_2026`, `mat_3p_2026`) werden **weder aktiv noch im Archiv** gelistet. Die Regel sitzt an genau einer Stelle: `getActiveExams` / `getArchivedExams` (vorher nur in der Aktiv-Liste von `renderHome` und in `checkSubjectMastered`, das Archiv hätte leere Karten gezeigt). Test: „exams without levels are hidden …“, Gegenprobe 20.10.2026 rot/grün.
+- **Schuljahreswechsel** (zuletzt 20.10.2026, 3.º A → 4.º A): Klassenname in `<title>` und im Profil-Screen von `index.html`, README (pt + de), Überblick oben und Zeile in der Wurzel-`CLAUDE.md`; alle Prüfungen des alten Schuljahrs archivieren.
 
 ## Profil-System
 - Mehrere Spieler pro Gerät

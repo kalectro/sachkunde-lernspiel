@@ -95,7 +95,7 @@
       "id": "em_3p_2026",
       "name": "3.º Período 2025/26",
       "examDate": null,
-      "archived": false,
+      "archived": true,
       "levels": [
         {
           "id": 1,

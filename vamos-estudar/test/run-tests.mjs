@@ -182,6 +182,30 @@ for (const [sid, data] of Object.entries(questionData)) {
   }
 }
 
+// Exam listing is taken verbatim from index.html: placeholders (no levels) must never be listed.
+const examListing = new Function('questionData',
+  ['getActiveExams', 'getArchivedExams'].map(n => extractFn(htmlSource, n)).join('\n') +
+  '\nreturn { getActiveExams, getArchivedExams };');
+
+test('exams without levels are hidden from active and archived lists', () => {
+  const { getActiveExams, getArchivedExams } = examListing({ x: { exams: [
+    { id: 'a_full', archived: false, levels: [{ id: 1, questions: [] }] },
+    { id: 'a_empty', archived: false, levels: [] },
+    { id: 'z_full', archived: true, levels: [{ id: 1, questions: [] }] },
+    { id: 'z_empty', archived: true, levels: [] }
+  ] } });
+  assertEqual(getActiveExams('x').map(e => e.id).join(), 'a_full');
+  assertEqual(getArchivedExams('x').map(e => e.id).join(), 'z_full');
+});
+
+test('real data: no placeholder exam is listed', () => {
+  const { getActiveExams, getArchivedExams } = examListing(questionData);
+  for (const sid of Object.keys(questionData)) {
+    [...getActiveExams(sid), ...getArchivedExams(sid)].forEach(e =>
+      assert(e.levels.length > 0, `${sid} ${e.id} listed without levels`));
+  }
+});
+
 // ═══════════════════════════════════════════════════════
 //  2. ANSWER NORMALIZATION
 // ═══════════════════════════════════════════════════════

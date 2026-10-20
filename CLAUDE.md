@@ -26,7 +26,7 @@ Lernplattform der Frankensteinschule, gehostet auf GitHub Pages. Root (`/`) ist 
 /                       Platform-Hub (index.html): Profilwahl + Testkarten
 /sachkunde/             Lernspiel "Das Jahr" (6 Welten, 2. Klasse)
 /deutschtest/           Deutschtest (Verben & Wortarten, 2. Klasse)
-/vamos-estudar/         Portugiesisch (3. Klasse, eigenes Ecosystem)
+/vamos-estudar/         Portugiesisch (4. Klasse 2026/27, eigenes Ecosystem)
 /shared/
   engine.js             Gemeinsame Lern-Engine (Audio, Rendering, Scoring)
   platform.css          Gemeinsame Basis-Styles (Hub + Deutschtest)

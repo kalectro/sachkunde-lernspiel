@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>🎓 Vamos Estudar! — 3.º A</title>
+<title>🎓 Vamos Estudar! — 4.º A</title>
 <style>
 :root {
   --primary: #667eea;
@@ -315,7 +315,7 @@ body {
   <div id="screen-profile" class="screen">
     <div class="top-header">
       <h1>🎓 Vamos Estudar!</h1>
-      <p>3.º A — Escolhe o teu perfil</p>
+      <p>4.º A — Escolhe o teu perfil</p>
       <p style="font-size:0.75em;color:#aaa;margin-top:8px;text-align:center;">Os teus dados ficam guardados neste dispositivo.</p>
     </div>
     <div class="profile-grid" id="profile-grid"></div>
@@ -542,18 +542,19 @@ async function loadAllData() {
   entries.forEach(([sid], i) => { questionData[sid] = results[i]; });
 }
 
+// Exams without levels are placeholders (period announced, questions not yet in) and are never listed.
 // Get active exams for a subject
 function getActiveExams(sid) {
   const data = questionData[sid];
   if (!data || !data.exams) return [];
-  return data.exams.filter(e => !e.archived);
+  return data.exams.filter(e => !e.archived && e.levels.length > 0);
 }
 
 // Get archived exams for a subject
 function getArchivedExams(sid) {
   const data = questionData[sid];
   if (!data || !data.exams) return [];
-  return data.exams.filter(e => e.archived);
+  return data.exams.filter(e => e.archived && e.levels.length > 0);
 }
 
 // Get all questions for an exam's level
@@ -913,7 +914,6 @@ function renderHome() {
 
     // Active exams
     for (const exam of activeExams) {
-      if (exam.levels.length === 0) continue; // skip empty placeholders
       activeSubjects.push({ sid, exam, meta });
     }
 
@@ -1628,7 +1628,6 @@ function checkSubjectMastered(sid) {
   const activeExams = getActiveExams(sid);
   if (activeExams.length === 0) return false;
   for (const exam of activeExams) {
-    if (exam.levels.length === 0) return false;
     for (const level of exam.levels) {
       if (!isLevelMastered(sid, exam.id, level.id)) return false;
     }
