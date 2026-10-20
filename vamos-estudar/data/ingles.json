@@ -91,7 +91,7 @@
       "id": "en_3p_2026",
       "name": "3.º Período 2025/26",
       "examDate": "2026-05-27",
-      "archived": false,
+      "archived": true,
       "levels": [
         {
           "id": 1,
@@ -241,6 +241,164 @@
             {"id": "en3p_6_16", "type": "sort", "diff": 2, "q": "Coloca as estações por ordem, começando pela primavera.", "items": ["spring", "summer", "autumn", "winter"], "explanation": "Spring → Summer → Autumn → Winter 🌸☀️🍂❄️"},
             {"id": "en3p_6_17", "type": "type", "diff": 3, "bonus": true, "q": "Combo! «In winter it is often ___.» (Escreve uma palavra sobre o tempo.)", "accept": ["cold", "Cold", "snowy", "Snowy", "snowing", "Snowing"], "explanation": "No inverno está frequentemente cold, snowy ou snowing! ❄️🥶"},
             {"id": "en3p_6_18", "type": "type", "diff": 3, "bonus": true, "q": "Combo! «In summer it is often ___.» (Escreve uma palavra sobre o tempo.)", "accept": ["hot", "Hot", "sunny", "Sunny", "warm", "Warm"], "explanation": "No verão está frequentemente hot, sunny ou warm! ☀️🔥"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en_qa1_2627",
+      "name": "Questão de aula 1 · 2026/27",
+      "examDate": "2026-10-21",
+      "archived": false,
+      "levels": [
+        {
+          "id": 1,
+          "name": "Personal Pronouns",
+          "sub": "Pronomes pessoais: I, you, he, she, it, we, they",
+          "questions": [
+            {"id": "enqa1_1_01", "type": "mc", "diff": 1, "q": "Como se diz «eu» em inglês?", "options": ["I", "You", "He", "We"], "correct": 0, "explanation": "Eu = I! E escreve-se sempre com letra maiúscula. ☝️"},
+            {"id": "enqa1_1_02", "type": "mc", "diff": 1, "q": "Como se diz «ela» em inglês?", "options": ["She", "He", "It", "They"], "correct": 0, "explanation": "Ela = She! 👧"},
+            {"id": "enqa1_1_03", "type": "mc", "diff": 1, "q": "Como se diz «ele» em inglês?", "options": ["He", "She", "We", "I"], "correct": 0, "explanation": "Ele = He! 👦"},
+            {"id": "enqa1_1_04", "type": "mc", "diff": 1, "q": "Como se diz «nós» em inglês?", "options": ["We", "They", "You", "He"], "correct": 0, "explanation": "Nós = We! 👫"},
+            {"id": "enqa1_1_05", "type": "mc", "diff": 1, "q": "Como se diz «eles» ou «elas» em inglês?", "options": ["They", "We", "He", "She"], "correct": 0, "explanation": "Eles e elas = They! Em inglês é a mesma palavra para os dois. 👨‍👩‍👧‍👦"},
+            {"id": "enqa1_1_06", "type": "mc", "diff": 2, "q": "Como se diz «tu» em inglês?", "options": ["You", "I", "He", "They"], "correct": 0, "explanation": "Tu = You! 👉"},
+            {"id": "enqa1_1_07", "type": "mc", "diff": 2, "q": "Que pronome usas para uma coisa, por exemplo «the book» (o livro)?", "options": ["It", "He", "She", "They"], "correct": 0, "explanation": "Para coisas (e animais) usa-se IT: «The book is red.» → «It is red.» 📕"},
+            {"id": "enqa1_1_08", "type": "mc", "diff": 2, "q": "«Maria is my friend.» → «___ is my friend.»", "options": ["She", "He", "It", "They"], "correct": 0, "explanation": "Maria é uma rapariga → SHE! 👧"},
+            {"id": "enqa1_1_09", "type": "mc", "diff": 2, "q": "«Tom and I are friends.» → «___ are friends.»", "options": ["We", "They", "You", "He"], "correct": 0, "explanation": "Tom + eu = nós → WE! 🤝"},
+            {"id": "enqa1_1_10", "type": "mc", "diff": 2, "q": "«My parents are at home.» → «___ are at home.»", "options": ["They", "We", "He", "It"], "correct": 0, "explanation": "Os meus pais = eles → THEY! 🏠"},
+            {"id": "enqa1_1_11", "type": "type", "diff": 2, "q": "Como se diz «vocês» em inglês?", "accept": ["you"], "explanation": "Vocês = You! Em inglês, «you» serve para tu, você e vocês. 👥"},
+            {"id": "enqa1_1_12", "type": "type", "diff": 2, "q": "Escreve o pronome: «Pedro is nine.» → «___ is nine.»", "accept": ["he"], "explanation": "Pedro é um rapaz → HE! 👦"},
+            {"id": "enqa1_1_13", "type": "type", "diff": 2, "q": "Escreve o pronome: «The school is big.» → «___ is big.»", "accept": ["it"], "explanation": "A escola é uma coisa → IT! 🏫"},
+            {"id": "enqa1_1_14", "type": "type", "diff": 3, "q": "Escreve o pronome: «Ana and Sofia are sisters.» → «___ are sisters.»", "accept": ["they"], "explanation": "Ana + Sofia = elas → THEY! 👭"},
+            {"id": "enqa1_1_15", "type": "type", "diff": 3, "q": "Escreve o pronome: «My brother and I are at school.» → «___ are at school.»", "accept": ["we"], "explanation": "O meu irmão + eu = nós → WE! 🎒"},
+            {"id": "enqa1_1_16", "type": "type", "diff": 3, "q": "Escreve o pronome: «You and Rita are late.» → «___ are late.»", "accept": ["you"], "explanation": "Tu + a Rita = vocês → YOU! ⏰"},
+            {"id": "enqa1_1_17", "type": "tf", "diff": 1, "q": "Em inglês, «I» (eu) escreve-se sempre com letra maiúscula, mesmo no meio da frase.", "correct": true, "explanation": "True! «Tom and I are friends.» — o I é sempre grande! ☝️"},
+            {"id": "enqa1_1_18", "type": "type", "diff": 3, "q": "Bonus! «My dad is a doctor. ___ works in a hospital.» Escreve o pronome.", "accept": ["he"], "explanation": "My dad = o meu pai → HE! 👨‍⚕️", "bonus": true}
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Verb To Be — am, is, are",
+          "sub": "I am · you are · he / she / it is · we / they are",
+          "questions": [
+            {"id": "enqa1_2_01", "type": "mc", "diff": 1, "q": "Complete: «I ___ nine years old.»", "options": ["am", "is", "are", "be"], "correct": 0, "explanation": "Com I usa-se sempre AM: «I am nine.» 🎂"},
+            {"id": "enqa1_2_02", "type": "mc", "diff": 1, "q": "Complete: «She ___ my sister.»", "options": ["is", "am", "are", "be"], "correct": 0, "explanation": "Com she usa-se IS: «She is my sister.» 👧"},
+            {"id": "enqa1_2_03", "type": "mc", "diff": 1, "q": "Complete: «They ___ my friends.»", "options": ["are", "is", "am", "be"], "correct": 0, "explanation": "Com they usa-se ARE: «They are my friends.» 👫"},
+            {"id": "enqa1_2_04", "type": "mc", "diff": 1, "q": "Complete: «He ___ a teacher.»", "options": ["is", "are", "am", "be"], "correct": 0, "explanation": "Com he usa-se IS: «He is a teacher.» 👨‍🏫"},
+            {"id": "enqa1_2_05", "type": "mc", "diff": 1, "q": "Complete: «We ___ students.»", "options": ["are", "is", "am", "be"], "correct": 0, "explanation": "Com we usa-se ARE: «We are students.» 🎒"},
+            {"id": "enqa1_2_06", "type": "mc", "diff": 2, "q": "Complete: «You ___ my best friend.»", "options": ["are", "is", "am", "be"], "correct": 0, "explanation": "Com you usa-se ARE: «You are my best friend.» 💛"},
+            {"id": "enqa1_2_07", "type": "mc", "diff": 2, "q": "Complete: «It ___ a cat.»", "options": ["is", "are", "am", "be"], "correct": 0, "explanation": "Com it usa-se IS: «It is a cat.» 🐱"},
+            {"id": "enqa1_2_08", "type": "mc", "diff": 2, "q": "Complete: «Tom and Ana ___ from England.»", "options": ["are", "is", "am", "be"], "correct": 0, "explanation": "Tom + Ana = they → ARE! 🇬🇧"},
+            {"id": "enqa1_2_09", "type": "mc", "diff": 2, "q": "Qual é a forma curta de «I am»?", "options": ["I'm", "I'am", "Im'", "I's"], "correct": 0, "explanation": "I am = I'm — o apóstrofo fica no lugar do «a»! ✂️"},
+            {"id": "enqa1_2_10", "type": "mc", "diff": 2, "q": "Qual é a forma curta de «she is»?", "options": ["She's", "She're", "Shes'", "She'm"], "correct": 0, "explanation": "She is = She's — o apóstrofo fica no lugar do «i»! ✂️"},
+            {"id": "enqa1_2_11", "type": "type", "diff": 2, "q": "Escreve am, is ou are: «We ___ ten years old.»", "accept": ["are"], "explanation": "We → ARE: «We are ten years old.»", "hint": "I → am · he / she / it → is · you / we / they → are"},
+            {"id": "enqa1_2_12", "type": "type", "diff": 2, "q": "Escreve am, is ou are: «My mum ___ Portuguese.»", "accept": ["is"], "explanation": "My mum = she → IS: «My mum is Portuguese.» 👩", "hint": "I → am · he / she / it → is · you / we / they → are"},
+            {"id": "enqa1_2_13", "type": "type", "diff": 2, "q": "Escreve am, is ou are: «I ___ a student.»", "accept": ["am"], "explanation": "I → AM: «I am a student.» 🎒"},
+            {"id": "enqa1_2_14", "type": "type", "diff": 3, "q": "Escreve a forma curta de «they are».", "accept": ["they're"], "explanation": "They are = They're! ✂️", "hint": "Não te esqueças do apóstrofo ( ' )!"},
+            {"id": "enqa1_2_15", "type": "type", "diff": 3, "q": "Escreve a forma curta de «he is».", "accept": ["he's"], "explanation": "He is = He's! ✂️", "hint": "Não te esqueças do apóstrofo ( ' )!"},
+            {"id": "enqa1_2_16", "type": "type", "diff": 3, "q": "Escreve a forma curta de «it is».", "accept": ["it's"], "explanation": "It is = It's! Sem apóstrofo («its») é outra palavra. ✂️", "hint": "Não te esqueças do apóstrofo ( ' )!"},
+            {"id": "enqa1_2_17", "type": "tf", "diff": 1, "q": "A frase «He are my friend.» está correta.", "correct": false, "explanation": "False! Com he usa-se IS: «He is my friend.» ✔️"},
+            {"id": "enqa1_2_18", "type": "type", "diff": 3, "q": "Bonus! Escreve am, is ou are: «My cat and my dog ___ black.»", "accept": ["are"], "explanation": "O gato + o cão = they → ARE! 🐱🐶", "bonus": true}
+          ]
+        },
+        {
+          "id": 3,
+          "name": "To Be — Negative & Questions",
+          "sub": "isn't · aren't · Are you…? Yes, I am. / No, I'm not.",
+          "questions": [
+            {"id": "enqa1_3_01", "type": "mc", "diff": 1, "q": "Complete: «I ___ sad. I'm happy!»", "options": ["am not", "is not", "are not", "not am"], "correct": 0, "explanation": "Negativa com I: I AM NOT (I'm not). 😊"},
+            {"id": "enqa1_3_02", "type": "mc", "diff": 1, "q": "Complete: «He ___ ten. He's nine.»", "options": ["isn't", "aren't", "am not", "not is"], "correct": 0, "explanation": "Negativa com he: he ISN'T (is not). 🔟"},
+            {"id": "enqa1_3_03", "type": "mc", "diff": 1, "q": "Complete: «They ___ from Spain. They're from Italy.»", "options": ["aren't", "isn't", "am not", "not are"], "correct": 0, "explanation": "Negativa com they: they AREN'T (are not). 🇮🇹"},
+            {"id": "enqa1_3_04", "type": "mc", "diff": 2, "q": "Qual é a forma curta de «is not»?", "options": ["isn't", "is'nt", "isnt'", "i'snt"], "correct": 0, "explanation": "Is not = isn't — o apóstrofo fica no lugar do «o» de not! ✂️"},
+            {"id": "enqa1_3_05", "type": "mc", "diff": 2, "q": "Qual é a forma curta de «are not»?", "options": ["aren't", "are'nt", "arent'", "a'rent"], "correct": 0, "explanation": "Are not = aren't — o apóstrofo fica no lugar do «o» de not! ✂️"},
+            {"id": "enqa1_3_06", "type": "mc", "diff": 1, "q": "Complete: «___ you nine?» — «Yes, I am.»", "options": ["Are", "Is", "Am", "Do"], "correct": 0, "explanation": "Na pergunta, o verbo vem primeiro: «Are you nine?» ❓"},
+            {"id": "enqa1_3_07", "type": "mc", "diff": 2, "q": "Complete: «___ she your sister?» — «Yes, she is.»", "options": ["Is", "Are", "Am", "Do"], "correct": 0, "explanation": "Com she → IS: «Is she your sister?» ❓"},
+            {"id": "enqa1_3_08", "type": "mc", "diff": 2, "q": "«Are you Portuguese?» — Qual é a resposta curta certa?", "options": ["Yes, I am.", "Yes, I'm.", "Yes, you are.", "Yes, I is."], "correct": 0, "explanation": "«Yes, I am.» — na resposta curta afirmativa NÃO se usa a forma curta («Yes, I'm» está errado)! 🇵🇹"},
+            {"id": "enqa1_3_09", "type": "mc", "diff": 2, "q": "«Is he your brother?» — «No, ___.»", "options": ["he isn't", "he aren't", "I'm not", "she isn't"], "correct": 0, "explanation": "Pergunta com he → resposta com he: «No, he isn't.» 👦"},
+            {"id": "enqa1_3_10", "type": "mc", "diff": 3, "q": "«Are they from Brazil?» — «Yes, ___.»", "options": ["they are", "they're", "we are", "they is"], "correct": 0, "explanation": "«Yes, they are.» — na resposta curta afirmativa não se contrai! 🇧🇷"},
+            {"id": "enqa1_3_11", "type": "type", "diff": 2, "q": "Escreve na forma negativa: «I ___ eleven. I'm ten.»", "accept": ["am not"], "explanation": "Negativa com I: I AM NOT. «I am not eleven.» 🔟"},
+            {"id": "enqa1_3_12", "type": "type", "diff": 2, "q": "Escreve na forma negativa: «It ___ a dog. It's a cat.»", "accept": ["isn't", "is not"], "explanation": "Negativa com it: ISN'T (is not). 🐱"},
+            {"id": "enqa1_3_13", "type": "type", "diff": 2, "q": "Escreve na forma negativa: «We ___ sisters. We're cousins.»", "accept": ["aren't", "are not"], "explanation": "Negativa com we: AREN'T (are not). 👭"},
+            {"id": "enqa1_3_14", "type": "type", "diff": 3, "q": "Escreve am, is ou are: «___ he from France?» — «Yes, he is.»", "accept": ["is"], "explanation": "Com he → IS: «Is he from France?» 🇫🇷", "hint": "I → am · he / she / it → is · you / we / they → are"},
+            {"id": "enqa1_3_15", "type": "type", "diff": 3, "q": "Resposta curta negativa: «Are you a teacher?» — «No, ___.»", "accept": ["I'm not", "I am not", "no, I'm not", "no, I am not", "no I'm not", "no I am not"], "explanation": "«No, I'm not.» (ou «No, I am not.») 🙅"},
+            {"id": "enqa1_3_16", "type": "type", "diff": 3, "q": "Resposta curta afirmativa: «Is she your teacher?» — «Yes, ___.»", "accept": ["she is", "yes, she is", "yes she is"], "explanation": "«Yes, she is.» — sem forma curta na resposta afirmativa! 👩‍🏫"},
+            {"id": "enqa1_3_17", "type": "sort", "diff": 2, "q": "Ordena as palavras para fazer a pergunta.", "items": ["Are", "you", "ten", "years old?"], "explanation": "«Are you ten years old?» — na pergunta, o verbo vem primeiro! ❓"},
+            {"id": "enqa1_3_18", "type": "type", "diff": 3, "q": "Bonus! Transforma em pergunta: «You are nine.» → «___ ___ nine?» (Escreve as duas palavras.)", "accept": ["are you"], "explanation": "«Are you nine?» — o verbo troca de lugar com o pronome! 🔄", "bonus": true}
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Personal Identification",
+          "sub": "Name, surname, age, birthday: What's your name? How old are you?",
+          "questions": [
+            {"id": "enqa1_4_01", "type": "mc", "diff": 1, "q": "«What's your name?» — Qual é a resposta certa?", "options": ["My name is Ana.", "I'm nine years old.", "I'm from Portugal.", "It's on the 2nd of May."], "correct": 0, "explanation": "What's your name? → My name is ___. 📛"},
+            {"id": "enqa1_4_02", "type": "mc", "diff": 1, "q": "«How old are you?» — Qual é a resposta certa?", "options": ["I'm nine years old.", "My name is Ana.", "I'm from Spain.", "My surname is Costa."], "correct": 0, "explanation": "How old are you? → I'm ___ (years old). 🎂"},
+            {"id": "enqa1_4_03", "type": "mc", "diff": 1, "q": "Como se diz «apelido» (nome de família) em inglês?", "options": ["Surname", "Name", "Age", "Birthday"], "correct": 0, "explanation": "Apelido = Surname! 👨‍👩‍👧"},
+            {"id": "enqa1_4_04", "type": "mc", "diff": 1, "q": "Como se diz «idade» em inglês?", "options": ["Age", "Name", "Country", "Surname"], "correct": 0, "explanation": "Idade = Age! 🔢"},
+            {"id": "enqa1_4_05", "type": "mc", "diff": 1, "q": "Como se diz «aniversário» em inglês?", "options": ["Birthday", "Surname", "Holiday", "Age"], "correct": 0, "explanation": "Aniversário = Birthday! 🎉"},
+            {"id": "enqa1_4_06", "type": "mc", "diff": 2, "q": "«When's your birthday?» — Qual é a resposta certa?", "options": ["It's on the 12th of March.", "I'm twelve years old.", "I'm from Portugal.", "My surname is March."], "correct": 0, "explanation": "When's your birthday? → It's on the ___ of ___. 🎈"},
+            {"id": "enqa1_4_07", "type": "mc", "diff": 2, "q": "«What's your surname?» — Qual é a resposta certa?", "options": ["My surname is Silva.", "My name is Rita.", "I'm ten years old.", "I'm Portuguese."], "correct": 0, "explanation": "Surname = apelido → «My surname is Silva.» 👪"},
+            {"id": "enqa1_4_08", "type": "mc", "diff": 2, "q": "A resposta é «I'm ten years old.» Qual foi a pergunta?", "options": ["How old are you?", "What's your name?", "Where are you from?", "When's your birthday?"], "correct": 0, "explanation": "Para a idade pergunta-se: «How old are you?» 🎂"},
+            {"id": "enqa1_4_09", "type": "mc", "diff": 2, "q": "«My name is Leo Costa.» Qual é o surname do Leo?", "options": ["Costa", "Leo", "Leo Costa", "Name"], "correct": 0, "explanation": "Leo = first name (nome próprio), Costa = surname (apelido)! 📛"},
+            {"id": "enqa1_4_10", "type": "mc", "diff": 2, "q": "«What's» é a forma curta de…", "options": ["What is", "What are", "What am", "Where is"], "correct": 0, "explanation": "What's = What is! «What is your name?» ✂️"},
+            {"id": "enqa1_4_11", "type": "type", "diff": 1, "q": "Complete: «My ___ is Sofia.» (O meu nome é Sofia.)", "accept": ["name"], "explanation": "My NAME is Sofia! 📛"},
+            {"id": "enqa1_4_12", "type": "type", "diff": 2, "q": "Complete: «How ___ are you?» — «I'm nine.»", "accept": ["old"], "explanation": "How OLD are you? = Quantos anos tens? 🎂"},
+            {"id": "enqa1_4_13", "type": "type", "diff": 2, "q": "Complete: «When's your ___?» — «It's on the 5th of June.»", "accept": ["birthday"], "explanation": "When's your BIRTHDAY? = Quando é o teu aniversário? 🎉"},
+            {"id": "enqa1_4_14", "type": "type", "diff": 2, "q": "«Hi! I'm Tom Smith. I'm nine years old.» What's Tom's surname?", "accept": ["Smith"], "explanation": "Tom = first name, Smith = surname! 📛"},
+            {"id": "enqa1_4_15", "type": "type", "diff": 3, "q": "«Hi! I'm Tom Smith. I'm nine years old.» How old is Tom? (Responde em inglês, por extenso.)", "accept": ["nine", "nine years old", "he's nine", "he is nine", "he's nine years old", "he is nine years old"], "explanation": "Tom is NINE (years old)! 9️⃣"},
+            {"id": "enqa1_4_16", "type": "type", "diff": 3, "q": "«My birthday is on the 1st of May.» Escreve «1st» por extenso.", "accept": ["first"], "explanation": "1st = first! Nos aniversários usam-se os números ordinais: the first, the second, the third… 🥇"},
+            {"id": "enqa1_4_17", "type": "sort", "diff": 2, "q": "Ordena as palavras para fazer a pergunta.", "items": ["When", "is", "your", "birthday?"], "explanation": "«When is your birthday?» (= When's your birthday?) 🎈"},
+            {"id": "enqa1_4_18", "type": "type", "diff": 3, "q": "Bonus! «My birthday is on the 22nd of July.» Escreve «22nd» por extenso.", "accept": ["twenty-second"], "explanation": "22nd = twenty-second — atenção ao hífen! 🎂", "bonus": true}
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Countries & Nationalities",
+          "sub": "Where are you from? I'm from Portugal. I'm Portuguese.",
+          "questions": [
+            {"id": "enqa1_5_01", "type": "mc", "diff": 1, "q": "«Where are you from?» — Qual é a resposta certa?", "options": ["I'm from Portugal.", "I'm Portugal.", "I'm nine years old.", "My name is Portugal."], "correct": 0, "explanation": "Where are you from? → I'm FROM Portugal. 🇵🇹"},
+            {"id": "enqa1_5_02", "type": "mc", "diff": 1, "q": "País: Portugal → Nacionalidade: ?", "options": ["Portuguese", "Portugalish", "Portugal", "Portugese"], "correct": 0, "explanation": "Portugal → Portuguese! Atenção: Portug-U-ese. 🇵🇹"},
+            {"id": "enqa1_5_03", "type": "mc", "diff": 1, "q": "País: Spain → Nacionalidade: ?", "options": ["Spanish", "Spainish", "Spanese", "Spainese"], "correct": 0, "explanation": "Spain → Spanish! 🇪🇸"},
+            {"id": "enqa1_5_04", "type": "mc", "diff": 1, "q": "País: France → Nacionalidade: ?", "options": ["French", "Francish", "Franch", "Francese"], "correct": 0, "explanation": "France → French! 🇫🇷"},
+            {"id": "enqa1_5_05", "type": "mc", "diff": 2, "q": "País: Germany → Nacionalidade: ?", "options": ["German", "Germanish", "Germanese", "Germanian"], "correct": 0, "explanation": "Germany → German! 🇩🇪"},
+            {"id": "enqa1_5_06", "type": "mc", "diff": 2, "q": "País: Brazil → Nacionalidade: ?", "options": ["Brazilian", "Brazilish", "Brazilese", "Brazilan"], "correct": 0, "explanation": "Brazil → Brazilian! 🇧🇷"},
+            {"id": "enqa1_5_07", "type": "mc", "diff": 2, "q": "«I'm Italian.» De que país sou?", "options": ["Italy", "Italia", "Spain", "Ireland"], "correct": 0, "explanation": "Italian → Italy! Em inglês é «Italy», não «Italia». 🇮🇹"},
+            {"id": "enqa1_5_08", "type": "mc", "diff": 2, "q": "«I'm English.» De que país sou?", "options": ["England", "English", "Ireland", "Scotland"], "correct": 0, "explanation": "English → England! «English» é a nacionalidade, «England» é o país. 🏴󠁧󠁢󠁥󠁮󠁧󠁿"},
+            {"id": "enqa1_5_09", "type": "mc", "diff": 2, "q": "Como se diz «nacionalidade» em inglês?", "options": ["Nationality", "Country", "Nation", "Surname"], "correct": 0, "explanation": "Nacionalidade = Nationality! 🌍"},
+            {"id": "enqa1_5_10", "type": "mc", "diff": 3, "q": "Complete: «___ are you from?» — «I'm from Spain.»", "options": ["Where", "What", "How", "When"], "correct": 0, "explanation": "Where = onde. «Where are you from?» = De onde és? 🗺️"},
+            {"id": "enqa1_5_11", "type": "type", "diff": 1, "q": "Como se diz «país» em inglês?", "accept": ["country"], "explanation": "País = Country! 🌍"},
+            {"id": "enqa1_5_12", "type": "type", "diff": 2, "q": "Complete: «I'm from Portugal. I'm ___.»", "accept": ["Portuguese"], "explanation": "Portugal → PORTUGUESE! Em inglês com P maiúsculo. 🇵🇹"},
+            {"id": "enqa1_5_13", "type": "type", "diff": 2, "q": "Complete: «She's from Spain. She's ___.»", "accept": ["Spanish"], "explanation": "Spain → SPANISH! 🇪🇸"},
+            {"id": "enqa1_5_14", "type": "type", "diff": 2, "q": "Complete: «He's from France. He's ___.»", "accept": ["French"], "explanation": "France → FRENCH! 🇫🇷"},
+            {"id": "enqa1_5_15", "type": "type", "diff": 3, "q": "Complete: «We're from Germany. We're ___.»", "accept": ["German"], "explanation": "Germany → GERMAN! 🇩🇪"},
+            {"id": "enqa1_5_16", "type": "type", "diff": 3, "q": "Complete: «They're from Brazil. They're ___.»", "accept": ["Brazilian"], "explanation": "Brazil → BRAZILIAN! 🇧🇷"},
+            {"id": "enqa1_5_17", "type": "tf", "diff": 2, "q": "Em inglês, as nacionalidades escrevem-se com letra maiúscula: «I'm Portuguese.»", "correct": true, "explanation": "True! Em português escreve-se «português» com minúscula, mas em inglês é sempre «Portuguese». 🔠"},
+            {"id": "enqa1_5_18", "type": "type", "diff": 3, "q": "Bonus! Complete: «I'm from the USA. I'm ___.»", "accept": ["American"], "explanation": "The USA → AMERICAN! 🇺🇸", "bonus": true}
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Checkpoint — tudo junto",
+          "sub": "Lê e responde: pronomes + verb to be + identificação",
+          "questions": [
+            {"id": "enqa1_6_01", "type": "mc", "diff": 1, "q": "«Hello! My name is Emma Brown. I'm ten years old. My birthday is on the 3rd of April. I'm from England. I'm English.» What's her surname?", "options": ["Brown", "Emma", "England", "April"], "correct": 0, "explanation": "Emma = first name, Brown = surname! 📛"},
+            {"id": "enqa1_6_02", "type": "mc", "diff": 1, "q": "«Hello! My name is Emma Brown. I'm ten years old. My birthday is on the 3rd of April. I'm from England. I'm English.» How old is Emma?", "options": ["She's ten.", "She's three.", "She's English.", "She's April."], "correct": 0, "explanation": "«I'm ten years old.» → She's ten! 🔟"},
+            {"id": "enqa1_6_03", "type": "mc", "diff": 2, "q": "«Hello! My name is Emma Brown. I'm ten years old. My birthday is on the 3rd of April. I'm from England. I'm English.» When's Emma's birthday?", "options": ["On the 3rd of April.", "On the 10th of April.", "On the 3rd of August.", "On the 4th of March."], "correct": 0, "explanation": "«My birthday is on the 3rd of April.» 🎂"},
+            {"id": "enqa1_6_04", "type": "mc", "diff": 2, "q": "«Hello! My name is Emma Brown. I'm ten years old. My birthday is on the 3rd of April. I'm from England. I'm English.» Where is Emma from?", "options": ["England", "English", "Portugal", "Brown"], "correct": 0, "explanation": "Emma is from ENGLAND (o país). English é a nacionalidade! 🏴󠁧󠁢󠁥󠁮󠁧󠁿"},
+            {"id": "enqa1_6_05", "type": "mc", "diff": 2, "q": "«Emma is English.» → «___ is English.»", "options": ["She", "He", "It", "They"], "correct": 0, "explanation": "Emma é uma rapariga → SHE! 👧"},
+            {"id": "enqa1_6_06", "type": "mc", "diff": 2, "q": "«Hi! I'm Carlos. I'm eleven. I'm from Spain.» Escolhe a frase certa sobre o Carlos.", "options": ["He's Spanish.", "She's Spanish.", "He's Spain.", "He are Spanish."], "correct": 0, "explanation": "Carlos → HE, Spain → SPANISH: «He's Spanish.» 🇪🇸"},
+            {"id": "enqa1_6_07", "type": "mc", "diff": 2, "q": "Escolhe a frase correta.", "options": ["We are from Portugal.", "We is from Portugal.", "We am from Portugal.", "We from Portugal."], "correct": 0, "explanation": "We → ARE: «We are from Portugal.» 🇵🇹"},
+            {"id": "enqa1_6_08", "type": "mc", "diff": 3, "q": "Escolhe a frase correta.", "options": ["My sister isn't nine.", "My sister aren't nine.", "My sister not is nine.", "My sister am not nine."], "correct": 0, "explanation": "My sister = she → ISN'T: «My sister isn't nine.» 👧"},
+            {"id": "enqa1_6_09", "type": "mc", "diff": 3, "q": "«Are Tom and Lucy your friends?» — Qual é a resposta certa?", "options": ["Yes, they are.", "Yes, they're.", "Yes, we are.", "Yes, he is."], "correct": 0, "explanation": "Tom + Lucy = they → «Yes, they are.» (sem forma curta!) 👫"},
+            {"id": "enqa1_6_10", "type": "mc", "diff": 2, "q": "«How old is your brother?» — Qual é a resposta certa?", "options": ["He's seven.", "She's seven.", "He are seven.", "They're seven."], "correct": 0, "explanation": "Brother = irmão → HE: «He's seven.» 👦"},
+            {"id": "enqa1_6_11", "type": "type", "diff": 1, "q": "«Hello! My name is Emma Brown. I'm ten years old. My birthday is on the 3rd of April. I'm from England. I'm English.» What's her first name?", "accept": ["Emma"], "explanation": "First name = nome próprio → EMMA! 📛"},
+            {"id": "enqa1_6_12", "type": "type", "diff": 2, "q": "«Hello! My name is Emma Brown. I'm ten years old. My birthday is on the 3rd of April. I'm from England. I'm English.» What's Emma's nationality?", "accept": ["English", "she's English", "she is English", "British"], "explanation": "«I'm English.» → nationality: ENGLISH! 🏴󠁧󠁢󠁥󠁮󠁧󠁿"},
+            {"id": "enqa1_6_13", "type": "type", "diff": 2, "q": "Escreve am, is ou are: «My friends ___ from Brazil.»", "accept": ["are"], "explanation": "My friends = they → ARE! 🇧🇷", "hint": "I → am · he / she / it → is · you / we / they → are"},
+            {"id": "enqa1_6_14", "type": "type", "diff": 3, "q": "Escreve o pronome: «Paulo and I are cousins. ___ are ten.»", "accept": ["we"], "explanation": "Paulo + eu = nós → WE! 👬"},
+            {"id": "enqa1_6_15", "type": "type", "diff": 3, "q": "Escreve o pronome: «Lisbon is in Portugal. ___ is a big city.»", "accept": ["it"], "explanation": "Lisboa é uma cidade (uma coisa) → IT! 🏙️"},
+            {"id": "enqa1_6_16", "type": "type", "diff": 3, "q": "A frase «She are nine.» tem um erro. Escreve só o verbo certo.", "accept": ["is"], "explanation": "She → IS: «She is nine.» ✔️"},
+            {"id": "enqa1_6_17", "type": "sort", "diff": 2, "q": "Ordena as palavras para fazer a pergunta.", "items": ["Where", "are", "you", "from?"], "explanation": "«Where are you from?» = De onde és? 🗺️"},
+            {"id": "enqa1_6_18", "type": "type", "diff": 3, "q": "Bonus! A resposta é «I'm from Portugal.» Escreve a pergunta: «___ ___ ___ from?» (três palavras)", "accept": ["where are you"], "explanation": "«Where are you from?» 🇵🇹", "bonus": true}
           ]
         }
       ]

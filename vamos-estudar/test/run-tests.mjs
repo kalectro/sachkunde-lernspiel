@@ -51,17 +51,22 @@ for (const [sid, file] of Object.entries(DATA_FILES)) {
 // ═══════════════════════════════════════════════════════
 //  EXTRACT FUNCTIONS FROM HTML (for testing logic)
 // ═══════════════════════════════════════════════════════
-function norm(s) {
-  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase().trim().replace(/\s+/g, ' ');
+// Answer checking is taken verbatim from index.html (no hand copy that could drift).
+const htmlSource = readFileSync(join(__dirname, '..', 'index.html'), 'utf8');
+function extractFn(src, name) {
+  const start = src.indexOf(`function ${name}(`);
+  if (start < 0) throw new Error(`function ${name} not found in index.html`);
+  let depth = 0;
+  for (let i = src.indexOf('{', start); i < src.length; i++) {
+    if (src[i] === '{') depth++;
+    else if (src[i] === '}' && --depth === 0) return src.slice(start, i + 1);
+  }
+  throw new Error(`function ${name} has unbalanced braces`);
 }
-function normN(s) { return norm(s).replace(/\s/g, ''); }
-
-function answerCorrect(acceptArr, raw) {
-  if (!raw || !raw.trim()) return false;
-  const u = norm(raw), un = normN(raw);
-  return acceptArr.some(a => norm(a) === u || normN(a) === un);
-}
+const { norm, normN, answerCorrect } = new Function(
+  ['norm', 'normN', 'answerCorrect'].map(n => extractFn(htmlSource, n)).join('\n') +
+  '\nreturn { norm, normN, answerCorrect };'
+)();
 
 function shuffle(arr) {
   const a = [...arr];
@@ -228,6 +233,18 @@ test('"nós" matches "nos" (accent stripping)', () => {
 
 test('exact match works', () => {
   assert(answerCorrect(['ele'], 'ele'));
+});
+
+test('curly apostrophe (iOS smart punctuation) matches straight one', () => {
+  assert(answerCorrect(["I'm"], 'I’m'));
+  assert(answerCorrect(["isn't"], 'isn‘t'));
+  assert(answerCorrect(['I’m'], "I'm"));
+});
+
+test('trailing .!? is ignored', () => {
+  assert(answerCorrect(["I'm from Portugal"], "I'm from Portugal."));
+  assert(answerCorrect(['yes, I am'], 'Yes, I am!'));
+  assert(!answerCorrect(['isnt'], "is'nt"));
 });
 
 test('multiple accept values work', () => {

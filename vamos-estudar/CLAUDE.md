@@ -120,15 +120,21 @@ Optional: `bonus: true`, `hint: "Tipptext"`
 
 ## Antwort-Normalisierung
 ```javascript
-norm(s) → NFD + strip diacritics + lowercase + trim + collapse whitespace
+norm(s) → NFD + strip diacritics + Apostroph-Varianten (’ ‘ ʼ ´ `) → ' + lowercase + trim
+          + trailing .!? weg + collapse whitespace
 normN(s) → norm + remove all spaces (für Zahlen: "1 000" == "1000")
 ```
+**Warum die Apostroph-Regel (seit 20.10.2026):** iPhone/iPad/Mac tippen mit „Smart Punctuation“ standardmäßig `’` statt `'`. Ohne die Regel wäre „I’m“ / „isn’t“ / „they’re“ falsch gewertet worden — relevant für jede Englisch-Frage mit Kurzform. Der Punkt am Ende („I'm from Portugal.“) wird aus demselben Grund ignoriert. `accept`-Listen brauchen deshalb **keine** Varianten mit `’`, mit Schlusspunkt oder in Großschreibung mehr (ältere Einträge in `ingles.json` haben sie noch, sie schaden nicht). Der **erste** `accept`-Eintrag wird bei falscher Antwort als Lösung angezeigt → ihn sauber schreiben („Portuguese“, „I'm not“).
+
+Bewusst **nicht** normalisiert: Apostroph fehlt ganz („isnt“) oder steht falsch („is'nt“) — bei Kurzform-Fragen ist genau das der Lernstoff.
 
 ## Tests
 ```bash
 node vamos-estudar/test/run-tests.mjs
 ```
 Prüft: Datenvalidierung, Normalisierung, Scoring, Profil-Integrität, Migration, UI-Smoke
+
+`norm` / `normN` / `answerCorrect` werden zur Laufzeit **aus `index.html` extrahiert** (`extractFn`), nicht im Test nachgebaut — vorher gab es eine Hand-Kopie, die bei jeder Änderung driften konnte. Gegenprobe am 20.10.2026: Apostroph-Zeile in `index.html` entfernt → Test „curly apostrophe …“ wird rot.
 
 ## Deployment
 Push auf `main` → GitHub Actions deployed automatisch. Kein separater Build-Schritt nötig.
@@ -138,4 +144,9 @@ Push auf `main` → GitHub Actions deployed automatisch. Kein separater Build-Sc
 2. Alte Prüfung auf `"archived": true` setzen
 3. Neue Prüfung hinzufügen mit `"archived": false`
 4. Tests laufen lassen: `node vamos-estudar/test/run-tests.mjs`
-5. Commit + Push
+5. Blindtest (siehe unten)
+6. Commit + Push
+
+**Benennung:** Perioden-Tests `en_3p_2026` / Fragen `en3p_<stufe>_<nr>`. Kurze Klassen-Tests („Questão de aula“) `en_qa<N>_<Schuljahr>`, z. B. `en_qa1_2627` / Fragen `enqa1_<stufe>_<nr>`. Fragen-IDs nie wiederverwenden (sie sind Schlüssel in der History der Profile).
+
+**Blindtest statt `grade-questions`:** Der Plattform-Skill `grade-questions` schließt `vamos-estudar/` laut seiner SKILL.md aus (`IGNORE_DIRS`), und seine Skripte (`_mathe_quellen/grader/`) lagen am 20.10.2026 nicht unter `/Users/kai/claude/sachkunde`. Bewährter Ersatz (20.10.2026, 108 Fragen): Fragen ohne Lösungen (MC-Optionen/Sort-Items gemischt) als JSON in den Scratchpad → Sonnet-Subagent beantwortet blind, darf `note` bei Mehrdeutigkeit setzen → Auswertung mit der echten `answerCorrect` aus `index.html` → Fehler und Notes einzeln gegen die Daten prüfen.

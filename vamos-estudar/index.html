@@ -502,9 +502,12 @@ let curStreak = 0;
 // ═══════════════════════════════════════════════════════
 //  HELPERS
 // ═══════════════════════════════════════════════════════
+// Curly/typographic apostrophes become ' (iOS/macOS smart punctuation types U+2019 in "I'm", "isn't").
+// Trailing .!? is dropped so "I'm from Portugal." matches without extra accept entries.
 function norm(s) {
   return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase().trim().replace(/\s+/g, ' ');
+    .replace(/[\u2018\u2019\u02bc\u00b4`]/g, "'")
+    .toLowerCase().trim().replace(/[.!?]+$/, '').trim().replace(/\s+/g, ' ');
 }
 function normN(s) { return norm(s).replace(/\s/g, ''); }
 

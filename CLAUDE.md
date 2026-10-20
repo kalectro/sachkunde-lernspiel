@@ -177,6 +177,7 @@ Separates Lernspiel im Unterverzeichnis `vamos-estudar/`. Siehe `vamos-estudar/C
 - **Live:** https://kalectro.github.io/sachkunde-lernspiel/vamos-estudar/
 - **localStorage Key:** `vamos_estudar_profiles_v1` (komplett getrennt von `frankensteinschule_profiles_v3`)
 - **Tests:** `node vamos-estudar/test/run-tests.mjs`
+- **Frage-Qualitäts-Check:** `grade-questions` deckt `vamos-estudar/` **nicht** ab (laut SKILL.md in `IGNORE_DIRS`), die Auto-Trigger-Regel oben greift hier also ins Leere. Ersatz-Blindtest: siehe `vamos-estudar/CLAUDE.md` → „Fragen aktualisieren“.
 
 ## Deutschtest (Deutsch 2. Klasse)
 
