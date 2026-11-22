@@ -206,6 +206,185 @@
           ]
         }
       ]
+    },
+    {
+      "id": "em_1p_2627",
+      "name": "1.º Período 2026/27",
+      "examDate": "2026-11-27",
+      "archived": false,
+      "levels": [
+        {
+          "id": 1,
+          "name": "Sistema Digestivo",
+          "sub": "Órgãos, caminho dos alimentos e cuidados",
+          "questions": [
+            {"id": "em1p_1_01", "type": "mc", "diff": 1, "q": "Onde começa a digestão?", "options": ["Na boca", "No estômago", "No intestino", "No esófago"], "correct": 0, "explanation": "A digestão começa na boca: os dentes trituram e a saliva amolece os alimentos! 😋"},
+            {"id": "em1p_1_02", "type": "mc", "diff": 1, "q": "O tubo que leva os alimentos da faringe até ao estômago chama-se…?", "options": ["Esófago", "Traqueia", "Intestino delgado", "Brônquio"], "correct": 0, "explanation": "Faringe → esófago → estômago! (A traqueia é para o ar.)"},
+            {"id": "em1p_1_03", "type": "sort", "diff": 3, "q": "Ordena o caminho dos alimentos no tubo digestivo:", "items": ["Boca", "Faringe", "Esófago", "Estômago", "Intestino delgado", "Intestino grosso", "Ânus"], "explanation": "Boca → faringe → esófago → estômago → intestino delgado → intestino grosso → ânus! 🍎"},
+            {"id": "em1p_1_04", "type": "mc", "diff": 1, "q": "O que fazem os dentes?", "options": ["Cortam, rasgam e trituram os alimentos", "Produzem a saliva", "Absorvem os nutrientes", "Levam o sangue ao coração"], "correct": 0, "explanation": "Incisivos cortam, caninos rasgam, pré-molares e molares trituram! 🦷"},
+            {"id": "em1p_1_05", "type": "mc", "diff": 2, "q": "Que glândulas produzem a saliva?", "options": ["Glândulas salivares", "Glândulas sudoríparas", "Rins", "Pulmões"], "correct": 0, "explanation": "As glândulas salivares produzem a saliva, que amolece os alimentos!"},
+            {"id": "em1p_1_06", "type": "mc", "diff": 2, "q": "Em que órgão os nutrientes passam para o sangue?", "options": ["Intestino delgado", "Estômago", "Esófago", "Boca"], "correct": 0, "explanation": "No intestino delgado, os nutrientes passam para o sangue (absorção)!"},
+            {"id": "em1p_1_07", "type": "mc", "diff": 2, "q": "O que acontece no intestino grosso?", "options": ["Absorve-se água e formam-se as fezes", "Começa a digestão", "Produz-se a saliva", "O ar entra no corpo"], "correct": 0, "explanation": "No intestino grosso absorve-se água e o que sobra forma as fezes."},
+            {"id": "em1p_1_08", "type": "mc", "diff": 2, "q": "Quais são as glândulas anexas do sistema digestivo?", "options": ["Glândulas salivares, fígado e pâncreas", "Rins e bexiga", "Coração e pulmões", "Ovários e testículos"], "correct": 0, "explanation": "Glândulas salivares, fígado e pâncreas produzem sucos que ajudam a digestão!"},
+            {"id": "em1p_1_09", "type": "type", "diff": 2, "q": "Em que órgão, em forma de saco, os alimentos se misturam com o suco gástrico?", "accept": ["estômago", "o estômago", "no estômago"], "explanation": "No estômago os alimentos misturam-se com o suco gástrico!"},
+            {"id": "em1p_1_10", "type": "type", "diff": 1, "q": "Por onde são expulsas as fezes?", "accept": ["ânus", "o ânus", "pelo ânus"], "explanation": "As fezes saem pelo ânus, o fim do tubo digestivo."},
+            {"id": "em1p_1_11", "type": "tf", "diff": 1, "q": "Devemos mastigar bem os alimentos antes de os engolir.", "correct": true, "explanation": "Verdade! Mastigar bem ajuda muito a digestão. 😋"},
+            {"id": "em1p_1_12", "type": "tf", "diff": 2, "q": "Os alimentos passam por dentro do fígado.", "correct": false, "explanation": "Falso! O fígado é uma glândula anexa: produz a bílis, mas os alimentos não passam por dentro dele."},
+            {"id": "em1p_1_13", "type": "mc", "diff": 3, "q": "Qual é o maior órgão interno do corpo humano, que produz a bílis?", "options": ["Fígado", "Pâncreas", "Estômago", "Coração"], "correct": 0, "explanation": "O fígado é o maior órgão dentro do corpo e produz a bílis!"},
+            {"id": "em1p_1_14", "type": "mc", "diff": 1, "q": "Qual destes é um bom hábito para o sistema digestivo?", "options": ["Comer fruta e legumes e beber água", "Comer muitos doces", "Comer muito depressa", "Saltar o pequeno-almoço"], "correct": 0, "explanation": "Fruta, legumes e água fazem bem ao sistema digestivo! 🥦"},
+            {"id": "em1p_1_15", "type": "mc", "diff": 2, "q": "Para que serve a digestão?", "options": ["Transformar os alimentos em nutrientes que o corpo pode usar", "Levar oxigénio aos pulmões", "Eliminar o suor", "Fazer o coração bater"], "correct": 0, "explanation": "A digestão transforma os alimentos em nutrientes para o corpo!"},
+            {"id": "em1p_1_16", "type": "type", "diff": 2, "q": "Como se chama o líquido produzido na boca que ajuda a amolecer os alimentos?", "accept": ["saliva", "a saliva"], "explanation": "A saliva! É produzida pelas glândulas salivares."},
+            {"id": "em1p_1_17", "type": "mc", "diff": 3, "bonus": true, "q": "Qual é a parte mais comprida do tubo digestivo?", "options": ["Intestino delgado", "Intestino grosso", "Esófago", "Estômago"], "correct": 0, "explanation": "O intestino delgado é fino mas muito comprido — vários metros, todo enrolado na barriga!"}
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Sistema Respiratório",
+          "sub": "Órgãos, inspiração, expiração e trocas de gases",
+          "questions": [
+            {"id": "em1p_2_01", "type": "mc", "diff": 1, "q": "Quais são os órgãos principais do sistema respiratório?", "options": ["Pulmões", "Rins", "Estômago", "Coração"], "correct": 0, "explanation": "Os pulmões são os órgãos principais da respiração! 🫁"},
+            {"id": "em1p_2_02", "type": "mc", "diff": 1, "q": "Por onde deve entrar o ar no nosso corpo?", "options": ["Pelas fossas nasais (nariz)", "Pelos ouvidos", "Pelo esófago", "Pela pele"], "correct": 0, "explanation": "Pelo nariz! Lá o ar é filtrado, aquecido e humedecido. 👃"},
+            {"id": "em1p_2_03", "type": "sort", "diff": 3, "q": "Ordena o caminho do ar desde o nariz até aos pulmões:", "items": ["Fossas nasais", "Faringe", "Laringe", "Traqueia", "Brônquios", "Pulmões"], "explanation": "Fossas nasais → faringe → laringe → traqueia → brônquios → pulmões! 🫁"},
+            {"id": "em1p_2_04", "type": "mc", "diff": 1, "q": "Quando INSPIRAMOS, o ar…?", "options": ["entra nos pulmões", "sai dos pulmões", "vai para o estômago", "fica parado no nariz"], "correct": 0, "explanation": "Inspirar = o ar entra! Expirar = o ar sai."},
+            {"id": "em1p_2_05", "type": "mc", "diff": 2, "q": "O ar que EXPIRAMOS tem mais ___ do que o ar que inspiramos.", "options": ["dióxido de carbono", "oxigénio", "água salgada", "fumo"], "correct": 0, "explanation": "O corpo usa oxigénio e liberta dióxido de carbono, que sai na expiração!"},
+            {"id": "em1p_2_06", "type": "mc", "diff": 2, "q": "Que gás do ar o nosso corpo precisa para viver?", "options": ["Oxigénio", "Dióxido de carbono", "Hélio", "Fumo"], "correct": 0, "explanation": "O oxigénio! Passa dos pulmões para o sangue e vai para todo o corpo."},
+            {"id": "em1p_2_07", "type": "mc", "diff": 3, "q": "Na inspiração, o que acontece ao diafragma e à caixa torácica?", "options": ["O diafragma desce e a caixa torácica aumenta", "O diafragma sobe e os pulmões encolhem", "O diafragma não se mexe", "O diafragma empurra os alimentos para o estômago"], "correct": 0, "explanation": "Na inspiração o diafragma contrai-se e desce, o peito alarga e o ar entra!"},
+            {"id": "em1p_2_08", "type": "mc", "diff": 2, "q": "Os pelos e o muco do nariz servem para…?", "options": ["Filtrar o ar e reter poeiras", "Produzir oxigénio", "Fazer a digestão", "Bombear o sangue"], "correct": 0, "explanation": "Os pelos e o muco seguram as poeiras e os micróbios! 🤧"},
+            {"id": "em1p_2_09", "type": "type", "diff": 1, "q": "Como se chama o movimento de ENTRADA de ar nos pulmões?", "accept": ["inspiração", "a inspiração", "inspirar"], "explanation": "Inspiração = o ar entra!"},
+            {"id": "em1p_2_10", "type": "type", "diff": 1, "q": "Como se chama o movimento de SAÍDA de ar dos pulmões?", "accept": ["expiração", "a expiração", "expirar"], "explanation": "Expiração = o ar sai!"},
+            {"id": "em1p_2_11", "type": "type", "diff": 2, "q": "Como se chama o tubo que leva o ar da laringe até aos brônquios?", "accept": ["traqueia", "a traqueia"], "explanation": "A traqueia! Divide-se nos dois brônquios."},
+            {"id": "em1p_2_12", "type": "tf", "diff": 1, "q": "Fumar faz mal aos pulmões.", "correct": true, "explanation": "Verdade! O fumo do tabaco faz muito mal aos pulmões. 🚭"},
+            {"id": "em1p_2_13", "type": "tf", "diff": 3, "q": "É nos alvéolos pulmonares que o oxigénio passa para o sangue.", "correct": true, "explanation": "Verdade! Os alvéolos são saquinhos minúsculos nos pulmões, onde se fazem as trocas de gases."},
+            {"id": "em1p_2_14", "type": "mc", "diff": 1, "q": "Qual destes hábitos faz BEM ao sistema respiratório?", "options": ["Praticar exercício físico ao ar livre", "Estar em locais com fumo", "Ficar em salas fechadas sem arejar", "Respirar poeiras"], "correct": 0, "explanation": "Exercício ao ar livre e ar puro fazem bem aos pulmões! 🌳"},
+            {"id": "em1p_2_15", "type": "mc", "diff": 2, "q": "A traqueia divide-se em dois tubos que entram nos pulmões. Como se chamam?", "options": ["Brônquios", "Esófagos", "Ureteres", "Artérias"], "correct": 0, "explanation": "Os dois brônquios, um para cada pulmão!"},
+            {"id": "em1p_2_16", "type": "mc", "diff": 3, "q": "Que órgão do sistema respiratório tem as cordas vocais, que nos permitem falar?", "options": ["Laringe", "Traqueia", "Faringe", "Brônquios"], "correct": 0, "explanation": "A laringe tem as cordas vocais! 🗣️"},
+            {"id": "em1p_2_17", "type": "mc", "diff": 3, "bonus": true, "q": "A faringe faz parte de dois sistemas. Quais?", "options": ["Digestivo e respiratório", "Circulatório e urinário", "Respiratório e reprodutor", "Digestivo e urinário"], "correct": 0, "explanation": "Pela faringe passam os alimentos E o ar!"}
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Sistema Circulatório",
+          "sub": "Coração, vasos sanguíneos, sangue e pulsação",
+          "questions": [
+            {"id": "em1p_3_01", "type": "mc", "diff": 1, "q": "Qual é o órgão principal do sistema circulatório?", "options": ["Coração", "Pulmão", "Fígado", "Cérebro"], "correct": 0, "explanation": "O coração! ❤️"},
+            {"id": "em1p_3_02", "type": "mc", "diff": 1, "q": "O coração funciona como uma…?", "options": ["bomba que empurra o sangue", "esponja que guarda ar", "fábrica de saliva", "peneira para os alimentos"], "correct": 0, "explanation": "O coração é um músculo que bombeia o sangue para todo o corpo! 💓"},
+            {"id": "em1p_3_03", "type": "mc", "diff": 2, "q": "Os vasos sanguíneos que levam o sangue DO coração para o corpo chamam-se…?", "options": ["Artérias", "Veias", "Brônquios", "Ureteres"], "correct": 0, "explanation": "Artérias: saem do coração!"},
+            {"id": "em1p_3_04", "type": "mc", "diff": 2, "q": "Os vasos sanguíneos que trazem o sangue de volta AO coração chamam-se…?", "options": ["Veias", "Artérias", "Brônquios", "Nervos"], "correct": 0, "explanation": "Veias: voltam ao coração!"},
+            {"id": "em1p_3_05", "type": "mc", "diff": 2, "q": "Os vasos sanguíneos mais finos, que chegam a todas as partes do corpo, chamam-se…?", "options": ["Capilares", "Artérias", "Brônquios", "Tendões"], "correct": 0, "explanation": "Os capilares são finos como cabelos!"},
+            {"id": "em1p_3_06", "type": "mc", "diff": 2, "q": "Para que serve o sangue?", "options": ["Transporta oxigénio e nutrientes e recolhe os resíduos", "Digere os alimentos", "Produz a saliva", "Filtra o ar"], "correct": 0, "explanation": "O sangue leva oxigénio e nutrientes a todo o corpo e recolhe o que já não serve! 🩸"},
+            {"id": "em1p_3_07", "type": "type", "diff": 1, "q": "Quantas cavidades tem o coração?", "accept": ["4", "quatro"], "explanation": "4 cavidades: 2 aurículas (em cima) e 2 ventrículos (em baixo)!"},
+            {"id": "em1p_3_08", "type": "mc", "diff": 3, "q": "As duas cavidades de CIMA do coração chamam-se…?", "options": ["aurículas", "ventrículos", "alvéolos", "brônquios"], "correct": 0, "explanation": "Em cima: aurículas. Em baixo: ventrículos."},
+            {"id": "em1p_3_09", "type": "mc", "diff": 3, "q": "As duas cavidades de BAIXO do coração chamam-se…?", "options": ["ventrículos", "aurículas", "capilares", "alvéolos"], "correct": 0, "explanation": "Em baixo: ventrículos. Em cima: aurículas."},
+            {"id": "em1p_3_10", "type": "type", "diff": 2, "q": "Como se chama o bater do coração que podemos sentir no pulso ou no pescoço?", "accept": ["pulsação", "a pulsação", "pulso", "o pulso", "batimentos cardíacos", "ritmo cardíaco", "frequência cardíaca"], "explanation": "A pulsação! Mede-se em batimentos por minuto."},
+            {"id": "em1p_3_11", "type": "tf", "diff": 1, "q": "Quando fazemos exercício, o coração bate mais depressa.", "correct": true, "explanation": "Verdade! Os músculos precisam de mais oxigénio, por isso o coração acelera. 🏃"},
+            {"id": "em1p_3_12", "type": "tf", "diff": 2, "q": "O sangue circula dentro de tubos chamados vasos sanguíneos.", "correct": true, "explanation": "Verdade! Artérias, veias e capilares são os vasos sanguíneos."},
+            {"id": "em1p_3_13", "type": "mc", "diff": 2, "q": "Onde fica o coração?", "options": ["No peito, entre os pulmões", "Na barriga, ao lado do estômago", "Na cabeça", "Nas costas, junto aos rins"], "correct": 0, "explanation": "O coração fica na caixa torácica, entre os dois pulmões, um pouco para a esquerda!"},
+            {"id": "em1p_3_14", "type": "mc", "diff": 1, "q": "Qual destes hábitos faz BEM ao coração?", "options": ["Fazer exercício físico regularmente", "Comer muitos fritos", "Fumar", "Ficar sempre sentado"], "correct": 0, "explanation": "Exercício regular deixa o coração forte! 💪"},
+            {"id": "em1p_3_15", "type": "mc", "diff": 3, "q": "O sangue é formado por plasma, glóbulos vermelhos, glóbulos brancos e…?", "options": ["plaquetas", "saliva", "bílis", "urina"], "correct": 0, "explanation": "Plasma + glóbulos vermelhos + glóbulos brancos + plaquetas!"},
+            {"id": "em1p_3_16", "type": "mc", "diff": 3, "q": "Qual é a função dos glóbulos VERMELHOS?", "options": ["Transportar o oxigénio", "Defender o corpo dos micróbios", "Ajudar a fechar as feridas", "Digerir os alimentos"], "correct": 0, "explanation": "Os glóbulos vermelhos transportam o oxigénio!"},
+            {"id": "em1p_3_17", "type": "mc", "diff": 3, "bonus": true, "q": "Para que servem as plaquetas?", "options": ["Ajudam a parar o sangue numa ferida", "Transportam o oxigénio", "Produzem a urina", "Combatem os micróbios"], "correct": 0, "explanation": "As plaquetas ajudam o sangue a coagular e a fechar as feridas! 🩹"}
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Sistema Excretor e Defesa",
+          "sub": "Rins, bexiga e pele · mecanismos de defesa do organismo",
+          "questions": [
+            {"id": "em1p_4_01", "type": "mc", "diff": 1, "q": "Quais são os órgãos principais do sistema urinário?", "options": ["Rins", "Pulmões", "Intestinos", "Ovários"], "correct": 0, "explanation": "Os dois rins! Ficam nas costas, um de cada lado."},
+            {"id": "em1p_4_02", "type": "mc", "diff": 1, "q": "O que fazem os rins?", "options": ["Filtram o sangue e produzem a urina", "Produzem a saliva", "Bombeiam o sangue", "Trocam gases com o ar"], "correct": 0, "explanation": "Os rins limpam o sangue e formam a urina!"},
+            {"id": "em1p_4_03", "type": "sort", "diff": 2, "q": "Ordena o caminho da urina:", "items": ["Rins", "Ureteres", "Bexiga", "Uretra"], "explanation": "Rins → ureteres → bexiga → uretra!"},
+            {"id": "em1p_4_04", "type": "mc", "diff": 2, "q": "Onde fica guardada a urina até a expulsarmos?", "options": ["Na bexiga", "Nos rins", "Nos ureteres", "No estômago"], "correct": 0, "explanation": "A bexiga é como um saco que guarda a urina!"},
+            {"id": "em1p_4_05", "type": "mc", "diff": 2, "q": "Além dos rins, que órgão também elimina resíduos através do SUOR?", "options": ["A pele", "O coração", "O estômago", "O cérebro"], "correct": 0, "explanation": "A pele elimina resíduos no suor, pelas glândulas sudoríparas! 💦"},
+            {"id": "em1p_4_06", "type": "type", "diff": 3, "q": "Como se chamam os dois tubos que levam a urina dos rins até à bexiga?", "accept": ["ureteres", "os ureteres", "ureter"], "explanation": "Os ureteres! (A uretra é o canal que leva a urina da bexiga para fora.)"},
+            {"id": "em1p_4_07", "type": "tf", "diff": 1, "q": "Beber água ajuda os rins a funcionar bem.", "correct": true, "explanation": "Verdade! Bebe água ao longo do dia. 💧"},
+            {"id": "em1p_4_08", "type": "tf", "diff": 2, "q": "A uretra leva a urina dos rins até à bexiga.", "correct": false, "explanation": "Falso! Dos rins à bexiga vão os URETERES. A uretra leva a urina da bexiga para fora do corpo."},
+            {"id": "em1p_4_09", "type": "mc", "diff": 1, "q": "Qual é a primeira barreira do corpo contra os micróbios?", "options": ["A pele", "O coração", "Os ossos", "Os músculos"], "correct": 0, "explanation": "A pele é uma barreira que impede a entrada de micróbios! 🛡️"},
+            {"id": "em1p_4_10", "type": "mc", "diff": 2, "q": "As lágrimas, a saliva e o muco do nariz ajudam a…?", "options": ["impedir a entrada de micróbios", "bombear o sangue", "produzir a urina", "fazer crescer os ossos"], "correct": 0, "explanation": "Lágrimas, saliva e muco prendem e eliminam muitos micróbios!"},
+            {"id": "em1p_4_11", "type": "mc", "diff": 2, "q": "Que células do sangue combatem os micróbios?", "options": ["Glóbulos brancos", "Glóbulos vermelhos", "Plaquetas", "Células da pele"], "correct": 0, "explanation": "Os glóbulos brancos são os «soldados» do corpo! 💂"},
+            {"id": "em1p_4_12", "type": "mc", "diff": 2, "q": "Para que servem as vacinas?", "options": ["Preparam o corpo para se defender de certas doenças", "Curam qualquer doença depois de a apanharmos", "Substituem a higiene", "Fazem crescer os ossos"], "correct": 0, "explanation": "As vacinas ensinam o corpo a defender-se antes de apanharmos a doença! 💉"},
+            {"id": "em1p_4_13", "type": "mc", "diff": 2, "q": "A febre é…?", "options": ["um sinal de que o corpo está a combater uma infeção", "sempre causada por comer doces", "uma doença dos ossos", "um sinal de que estamos ótimos"], "correct": 0, "explanation": "A febre mostra que o corpo está a lutar contra micróbios! 🌡️"},
+            {"id": "em1p_4_14", "type": "mc", "diff": 1, "q": "Qual destes hábitos ajuda a evitar doenças?", "options": ["Lavar as mãos antes de comer", "Partilhar a escova de dentes", "Espirrar para as mãos e não as lavar", "Comer fruta sem a lavar"], "correct": 0, "explanation": "Lavar as mãos tira muitos micróbios! 🧼"},
+            {"id": "em1p_4_15", "type": "tf", "diff": 1, "q": "Quando espirramos ou tossimos, devemos tapar a boca e o nariz com o braço dobrado.", "correct": true, "explanation": "Verdade! Assim não espalhamos micróbios. 🤧"},
+            {"id": "em1p_4_16", "type": "type", "diff": 3, "q": "Como se chamam as substâncias que os glóbulos brancos produzem para combater os micróbios?", "accept": ["anticorpos", "os anticorpos", "anticorpo"], "explanation": "Os anticorpos! As vacinas ajudam o corpo a produzi-los."},
+            {"id": "em1p_4_17", "type": "mc", "diff": 3, "bonus": true, "q": "Porque é que as pestanas e os pelos do nariz ajudam a defender o corpo?", "options": ["Retêm poeiras e micróbios", "Produzem oxigénio", "Limpam o sangue", "Digerem os alimentos"], "correct": 0, "explanation": "Pestanas e pelos do nariz seguram poeiras e micróbios antes de entrarem! 👁️"}
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Reprodução e Adolescência",
+          "sub": "Sistema reprodutor, fecundação, gravidez e mudanças na puberdade",
+          "questions": [
+            {"id": "em1p_5_01", "type": "mc", "diff": 1, "q": "Qual é a função do sistema reprodutor?", "options": ["Permitir que nasçam novos seres humanos", "Digerir os alimentos", "Filtrar o sangue", "Respirar"], "correct": 0, "explanation": "O sistema reprodutor permite a reprodução — o nascimento de bebés! 👶"},
+            {"id": "em1p_5_02", "type": "mc", "diff": 1, "q": "No sistema reprodutor FEMININO, os órgãos que produzem os óvulos são…?", "options": ["os ovários", "os testículos", "os rins", "os pulmões"], "correct": 0, "explanation": "Os ovários produzem os óvulos!"},
+            {"id": "em1p_5_03", "type": "mc", "diff": 1, "q": "No sistema reprodutor MASCULINO, os órgãos que produzem os espermatozoides são…?", "options": ["os testículos", "os ovários", "o útero", "a bexiga"], "correct": 0, "explanation": "Os testículos produzem os espermatozoides!"},
+            {"id": "em1p_5_04", "type": "mc", "diff": 2, "q": "Onde se desenvolve o bebé durante a gravidez?", "options": ["No útero", "No estômago", "Nos ovários", "Na bexiga"], "correct": 0, "explanation": "O bebé cresce dentro do útero da mãe! 🤰"},
+            {"id": "em1p_5_05", "type": "mc", "diff": 2, "q": "Como se chama a união de um óvulo com um espermatozoide?", "options": ["Fecundação", "Digestão", "Respiração", "Excreção"], "correct": 0, "explanation": "Óvulo + espermatozoide = fecundação → começa um novo ser!"},
+            {"id": "em1p_5_06", "type": "type", "diff": 1, "q": "Quantos meses dura, aproximadamente, a gravidez humana?", "accept": ["9", "nove", "9 meses", "nove meses"], "explanation": "Cerca de 9 meses! 🍼"},
+            {"id": "em1p_5_07", "type": "mc", "diff": 2, "q": "Durante a gravidez, o bebé recebe alimento e oxigénio da mãe através do…?", "options": ["cordão umbilical", "esófago", "nariz", "ureter"], "correct": 0, "explanation": "O cordão umbilical liga o bebé à placenta. Depois de nascer fica o umbigo!"},
+            {"id": "em1p_5_08", "type": "type", "diff": 2, "q": "Como se chama a célula reprodutora FEMININA?", "accept": ["óvulo", "o óvulo", "óvulos"], "explanation": "O óvulo! É produzido nos ovários."},
+            {"id": "em1p_5_09", "type": "type", "diff": 2, "q": "Como se chama a célula reprodutora MASCULINA?", "accept": ["espermatozoide", "o espermatozoide", "espermatozoides", "espermatozóide"], "explanation": "O espermatozoide! É produzido nos testículos."},
+            {"id": "em1p_5_10", "type": "mc", "diff": 1, "q": "A fase da vida em que se passa de criança a adulto chama-se…?", "options": ["Adolescência", "Infância", "Velhice", "Gravidez"], "correct": 0, "explanation": "Infância → adolescência → idade adulta → velhice!"},
+            {"id": "em1p_5_11", "type": "mc", "diff": 2, "q": "No início da adolescência, o corpo começa a mudar. Esta fase chama-se…?", "options": ["Puberdade", "Velhice", "Infância", "Digestão"], "correct": 0, "explanation": "A puberdade! O corpo começa a preparar-se para a idade adulta."},
+            {"id": "em1p_5_12", "type": "mc", "diff": 2, "q": "Qual destas mudanças acontece nos RAPAZES na puberdade?", "options": ["A voz fica mais grossa e aparecem pelos na cara", "Os seios desenvolvem-se", "Aparece a menstruação", "Deixam de crescer"], "correct": 0, "explanation": "Nos rapazes a voz muda, nasce a barba e os ombros alargam!"},
+            {"id": "em1p_5_13", "type": "mc", "diff": 2, "q": "Qual destas mudanças acontece nas RAPARIGAS na puberdade?", "options": ["Os seios desenvolvem-se e as ancas alargam", "A voz fica muito grossa", "Nasce barba", "Deixam de crescer"], "correct": 0, "explanation": "Nas raparigas desenvolvem-se os seios, as ancas alargam e aparece a menstruação."},
+            {"id": "em1p_5_14", "type": "mc", "diff": 2, "q": "Qual destas mudanças acontece em rapazes E raparigas na puberdade?", "options": ["Aparecem pelos nas axilas e na zona púbica e o corpo cresce", "Nasce barba", "Aparece a menstruação", "Os seios desenvolvem-se"], "correct": 0, "explanation": "Em ambos: pelos nas axilas e na zona púbica, crescimento rápido, mais suor e borbulhas!"},
+            {"id": "em1p_5_15", "type": "tf", "diff": 1, "q": "Na adolescência também há mudanças nas emoções e na forma de pensar.", "correct": true, "explanation": "Verdade! Não muda só o corpo — também os sentimentos e as ideias. 💭"},
+            {"id": "em1p_5_16", "type": "tf", "diff": 2, "q": "A menstruação é um sinal normal de que o corpo da rapariga está a amadurecer.", "correct": true, "explanation": "Verdade! É uma mudança natural da puberdade."},
+            {"id": "em1p_5_17", "type": "mc", "diff": 1, "q": "Na adolescência, a pele pode ficar mais oleosa e aparecer acne (borbulhas). O que ajuda?", "options": ["Lavar bem a cara e ter uma boa higiene", "Não tomar banho", "Espremer todas as borbulhas", "Comer só batatas fritas"], "correct": 0, "explanation": "Uma boa higiene ajuda muito — e mais suor pede banho todos os dias! 🚿"},
+            {"id": "em1p_5_18", "type": "mc", "diff": 3, "bonus": true, "q": "Onde acontece normalmente a fecundação, no sistema reprodutor feminino?", "options": ["Nas trompas de Falópio", "No útero", "Nos ovários", "Na vagina"], "correct": 0, "explanation": "Normalmente nas trompas de Falópio. Depois, o ovo desce e instala-se no útero."}
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Friso Cronológico",
+          "sub": "Década, século, milénio, a.C. e d.C., ordenar no tempo",
+          "questions": [
+            {"id": "em1p_6_01", "type": "mc", "diff": 1, "q": "Uma DÉCADA tem…?", "options": ["10 anos", "100 anos", "1 000 anos", "12 anos"], "correct": 0, "explanation": "Década = 10 anos!"},
+            {"id": "em1p_6_02", "type": "mc", "diff": 1, "q": "Um SÉCULO tem…?", "options": ["100 anos", "10 anos", "1 000 anos", "50 anos"], "correct": 0, "explanation": "Século = 100 anos!"},
+            {"id": "em1p_6_03", "type": "mc", "diff": 1, "q": "Um MILÉNIO tem…?", "options": ["1 000 anos", "100 anos", "10 anos", "10 000 anos"], "correct": 0, "explanation": "Milénio = 1 000 anos!"},
+            {"id": "em1p_6_04", "type": "mc", "diff": 1, "q": "Para que serve um friso cronológico?", "options": ["Para ordenar acontecimentos no tempo", "Para medir distâncias", "Para fazer contas de dividir", "Para desenhar mapas"], "correct": 0, "explanation": "O friso cronológico é uma linha do tempo com os acontecimentos por ordem! 📏"},
+            {"id": "em1p_6_05", "type": "mc", "diff": 2, "q": "O que significa «a.C.»?", "options": ["antes de Cristo", "antes do Calendário", "ano Comum", "antes da Cidade"], "correct": 0, "explanation": "a.C. = antes de Cristo (antes do nascimento de Cristo)."},
+            {"id": "em1p_6_06", "type": "mc", "diff": 2, "q": "O que significa «d.C.»?", "options": ["depois de Cristo", "dia Certo", "depois do Calendário", "década Comum"], "correct": 0, "explanation": "d.C. = depois de Cristo. Nós vivemos no ano 2026 d.C.!"},
+            {"id": "em1p_6_07", "type": "mc", "diff": 2, "q": "Num friso cronológico, os acontecimentos mais ANTIGOS ficam…?", "options": ["à esquerda (no início)", "à direita (no fim)", "sempre no meio", "em qualquer lugar"], "correct": 0, "explanation": "Lê-se da esquerda (mais antigo) para a direita (mais recente)! ➡️"},
+            {"id": "em1p_6_08", "type": "type", "diff": 2, "q": "Em que século estamos? (ano 2026)", "accept": ["XXI", "século XXI", "21", "século 21", "21.º", "século 21.º", "o século XXI"], "explanation": "Estamos no século XXI (21), que vai de 2001 a 2100!"},
+            {"id": "em1p_6_09", "type": "mc", "diff": 3, "q": "O ano 1755 pertence a que século?", "options": ["XVIII", "XVII", "XIX", "XVI"], "correct": 0, "explanation": "1755 → 17 + 1 = 18 → século XVIII (de 1701 a 1800)."},
+            {"id": "em1p_6_10", "type": "mc", "diff": 2, "q": "Os séculos costumam escrever-se em…?", "options": ["numeração romana (por exemplo XXI)", "frações", "letras gregas", "números decimais (por exemplo 2,1)"], "correct": 0, "explanation": "Século XXI, século XII… em numeração romana!"},
+            {"id": "em1p_6_11", "type": "type", "diff": 2, "q": "Quantas décadas tem um século?", "accept": ["10", "dez"], "explanation": "100 anos : 10 anos = 10 décadas!"},
+            {"id": "em1p_6_12", "type": "type", "diff": 2, "q": "Quantos séculos tem um milénio?", "accept": ["10", "dez"], "explanation": "1 000 anos : 100 anos = 10 séculos!"},
+            {"id": "em1p_6_13", "type": "sort", "diff": 2, "q": "Ordena do mais ANTIGO para o mais RECENTE:", "items": ["Os primeiros humanos abrigam-se em grutas", "Os romanos chegam à Península Ibérica", "D. Afonso Henriques, 1.º rei de Portugal (século XII)", "Hoje (2026)"], "explanation": "Pré-história → romanos → 1.º rei de Portugal → hoje! ⏳"},
+            {"id": "em1p_6_14", "type": "tf", "diff": 3, "q": "O ano 500 a.C. é mais antigo do que o ano 100 a.C.", "correct": true, "explanation": "Verdade! Antes de Cristo conta-se para trás: 500 a.C. está mais longe de nós."},
+            {"id": "em1p_6_15", "type": "mc", "diff": 2, "q": "O avô do Tiago nasceu em 1956. Em que século nasceu?", "options": ["XX", "XIX", "XXI", "XVIII"], "correct": 0, "explanation": "1956 → 19 + 1 = 20 → século XX (de 1901 a 2000)."},
+            {"id": "em1p_6_16", "type": "mc", "diff": 1, "q": "Se uma coisa aconteceu «há 10 anos», aconteceu há…?", "options": ["uma década", "um século", "um milénio", "um mês"], "correct": 0, "explanation": "10 anos = uma década!"},
+            {"id": "em1p_6_17", "type": "mc", "diff": 3, "bonus": true, "q": "O ano 1900 pertence a que século?", "options": ["XIX", "XX", "XVIII", "XXI"], "correct": 0, "explanation": "Cuidado: o século XIX vai de 1801 a 1900! Anos acabados em 00 são o último ano do século."}
+          ]
+        },
+        {
+          "id": 7,
+          "name": "Os Primeiros Povos",
+          "sub": "Caçadores-recoletores, agricultores e povos da Península Ibérica",
+          "questions": [
+            {"id": "em1p_7_01", "type": "mc", "diff": 1, "q": "Os primeiros seres humanos viviam da caça, da pesca e da…?", "options": ["recoleção de frutos e raízes", "agricultura com tratores", "indústria", "compra em lojas"], "correct": 0, "explanation": "Eram caçadores-recoletores: caçavam, pescavam e recolhiam frutos, raízes e sementes! 🫐"},
+            {"id": "em1p_7_02", "type": "mc", "diff": 1, "q": "Os primeiros povos eram NÓMADAS. Isso quer dizer que…?", "options": ["mudavam de lugar à procura de alimento", "viviam sempre na mesma aldeia", "viviam em castelos", "só comiam peixe"], "correct": 0, "explanation": "Nómadas mudam de sítio quando o alimento acaba! 🚶"},
+            {"id": "em1p_7_03", "type": "mc", "diff": 2, "q": "Onde se abrigavam os primeiros povos nómadas?", "options": ["Em grutas e abrigos naturais", "Em prédios", "Em castelos", "Em casas de tijolo"], "correct": 0, "explanation": "Em grutas, debaixo de rochas ou em cabanas simples! 🪨"},
+            {"id": "em1p_7_04", "type": "mc", "diff": 2, "q": "Os primeiros instrumentos eram feitos de…?", "options": ["pedra, osso e madeira", "plástico", "ferro e aço", "vidro"], "correct": 0, "explanation": "Lascavam a pedra e usavam osso e madeira! 🪓"},
+            {"id": "em1p_7_05", "type": "mc", "diff": 1, "q": "Uma das descobertas mais importantes dos primeiros povos foi…?", "options": ["o fogo", "a eletricidade", "o telefone", "a televisão"], "correct": 0, "explanation": "O fogo dava calor, luz, proteção e permitia cozinhar! 🔥"},
+            {"id": "em1p_7_06", "type": "mc", "diff": 2, "q": "Quando começaram a praticar a AGRICULTURA e a PASTORÍCIA, os povos passaram a ser…?", "options": ["sedentários (fixaram-se num lugar)", "nómadas", "marinheiros", "só caçadores"], "correct": 0, "explanation": "Para cuidar dos campos e dos animais, fixaram-se e construíram aldeias! 🌾"},
+            {"id": "em1p_7_07", "type": "mc", "diff": 2, "q": "Os desenhos que os primeiros povos fizeram nas paredes das grutas e nas rochas chamam-se…?", "options": ["arte rupestre", "azulejos", "grafítis", "mosaicos"], "correct": 0, "explanation": "Arte rupestre = pinturas e gravuras em rochas! 🦌"},
+            {"id": "em1p_7_08", "type": "mc", "diff": 3, "q": "Em Portugal, há gravuras rupestres muito famosas no…?", "options": ["Vale do Côa", "Cabo da Roca", "Castelo de Guimarães", "Mosteiro dos Jerónimos"], "correct": 0, "explanation": "As gravuras do Vale do Côa têm milhares de anos e são Património Mundial! 🐎"},
+            {"id": "em1p_7_09", "type": "tf", "diff": 1, "q": "Os primeiros povos nómadas viviam em casas de tijolo.", "correct": false, "explanation": "Falso! Abrigavam-se em grutas e abrigos naturais."},
+            {"id": "em1p_7_10", "type": "mc", "diff": 3, "q": "Os monumentos feitos com pedras enormes, como as antas e os menires, chamam-se…?", "options": ["monumentos megalíticos", "castelos", "aquedutos", "pirâmides"], "correct": 0, "explanation": "Mega = grande, lito = pedra → megalíticos! Ex.: Cromeleque dos Almendres, em Évora."},
+            {"id": "em1p_7_11", "type": "type", "diff": 2, "q": "Como se chamam os povos que mudavam de lugar à procura de alimento?", "accept": ["nómadas", "os nómadas", "povos nómadas", "nómada"], "explanation": "Nómadas!"},
+            {"id": "em1p_7_12", "type": "type", "diff": 2, "q": "Como se chamam os povos que se fixam num lugar e constroem aldeias?", "accept": ["sedentários", "os sedentários", "povos sedentários", "sedentário"], "explanation": "Sedentários!"},
+            {"id": "em1p_7_13", "type": "mc", "diff": 2, "q": "Com a agricultura, os povos começaram também a fazer…?", "options": ["potes de barro (cerâmica) e tecidos", "computadores", "carros", "moedas de euro"], "correct": 0, "explanation": "Faziam potes de barro para guardar os alimentos e teciam roupa! 🏺"},
+            {"id": "em1p_7_14", "type": "mc", "diff": 1, "q": "A pastorícia é…?", "options": ["criar e guardar animais, como ovelhas e cabras", "pescar no mar", "caçar animais selvagens", "apanhar frutos"], "correct": 0, "explanation": "Pastorícia = criar e guardar gado! 🐐"},
+            {"id": "em1p_7_15", "type": "mc", "diff": 3, "q": "Mais tarde, os povos aprenderam a trabalhar os metais. Qual foi um dos primeiros?", "options": ["cobre", "alumínio", "plástico", "titânio"], "correct": 0, "explanation": "Primeiro o cobre, depois o bronze e mais tarde o ferro!"},
+            {"id": "em1p_7_16", "type": "sort", "diff": 3, "q": "Ordena do mais ANTIGO para o mais RECENTE:", "items": ["Povos nómadas, caçadores e recoletores", "Povos sedentários, agricultores e pastores", "Povos que trabalham os metais"], "explanation": "Primeiro nómadas, depois agricultores sedentários e, mais tarde, os metais! ⏳"},
+            {"id": "em1p_7_17", "type": "mc", "diff": 3, "bonus": true, "q": "Que povos vieram por mar, do Mediterrâneo, para fazer comércio na Península Ibérica?", "options": ["Fenícios, gregos e cartagineses", "Celtas e iberos", "Romanos e visigodos", "Vikings"], "correct": 0, "explanation": "Fenícios, gregos e cartagineses eram comerciantes que chegaram de barco! ⛵"},
+            {"id": "em1p_7_18", "type": "mc", "diff": 3, "bonus": true, "q": "Viriato foi o chefe de que povo, que lutou contra os romanos?", "options": ["Lusitanos", "Fenícios", "Gregos", "Cartagineses"], "correct": 0, "explanation": "Viriato chefiou os Lusitanos contra os romanos! 🛡️"},
+            {"id": "em1p_7_19", "type": "mc", "diff": 3, "bonus": true, "q": "Que povo deixou na Península Ibérica estradas, pontes e o latim, a língua de onde vem o português?", "options": ["Os romanos", "Os fenícios", "Os celtas", "Os gregos"], "correct": 0, "explanation": "Os romanos! O português vem do latim. 🏛️"}
+          ]
+        }
+      ]
     }
   ]
 }

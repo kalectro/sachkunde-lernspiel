@@ -72,6 +72,8 @@ Interaktive Lern-App als **einzelne HTML-Datei** (`index.html`) + externe JSON-D
 
 Optional: `bonus: true`, `hint: "Tipptext"`
 
+**Darstellungsgrenzen beim Schreiben von Fragen:** `q` wird per `textContent` gesetzt (`renderQuestion`): kein HTML, keine Zeilenumbrüche, keine Bilder. Deshalb steht ein Lesetext **vollständig in jeder Frage** dazu (wie `enqa1_6_*`, `pt1p_6_*`), und Diagramme sind Emoji-Zeilen mit Legende, z. B. „(cada 🟦 = 2 alunos) Maçã: 🟦🟦🟦🟦 · Banana: 🟦🟦“ (`mat1p_8_*`). MC braucht **genau 4** Optionen (Test) → Vergleiche mit >, <, = als „Qual destas afirmações é VERDADEIRA?“ mit vier Aussagen oder als `type` mit `accept: [">"]`. Nicht abbildbar und deshalb bei Matrizen bewusst ausgelassen: **Compreensão oral** (die App hat kein Audio).
+
 ## Konzept: Aktive vs. Archivierte Prüfungen
 
 - **`archived: false`** = aktive Prüfung → zählt für Sterne, Kronen, Achievements
@@ -149,6 +151,12 @@ Push auf `main` → GitHub Actions deployed automatisch. Kein separater Build-Sc
 5. Blindtest (siehe unten)
 6. Commit + Push
 
-**Benennung:** Perioden-Tests `en_3p_2026` / Fragen `en3p_<stufe>_<nr>`. Kurze Klassen-Tests („Questão de aula“) `en_qa<N>_<Schuljahr>`, z. B. `en_qa1_2627` / Fragen `enqa1_<stufe>_<nr>`. Fragen-IDs nie wiederverwenden (sie sind Schlüssel in der History der Profile).
+**Benennung:** Perioden-Tests 2025/26 `en_3p_2026` / Fragen `en3p_<stufe>_<nr>`; ab 2026/27 mit Schuljahr im Prüfungs-ID, z. B. `pt_1p_2627` / Fragen `pt1p_<stufe>_<nr>`. Kurze Klassen-Tests („Questão de aula“) `en_qa<N>_<Schuljahr>`, z. B. `en_qa1_2627` / Fragen `enqa1_<stufe>_<nr>`. Fragen-IDs nie wiederverwenden (sie sind Schlüssel in der History der Profile).
 
-**Blindtest statt `grade-questions`:** Der Plattform-Skill `grade-questions` schließt `vamos-estudar/` laut seiner SKILL.md aus (`IGNORE_DIRS`), und seine Skripte (`_mathe_quellen/grader/`) lagen am 20.10.2026 nicht unter `/Users/kai/claude/sachkunde`. Bewährter Ersatz (20.10.2026, 108 Fragen): Fragen ohne Lösungen (MC-Optionen/Sort-Items gemischt) als JSON in den Scratchpad → Sonnet-Subagent beantwortet blind, darf `note` bei Mehrdeutigkeit setzen → Auswertung mit der echten `answerCorrect` aus `index.html` → Fehler und Notes einzeln gegen die Daten prüfen.
+**Blindtest statt `grade-questions`:** Der Plattform-Skill `grade-questions` schließt `vamos-estudar/` laut seiner SKILL.md aus (`IGNORE_DIRS`), und seine Skripte (`_mathe_quellen/grader/`) lagen am 20.10.2026 nicht unter `/Users/kai/claude/sachkunde`. Bewährter Ersatz, seit 22.11.2026 als Skript `test/blindtest.mjs`:
+1. `node vamos-estudar/test/blindtest.mjs build <examId> <scratchpad>/<examId>.questions.json` → Fragen ohne Lösungen, MC-Optionen und Sort-Items gemischt.
+2. Pro Fach ein Sonnet-Subagent (parallel): liest **nur** diese Datei (ausdrücklich verbieten, unter `/Users/kai/claude/` zu lesen), schreibt `{"<id>": {"answer": …, "note": "…"}}` — `note` bei Mehrdeutigkeit, Faktenzweifel, unnatürlichem PT-PT oder Schulbuch-Konventionen.
+3. `node vamos-estudar/test/blindtest.mjs grade <examId> <answers.json>` → wertet mit der echten `answerCorrect` aus `index.html` aus, listet Fehler und Notes.
+4. Jeden Fehler und jede Note einzeln gegen die Daten prüfen; nur Berechtigtes ändern.
+
+Läufe: 20.10.2026 Inglês 108 Fragen (108/108, 17 Notes, nichts geändert); 22.11.2026 PT/MAT/EM 1.º Período 396 Fragen (396/396, 22 Notes, 6 umgesetzt: fehlende `accept`-Varianten und zwei schief formulierte Distraktoren). Gegenprobe Skript 22.11.2026: drei Antworten manipuliert (mc/type/sort) → „3 falsch“.

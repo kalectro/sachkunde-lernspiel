@@ -65,6 +65,7 @@ vamos-estudar/
     ingles.json        ← Fragen Inglês
   test/
     run-tests.mjs      ← Automatisierte Tests
+    blindtest.mjs      ← Blindtest neuer Prüfungen (Ablauf: CLAUDE.md)
   CLAUDE.md            ← Technische Doku
   README.md            ← Diese Datei
 ```
