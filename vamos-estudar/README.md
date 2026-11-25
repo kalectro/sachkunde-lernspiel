@@ -17,6 +17,8 @@ Interaktive Lern-App für die 4. Klasse in Portugal.
 
 Cada disciplina tem vários níveis com perguntas de escolha múltipla e resposta escrita. Ganha estrelas ⭐ e conquistas 🏆!
 
+No início de cada disciplina há um **📝 Teste de treino**: 20 perguntas de todos os níveis, uma só tentativa, sem dicas — como na ficha. Pode fazer-se uma vez por hora.
+
 As provas já realizadas ficam disponíveis em "Provas passadas" para praticares quando quiseres.
 
 ---

@@ -126,7 +126,12 @@
             {"id": "mat1p_1_15", "type": "tf", "diff": 2, "q": "456 789 < 465 789", "correct": true, "explanation": "Verdade! As centenas de milhar são iguais (4); nas dezenas de milhar, 5 < 6."},
             {"id": "mat1p_1_16", "type": "mc", "diff": 3, "q": "Qual é a decomposição de 640 207? (CM = centenas de milhar, DM = dezenas de milhar, UM = unidades de milhar, C = centenas, D = dezenas, U = unidades)", "options": ["6 CM + 4 DM + 2 C + 7 U", "6 CM + 4 UM + 2 C + 7 U", "6 CM + 4 DM + 2 D + 7 U", "6 CM + 4 DM + 2 UM + 7 U"], "correct": 0, "explanation": "640 207 = 600 000 + 40 000 + 200 + 7 → 6 CM + 4 DM + 2 C + 7 U!"},
             {"id": "mat1p_1_17", "type": "mc", "diff": 3, "bonus": true, "q": "Com os algarismos 3, 0, 8, 5, 1 e 6 (sem repetir), qual é o MAIOR número que podes formar?", "options": ["865 310", "865 301", "856 310", "806 531"], "correct": 0, "explanation": "Põe os algarismos do maior para o menor: 8, 6, 5, 3, 1, 0 → 865 310!"},
-            {"id": "mat1p_1_18", "type": "mc", "diff": 3, "bonus": true, "q": "Quantas UNIDADES DE MILHAR tem, ao todo, o número 708 052?", "options": ["708", "8", "70", "7 080"], "correct": 0, "explanation": "708 052 = 708 milhares + 52 → tem 708 unidades de milhar ao todo (o algarismo das UM é o 8)."}
+            {"id": "mat1p_1_18", "type": "mc", "diff": 3, "bonus": true, "q": "Quantas UNIDADES DE MILHAR tem, ao todo, o número 708 052?", "options": ["708", "8", "70", "7 080"], "correct": 0, "explanation": "708 052 = 708 milhares + 52 → tem 708 unidades de milhar ao todo (o algarismo das UM é o 8)."},
+            {"id": "mat1p_1_19", "type": "mc", "diff": 1, "q": "Em qual destes números o 8 vale 8 CENTENAS?", "options": ["36 841", "28 345", "23 586", "80 123"], "correct": 0, "explanation": "36 841: o 8 está nas centenas → vale 800!"},
+            {"id": "mat1p_1_20", "type": "mc", "diff": 2, "q": "Qual é o número que representa 23 milhares e 245 unidades?", "options": ["23 245", "23 452", "23 645", "2 345"], "correct": 0, "explanation": "23 milhares = 23 000, mais 245 → 23 245!"},
+            {"id": "mat1p_1_21", "type": "mc", "diff": 2, "q": "Qual destes números NÃO tem 1 centena de milhar?", "options": ["99 999", "145 789", "176 001", "100 000"], "correct": 0, "explanation": "99 999 só tem 5 algarismos — não chega a 100 000!"},
+            {"id": "mat1p_1_22", "type": "mc", "diff": 3, "q": "No número 178 096, qual é o valor posicional dos algarismos 8 e 9, respetivamente?", "options": ["8 unidades de milhar e 9 dezenas", "8 dezenas e 9 centenas", "8 centenas e 9 unidades de milhar", "8 dezenas de milhar e 9 unidades"], "correct": 0, "explanation": "1 CM · 7 DM · 8 UM · 0 C · 9 D · 6 U!"},
+            {"id": "mat1p_1_23", "type": "type", "diff": 2, "q": "Numa reta numérica: 150 000 · 160 000 · ___ · 180 000 · 190 000. Que número falta?", "accept": ["170 000"], "explanation": "A reta vai de 10 000 em 10 000 → 170 000!"}
           ]
         },
         {
@@ -152,7 +157,10 @@
             {"id": "mat1p_2_16", "type": "type", "diff": 3, "q": "Um autocarro leva 52 passageiros. Quantos passageiros levam 18 autocarros cheios?", "accept": ["936", "936 passageiros"], "explanation": "52 × 18 = 936 passageiros! 🚌"},
             {"id": "mat1p_2_17", "type": "tf", "diff": 2, "q": "35 × 20 = 700", "correct": true, "explanation": "Verdade! 35 × 2 = 70 → 35 × 20 = 700."},
             {"id": "mat1p_2_18", "type": "type", "diff": 3, "bonus": true, "q": "Calcula: 1 234 × 56", "accept": ["69 104"], "explanation": "1 234 × 6 = 7 404 e 1 234 × 50 = 61 700 → 69 104!"},
-            {"id": "mat1p_2_19", "type": "mc", "diff": 3, "bonus": true, "q": "Que algarismo falta? 2_ × 4 = 92", "options": ["3", "2", "4", "8"], "correct": 0, "explanation": "23 × 4 = 92 → falta o 3!"}
+            {"id": "mat1p_2_19", "type": "mc", "diff": 3, "bonus": true, "q": "Que algarismo falta? 2_ × 4 = 92", "options": ["3", "2", "4", "8"], "correct": 0, "explanation": "23 × 4 = 92 → falta o 3!"},
+            {"id": "mat1p_2_20", "type": "mc", "diff": 3, "q": "Como podemos calcular 15 × 42?", "options": ["3 × 5 × 6 × 7", "5 × 3 × 6 × 6", "3 × 5 × 7 × 5", "15 × 4 × 2"], "correct": 0, "explanation": "15 = 3 × 5 e 42 = 6 × 7 → 15 × 42 = 3 × 5 × 6 × 7!"},
+            {"id": "mat1p_2_21", "type": "mc", "diff": 2, "q": "Sem fazer o algoritmo, qual pode ser o produto de 98 × 5?", "options": ["490", "498", "489", "4 900"], "correct": 0, "explanation": "100 × 5 = 500 e 98 é 2 a menos → 500 − 10 = 490. E × 5 acaba em 0 ou 5!"},
+            {"id": "mat1p_2_22", "type": "type", "diff": 3, "q": "Que algarismo falta? 291 × 7 = 2 _37", "accept": ["0"], "explanation": "291 × 7 = 2 037 → falta o 0!"}
           ]
         },
         {
@@ -202,7 +210,8 @@
             {"id": "mat1p_4_15", "type": "mc", "diff": 3, "q": "Uma sequência começa em 4 e a regra é «somar 6». Qual é o 5.º termo?", "options": ["28", "30", "34", "24"], "correct": 0, "explanation": "4, 10, 16, 22, 28 → o 5.º termo é 28!"},
             {"id": "mat1p_4_16", "type": "type", "diff": 2, "q": "Qual é o número que falta? 90, 81, 72, ___, 54", "accept": ["63"], "explanation": "A regra é −9: 72 − 9 = 63!"},
             {"id": "mat1p_4_17", "type": "sort", "diff": 1, "q": "Ordena os termos da sequência que começa em 50 e vai «de 25 em 25»:", "items": ["50", "75", "100", "125"], "explanation": "50 → 75 → 100 → 125: sempre +25!"},
-            {"id": "mat1p_4_18", "type": "type", "diff": 3, "bonus": true, "q": "Continua a sequência: 1, 4, 9, 16, 25, ___", "accept": ["36"], "explanation": "1×1, 2×2, 3×3, 4×4, 5×5, 6×6 = 36! (As diferenças são +3, +5, +7, +9, +11.)"}
+            {"id": "mat1p_4_18", "type": "type", "diff": 3, "bonus": true, "q": "Continua a sequência: 1, 4, 9, 16, 25, ___", "accept": ["36"], "explanation": "1×1, 2×2, 3×3, 4×4, 5×5, 6×6 = 36! (As diferenças são +3, +5, +7, +9, +11.)"},
+            {"id": "mat1p_4_19", "type": "type", "diff": 2, "q": "Numa sequência de figuras, a Fig. 1 tem 2 quadrados verdes, a Fig. 2 tem 4 e a Fig. 3 tem 6. Quantos quadrados verdes terá a Fig. 4?", "accept": ["8"], "explanation": "Cada figura tem mais 2 quadrados verdes: 6 + 2 = 8! 🟩"}
           ]
         },
         {
@@ -228,7 +237,10 @@
             {"id": "mat1p_5_16", "type": "type", "diff": 3, "q": "Escreve o sinal que falta (>, < ou =): 12 × 5 ___ 6 × 10", "accept": ["="], "explanation": "12 × 5 = 60 e 6 × 10 = 60 → «=»!"},
             {"id": "mat1p_5_17", "type": "mc", "diff": 2, "q": "Que número torna a igualdade verdadeira? 35 + ___ = 40 + 15", "options": ["20", "5", "15", "25"], "correct": 0, "explanation": "40 + 15 = 55 e 35 + 20 = 55 → é o 20!"},
             {"id": "mat1p_5_18", "type": "type", "diff": 3, "bonus": true, "q": "Completa: 4 × ___ = 100 − 36", "accept": ["16"], "explanation": "100 − 36 = 64 e 4 × 16 = 64 → falta 16!"},
-            {"id": "mat1p_5_19", "type": "mc", "diff": 3, "bonus": true, "q": "Qual destas afirmações é VERDADEIRA?", "options": ["300 − 99 < 202", "300 − 99 > 202", "300 − 99 = 202", "300 − 99 = 299"], "correct": 0, "explanation": "300 − 99 = 201 e 201 < 202!"}
+            {"id": "mat1p_5_19", "type": "mc", "diff": 3, "bonus": true, "q": "Qual destas afirmações é VERDADEIRA?", "options": ["300 − 99 < 202", "300 − 99 > 202", "300 − 99 = 202", "300 − 99 = 299"], "correct": 0, "explanation": "300 − 99 = 201 e 201 < 202!"},
+            {"id": "mat1p_5_20", "type": "type", "diff": 3, "q": "Completa: 7 × 28 = (7 × 8) + (7 × ___)", "accept": ["20"], "explanation": "28 = 8 + 20 → 7 × 28 = 7 × 8 + 7 × 20!"},
+            {"id": "mat1p_5_21", "type": "type", "diff": 3, "q": "Completa: 6 × 25 = (6 × 20) + (6 × ___)", "accept": ["5"], "explanation": "25 = 20 + 5 → 6 × 25 = 6 × 20 + 6 × 5 = 120 + 30 = 150!"},
+            {"id": "mat1p_5_22", "type": "mc", "diff": 3, "q": "Se 32 : 8 = 4, então 64 : 16 é…?", "options": ["4", "8", "16", "2"], "correct": 0, "explanation": "64 é o dobro de 32 e 16 é o dobro de 8 → o resultado não muda: 4!"}
           ]
         },
         {
@@ -253,13 +265,15 @@
             {"id": "mat1p_6_15", "type": "mc", "diff": 2, "q": "Qual destes sólidos é um POLIEDRO?", "options": ["Prisma triangular", "Cilindro", "Cone", "Esfera"], "correct": 0, "explanation": "O prisma triangular só tem faces planas → poliedro!"},
             {"id": "mat1p_6_16", "type": "type", "diff": 3, "q": "Quantas arestas tem um prisma triangular?", "accept": ["9", "nove"], "explanation": "3 na base de baixo + 3 na base de cima + 3 laterais = 9 arestas!"},
             {"id": "mat1p_6_17", "type": "mc", "diff": 3, "q": "Quantas faces tem um prisma triangular?", "options": ["5", "6", "3", "9"], "correct": 0, "explanation": "2 triângulos + 3 retângulos = 5 faces!"},
-            {"id": "mat1p_6_18", "type": "mc", "diff": 3, "bonus": true, "q": "Quantas faces tem uma pirâmide hexagonal (base com 6 lados)?", "options": ["7", "6", "8", "12"], "correct": 0, "explanation": "1 base hexagonal + 6 triângulos = 7 faces!"}
+            {"id": "mat1p_6_18", "type": "mc", "diff": 3, "bonus": true, "q": "Quantas faces tem uma pirâmide hexagonal (base com 6 lados)?", "options": ["7", "6", "8", "12"], "correct": 0, "explanation": "1 base hexagonal + 6 triângulos = 7 faces!"},
+            {"id": "mat1p_6_19", "type": "mc", "diff": 2, "q": "Qual destas planificações NÃO é de um prisma?", "options": ["1 quadrado e 4 triângulos", "2 hexágonos e 6 retângulos", "2 triângulos e 3 retângulos", "6 quadrados"], "correct": 0, "explanation": "1 quadrado + 4 triângulos é uma pirâmide. Os prismas têm 2 bases iguais e faces laterais retangulares!"},
+            {"id": "mat1p_6_20", "type": "mc", "diff": 3, "q": "Um prisma pentagonal tem na planificação…?", "options": ["2 pentágonos e 5 retângulos", "1 pentágono e 5 triângulos", "5 pentágonos e 2 retângulos", "2 pentágonos e 6 retângulos"], "correct": 0, "explanation": "2 bases pentagonais + 5 faces laterais retangulares! (1 pentágono + 5 triângulos seria uma pirâmide.)"}
           ]
         },
         {
           "id": 7,
-          "name": "Quadriláteros e Retas",
-          "sub": "Figuras planas (quadriláteros), retas paralelas e perpendiculares",
+          "name": "Quadriláteros, Retas e Circunferência",
+          "sub": "Quadriláteros, retas paralelas e perpendiculares, raio e diâmetro",
           "questions": [
             {"id": "mat1p_7_01", "type": "mc", "diff": 1, "q": "Um quadrilátero é um polígono com…?", "options": ["4 lados", "3 lados", "5 lados", "6 lados"], "correct": 0, "explanation": "Quadri = 4 → 4 lados, 4 vértices e 4 ângulos!"},
             {"id": "mat1p_7_02", "type": "mc", "diff": 1, "q": "Qual destas figuras NÃO é um quadrilátero?", "options": ["Triângulo", "Quadrado", "Retângulo", "Losango"], "correct": 0, "explanation": "O triângulo tem 3 lados!"},
@@ -277,7 +291,13 @@
             {"id": "mat1p_7_14", "type": "mc", "diff": 2, "q": "Que instrumento usas para traçar retas perpendiculares?", "options": ["Esquadro", "Compasso", "Balança", "Termómetro"], "correct": 0, "explanation": "O esquadro tem um ângulo reto → ótimo para retas perpendiculares! 📐"},
             {"id": "mat1p_7_15", "type": "mc", "diff": 3, "q": "Qual quadrilátero tem os lados opostos paralelos, mas NÃO tem os 4 lados iguais nem ângulos retos?", "options": ["Paralelogramo", "Quadrado", "Retângulo", "Losango"], "correct": 0, "explanation": "É o paralelogramo: lados opostos paralelos e iguais, mas «inclinado»!"},
             {"id": "mat1p_7_16", "type": "type", "diff": 1, "q": "Quantos vértices tem um quadrilátero?", "accept": ["4", "quatro"], "explanation": "4 lados → 4 vértices!"},
-            {"id": "mat1p_7_17", "type": "tf", "diff": 3, "bonus": true, "q": "Todos os quadrados são retângulos.", "correct": true, "explanation": "Verdade! O quadrado tem 4 ângulos retos, como o retângulo — é um retângulo com os 4 lados iguais."}
+            {"id": "mat1p_7_17", "type": "tf", "diff": 3, "bonus": true, "q": "Todos os quadrados são retângulos.", "correct": true, "explanation": "Verdade! O quadrado tem 4 ângulos retos, como o retângulo — é um retângulo com os 4 lados iguais."},
+            {"id": "mat1p_7_18", "type": "type", "diff": 2, "q": "Uma circunferência tem 20 cm de diâmetro. Quanto mede o raio, em cm?", "accept": ["10", "10 cm"], "explanation": "O raio é metade do diâmetro: 20 : 2 = 10 cm (= 100 mm)! ⭕"},
+            {"id": "mat1p_7_19", "type": "type", "diff": 2, "q": "O raio de uma circunferência mede 6 cm. Quanto mede o diâmetro, em cm?", "accept": ["12", "12 cm"], "explanation": "O diâmetro é o dobro do raio: 6 × 2 = 12 cm!"},
+            {"id": "mat1p_7_20", "type": "mc", "diff": 2, "q": "Qual é a diferença entre circunferência e círculo?", "options": ["A circunferência é só a linha; o círculo é a linha e a parte de dentro", "O círculo é só a linha; a circunferência é a parte de dentro", "São exatamente a mesma coisa", "O círculo é um sólido e a circunferência é plana"], "correct": 0, "explanation": "Circunferência = a linha (como um anel 💍). Círculo = a linha e o interior (como uma moeda 🪙)."},
+            {"id": "mat1p_7_21", "type": "tf", "diff": 2, "q": "Todos os pontos de uma circunferência estão à mesma distância do centro.", "correct": true, "explanation": "Verdade! Essa distância é o raio."},
+            {"id": "mat1p_7_22", "type": "mc", "diff": 1, "q": "Que instrumento usas para desenhar uma circunferência?", "options": ["Compasso", "Esquadro", "Transferidor", "Régua"], "correct": 0, "explanation": "O compasso! Abres o compasso com a medida do raio. ✏️"},
+            {"id": "mat1p_7_23", "type": "mc", "diff": 3, "q": "Qual destas figuras NÃO é um paralelogramo?", "options": ["Um quadrilátero com só dois lados paralelos", "Retângulo", "Losango", "Quadrado"], "correct": 0, "explanation": "O paralelogramo tem os lados opostos paralelos dois a dois. Com só dois lados paralelos é um trapézio!"}
           ]
         },
         {
@@ -302,7 +322,10 @@
             {"id": "mat1p_8_15", "type": "mc", "diff": 2, "q": "Numa visita de estudo vão 94 alunos. Cada autocarro leva 50 alunos. Quantos autocarros são precisos, no mínimo?", "options": ["2", "1", "3", "4"], "correct": 0, "explanation": "1 autocarro leva 50, 2 levam 100 → chegam 2 autocarros para 94 alunos! 🚌"},
             {"id": "mat1p_8_16", "type": "type", "diff": 2, "q": "Gráfico «Animais de estimação da turma» (cada 🟩 = 1 aluno) — Cão: 🟩🟩🟩🟩🟩🟩🟩 · Gato: 🟩🟩🟩🟩🟩 · Peixe: 🟩🟩 · Pássaro: 🟩🟩🟩. Quantos alunos têm cão OU gato?", "accept": ["12"], "explanation": "Cão 7 + gato 5 = 12 alunos! 🐶🐱"},
             {"id": "mat1p_8_17", "type": "mc", "diff": 3, "q": "Gráfico «Animais de estimação da turma» (cada 🟩 = 1 aluno) — Cão: 🟩🟩🟩🟩🟩🟩🟩 · Gato: 🟩🟩🟩🟩🟩 · Peixe: 🟩🟩 · Pássaro: 🟩🟩🟩. Quantos alunos a MENOS têm peixe do que cão?", "options": ["5", "2", "7", "9"], "correct": 0, "explanation": "Cão 7 − peixe 2 = 5 alunos a menos! 🐟"},
-            {"id": "mat1p_8_18", "type": "mc", "diff": 3, "bonus": true, "q": "Gráfico «Fruta preferida da turma» — Maçã: 🟦🟦🟦🟦. Se cada 🟦 valesse 5 alunos, quantos alunos escolheriam maçã?", "options": ["20", "8", "4", "9"], "correct": 0, "explanation": "4 quadrados × 5 alunos = 20 alunos! Lê sempre a legenda do gráfico."}
+            {"id": "mat1p_8_18", "type": "mc", "diff": 3, "bonus": true, "q": "Gráfico «Fruta preferida da turma» — Maçã: 🟦🟦🟦🟦. Se cada 🟦 valesse 5 alunos, quantos alunos escolheriam maçã?", "options": ["20", "8", "4", "9"], "correct": 0, "explanation": "4 quadrados × 5 alunos = 20 alunos! Lê sempre a legenda do gráfico."},
+            {"id": "mat1p_8_19", "type": "mc", "diff": 2, "q": "Diagrama de caule-e-folhas «Minutos até à escola» (1 | 2 quer dizer 12 min) — 0 | 3 5 8 · 1 | 0 2 2 7 · 2 | 4. Quantos minutos demora o aluno que leva MENOS tempo?", "options": ["3 min", "0 min", "8 min", "10 min"], "correct": 0, "explanation": "A primeira folha do caule 0 é 3 → 03 = 3 min!"},
+            {"id": "mat1p_8_20", "type": "mc", "diff": 2, "q": "Diagrama de caule-e-folhas «Minutos até à escola» (1 | 2 quer dizer 12 min) — 0 | 3 5 8 · 1 | 0 2 2 7 · 2 | 4. Quantos minutos demora o aluno que leva MAIS tempo?", "options": ["24 min", "4 min", "17 min", "20 min"], "correct": 0, "explanation": "Caule 2, folha 4 → 24 min!"},
+            {"id": "mat1p_8_21", "type": "type", "diff": 3, "q": "Diagrama de caule-e-folhas «Minutos até à escola» (1 | 2 quer dizer 12 min) — 0 | 3 5 8 · 1 | 0 2 2 7 · 2 | 4. Quantos alunos responderam?", "accept": ["8"], "explanation": "Conta as folhas: 3 + 4 + 1 = 8 alunos!"}
           ]
         }
       ]

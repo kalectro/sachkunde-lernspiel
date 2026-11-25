@@ -154,6 +154,12 @@ body {
 }
 .level-card:hover { transform:translateX(5px); }
 .level-card.locked { opacity:.45; pointer-events:none; }
+.mock-card { border:2px dashed var(--text-light); margin-bottom:6px; }
+.mock-card .lv-num { font-size:1.3em; }
+.mock-card.cooldown { opacity:.6; cursor:default; }
+.mock-card.cooldown:hover { transform:none; }
+.res-detail { max-width:420px; margin:0 auto 18px; text-align:left; font-size:.92em; }
+.res-detail div { display:flex; justify-content:space-between; gap:10px; padding:6px 10px; border-bottom:1px solid #eee; }
 .lv-num {
   width:42px; height:42px; border-radius:50%;
   display:flex; align-items:center; justify-content:center;
@@ -379,8 +385,9 @@ body {
     <div class="res-stars" id="res-stars"></div>
     <div class="res-score" id="res-score"></div>
     <p class="res-msg" id="res-msg"></p>
+    <div class="res-detail" id="res-detail"></div>
     <div class="res-btns">
-      <button class="btn-main" onclick="retryLevel()">🔄 Tentar outra vez</button>
+      <button class="btn-main" id="res-retry" onclick="retryLevel()">🔄 Tentar outra vez</button>
       <button class="btn-sec" onclick="goSubject()">← Voltar ao nível</button>
       <button class="btn-sec" onclick="goHome()">🏠 Início</button>
     </div>
@@ -411,6 +418,12 @@ body {
 const STORAGE_KEY = 'vamos_estudar_profiles_v1';
 const SESSION_QS = 10;
 const BONUS_THRESHOLD = 0.7; // 70% answered to unlock bonus
+// Teste de treino (Probetest): Fragen aus allen Stufen der aktiven Prüfung, eine Antwort pro Frage,
+// ohne Tipp, zählt nicht für Sterne/Kronen. Pro Profil und Prüfung 1× pro Stunde (Kai, 25.11.2026;
+// zuerst 4 h gewünscht, im selben Auftrag auf 1 h geändert). Die Sperre beginnt beim START,
+// sonst ließe sich der Test abbrechen und sofort neu würfeln.
+const MOCK_QS = 20;
+const MOCK_COOLDOWN_MS = 60 * 60 * 1000;
 
 const SUBJECT_META = {
   portugues:  { name:'Português',      emoji:'📚', color:'var(--pt)',  colorHex:'#FF6B6B', colorLight:'var(--pt-light)' },
@@ -491,6 +504,8 @@ let curSubjectId = null;
 let curExamId = null;
 let curLevelId = null;
 let curIsArchive = false;
+let curIsMock = false;
+let mockRefreshTimer = null;
 let curQuestions = [];
 let curIdx = 0;
 let curAttempts = 0;
@@ -584,7 +599,8 @@ function defaultState() {
     archive: {},     // { examId: { levels: { levelId: { bestStars:0, lastScore:0 } } } }
     achievements: [],
     streak: 0,
-    playDates: []
+    playDates: [],
+    mock: {}         // { examId: { lastStart: ms, results: [{ at, correct, total, levels:{ id:[certas,total] } }] } }
   };
 }
 
@@ -815,7 +831,10 @@ function goAchievements() {
 }
 
 function confirmQuit() {
-  if (confirm('Tens a certeza que queres sair? O progresso desta ronda será perdido.')) {
+  const msg = curIsMock
+    ? 'Tens a certeza que queres sair? O teste de treino só pode ser repetido daqui a 1 hora.'
+    : 'Tens a certeza que queres sair? O progresso desta ronda será perdido.';
+  if (confirm(msg)) {
     goSubject();
   }
 }
@@ -862,6 +881,7 @@ function selectProfile(name) {
   if (!state.archive) state.archive = {};
   if (!state.achievements) state.achievements = [];
   if (!state.playDates) state.playDates = [];
+  if (!state.mock) state.mock = {};
   recordPlayDate();
   saveProfiles();
   goHome();
@@ -1034,6 +1054,8 @@ function renderSubject(sid, examId, isArchive) {
   const list = document.getElementById('levels-list');
   list.innerHTML = '';
 
+  if (!isArchive) list.appendChild(buildMockCard(sid, exam));
+
   exam.levels.forEach((level, idx) => {
     const card = document.createElement('div');
     card.className = 'level-card';
@@ -1089,6 +1111,7 @@ function renderSubject(sid, examId, isArchive) {
 //  QUIZ
 // ═══════════════════════════════════════════════════════
 function startLevel(sid, examId, levelId, isArchive) {
+  curIsMock = false;
   curSubjectId = sid;
   curExamId = examId;
   curLevelId = levelId;
@@ -1130,7 +1153,8 @@ function renderQuestion() {
 
   // Attempt info
   const attemptEl = document.getElementById('attempt-info');
-  attemptEl.textContent = q.bonus ? '🎓 Pergunta bónus!' : '';
+  attemptEl.textContent = curIsMock ? `📝 Teste de treino · ${q._levelName} · só uma tentativa`
+    : q.bonus ? '🎓 Pergunta bónus!' : '';
 
   // Question text
   document.getElementById('q-text').textContent = q.q;
@@ -1142,7 +1166,7 @@ function renderQuestion() {
   // Hint area
   const hintArea = document.getElementById('hint-area');
   hintArea.innerHTML = '';
-  if (q.hint && !curIsArchive) {
+  if (q.hint && !curIsArchive && !curIsMock) {
     hintArea.innerHTML = `
       <button class="hint-btn" onclick="showHint()">💡 Dica</button>
       <div class="hint-text" id="hint-text">${q.hint}</div>
@@ -1194,7 +1218,7 @@ function pickMC(btn, isCorrect, container, q) {
     btn.classList.add('wrong');
     btn.classList.add('disabled');
 
-    if (curIsArchive || curAttempts >= 3) {
+    if (curIsArchive || curIsMock || curAttempts >= 3) {
       // Show correct answer
       container.querySelectorAll('.opt-btn').forEach(b => {
         if (!b.classList.contains('wrong')) {
@@ -1248,7 +1272,7 @@ function checkTypeAnswer() {
     input.classList.add('wrong');
     setTimeout(() => input.classList.remove('wrong'), 400);
 
-    if (curIsArchive || curAttempts >= 3) {
+    if (curIsArchive || curIsMock || curAttempts >= 3) {
       input.disabled = true;
       document.getElementById('check-btn').disabled = true;
       onWrong(q, true);
@@ -1365,7 +1389,7 @@ function checkSortAnswer() {
   if (isCorrect) {
     onCorrect(q);
   } else {
-    if (curIsArchive || curAttempts >= 3) {
+    if (curIsArchive || curIsMock || curAttempts >= 3) {
       onWrong(q, true);
     } else {
       window._resetSort();
@@ -1413,7 +1437,7 @@ function onCorrect(q) {
   }
 
   // Record in history (active only)
-  if (!curIsArchive) {
+  if (!curIsArchive && !curIsMock) {
     const h = getHistory(curExamId, curLevelId, q.id);
     h.unshift(stars);
     if (h.length > 2) h.length = 2;
@@ -1425,7 +1449,7 @@ function onCorrect(q) {
 
   if (q.bonus) {
     showFeedback(true, `🎓 ${fb}${explanation}`);
-  } else if (!curIsArchive) {
+  } else if (!curIsArchive && !curIsMock) {
     const starsText = '⭐'.repeat(stars) + '☆'.repeat(3-stars);
     showFeedback(true, `${starsText} ${fb}${explanation}`);
   } else {
@@ -1447,7 +1471,7 @@ function onWrong(q, showAnswer) {
   state.streak = 0;
 
   // Record in history (active only)
-  if (!curIsArchive) {
+  if (!curIsArchive && !curIsMock) {
     const h = getHistory(curExamId, curLevelId, q.id);
     h.unshift(stars);
     if (h.length > 2) h.length = 2;
@@ -1485,6 +1509,9 @@ function nextQ() {
 //  RESULTS
 // ═══════════════════════════════════════════════════════
 function showResults() {
+  document.getElementById('res-retry').style.display = curIsMock ? 'none' : '';
+  document.getElementById('res-detail').innerHTML = '';
+  if (curIsMock) { showMockResults(); return; }
   const total = curQuestions.length;
   const normalScores = [];
   const allScores = [];
@@ -1547,6 +1574,121 @@ function showResults() {
     if (mastered || allPerfect) launchConfetti();
   }
 
+  showScreen('results');
+}
+
+// ═══════════════════════════════════════════════════════
+//  TESTE DE TREINO (Probetest)
+// ═══════════════════════════════════════════════════════
+// Restzeit der Sperre in ms. Gedeckelt auf die Sperrdauer, damit eine zurückgestellte Uhr nicht länger sperrt.
+function mockRemainingMs(entry, now, cooldown) {
+  if (!entry || !entry.lastStart) return 0;
+  return Math.max(0, Math.min(cooldown, entry.lastStart + cooldown - now));
+}
+
+// Normale Fragen (keine Bonusfragen) reihum aus allen Stufen; Startstufe zufällig, damit nicht immer
+// dieselben Stufen eine Frage mehr bekommen. Reihenfolge im Test: nach Stufe, wie in einer Ficha.
+function selectMockQuestions(exam, n) {
+  const pools = exam.levels.map(l => shuffle(l.questions.filter(q => !q.bonus))
+    .map(q => Object.assign({}, q, { _levelId: l.id, _levelName: l.name })));
+  const picked = pools.map(() => []);
+  let left = Math.min(n, pools.reduce((a, p) => a + p.length, 0));
+  let i = Math.floor(Math.random() * pools.length);
+  while (left > 0) {
+    if (pools[i].length) { picked[i].push(pools[i].pop()); left--; }
+    i = (i + 1) % pools.length;
+  }
+  return picked.flat();
+}
+
+function mockMention(pct) {
+  return pct >= 0.9 ? 'Muito Bom' : pct >= 0.7 ? 'Bom' : pct >= 0.5 ? 'Suficiente' : 'Insuficiente';
+}
+
+function formatWait(ms) {
+  const min = Math.ceil(ms / 60000);
+  return min >= 60 ? '1 h' : `${min} min`;
+}
+
+function buildMockCard(sid, exam) {
+  const meta = SUBJECT_META[sid];
+  const entry = state.mock && state.mock[exam.id];
+  const remaining = mockRemainingMs(entry, Date.now(), MOCK_COOLDOWN_MS);
+  const last = entry && entry.results && entry.results[0];
+  const n = Math.min(MOCK_QS, exam.levels.reduce((a, l) => a + l.questions.filter(q => !q.bonus).length, 0));
+  const card = document.createElement('div');
+  card.className = 'level-card mock-card' + (remaining > 0 ? ' cooldown' : '');
+  card.onclick = remaining > 0 ? null : () => startMock(sid, exam.id);
+  card.innerHTML = `
+    <div class="lv-num" style="background:${remaining > 0 ? '#ccc' : meta.colorHex}">📝</div>
+    <div class="lv-info">
+      <h4>Teste de treino</h4>
+      <div class="sub">${n} perguntas de todos os níveis · uma tentativa · sem dicas · 1× por hora</div>
+      <div class="stars">${remaining > 0 ? `⏳ Disponível daqui a ${formatWait(remaining)}` : '▶ Disponível agora'}${
+        last ? ` · Último: ${last.correct}/${last.total} (${mockMention(last.correct / last.total)})` : ''}</div>
+    </div>`;
+  clearTimeout(mockRefreshTimer);
+  if (remaining > 0) {
+    mockRefreshTimer = setTimeout(() => {
+      if (document.getElementById('screen-subject').classList.contains('active') && curSubjectId === sid && !curIsArchive)
+        renderSubject(sid, exam.id, false);
+    }, Math.min(remaining + 500, 60000));
+  }
+  return card;
+}
+
+function startMock(sid, examId) {
+  const exam = questionData[sid].exams.find(e => e.id === examId);
+  if (!exam) return;
+  if (!state.mock) state.mock = {};
+  const entry = state.mock[examId] || (state.mock[examId] = { lastStart: 0, results: [] });
+  if (mockRemainingMs(entry, Date.now(), MOCK_COOLDOWN_MS) > 0) { renderSubject(sid, examId, false); return; }
+
+  curSubjectId = sid; curExamId = examId; curLevelId = null;
+  curIsArchive = false; curIsMock = true;
+  curIdx = 0; curRoundScores = []; curStreak = state.streak || 0;
+  curQuestions = selectMockQuestions(exam, MOCK_QS);
+  if (curQuestions.length === 0) { curIsMock = false; return; }
+
+  entry.lastStart = Date.now();
+  saveProfiles();
+
+  const meta = SUBJECT_META[sid];
+  document.getElementById('quiz-header').style.background = `linear-gradient(135deg, ${meta.colorHex}, ${meta.colorHex}dd)`;
+  document.getElementById('quiz-title').textContent = `📝 Teste de treino · ${meta.name}`;
+  document.getElementById('q-progress-fill').style.background = meta.colorHex;
+  showScreen('quiz');
+  renderQuestion();
+}
+
+function showMockResults() {
+  const total = curQuestions.length;
+  const levels = {};
+  curQuestions.forEach((q, i) => {
+    const l = levels[q._levelId] || (levels[q._levelId] = { name: q._levelName, ok: 0, n: 0 });
+    l.n++; if ((curRoundScores[i] || 0) > 0) l.ok++;
+  });
+  const correct = Object.values(levels).reduce((a, l) => a + l.ok, 0);
+  const pct = total ? correct / total : 0;
+  const mention = mockMention(pct);
+
+  const entry = state.mock[curExamId];
+  entry.results.unshift({ at: Date.now(), correct, total,
+    levels: Object.fromEntries(Object.entries(levels).map(([id, l]) => [id, [l.ok, l.n]])) });
+  if (entry.results.length > 10) entry.results.length = 10;
+  saveProfiles();
+
+  document.getElementById('res-emoji').textContent = pct >= 0.9 ? '🏆' : pct >= 0.7 ? '🥳' : pct >= 0.5 ? '😊' : '💪';
+  document.getElementById('res-title').textContent = `Teste de treino: ${mention}`;
+  document.getElementById('res-stars').textContent = '';
+  document.getElementById('res-score').textContent = `${correct} / ${total} certas (${Math.round(pct * 100)}%)`;
+  const weak = Object.values(levels).filter(l => l.ok < l.n);
+  document.getElementById('res-msg').textContent = weak.length === 0
+    ? 'Perfeito! Acertaste tudo! 🎉'
+    : 'Treina os níveis com ✗ e volta a tentar daqui a 1 hora! 💪';
+  document.getElementById('res-detail').innerHTML = Object.values(levels).map(l =>
+    `<div><span>${l.ok === l.n ? '✅' : '✗'} ${esc(l.name)}</span><b>${l.ok}/${l.n}</b></div>`).join('');
+  if (pct >= 0.9) launchConfetti();
   showScreen('results');
 }
 

@@ -72,7 +72,7 @@ Interaktive Lern-App als **einzelne HTML-Datei** (`index.html`) + externe JSON-D
 
 Optional: `bonus: true`, `hint: "Tipptext"`
 
-**Darstellungsgrenzen beim Schreiben von Fragen:** `q` wird per `textContent` gesetzt (`renderQuestion`): kein HTML, keine Zeilenumbrüche, keine Bilder. Deshalb steht ein Lesetext **vollständig in jeder Frage** dazu (wie `enqa1_6_*`, `pt1p_6_*`), und Diagramme sind Emoji-Zeilen mit Legende, z. B. „(cada 🟦 = 2 alunos) Maçã: 🟦🟦🟦🟦 · Banana: 🟦🟦“ (`mat1p_8_*`). MC braucht **genau 4** Optionen (Test) → Vergleiche mit >, <, = als „Qual destas afirmações é VERDADEIRA?“ mit vier Aussagen oder als `type` mit `accept: [">"]`. Nicht abbildbar und deshalb bei Matrizen bewusst ausgelassen: **Compreensão oral** (die App hat kein Audio).
+**Darstellungsgrenzen beim Schreiben von Fragen:** `q` wird per `textContent` gesetzt (`renderQuestion`): kein HTML, keine Zeilenumbrüche, keine Bilder. Deshalb steht ein Lesetext **vollständig in jeder Frage** dazu (wie `enqa1_6_*`, `pt1p_6_*`), auch bei Sortier- und Folgefragen: Rundenauswahl und Teste de treino mischen Fragen einzeln, ein „Lembra-te do texto…“ ohne Text ist nicht beantwortbar (Blindtest-Fund 25.11.2026), und Diagramme sind Emoji-Zeilen mit Legende, z. B. „(cada 🟦 = 2 alunos) Maçã: 🟦🟦🟦🟦 · Banana: 🟦🟦“ (`mat1p_8_*`). MC braucht **genau 4** Optionen (Test) → Vergleiche mit >, <, = als „Qual destas afirmações é VERDADEIRA?“ mit vier Aussagen oder als `type` mit `accept: [">"]`. Nicht abbildbar und deshalb bei Matrizen bewusst ausgelassen: **Compreensão oral** (die App hat kein Audio).
 
 ## Konzept: Aktive vs. Archivierte Prüfungen
 
@@ -82,11 +82,19 @@ Optional: `bonus: true`, `hint: "Tipptext"`
 - **Platzhalter** (Prüfung mit `"levels": []`, z. B. `pt_3p_2026`, `mat_3p_2026`) werden **weder aktiv noch im Archiv** gelistet. Die Regel sitzt an genau einer Stelle: `getActiveExams` / `getArchivedExams` (vorher nur in der Aktiv-Liste von `renderHome` und in `checkSubjectMastered`, das Archiv hätte leere Karten gezeigt). Test: „exams without levels are hidden …“, Gegenprobe 20.10.2026 rot/grün.
 - **Schuljahreswechsel** (zuletzt 20.10.2026, 3.º A → 4.º A): Klassenname in `<title>` und im Profil-Screen von `index.html`, README (pt + de), Überblick oben und Zeile in der Wurzel-`CLAUDE.md`; alle Prüfungen des alten Schuljahrs archivieren.
 
+## Teste de treino (Probetest, seit 25.11.2026)
+- Karte „📝 Teste de treino“ oben auf der Stufenliste jeder **aktiven** Prüfung (nicht im Archiv).
+- `MOCK_QS = 20` normale Fragen (keine Bonusfragen) reihum aus **allen** Stufen, Startstufe zufällig, im Test nach Stufen geordnet (`selectMockQuestions`). Locked-Stufen zählen mit: der Test soll die ganze Ficha abbilden.
+- Eine Antwort pro Frage, keine Tipps (gleiche Logik wie Archiv-Modus, Flag `curIsMock`). Richtig/Falsch und Erklärung erscheinen sofort nach jeder Frage, nicht erst am Ende (Lesart 25.11.2026: Lernwert vor Prüfungssimulation).
+- Zählt **nicht** für Sterne, Kronen, `completed` oder Achievements (nur die Serie `streak` läuft mit). Ergebnis: Punktzahl, Mention (Insuficiente <50 % · Suficiente · Bom ≥70 % · Muito Bom ≥90 %) und Aufschlüsselung pro Stufe mit ✅/✗.
+- **Sperre: 1× pro Stunde je Profil und Prüfung** (`MOCK_COOLDOWN_MS`; Kai wollte zuerst 4 h, im selben Auftrag auf 1 h geändert). Die Sperre beginnt beim **Start**, damit Abbrechen und Neu-Würfeln nicht geht; Restzeit ist auf die Sperrdauer gedeckelt (zurückgestellte Uhr sperrt nicht länger). Speicherung: `state.mock[examId] = { lastStart, results: [letzte 10] }`.
+- Tests: „Teste de treino“ in `run-tests.mjs` (Funktionen per `extractFn` aus `index.html`). Gegenprobe 25.11.2026: Deckelung entfernt → Test rot.
+
 ## Profil-System
 - Mehrere Spieler pro Gerät
 - Profil-Auswahl-Screen beim Start
 - Jedes Profil hat eigenen Fortschritt + Achievements
-- Storage: `profiles = { "Name": { progress, archive, achievements, streak, playDates } }`
+- Storage: `profiles = { "Name": { progress, archive, achievements, streak, playDates, mock } }`
 
 ## Scoring (nur aktive Prüfungen)
 
@@ -159,4 +167,4 @@ Push auf `main` → GitHub Actions deployed automatisch. Kein separater Build-Sc
 3. `node vamos-estudar/test/blindtest.mjs grade <examId> <answers.json>` → wertet mit der echten `answerCorrect` aus `index.html` aus, listet Fehler und Notes.
 4. Jeden Fehler und jede Note einzeln gegen die Daten prüfen; nur Berechtigtes ändern.
 
-Läufe: 20.10.2026 Inglês 108 Fragen (108/108, 17 Notes, nichts geändert); 22.11.2026 PT/MAT/EM 1.º Período 396 Fragen (396/396, 22 Notes, 6 umgesetzt: fehlende `accept`-Varianten und zwei schief formulierte Distraktoren). Gegenprobe Skript 22.11.2026: drei Antworten manipuliert (mc/type/sort) → „3 falsch“.
+Läufe: 20.10.2026 Inglês 108 Fragen (108/108, 17 Notes, nichts geändert); 22.11.2026 PT/MAT/EM 1.º Período 396 Fragen (396/396, 22 Notes, 6 umgesetzt: fehlende `accept`-Varianten und zwei schief formulierte Distraktoren); 25.11.2026 Nachtrag nach den Buchseiten (Zupi/Plimm „Vamos estudar!“-Zusammenfassungen und Quiz-Seiten) 75 neue/geänderte Fragen (75/75, 10 Notes, 3 umgesetzt: Lesetext in zwei Leonor-Fragen ergänzt, zwei im PT-PT tolerierte «porque»-Distraktoren ersetzt). Gegenprobe Skript 22.11.2026: drei Antworten manipuliert (mc/type/sort) → „3 falsch“.

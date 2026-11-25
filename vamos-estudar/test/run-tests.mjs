@@ -207,6 +207,57 @@ test('real data: no placeholder exam is listed', () => {
 });
 
 // ═══════════════════════════════════════════════════════
+//  1b. TESTE DE TREINO (Probetest) — functions taken verbatim from index.html
+// ═══════════════════════════════════════════════════════
+console.log('\n\x1b[1mTeste de treino\x1b[0m');
+const mockFns = new Function('shuffle',
+  ['mockRemainingMs', 'selectMockQuestions', 'mockMention'].map(n => extractFn(htmlSource, n)).join('\n') +
+  '\nreturn { mockRemainingMs, selectMockQuestions, mockMention };')(shuffle);
+const MOCK_COOLDOWN = Number(eval(htmlSource.match(/const MOCK_COOLDOWN_MS = ([^;]+);/)[1]));
+const MOCK_N = Number(htmlSource.match(/const MOCK_QS = (\d+);/)[1]);
+
+test('mock cooldown is 1 hour (Kai, 25.11.2026)', () => assertEqual(MOCK_COOLDOWN, 60 * 60 * 1000));
+
+test('mock cooldown: free without entry, locked right after start, free after 1 h', () => {
+  const t0 = 1_800_000_000_000, r = (e, now) => mockFns.mockRemainingMs(e, now, MOCK_COOLDOWN);
+  assertEqual(r(undefined, t0), 0);
+  assertEqual(r({ lastStart: 0, results: [] }, t0), 0);
+  assertEqual(r({ lastStart: t0 }, t0), MOCK_COOLDOWN);
+  assertEqual(r({ lastStart: t0 }, t0 + 59 * 60000), 60000);
+  assertEqual(r({ lastStart: t0 }, t0 + MOCK_COOLDOWN), 0);
+});
+
+test('mock cooldown: clock set back never locks longer than the cooldown', () => {
+  const t0 = 1_800_000_000_000;
+  assertEqual(mockFns.mockRemainingMs({ lastStart: t0 + 5 * 3600000 }, t0, MOCK_COOLDOWN), MOCK_COOLDOWN);
+});
+
+for (const [sid, data] of Object.entries(questionData)) {
+  for (const exam of data.exams.filter(e => !e.archived && e.levels.length)) {
+    test(`mock selection ${exam.id}: ${MOCK_N} distinct normal questions, spread evenly over all levels`, () => {
+      for (let run = 0; run < 30; run++) {
+        const qs = mockFns.selectMockQuestions(exam, MOCK_N);
+        const normalTotal = exam.levels.reduce((a, l) => a + l.questions.filter(q => !q.bonus).length, 0);
+        assertEqual(qs.length, Math.min(MOCK_N, normalTotal));
+        assert(qs.every(q => !q.bonus), 'bonus question in mock');
+        assertEqual(new Set(qs.map(q => q.id)).size, qs.length, 'duplicate question');
+        const per = exam.levels.map(l => qs.filter(q => q._levelId === l.id).length);
+        if (exam.levels.length <= MOCK_N) assert(per.every(c => c > 0), `level without question: ${per}`);
+        assert(Math.max(...per) - Math.min(...per) <= 1, `uneven spread: ${per}`);
+        const order = qs.map(q => exam.levels.findIndex(l => l.id === q._levelId));
+        assert(order.every((v, i) => i === 0 || v >= order[i - 1]), 'not ordered by level');
+      }
+    });
+  }
+}
+
+test('mock mention thresholds (Insuficiente <50 · Suficiente · Bom ≥70 · Muito Bom ≥90)', () => {
+  const m = mockFns.mockMention;
+  assertEqual(m(0.45), 'Insuficiente'); assertEqual(m(0.5), 'Suficiente');
+  assertEqual(m(0.7), 'Bom'); assertEqual(m(0.9), 'Muito Bom'); assertEqual(m(1), 'Muito Bom');
+});
+
+// ═══════════════════════════════════════════════════════
 //  2. ANSWER NORMALIZATION
 // ═══════════════════════════════════════════════════════
 console.log('\n\x1b[1mAnswer Normalization\x1b[0m');
